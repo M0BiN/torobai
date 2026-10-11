@@ -1,0 +1,678 @@
+{
+  "one-qwen3.5-9b": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 9000.0,
+    "toman_output_m": 27000.0
+  },
+  "netarz-qwen3.5-9b": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 14112.0,
+    "toman_output_m": 40068.0
+  },
+  "one-qwen3-coder-30b": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 19000.0,
+    "toman_output_m": 57000.0
+  },
+  "netarz-qwen3-coder-30b": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 29792.0,
+    "toman_output_m": 84588.0
+  },
+  "one-gemma-3-12b": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 11000.0,
+    "toman_output_m": 32500.0
+  },
+  "netarz-gemma-3-12b": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 17248.0,
+    "toman_output_m": 48230.0
+  },
+  "one-gemma-4-12b": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 13000.0,
+    "toman_output_m": 39000.0
+  },
+  "netarz-gemma-4-12b": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 20384.0,
+    "toman_output_m": 57876.0
+  },
+  "one-llama-3.3-70b": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 41000.0,
+    "toman_output_m": 82000.0
+  },
+  "netarz-llama-3.3-70b": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 64288.0,
+    "toman_output_m": 121688.0
+  },
+  "one-mistral-small-3.1": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 16000.0,
+    "toman_output_m": 48000.0
+  },
+  "netarz-mistral-small-3.1": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 25088.0,
+    "toman_output_m": 71232.0
+  },
+  "one-deepseek-r1-32b": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 21000.0,
+    "toman_output_m": 63000.0
+  },
+  "netarz-deepseek-r1-32b": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 32928.0,
+    "toman_output_m": 93492.0
+  },
+  "one-bge-m3": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 2100.0
+  },
+  "netarz-bge-m3": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 3292.8
+  },
+  "one-qwen3-embedding": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 1800.0
+  },
+  "netarz-qwen3-embedding": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 2822.4
+  },
+  "one-whisper-v3-turbo": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 490.0
+  },
+  "netarz-whisper-v3-turbo": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 788.9
+  },
+  "one-flux-1-schnell": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 2400.0
+  },
+  "netarz-flux-1-schnell": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 3864.0
+  },
+  "one-qwen3.8-27b": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 14000.0,
+    "toman_output_m": 44000.0
+  },
+  "netarz-qwen3.8-27b": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 21952.0,
+    "toman_output_m": 65296.0
+  },
+  "one-qwen3.8-flash-next": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 9500.0,
+    "toman_output_m": 32500.0
+  },
+  "netarz-qwen3.8-flash-next": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 14896.0,
+    "toman_output_m": 48230.0
+  },
+  "one-qwen3.8-max": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 120000.0,
+    "toman_output_m": 380000.0
+  },
+  "netarz-qwen3.8-max": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 188160.0,
+    "toman_output_m": 563920.0
+  },
+  "one-qwen3.6-27b": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 12500.0,
+    "toman_output_m": 39000.0
+  },
+  "netarz-qwen3.6-27b": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 19600.0,
+    "toman_output_m": 57876.0
+  },
+  "one-qwen3.6-35b-a3b": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 8500.0,
+    "toman_output_m": 25000.0
+  },
+  "netarz-qwen3.6-35b-a3b": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 13328.0,
+    "toman_output_m": 37100.0
+  },
+  "one-qwen3.5-0.8b": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 1250.0,
+    "toman_output_m": 4000.0
+  },
+  "netarz-qwen3.5-0.8b": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 1960.0,
+    "toman_output_m": 5936.0
+  },
+  "one-qwen3.5-2b": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 2400.0,
+    "toman_output_m": 7000.0
+  },
+  "netarz-qwen3.5-2b": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 3763.2,
+    "toman_output_m": 10388.0
+  },
+  "one-qwen3.5-4b": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 4250.0,
+    "toman_output_m": 12000.0
+  },
+  "netarz-qwen3.5-4b": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 6664.0,
+    "toman_output_m": 17808.0
+  },
+  "one-qwen3.5-27b": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 11500.0,
+    "toman_output_m": 35000.0
+  },
+  "netarz-qwen3.5-27b": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 18032.0,
+    "toman_output_m": 51940.0
+  },
+  "one-qwen3.5-35b-a3b": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 8000.0,
+    "toman_output_m": 23000.0
+  },
+  "netarz-qwen3.5-35b-a3b": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 12544.0,
+    "toman_output_m": 34132.0
+  },
+  "one-gemma-4-e2b": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 2000.0,
+    "toman_output_m": 6000.0
+  },
+  "netarz-gemma-4-e2b": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 3136.0,
+    "toman_output_m": 8904.0
+  },
+  "one-gemma-4-e4b": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 4000.0,
+    "toman_output_m": 11000.0
+  },
+  "netarz-gemma-4-e4b": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 6272.0,
+    "toman_output_m": 16324.0
+  },
+  "one-gemma-4-26b-a4b": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 8000.0,
+    "toman_output_m": 24000.0
+  },
+  "netarz-gemma-4-26b-a4b": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 12544.0,
+    "toman_output_m": 35616.0
+  },
+  "one-gemma-4-31b": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 14500.0,
+    "toman_output_m": 43500.0
+  },
+  "netarz-gemma-4-31b": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 22736.0,
+    "toman_output_m": 64554.0
+  },
+  "ava-studio-avanvis-fa": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 625.0
+  },
+  "ava-studio-shenava-call": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 445.0
+  },
+  "vajeh-lab-tarjoman-en-fa": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 182000.0
+  },
+  "ava-studio-khanesh-fa": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 390000.0
+  },
+  "negar-lab-negar-ocr": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 448.0
+  },
+  "negar-lab-sanad-invoice": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 805.0
+  },
+  "vajeh-lab-jostejoo-fa": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 13300.0
+  },
+  "vajeh-lab-hamyar-support": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 18900.0,
+    "toman_output_m": 56700.0
+  },
+  "narvan-cloud-laya": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 6160.0
+  },
+  "sepidar-ai-laya-multilingual": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 12544.0
+  },
+  "sepidar-ai-decider-2b": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 16464.0
+  },
+  "narvan-cloud-decider-2b": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 13440.0
+  },
+  "narvan-cloud-decider-4b": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 17920.0
+  },
+  "sepidar-ai-avanvis-fa": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 1120.0
+  },
+  "sepidar-ai-shenava-call": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 697.2
+  },
+  "narvan-cloud-shenava-call": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 569.5
+  },
+  "narvan-cloud-tarjoman-en-fa": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 145600.0
+  },
+  "sepidar-ai-tarjoman-fa-en": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 188160.0
+  },
+  "sepidar-ai-khanesh-fa": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 611520.0
+  },
+  "narvan-cloud-khanesh-fa": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 499200.0
+  },
+  "narvan-cloud-negar-ocr": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 358.0
+  },
+  "sepidar-ai-sanad-invoice": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 1030.4
+  },
+  "sepidar-ai-jostejoo-fa": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 14896.0
+  },
+  "narvan-cloud-jostejoo-fa": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 12160.0
+  },
+  "narvan-cloud-nazar-fa": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 53.0
+  },
+  "sepidar-ai-hamyar-support": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_input_m": 24192.0,
+    "toman_output_m": 72576.0
+  },
+  "sepidar-ai-whisper-fa-cv17": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 767.9
+  },
+  "narvan-cloud-whisper-fa-cv17": {
+    "supported": true,
+    "completion_hours": 24,
+    "max_requests": 50000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 627.0
+  },
+  "sepidar-ai-hezar-crnn-fa": {
+    "supported": true,
+    "completion_hours": 12,
+    "max_requests": 10000,
+    "basis": "illustrative_scenario",
+    "verified": false,
+    "toman_unit": 304.5
+  }
+}

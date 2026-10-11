@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "rows": [
+        65,
+        65,
+        65
+      ],
+      "conversationHeight": 578.21875,
+      "questionVisible": true,
+      "settingsBounds": true,
+      "historyPreserved": true
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "rows": [
+        65,
+        65,
+        65
+      ],
+      "conversationHeight": 555.40625,
+      "questionVisible": true,
+      "settingsBounds": true,
+      "historyPreserved": true
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "rows": [
+        65,
+        65,
+        65
+      ],
+      "conversationHeight": 279.40625,
+      "questionVisible": true,
+      "settingsBounds": true,
+      "historyPreserved": true
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#e64a38" />
+    <meta
+      name="description"
+      content="مقایسه قیمت مدل‌ها، API و اجاره GPU؛ دریافت مدل‌های عمومی و اختصاصی"
+    />
+    <title>torobai | مقایسه مدل‌ها و API</title>
+    <link rel="icon" type="image/svg+xml" href="/static/logo.svg" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="/static/ui.js" defer></script>
+    <script src="/static/motion.js" defer></script>
+    <script src="/static/marketplace.js" defer></script>
+    <script src="/static/performance.js" defer></script>
+    <link rel="stylesheet" href="/chatbot/static/chatbot.css" />
+    <script src="/chatbot/static/core.js" defer></script>
+    <script src="/chatbot/static/panel.js" defer></script>
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">رفتن به محتوا</a>
+    <header class="site-header">
+      <div class="header-inner wrap">
+        <a class="wordmark" href="#api" aria-label="torobai، صفحه اصلی">
+          <span class="brand-lockup" dir="ltr"
+            ><img
+              class="brand-emblem-image"
+              src="/static/logo.svg"
+              alt=""
+              width="40"
+              height="40"
+            /><b>torob<span>ai</span></b></span
+          >
+        </a>
+        <form id="searchForm" class="search-box" role="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="10.5" cy="10.5" r="6.5" />
+            <path d="m16 16 4.5 4.5" />
+          </svg>
+          <label class="sr-only" for="searchInput">جست‌وجوی مدل، کارت گرافیک یا فروشنده</label>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="جستجوی مدل، API یا GPU؛ مثلا Qwen، Gemma یا RTX 3090"
+            autocomplete="off"
+            maxlength="80"
+            role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="unifiedSuggestions"
+          />
+          <button type="submit" aria-label="جست‌وجو">جست‌وجو</button>
+          <div id="unifiedSuggestions" class="unified-suggestions" role="listbox" aria-label="پیشنهادهای جستجو" hidden></div>
+        </form>
+        <datalist id="searchSuggestions"></datalist>
+        <div class="header-actions">
+          <button id="chatbotButton" class="chatbot-trigger" type="button" aria-haspopup="dialog" aria-controls="chatbotPanel">کمک به انتخاب</button>
+          <a href="#studio" id="publishNav" class="publish-nav">پنل عرضه‌کننده</a>
+          <details class="personal-menu" id="personalMenu" data-disclosure-popover>
+            <summary>فعالیت‌های من <span aria-hidden="true">⌄</span></summary>
+            <div class="personal-menu-panel" data-disclosure-panel>
+              <a class="header-save" href="#saved"
+                ><span id="saveIcon"></span>نشان‌شده‌ها
+                <b id="savedCount" class="count num">۰</b></a
+              >
+              <a href="#watchlist">پیگیری قیمت</a>
+              <a href="#notifications">اعلان‌ها <b id="noticeCount" class="count num">۰</b></a>
+              <a href="#samples">نمونه‌های فارسی</a>
+              <a href="#gpu-match">انتخاب GPU برای مدل</a>
+              <a href="#reports">گزارش‌های مغایرت</a>
+              <a href="#requests">درخواست‌های من</a
+              ><a href="#recent" id="recentNav">بازدیدهای اخیر</a
+              ><a href="#publish">پیش‌نویس‌های مدل</a
+              ><button id="guideButton">راهنمای انتخاب</button>
+            </div>
+          </details>
+        </div>
+      </div>
+      <nav class="main-nav wrap" aria-label="بخش‌های سایت">
+        <a href="#api" id="apiNav">مدل‌ها و API</a>
+        <a href="#fa" id="faNav">مدل‌های اختصاصی فارسی</a>
+        <a href="#gpu" id="gpuNav">اجاره GPU</a>
+        <a href="#providers" id="providersNav">ارائه‌دهندگان</a>
+        <a href="#benchmarks" id="benchmarksNav">عملکرد و بنچمارک</a>
+      </nav>
+    </header>
+    <div id="navigationStatus" class="navigation-status" role="status" aria-live="polite" aria-atomic="true" hidden><span aria-hidden="true"></span>در حال به‌روزرسانی…</div>
+    <main id="main" class="wrap" tabindex="-1">
+      <div class="catalog-skeleton" role="status" aria-label="در حال آماده‌سازی صفحه">
+        <div class="skeleton-heading">
+          <span class="skeleton-line"></span><span class="skeleton-line short"></span>
+        </div>
+        <div class="skeleton-categories"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="skeleton-grid"><i></i><i></i><i></i><i></i><i></i></div>
+        <p>در حال آماده‌سازی مدل‌ها و قیمت‌ها…</p>
+      </div>
+    </main>
+    <div id="compareTray" class="compare-tray" hidden></div>
+    <footer class="site-footer wrap">
+      <div>
+        <strong class="footer-brand" dir="ltr">torob<span>ai</span></strong
+        ><span>مقایسه مدل، API و GPU</span>
+      </div>
+      <p>قیمت‌ها را اینجا مقایسه کنید؛ خرید و دریافت سرویس در سایت عرضه‌کننده انجام می‌شود.</p>
+      <button id="aboutButton">درباره مقایسه‌ها</button>
+      <a href="#manage" class="text-link">مدیریت کاتالوگ</a>
+    </footer>
+    <div id="toast" role="status" aria-live="polite" hidden></div>
+    <dialog id="infoDialog" aria-labelledby="dialogTitle">
+      <button id="closeDialog" class="icon-button dialog-close" aria-label="بستن">×</button>
+      <div id="dialogBody"></div>
+    </dialog>
+  </body>
+</html>

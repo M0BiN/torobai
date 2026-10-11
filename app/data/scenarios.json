@@ -1,0 +1,99 @@
+{
+  "tokens": {
+    "light": {
+      "requests_day": 100,
+      "input_tokens": 850,
+      "output_tokens": 250
+    },
+    "standard": {
+      "requests_day": 1000,
+      "input_tokens": 850,
+      "output_tokens": 250
+    },
+    "heavy": {
+      "requests_day": 10000,
+      "input_tokens": 850,
+      "output_tokens": 250
+    }
+  },
+  "input_tokens": {
+    "light": {
+      "monthly_tokens": 100000
+    },
+    "standard": {
+      "monthly_tokens": 1000000
+    },
+    "heavy": {
+      "monthly_tokens": 10000000
+    }
+  },
+  "minute": {
+    "light": {
+      "minutes": 60
+    },
+    "standard": {
+      "minutes": 600
+    },
+    "heavy": {
+      "minutes": 6000
+    }
+  },
+  "characters": {
+    "light": {
+      "characters": 10000
+    },
+    "standard": {
+      "characters": 100000
+    },
+    "heavy": {
+      "characters": 1000000
+    }
+  },
+  "image": {
+    "light": {
+      "images": 10
+    },
+    "standard": {
+      "images": 100
+    },
+    "heavy": {
+      "images": 1000
+    }
+  },
+  "hour": {
+    "light": {
+      "hours": 8,
+      "sessions": 1
+    },
+    "standard": {
+      "hours": 24,
+      "sessions": 1
+    },
+    "heavy": {
+      "hours": 72,
+      "sessions": 1
+    }
+  },
+  "page": {
+    "light": {
+      "pages": 100
+    },
+    "standard": {
+      "pages": 1000
+    },
+    "heavy": {
+      "pages": 10000
+    }
+  },
+  "request": {
+    "light": {
+      "monthly_requests": 1000
+    },
+    "standard": {
+      "monthly_requests": 10000
+    },
+    "heavy": {
+      "monthly_requests": 100000
+    }
+  }
+}

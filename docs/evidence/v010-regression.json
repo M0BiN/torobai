@@ -1,0 +1,10 @@
+{
+  "baseline": "0.9",
+  "presets": 186,
+  "inherited_offer_preset_calculations": 363,
+  "legacy_prices_and_consumption_identical": true,
+  "weight_licenses_identical": true,
+  "observed_history_identical": true,
+  "prior_aggregate_uptime_identical": true,
+  "additional_api_offers": 35
+}

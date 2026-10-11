@@ -1,0 +1,170 @@
+{
+  "one": {
+    "name": "1xAi",
+    "logo": "one.svg",
+    "min_credit_toman": 1000,
+    "tax_percent": null,
+    "credit_expiry": null,
+    "rate_limit": null,
+    "processing_location": null,
+    "site": "https://www.1xai.ir",
+    "terms_source": "https://www.1xai.ir/pricing",
+    "status_url": "https://www.1xai.ir/status"
+  },
+  "netarz": {
+    "name": "نت‌ارز",
+    "logo": "netarz.png",
+    "min_credit_toman": 50000,
+    "tax_percent": 9,
+    "credit_expiry": null,
+    "rate_limit": null,
+    "processing_location": null,
+    "site": "https://netarz.ir",
+    "terms_source": "https://netarz.ir/ai-api/models",
+    "terms_note": "طبق صفحه فروشنده، پیش از احراز هویت سقف کل مصرف حساب ۲ دلار است؛ مالیات شارژ ۹٪ اعلام شده است."
+  },
+  "aval": {
+    "name": "AvalAI",
+    "logo": "aval.png",
+    "min_credit_toman": null,
+    "tax_percent": null,
+    "credit_expiry": null,
+    "rate_limit": null,
+    "processing_location": null,
+    "site": "https://avalai.ir"
+  },
+  "servernet": {
+    "name": "سرورنت",
+    "logo": "servernet.svg",
+    "min_credit_toman": null,
+    "tax_percent": null,
+    "site": "https://servernet.cloud",
+    "status_url": "https://servernet.cloud/status",
+    "sla_url": "https://servernet.cloud/sla"
+  },
+  "itp": {
+    "name": "ITPiran",
+    "logo": "itp.png",
+    "min_credit_toman": null,
+    "tax_percent": null,
+    "site": "https://client.itpiran.net"
+  },
+  "ferdowsi": {
+    "name": "ابر فردوسی",
+    "logo": "ferdowsi.webp",
+    "min_credit_toman": null,
+    "tax_percent": null,
+    "site": "https://ferdowsi.cloud"
+  },
+  "gpurun": {
+    "name": "GPURUN",
+    "logo": "gpurun.svg",
+    "min_credit_toman": null,
+    "tax_percent": null,
+    "site": "https://www.gpurun.com/"
+  },
+  "lexoya": {
+    "name": "لکسویا",
+    "logo": "lexoya.png",
+    "min_credit_toman": null,
+    "tax_percent": null,
+    "site": "https://lexoya.com/"
+  },
+  "ava-studio": {
+    "name": "کارگاه آوا",
+    "logo": null,
+    "site": null,
+    "publisher_type": "company",
+    "min_credit_toman": 100000,
+    "tax_percent": 0,
+    "credit_expiry": "۳۰ روز",
+    "terms_url": null,
+    "listing_basis": "fictional_scenario",
+    "payment": "تومان",
+    "note": "Reference publisher for marketplace workflow."
+  },
+  "vajeh-lab": {
+    "name": "گروه واژه",
+    "logo": null,
+    "site": null,
+    "publisher_type": "company",
+    "min_credit_toman": 100000,
+    "tax_percent": 0,
+    "credit_expiry": "۳۰ روز",
+    "terms_url": null,
+    "listing_basis": "fictional_scenario",
+    "payment": "تومان",
+    "note": "Reference publisher for marketplace workflow."
+  },
+  "indie-sepehr": {
+    "name": "سپهر | توسعه‌دهنده مستقل",
+    "logo": null,
+    "site": null,
+    "publisher_type": "person",
+    "min_credit_toman": 100000,
+    "tax_percent": 0,
+    "credit_expiry": "۳۰ روز",
+    "terms_url": null,
+    "listing_basis": "fictional_scenario",
+    "payment": "تومان",
+    "note": "Reference publisher for marketplace workflow."
+  },
+  "negar-lab": {
+    "name": "گروه نگار",
+    "logo": null,
+    "site": null,
+    "publisher_type": "company",
+    "min_credit_toman": 100000,
+    "tax_percent": 0,
+    "credit_expiry": "۳۰ روز",
+    "terms_url": null,
+    "listing_basis": "fictional_scenario",
+    "payment": "تومان",
+    "note": "Reference publisher for marketplace workflow."
+  },
+  "narvan-cloud": {
+    "name": "ابر نارون",
+    "short_name": "نارون",
+    "logo": null,
+    "site": null,
+    "publisher_type": "company",
+    "min_credit_toman": 150000,
+    "tax_percent": 0,
+    "credit_expiry": "۹۰ روز",
+    "rate_limit": "۶۰ درخواست در دقیقه",
+    "processing_location": "ایران",
+    "payment": "تومان",
+    "listing_basis": "fictional_scenario",
+    "note": "Fictional provider requested for marketplace presentation. No live API, real business identity or partnership is asserted."
+  },
+  "rayan-model": {
+    "name": "رایان‌مدل",
+    "short_name": "رایان",
+    "logo": null,
+    "site": null,
+    "publisher_type": "company",
+    "min_credit_toman": 75000,
+    "tax_percent": 0,
+    "credit_expiry": "۶۰ روز",
+    "rate_limit": "۴۰ درخواست در دقیقه",
+    "processing_location": "ایران",
+    "payment": "تومان",
+    "listing_basis": "fictional_scenario",
+    "note": "Fictional provider requested for marketplace presentation. No live API, real business identity or partnership is asserted."
+  },
+  "sepidar-ai": {
+    "name": "سپیدار هوش",
+    "short_name": "سپیدار",
+    "logo": null,
+    "site": null,
+    "publisher_type": "company",
+    "min_credit_toman": 120000,
+    "tax_percent": 0,
+    "credit_expiry": "۹۰ روز",
+    "rate_limit": "۸۰ درخواست در دقیقه",
+    "processing_location": "ایران",
+    "payment": "تومان",
+    "listing_basis": "fictional_scenario",
+    "note": "Fictional provider requested for marketplace presentation. No live API, real business identity or partnership is asserted."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "inherited_presets_identical": 147,
+  "compared_with": "v0.6",
+  "fields": [
+    "id",
+    "estimate_toman",
+    "minimum_credit_toman",
+    "minimum_payment_toman",
+    "estimate_reason"
+  ]
+}

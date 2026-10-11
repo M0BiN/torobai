@@ -1,0 +1,13 @@
+{
+  "name": "torobai",
+  "version": "0.26.0",
+  "private": true,
+  "description": "Compare AI models, API providers and GPU rentals.",
+  "scripts": {
+    "test": "node --test tests/*.cjs chatbot/tests/*.cjs"
+  },
+  "devDependencies": {
+    "cssom": "0.5.0",
+    "linkedom": "0.18.13"
+  }
+}

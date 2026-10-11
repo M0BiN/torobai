@@ -1,0 +1,33 @@
+{
+  "captured_on": "2026-10-11",
+  "window_start": "2026-09-12",
+  "window_end": "2026-10-11",
+  "source": "https://www.1xai.ir/status",
+  "license": "CC-BY-4.0",
+  "attribution": "1xAi provider reachability dataset",
+  "metric": "provider_reported_request_success",
+  "scope": "upstream_group_through_1xai",
+  "groups": {
+    "openai": {
+      "label": "OpenAI",
+      "percent": 99.9,
+      "eligible": 81376
+    },
+    "anthropic": {
+      "label": "Anthropic",
+      "percent": 99.9,
+      "eligible": 22773
+    },
+    "gemini": {
+      "label": "Gemini",
+      "percent": 99.9,
+      "eligible": 29491
+    },
+    "deepseek": {
+      "label": "DeepSeek",
+      "percent": 95.4,
+      "eligible": 18144
+    }
+  },
+  "window_end_partial": true
+}

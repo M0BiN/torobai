@@ -1,0 +1,3122 @@
+{
+  "schema_version": 2,
+  "recorded_at": "2026-10-11",
+  "groups": [
+    {
+      "id": "gemma4",
+      "title": "Gemma 4 · گزارش Google",
+      "category": "models",
+      "kind": "publisher_report",
+      "source": {
+        "label": "Google · کارت Gemma 4",
+        "url": "https://huggingface.co/google/gemma-4-31B-it"
+      },
+      "conditions": "نسخه‌های instruction-tuned در جدول ارزیابی Google؛ وضعیت thinking و دستور اجرا مطابق کارت منبع. آزمون‌های عمومی، بدون نتیجه اختصاصی فارسی. این اعداد سرعت یا کیفیت API یک فروشنده را اندازه نمی‌گیرند.",
+      "metrics": [
+        {
+          "id": "mmlu",
+          "label": "دانش و استدلال",
+          "name": "MMLU-Pro",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "mmlu-pro",
+          "digits": 1
+        },
+        {
+          "id": "code",
+          "label": "برنامه‌نویسی",
+          "name": "LiveCodeBench v6",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "lcb-v6",
+          "digits": 1
+        },
+        {
+          "id": "gpqa",
+          "label": "پرسش علمی دشوار",
+          "name": "GPQA Diamond",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "gpqa-diamond",
+          "digits": 1
+        },
+        {
+          "id": "math",
+          "label": "ریاضی مسابقه‌ای",
+          "name": "AIME 2026 · بدون ابزار",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "aime-2026",
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "gemma-4-31b",
+          "values": {
+            "mmlu": 85.2,
+            "code": 80,
+            "gpqa": 84.3,
+            "math": 89.2
+          },
+          "model_id": "google/gemma-4-31B-it",
+          "evaluated_version": "تنظیمات گزارش سازنده"
+        },
+        {
+          "product_id": "gemma-4-26b-a4b",
+          "values": {
+            "mmlu": 82.6,
+            "code": 77.1,
+            "gpqa": 82.3,
+            "math": 88.3
+          },
+          "model_id": "google/gemma-4-26B-A4B-it",
+          "evaluated_version": "تنظیمات گزارش سازنده"
+        },
+        {
+          "product_id": "gemma-4-e4b",
+          "values": {
+            "mmlu": 69.4,
+            "code": 52,
+            "gpqa": 58.6,
+            "math": 42.5
+          },
+          "model_id": "google/gemma-4-E4B-it",
+          "evaluated_version": "تنظیمات گزارش سازنده"
+        },
+        {
+          "product_id": "gemma-4-e2b",
+          "values": {
+            "mmlu": 60,
+            "code": 44,
+            "gpqa": 43.4,
+            "math": 37.5
+          },
+          "model_id": "google/gemma-4-E2B-it",
+          "evaluated_version": "تنظیمات گزارش سازنده"
+        },
+        {
+          "product_id": "gemma-4-12b",
+          "model_id": "google/gemma-4-12B-it",
+          "values": {
+            "mmlu": 77.2,
+            "code": 72.0,
+            "gpqa": 78.8,
+            "math": 77.5
+          },
+          "evaluated_version": "12B Unified · instruction-tuned",
+          "source_url": "https://huggingface.co/google/gemma-4-12B-it"
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "published_at": null,
+      "measured": true
+    },
+    {
+      "id": "qwen-large",
+      "title": "Qwen 3.5 · مدل‌های بزرگ",
+      "category": "models",
+      "kind": "publisher_report",
+      "source": {
+        "label": "Qwen · کارت 27B",
+        "url": "https://huggingface.co/Qwen/Qwen3.5-27B"
+      },
+      "conditions": "جدول Language از کارت Qwen3.5-27B؛ نسخه‌های post-trained و تنظیمات گزارش سازنده. این گروه با نتایج non-thinking ادغام نمی‌شود. امتیاز فارسی جداگانه منتشر نشده است.",
+      "metrics": [
+        {
+          "id": "mmlu",
+          "label": "دانش و استدلال",
+          "name": "MMLU-Pro",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "mmlu-pro",
+          "digits": 1
+        },
+        {
+          "id": "code",
+          "label": "برنامه‌نویسی",
+          "name": "LiveCodeBench v6",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "lcb-v6",
+          "digits": 1
+        },
+        {
+          "id": "gpqa",
+          "label": "پرسش علمی دشوار",
+          "name": "GPQA Diamond",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "gpqa-diamond",
+          "digits": 1
+        },
+        {
+          "id": "instruction",
+          "label": "پیروی از دستور",
+          "name": "IFEval",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "ifeval",
+          "digits": 1
+        },
+        {
+          "id": "long",
+          "label": "درک متن بلند",
+          "name": "LongBench v2",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "longbench-v2",
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "qwen3.5-27b",
+          "values": {
+            "mmlu": 86.1,
+            "code": 80.7,
+            "gpqa": 85.5,
+            "instruction": 95,
+            "long": 60.6
+          },
+          "model_id": "Qwen/Qwen3.5-27B",
+          "evaluated_version": "تنظیمات گزارش سازنده"
+        },
+        {
+          "product_id": "qwen3.5-35b-a3b",
+          "values": {
+            "mmlu": 85.3,
+            "code": 74.6,
+            "gpqa": 84.2,
+            "instruction": 91.9,
+            "long": 59
+          },
+          "model_id": "Qwen/Qwen3.5-35B-A3B",
+          "evaluated_version": "تنظیمات گزارش سازنده"
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "published_at": null,
+      "measured": true
+    },
+    {
+      "id": "qwen-small",
+      "title": "Qwen 3.5 · مدل‌های کم‌حجم",
+      "category": "models",
+      "kind": "publisher_report",
+      "source": {
+        "label": "Qwen · کارت 9B",
+        "url": "https://huggingface.co/Qwen/Qwen3.5-9B"
+      },
+      "conditions": "جدول Language از کارت Qwen3.5-9B؛ 4B و 9B در یک گزارش. نسخه آزمون و تنظیمات مطابق منبع؛ امتیاز فارسی یا سرعت ارائه‌دهنده از این نتایج استنباط نمی‌شود.",
+      "metrics": [
+        {
+          "id": "mmlu",
+          "label": "دانش و استدلال",
+          "name": "MMLU-Pro",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "mmlu-pro",
+          "digits": 1
+        },
+        {
+          "id": "code",
+          "label": "برنامه‌نویسی",
+          "name": "LiveCodeBench v6",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "lcb-v6",
+          "digits": 1
+        },
+        {
+          "id": "gpqa",
+          "label": "پرسش علمی دشوار",
+          "name": "GPQA Diamond",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "gpqa-diamond",
+          "digits": 1
+        },
+        {
+          "id": "instruction",
+          "label": "پیروی از دستور",
+          "name": "IFEval",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "ifeval",
+          "digits": 1
+        },
+        {
+          "id": "long",
+          "label": "درک متن بلند",
+          "name": "LongBench v2",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "longbench-v2",
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "qwen3.5-9b",
+          "values": {
+            "mmlu": 82.5,
+            "code": 65.6,
+            "gpqa": 81.7,
+            "instruction": 91.5,
+            "long": 55.2
+          },
+          "model_id": "Qwen/Qwen3.5-9B",
+          "evaluated_version": "تنظیمات گزارش سازنده"
+        },
+        {
+          "product_id": "qwen3.5-4b",
+          "values": {
+            "mmlu": 79.1,
+            "code": 55.8,
+            "gpqa": 76.2,
+            "instruction": 89.8,
+            "long": 50
+          },
+          "model_id": "Qwen/Qwen3.5-4B",
+          "evaluated_version": "تنظیمات گزارش سازنده"
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "published_at": null,
+      "measured": true
+    },
+    {
+      "id": "qwen-tiny",
+      "title": "Qwen 3.5 · بدون تفکر",
+      "category": "models",
+      "kind": "publisher_report",
+      "source": {
+        "label": "Qwen · کارت 2B",
+        "url": "https://huggingface.co/Qwen/Qwen3.5-2B"
+      },
+      "conditions": "فقط جدول Instruct (Non-Thinking) Mode؛ با حالت Thinking مقایسه مستقیم نمی‌شود. MMMLU میانگین چندزبانه است، نه امتیاز اختصاصی فارسی.",
+      "metrics": [
+        {
+          "id": "mmlu",
+          "label": "دانش و استدلال",
+          "name": "MMLU-Pro",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "mmlu-pro",
+          "digits": 1
+        },
+        {
+          "id": "instruction",
+          "label": "پیروی از دستور",
+          "name": "IFEval",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "ifeval",
+          "digits": 1
+        },
+        {
+          "id": "multi",
+          "label": "دانش چندزبانه",
+          "name": "MMMLU",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "mmmlu",
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "qwen3.5-2b",
+          "values": {
+            "mmlu": 55.3,
+            "instruction": 61.2,
+            "multi": 56.9
+          },
+          "model_id": "Qwen/Qwen3.5-2B",
+          "evaluated_version": "بدون تفکر"
+        },
+        {
+          "product_id": "qwen3.5-0.8b",
+          "values": {
+            "mmlu": 29.7,
+            "instruction": 52.1,
+            "multi": 34.1
+          },
+          "model_id": "Qwen/Qwen3.5-0.8B",
+          "evaluated_version": "بدون تفکر"
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "published_at": null,
+      "measured": true
+    },
+    {
+      "id": "embedding",
+      "title": "بازیابی و جست‌وجوی معنایی",
+      "category": "retrieval",
+      "kind": "publisher_report",
+      "source": {
+        "label": "Qwen · گزارش MTEB",
+        "url": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B"
+      },
+      "conditions": "جدول MTEB Multilingual منتشرشده توسط Qwen؛ امتیاز BGE-M3 از جدول آنلاین در ۲۴ مه ۲۰۲۵ نقل شده است. این میانگین‌ها مخصوص فارسی نیستند؛ کیفیت RAG به داده و روش بازیابی هم وابسته است.",
+      "metrics": [
+        {
+          "id": "retrieval",
+          "label": "بازیابی متن",
+          "name": "MTEB Multilingual · Retrieval",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "embedding-retrieval",
+          "digits": 1
+        },
+        {
+          "id": "overall",
+          "label": "میانگین وظایف",
+          "name": "MTEB · Mean (Task)",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "embedding-overall",
+          "digits": 1
+        },
+        {
+          "id": "sts",
+          "label": "شباهت معنایی",
+          "name": "MTEB · STS",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "embedding-sts",
+          "digits": 1
+        },
+        {
+          "id": "classification",
+          "label": "دسته‌بندی متن",
+          "name": "MTEB · Classification",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "embedding-classification",
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "qwen3-embedding",
+          "values": {
+            "retrieval": 64.64,
+            "overall": 64.33,
+            "sts": 76.17,
+            "classification": 66.83
+          },
+          "model_id": "Qwen/Qwen3-Embedding-0.6B"
+        },
+        {
+          "product_id": "bge-m3",
+          "values": {
+            "retrieval": 54.6,
+            "overall": 59.56,
+            "sts": 74.12,
+            "classification": 60.35
+          },
+          "model_id": "BAAI/bge-m3"
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "published_at": null,
+      "measured": true
+    },
+    {
+      "id": "deepseek-r1",
+      "title": "DeepSeek R1 Distill · 32B",
+      "category": "models",
+      "kind": "publisher_report",
+      "source": {
+        "label": "DeepSeek · کارت R1",
+        "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"
+      },
+      "conditions": "جدول Distilled Model Evaluation؛ سقف تولید ۳۲٬۷۶۸ توکن، دما ۰٫۶ و top-p برابر ۰٫۹۵؛ برای برآورد pass@1 در آزمون‌های نمونه‌گیری از ۶۴ پاسخ استفاده شده است. فقط همین نسخه در کاتالوگ حاضر است.",
+      "metrics": [
+        {
+          "id": "aime",
+          "label": "ریاضی مسابقه‌ای",
+          "name": "AIME 2024 · pass@1",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "deepseek-r1-aime",
+          "digits": 1
+        },
+        {
+          "id": "math",
+          "label": "حل مسئله ریاضی",
+          "name": "MATH-500 · pass@1",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "deepseek-r1-math",
+          "digits": 1
+        },
+        {
+          "id": "gpqa",
+          "label": "پرسش علمی دشوار",
+          "name": "GPQA Diamond",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "gpqa-diamond",
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "deepseek-r1-32b",
+          "values": {
+            "aime": 72.6,
+            "math": 94.3,
+            "gpqa": 62.1
+          },
+          "model_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+          "evaluated_version": "تنظیمات گزارش سازنده"
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "published_at": null,
+      "measured": true
+    },
+    {
+      "id": "fa-asr",
+      "title": "تبدیل گفتار فارسی · سناریوی ارزیابی",
+      "category": "persian",
+      "kind": "scenario",
+      "source": null,
+      "conditions": "مقادیر فرضی برای مقایسه سناریو؛ آزمون اجرا نشده است. فرض مشترک: صوت فارسی تک‌گوینده ۱۶ کیلوهرتز، نرمال‌سازی ی/ک و نیم‌فاصله، بدون علائم نگارشی. WER کمتر بهتر است؛ RTF برابر ۰٫۲ یعنی ۱۲ ثانیه پردازش برای یک دقیقه صوت.",
+      "metrics": [
+        {
+          "id": "wer",
+          "label": "خطای واژه در گفتار واضح",
+          "name": "WER · گفتار واضح",
+          "unit": "درصد خطا",
+          "direction": "lower",
+          "max": 100,
+          "key": "scenario-fa-asr-wer",
+          "digits": 1
+        },
+        {
+          "id": "noisy",
+          "label": "خطای واژه در گفتار پرنویز",
+          "name": "WER · گفتار پرنویز",
+          "unit": "درصد خطا",
+          "direction": "lower",
+          "max": 100,
+          "key": "scenario-fa-asr-noisy",
+          "digits": 1
+        },
+        {
+          "id": "rtf",
+          "label": "زمان پردازش / طول صوت",
+          "name": "RTF",
+          "unit": "برابر زمان صوت",
+          "direction": "lower",
+          "max": 1,
+          "key": "scenario-fa-asr-rtf",
+          "digits": 2
+        }
+      ],
+      "records": [
+        {
+          "product_id": "avanvis-fa",
+          "values": {
+            "wer": 8.6,
+            "noisy": 17.4,
+            "rtf": 0.21
+          },
+          "model_id": "avanvis-fa/1.0"
+        },
+        {
+          "product_id": "shenava-call",
+          "values": {
+            "wer": 10.2,
+            "noisy": 14.9,
+            "rtf": 0.16
+          },
+          "model_id": "shenava-call/1.0"
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "published_at": null,
+      "measured": false
+    },
+    {
+      "id": "fa-translation",
+      "title": "انگلیسی به فارسی · سناریوی ارزیابی",
+      "category": "persian",
+      "kind": "scenario",
+      "source": null,
+      "conditions": "مقادیر فرضی برای بررسی سناریو؛ این مدل‌ها در این آزمون اجرا نشده‌اند. فرض مشترک: متن کاری انگلیسی، مرجع فارسی، نرمال‌سازی نویسه‌ها و حفظ اعداد و اصطلاحات. chrF++ به‌تنهایی روانی یا درستی معنایی را تضمین نمی‌کند.",
+      "metrics": [
+        {
+          "id": "chrf",
+          "label": "شباهت ترجمه به مرجع",
+          "name": "chrF++",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "scenario-fa-translation-chrf",
+          "digits": 1
+        },
+        {
+          "id": "terms",
+          "label": "حفظ اصطلاحات",
+          "name": "دقت اصطلاحات",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "key": "scenario-fa-translation-terms",
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "tarjoman-en-fa",
+          "values": {
+            "chrf": 62.4,
+            "terms": 91
+          },
+          "model_id": "tarjoman-en-fa/1.0"
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "published_at": null,
+      "measured": false
+    },
+    {
+      "id": "gpu-specs",
+      "title": "GPU · مشخصات مرجع NVIDIA",
+      "category": "gpu",
+      "kind": "specification",
+      "source": {
+        "label": "NVIDIA · مشخصات مرجع",
+        "url": "https://www.nvidia.com/en-in/geforce/graphics-cards/50-series/rtx-5090/"
+      },
+      "conditions": "مشخصات کارت مرجع؛ مقادیر فروشنده ممکن است متفاوت باشند. توان نامی، مصرف اندازه‌گیری‌شده سیستم نیست. حافظه اسمی با ظرفیت باینری کارت بیان شده؛ حافظه قابل استفاده را با nvidia-smi بررسی کنید. عدد نامشخص وارد رتبه‌بندی نمی‌شود. برای A100 و H100، فرم PCIe یا SXM در پیشنهاد مشخص نیست؛ توان و پهنای باند تا مشخص شدن فرم کارت درج نمی‌شود.",
+      "metrics": [
+        {
+          "id": "vram",
+          "label": "حافظه هر کارت",
+          "name": "VRAM",
+          "unit": "GiB اسمی",
+          "direction": "higher",
+          "max": null,
+          "key": "gpu-specs-vram",
+          "digits": 1
+        },
+        {
+          "id": "bandwidth",
+          "label": "پهنای باند حافظه",
+          "name": "Memory bandwidth",
+          "unit": "GB/s",
+          "direction": "higher",
+          "max": null,
+          "key": "gpu-specs-bandwidth",
+          "digits": 1
+        },
+        {
+          "id": "power",
+          "label": "توان نامی کارت",
+          "name": "Reference TGP",
+          "unit": "وات",
+          "direction": "lower",
+          "max": null,
+          "key": "gpu-specs-power",
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "rtx-3090",
+          "values": {
+            "vram": 24,
+            "bandwidth": null,
+            "power": 350
+          },
+          "source_url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3090-3090ti/",
+          "model_id": "rtx-3090"
+        },
+        {
+          "product_id": "rtx-4090",
+          "values": {
+            "vram": 24,
+            "bandwidth": 1008,
+            "power": 450
+          },
+          "source_url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/",
+          "model_id": "rtx-4090"
+        },
+        {
+          "product_id": "rtx-5090",
+          "values": {
+            "vram": 32,
+            "bandwidth": 1792,
+            "power": 575
+          },
+          "source_url": "https://www.nvidia.com/en-in/geforce/graphics-cards/50-series/rtx-5090/",
+          "model_id": "rtx-5090"
+        },
+        {
+          "product_id": "h100-80gb",
+          "values": {
+            "vram": 80,
+            "bandwidth": null,
+            "power": null
+          },
+          "source_url": "https://www.nvidia.com/en-us/data-center/h100/",
+          "model_id": "NVIDIA H100 80GB"
+        },
+        {
+          "product_id": "a100-80gb",
+          "values": {
+            "vram": 80,
+            "bandwidth": null,
+            "power": null
+          },
+          "source_url": "https://www.nvidia.com/en-us/data-center/a100/",
+          "model_id": "NVIDIA A100 80GB"
+        },
+        {
+          "product_id": "rtx-3060",
+          "values": {
+            "vram": 12,
+            "bandwidth": null,
+            "power": null
+          },
+          "source_url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3060-3060ti/",
+          "model_id": "rtx-3060"
+        },
+        {
+          "product_id": "rtx-4060-ti",
+          "values": {
+            "vram": 16,
+            "bandwidth": null,
+            "power": null
+          },
+          "source_url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4060-4060ti/",
+          "model_id": "rtx-4060-ti"
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "published_at": null,
+      "measured": false
+    },
+    {
+      "id": "gpu-inference",
+      "title": "GPU · سناریوی اجرای مدل",
+      "category": "gpu",
+      "kind": "scenario",
+      "source": null,
+      "conditions": "اعداد این سناریو فرضی‌اند؛ آزمون اجرا نشده است. فرض مشترک: Qwen3.5-9B، وزن ۱۶ بیت، یک GPU، یک درخواست هم‌زمان، ۵۱۲ توکن ورودی و ۱۲۸ خروجی. TTFT شامل شبکه نیست. برای اجاره، موتور و نسخه CUDA را از فروشنده بپرسید.",
+      "metrics": [
+        {
+          "id": "throughput",
+          "label": "سرعت تولید خروجی",
+          "name": "Decode throughput",
+          "unit": "توکن/ثانیه",
+          "direction": "higher",
+          "max": null,
+          "key": "scenario-gpu-inference-throughput",
+          "digits": 1
+        },
+        {
+          "id": "ttft",
+          "label": "زمان تا اولین توکن",
+          "name": "TTFT",
+          "unit": "میلی‌ثانیه",
+          "direction": "lower",
+          "max": null,
+          "key": "scenario-gpu-inference-ttft",
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "rtx-3090",
+          "values": {
+            "throughput": 42,
+            "ttft": 410
+          },
+          "model_id": "rtx-3090"
+        },
+        {
+          "product_id": "rtx-4090",
+          "values": {
+            "throughput": 61,
+            "ttft": 285
+          },
+          "model_id": "rtx-4090"
+        },
+        {
+          "product_id": "rtx-5090",
+          "values": {
+            "throughput": 86,
+            "ttft": 205
+          },
+          "model_id": "rtx-5090"
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "published_at": null,
+      "measured": false
+    },
+    {
+      "id": "openai-small",
+      "title": "GPT-5 · استدلال بالا",
+      "category": "models",
+      "kind": "publisher_report",
+      "source": {
+        "label": "OpenAI · گزارش GPT-5",
+        "url": "https://openai.com/index/introducing-gpt-5-for-developers/"
+      },
+      "conditions": "مدل‌های mini و nano با reasoning effort=high؛ GPQA Diamond و AIME 2025 بدون ابزار. در SWE-bench Verified تعداد ۲۳ مسئله از ۵۰۰ مسئله کنار گذاشته شده است؛ اعداد این آزمون با اجرای کامل ۵۰۰ مسئله یکسان نیستند.",
+      "metrics": [
+        {
+          "id": "gpqa-diamond",
+          "key": "gpqa-diamond",
+          "label": "استدلال علمی",
+          "name": "GPQA Diamond",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "aime-2025",
+          "key": "aime-2025",
+          "label": "ریاضی مسابقه‌ای",
+          "name": "AIME 2025 · بدون ابزار",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "swe-openai-477",
+          "key": "swe-openai-477",
+          "label": "رفع اشکال نرم‌افزار",
+          "name": "SWE-bench Verified · ۴۷۷ مسئله",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "gpt-5-mini",
+          "model_id": "gpt-5-mini",
+          "values": {
+            "gpqa-diamond": 82.3,
+            "aime-2025": 91.1,
+            "swe-openai-477": 71.0
+          },
+          "evaluated_version": "GPT-5 mini · high"
+        },
+        {
+          "product_id": "gpt-5-nano",
+          "model_id": "gpt-5-nano",
+          "values": {
+            "gpqa-diamond": 71.2,
+            "aime-2025": 85.2,
+            "swe-openai-477": 54.7
+          },
+          "evaluated_version": "GPT-5 nano · high"
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": true
+    },
+    {
+      "id": "gpt4o-snapshots",
+      "title": "GPT-4o · نتایج simple-evals",
+      "category": "models",
+      "kind": "publisher_report",
+      "source": {
+        "label": "OpenAI · simple-evals",
+        "url": "https://github.com/openai/simple-evals"
+      },
+      "conditions": "پرامپت assistant در simple-evals. نتیجه GPT-4o برای snapshot مورخ 2024-08-06 و mini برای 2024-07-18 است؛ نام عمومی API تضمین نمی‌کند که فروشنده همین snapshot را اجرا کند. GPQA این گزارش Diamond است؛ پیش‌فرض فایل gpqa_eval.py در مخزن منبع بررسی شده است.",
+      "metrics": [
+        {
+          "id": "mmlu",
+          "key": "mmlu",
+          "label": "دانش عمومی",
+          "name": "MMLU",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "gpqa-diamond",
+          "key": "gpqa-diamond",
+          "label": "استدلال علمی",
+          "name": "GPQA Diamond",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "math",
+          "key": "math",
+          "label": "حل مسائل ریاضی",
+          "name": "MATH",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "humaneval",
+          "key": "humaneval",
+          "label": "نوشتن کد",
+          "name": "HumanEval",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "mgsm",
+          "key": "mgsm",
+          "label": "ریاضی چندزبانه",
+          "name": "MGSM",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "gpt-4o",
+          "model_id": "gpt-4o",
+          "values": {
+            "mmlu": 88.7,
+            "math": 75.9,
+            "humaneval": 90.2,
+            "mgsm": 90.0,
+            "gpqa-diamond": 53.1
+          },
+          "evaluated_version": "gpt-4o-2024-08-06"
+        },
+        {
+          "product_id": "gpt-4o-mini",
+          "model_id": "gpt-4o-mini",
+          "values": {
+            "mmlu": 82,
+            "math": 70.2,
+            "humaneval": 87.2,
+            "mgsm": 87,
+            "gpqa-diamond": 40.2
+          },
+          "evaluated_version": "gpt-4o-mini-2024-07-18"
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": true,
+      "method_source_url": "https://github.com/openai/simple-evals/blob/main/gpqa_eval.py"
+    },
+    {
+      "id": "claude45",
+      "title": "Claude Sonnet 4.5 · گزارش Anthropic",
+      "category": "models",
+      "kind": "publisher_report",
+      "source": {
+        "label": "Anthropic · جدول 2.1.A، صفحه ۱۴",
+        "url": "https://www-cdn.anthropic.com/78073f739564e986ff3e28522761a7a0b4484f84.pdf"
+      },
+      "conditions": "ستون Claude Sonnet 4.5 در گزارش Sonnet 4.6؛ نتیجه مدل 4.6 به 4.5 نسبت داده نشده است. شرایط هر آزمون مطابق بخش ارزیابی گزارش. این امتیازها اندازه‌گیری سرعت API فروشندگان نیستند.",
+      "metrics": [
+        {
+          "id": "gpqa-diamond",
+          "key": "gpqa-diamond",
+          "label": "استدلال علمی",
+          "name": "GPQA Diamond",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "swe-verified",
+          "key": "swe-verified",
+          "label": "رفع اشکال نرم‌افزار",
+          "name": "SWE-bench Verified",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "mmmlu",
+          "key": "mmmlu",
+          "label": "دانش چندزبانه",
+          "name": "MMMLU",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "osworld-verified",
+          "key": "osworld-verified",
+          "label": "کار با رایانه",
+          "name": "OSWorld-Verified",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "hle",
+          "key": "hle",
+          "label": "پرسش‌های تخصصی دشوار",
+          "name": "HLE · بدون ابزار",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "claude-sonnet-4.5",
+          "model_id": "claude-sonnet-4.5",
+          "values": {
+            "gpqa-diamond": 83.4,
+            "swe-verified": 77.2,
+            "mmmlu": 89.5,
+            "osworld-verified": 61.4,
+            "hle": 17.7
+          },
+          "evaluated_version": "Claude Sonnet 4.5 · گزارش Anthropic"
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": true
+    },
+    {
+      "id": "gemini38",
+      "title": "Gemini 3.8 Flash · گزارش Google",
+      "category": "models",
+      "kind": "publisher_report",
+      "source": {
+        "label": "Google DeepMind · کارت Gemini 3.8 Flash",
+        "url": "https://deepmind.google/models/model-cards/gemini-3-8-flash/"
+      },
+      "conditions": "جدول سپتامبر ۲۰۲۶ در کارت دقیق Gemini 3.8 Flash؛ آزمون‌های عامل و کدنویسی با ابزار مطابق روش Google. HLE-Verified با HLE معمولی قابل جایگزینی نیست.",
+      "metrics": [
+        {
+          "id": "deepswe-1.1",
+          "key": "deepswe-1.1",
+          "label": "مهندسی نرم‌افزار",
+          "name": "DeepSWE v1.1",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "terminal-2.1",
+          "key": "terminal-2.1",
+          "label": "کدنویسی در ترمینال",
+          "name": "Terminal-bench 2.1",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "hle-verified",
+          "key": "hle-verified",
+          "label": "استدلال تخصصی",
+          "name": "HLE-Verified",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "charxiv-no-tools",
+          "key": "charxiv-no-tools",
+          "label": "درک نمودار",
+          "name": "CharXiv Reasoning · بدون ابزار",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "gemini-3.8-flash",
+          "model_id": "gemini-3.8-flash",
+          "values": {
+            "deepswe-1.1": 73.7,
+            "terminal-2.1": 89.4,
+            "hle-verified": 54.9,
+            "charxiv-no-tools": 86.2
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": true
+    },
+    {
+      "id": "deepseek4",
+      "title": "DeepSeek V4 Pro · Max",
+      "category": "models",
+      "kind": "publisher_report",
+      "source": {
+        "label": "DeepSeek · کارت V4 Pro",
+        "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+      },
+      "conditions": "نسخه پس‌آموزش‌دیده DeepSeek-V4-Pro در حالت Max؛ از ستون Pro Max استفاده شده، نه مدل Base و نه حالت Non-Think. نسخه LiveCodeBench در نام جدول مشخص نیست و با v6 ادغام نشده است.",
+      "metrics": [
+        {
+          "id": "mmlu-pro",
+          "key": "mmlu-pro",
+          "label": "دانش و استدلال",
+          "name": "MMLU-Pro",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "gpqa-diamond",
+          "key": "gpqa-diamond",
+          "label": "استدلال علمی",
+          "name": "GPQA Diamond",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "hle",
+          "key": "hle",
+          "label": "پرسش‌های تخصصی دشوار",
+          "name": "HLE · بدون ابزار",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "lcb-deepseek4",
+          "key": "lcb-deepseek4",
+          "label": "حل مسئله با کدنویسی",
+          "name": "LiveCodeBench · نسخه گزارش V4",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "hmmt-feb-2026",
+          "key": "hmmt-feb-2026",
+          "label": "ریاضی مسابقه‌ای",
+          "name": "HMMT February 2026",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "deepseek-v4-pro",
+          "model_id": "deepseek-v4-pro",
+          "values": {
+            "mmlu-pro": 87.5,
+            "gpqa-diamond": 90.1,
+            "hle": 37.7,
+            "lcb-deepseek4": 93.5,
+            "hmmt-feb-2026": 95.2
+          },
+          "evaluated_version": "DeepSeek-V4-Pro · Max"
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": true
+    },
+    {
+      "id": "qwen38-flash",
+      "title": "Qwen 3.8 · گزارش Flash Next",
+      "category": "models",
+      "kind": "publisher_report",
+      "source": {
+        "label": "Qwen · کارت Flash Next",
+        "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next"
+      },
+      "conditions": "دو ستون Qwen3.8-Flash-Next و Qwen3.8-27B در یک جدول Qwen. نسخه آزمون و شرایط هر عامل مطابق یادداشت‌های همان کارت است. نتایج عمومی، بدون آزمون اختصاصی فارسی.",
+      "metrics": [
+        {
+          "id": "gpqa-diamond",
+          "key": "gpqa-diamond",
+          "label": "استدلال علمی",
+          "name": "GPQA Diamond",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "lcb-v6",
+          "key": "lcb-v6",
+          "label": "حل مسئله با کدنویسی",
+          "name": "LiveCodeBench v6",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "deepswe-1.1",
+          "key": "deepswe-1.1",
+          "label": "مهندسی نرم‌افزار",
+          "name": "DeepSWE v1.1",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "qwen3.8-flash-next",
+          "model_id": "Qwen/Qwen3.8-Flash-Next",
+          "values": {
+            "gpqa-diamond": 91.7,
+            "lcb-v6": 91.9,
+            "deepswe-1.1": 58.7
+          }
+        },
+        {
+          "product_id": "qwen3.8-27b",
+          "model_id": "Qwen/Qwen3.8-27B",
+          "values": {
+            "gpqa-diamond": 89.2,
+            "lcb-v6": 90.3,
+            "deepswe-1.1": 42.2
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": true
+    },
+    {
+      "id": "qwen38-max",
+      "title": "Qwen 3.8 Max · گزارش Qwen",
+      "category": "models",
+      "kind": "publisher_report",
+      "source": {
+        "label": "Qwen · کارت 2.4T-A95B",
+        "url": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+      },
+      "conditions": "ستون آخر Qwen3.8-Max در کارت Qwen3.8-2.4T-A95B. HLE بدون ابزار از HLE با ابزار جداست. نتایج داخلی عامل‌ها در شرایط همان گزارش خوانده شوند.",
+      "metrics": [
+        {
+          "id": "gpqa-diamond",
+          "key": "gpqa-diamond",
+          "label": "استدلال علمی",
+          "name": "GPQA Diamond",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "hle",
+          "key": "hle",
+          "label": "پرسش‌های تخصصی دشوار",
+          "name": "HLE · بدون ابزار",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "ifbench",
+          "key": "ifbench",
+          "label": "رعایت دستورهای پیچیده",
+          "name": "IFBench",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "terminal-2.1",
+          "key": "terminal-2.1",
+          "label": "کدنویسی در ترمینال",
+          "name": "Terminal-bench 2.1",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "qwen3.8-max",
+          "model_id": "Qwen/Qwen3.8-2.4T-A95B",
+          "values": {
+            "gpqa-diamond": 92.6,
+            "hle": 43.6,
+            "ifbench": 82.8,
+            "terminal-2.1": 86.6
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": true
+    },
+    {
+      "id": "qwen36",
+      "title": "Qwen 3.6 · گزارش Qwen",
+      "category": "models",
+      "kind": "publisher_report",
+      "source": {
+        "label": "Qwen · کارت 27B",
+        "url": "https://huggingface.co/Qwen/Qwen3.6-27B"
+      },
+      "conditions": "ستون‌های Qwen3.6-27B و Qwen3.6-35B-A3B در جدول 27B. نتیجه 3.5 جایگزین 3.6 نشده است؛ تنظیمات ارزیابی مطابق کارت Qwen.",
+      "metrics": [
+        {
+          "id": "mmlu-pro",
+          "key": "mmlu-pro",
+          "label": "دانش و استدلال",
+          "name": "MMLU-Pro",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "gpqa-diamond",
+          "key": "gpqa-diamond",
+          "label": "استدلال علمی",
+          "name": "GPQA Diamond",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "lcb-v6",
+          "key": "lcb-v6",
+          "label": "حل مسئله با کدنویسی",
+          "name": "LiveCodeBench v6",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "hle",
+          "key": "hle",
+          "label": "پرسش‌های تخصصی دشوار",
+          "name": "HLE · بدون ابزار",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "qwen3.6-27b",
+          "model_id": "Qwen/Qwen3.6-27B",
+          "values": {
+            "mmlu-pro": 86.2,
+            "gpqa-diamond": 87.8,
+            "lcb-v6": 83.9,
+            "hle": 24.0
+          }
+        },
+        {
+          "product_id": "qwen3.6-35b-a3b",
+          "model_id": "Qwen/Qwen3.6-35B-A3B",
+          "values": {
+            "mmlu-pro": 85.2,
+            "gpqa-diamond": 86.0,
+            "lcb-v6": 80.4,
+            "hle": 21.4
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": true
+    },
+    {
+      "id": "gemma3-it",
+      "title": "Gemma 3 12B · نسخه IT",
+      "category": "models",
+      "kind": "publisher_report",
+      "source": {
+        "label": "Google · کارت رسمی Gemma 3",
+        "url": "https://ai.google.dev/gemma/docs/core/model_card_3"
+      },
+      "conditions": "فقط ستون Gemma 3 IT 12B: GPQA Diamond، MMLU-Pro، HumanEval و MATH به‌صورت zero-shot. جدول PT همان صفحه برای این محصول استفاده نشده است.",
+      "metrics": [
+        {
+          "id": "gpqa-diamond",
+          "key": "gpqa-diamond",
+          "label": "استدلال علمی",
+          "name": "GPQA Diamond",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "mmlu-pro",
+          "key": "mmlu-pro",
+          "label": "دانش و استدلال",
+          "name": "MMLU-Pro",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "humaneval",
+          "key": "humaneval",
+          "label": "نوشتن کد",
+          "name": "HumanEval",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "math",
+          "key": "math",
+          "label": "حل مسائل ریاضی",
+          "name": "MATH",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "gemma-3-12b",
+          "model_id": "google/gemma-3-12b-it",
+          "values": {
+            "gpqa-diamond": 40.9,
+            "mmlu-pro": 60.6,
+            "humaneval": 85.4,
+            "math": 83.8
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": true
+    },
+    {
+      "id": "llama33",
+      "title": "Llama 3.3 70B · نسخه Instruct",
+      "category": "models",
+      "kind": "publisher_report",
+      "source": {
+        "label": "Meta · کارت Llama 3.3",
+        "url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct"
+      },
+      "conditions": "ستون Llama 3.3 70B Instruct؛ MMLU-Pro پنج نمونه با CoT، GPQA Diamond بدون نمونه با CoT. IFEval مطابق گزارش ناشر؛ کیفیت فارسی به‌صورت مجزا سنجیده نشده است.",
+      "metrics": [
+        {
+          "id": "mmlu-pro",
+          "key": "mmlu-pro",
+          "label": "دانش و استدلال",
+          "name": "MMLU-Pro",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "gpqa-diamond",
+          "key": "gpqa-diamond",
+          "label": "استدلال علمی",
+          "name": "GPQA Diamond",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "ifeval",
+          "key": "ifeval",
+          "label": "رعایت دستور",
+          "name": "IFEval",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "llama-3.3-70b",
+          "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+          "values": {
+            "mmlu-pro": 68.9,
+            "gpqa-diamond": 50.5,
+            "ifeval": 92.1
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": true
+    },
+    {
+      "id": "mistral31",
+      "title": "Mistral Small 3.1 · نسخه Instruct",
+      "category": "models",
+      "kind": "publisher_report",
+      "source": {
+        "label": "Mistral · کارت مدل 2503",
+        "url": "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503"
+      },
+      "conditions": "ستون Small 3.1 24B Instruct؛ MMLU-Pro و GPQA Diamond پنج نمونه با CoT. امتیاز GPQA Main و مدل Base جدا هستند. اعداد به درصد گزارش شده‌اند.",
+      "metrics": [
+        {
+          "id": "mmlu-pro",
+          "key": "mmlu-pro",
+          "label": "دانش و استدلال",
+          "name": "MMLU-Pro",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "gpqa-diamond",
+          "key": "gpqa-diamond",
+          "label": "استدلال علمی",
+          "name": "GPQA Diamond",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "humaneval",
+          "key": "humaneval",
+          "label": "نوشتن کد",
+          "name": "HumanEval",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "math",
+          "key": "math",
+          "label": "حل مسائل ریاضی",
+          "name": "MATH",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "mistral-small-3.1",
+          "model_id": "mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+          "values": {
+            "mmlu-pro": 66.76,
+            "gpqa-diamond": 45.96,
+            "humaneval": 88.41,
+            "math": 69.3
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": true
+    },
+    {
+      "id": "ood-code",
+      "title": "طراحی نرم‌افزار · OODEval",
+      "category": "models",
+      "kind": "research_report",
+      "source": {
+        "label": "پژوهش OODEval · جدول ۹",
+        "url": "https://arxiv.org/html/2601.07602v1"
+      },
+      "conditions": "۵۰ مسئله طراحی شی‌گرا، پنج پاسخ برای هر مسئله، temperature=0.2 و حداکثر ۲۰۴۸ توکن. CLUE کیفیت معنایی نمودار کلاس است؛ pass@1 اینجا فقط درستی نحوی را می‌سنجد، نه قبولی تست‌های HumanEval. مقیاس ۰ تا ۱ منبع به ۰ تا ۱۰۰ تبدیل شده است؛ CLUE برای Coder برابر 86.4 ± 1.9 و Gemma برابر 84.0 ± 1.6 در گزارش است.",
+      "metrics": [
+        {
+          "id": "ood-clue",
+          "key": "ood-clue",
+          "label": "کیفیت طراحی نرم‌افزار",
+          "name": "OODEval · CLUE",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "ood-syntax",
+          "key": "ood-syntax",
+          "label": "درستی ساختار خروجی",
+          "name": "OODEval · syntax pass@1",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "qwen3-coder-30b",
+          "model_id": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "values": {
+            "ood-clue": 86.4,
+            "ood-syntax": 98.0
+          }
+        },
+        {
+          "product_id": "gemma-3-12b",
+          "model_id": "google/gemma-3-12b-it",
+          "values": {
+            "ood-clue": 84.0,
+            "ood-syntax": 99.6
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": true
+    },
+    {
+      "id": "embedding-openai",
+      "title": "Embedding · گزارش OpenAI",
+      "category": "retrieval",
+      "kind": "publisher_report",
+      "source": {
+        "label": "OpenAI · گزارش مدل‌های Embedding",
+        "url": "https://openai.com/index/new-embedding-models-and-api-updates/"
+      },
+      "conditions": "text-embedding-3-small با ابعاد کامل ۱۵۳۶. MTEB این گزارش انگلیسی است و با MTEB Multilingual ادغام نمی‌شود. MIRACL میانگین چندزبانه است؛ امتیاز اختصاصی فارسی در این جدول نیست.",
+      "metrics": [
+        {
+          "id": "mteb-en-openai",
+          "key": "mteb-en-openai",
+          "label": "کاربردهای متنی انگلیسی",
+          "name": "MTEB English · میانگین",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "miracl",
+          "key": "miracl",
+          "label": "بازیابی چندزبانه",
+          "name": "MIRACL · میانگین",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "text-embedding-3-small",
+          "model_id": "text-embedding-3-small",
+          "values": {
+            "mteb-en-openai": 62.3,
+            "miracl": 44.0
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": true
+    },
+    {
+      "id": "laya-decision",
+      "title": "Laya · تشخیص و تصمیم",
+      "category": "decision",
+      "kind": "publisher_report",
+      "source": {
+        "label": "Convai Innovations · کارت Laya",
+        "url": "https://huggingface.co/convaiinnovations/laya"
+      },
+      "conditions": "دو checkpoint اصلی laya و laya-multilingual؛ بدون Router و بدون نسخه laya-typed-decisions. دقت‌های ۰ تا ۱ منبع به درصد تبدیل شده‌اند. XNLI چندزبانه میانگین ۱۴ زبان دیگر است و امتیاز فارسی محسوب نمی‌شود.",
+      "metrics": [
+        {
+          "id": "massive-en",
+          "key": "massive-en",
+          "label": "تشخیص منظور انگلیسی",
+          "name": "MASSIVE · English",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "xnli-other-14",
+          "key": "xnli-other-14",
+          "label": "درک رابطه متن چندزبانه",
+          "name": "XNLI · ۱۴ زبان",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "typed-laya",
+          "key": "typed-laya",
+          "label": "تصمیم ساختاریافته",
+          "name": "Typed decisions · ۲۰۰۰ تصمیم",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "laya",
+          "model_id": "convaiinnovations/laya",
+          "values": {
+            "massive-en": 78.3,
+            "xnli-other-14": 52.1,
+            "typed-laya": 36.2
+          }
+        },
+        {
+          "product_id": "laya-multilingual",
+          "model_id": "convaiinnovations/laya-multilingual",
+          "values": {
+            "massive-en": 65.7,
+            "xnli-other-14": 73.1,
+            "typed-laya": 34.2
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": true
+    },
+    {
+      "id": "decider",
+      "title": "Decider · آزمون ناشر",
+      "category": "decision",
+      "kind": "publisher_report",
+      "source": {
+        "label": "Mapika · کارت Decider 4B",
+        "url": "https://huggingface.co/Mapika/decider-4b"
+      },
+      "conditions": "نسخه 2B v11 و 4B v2.1 در decider-ai 1.4.0 با نگاشت دما برای نوع پاسخ؛ regression شامل ۶۷ کار آشنا و ۲۸ کار کنارگذاشته‌شده است. دقت‌های ۰ تا ۱ منبع به درصد تبدیل شده‌اند. این نتایج مخصوص فارسی نیستند.",
+      "metrics": [
+        {
+          "id": "decider-heldout",
+          "key": "decider-heldout",
+          "label": "تصمیم در کارهای جدید",
+          "name": "Regression · ۲۸ کار کنارگذاشته‌شده",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        },
+        {
+          "id": "decider-intask",
+          "key": "decider-intask",
+          "label": "تصمیم در کارهای آشنا",
+          "name": "Regression · ۶۷ کار آشنا",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "decider-2b",
+          "model_id": "Mapika/decider-2b",
+          "values": {
+            "decider-heldout": 75.2,
+            "decider-intask": 80.2
+          },
+          "evaluated_version": "v11 · decider-ai 1.4.0",
+          "source_url": "https://huggingface.co/Mapika/decider-2b"
+        },
+        {
+          "product_id": "decider-4b",
+          "model_id": "Mapika/decider-4b",
+          "values": {
+            "decider-heldout": 78.4,
+            "decider-intask": 83.1
+          },
+          "evaluated_version": "v2.1 · decider-ai 1.4.0"
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": true
+    },
+    {
+      "id": "whisper-fa",
+      "title": "Whisper فارسی · Common Voice 17",
+      "category": "persian",
+      "kind": "publisher_report",
+      "source": {
+        "label": "Mohammad Gholizadeh · کارت مدل",
+        "url": "https://huggingface.co/MohammadGholizadeh/whisper-large-v3-persian-common-voice-17"
+      },
+      "conditions": "WER برابر 21.43 در کارت همین مدل fine-tuned گزارش شده است. کارت مدل تعداد دقیق نمونه‌های آزمون و روش نرمال‌سازی متن را مشخص نمی‌کند؛ با آزمون نویزی یا دیتاست دیگر رتبه‌بندی نشود.",
+      "metrics": [
+        {
+          "id": "wer-cv17-publisher",
+          "key": "wer-cv17-publisher",
+          "label": "خطای تبدیل گفتار فارسی",
+          "name": "WER · Common Voice 17",
+          "unit": "٪ خطا",
+          "direction": "lower",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "whisper-fa-cv17",
+          "model_id": "MohammadGholizadeh/whisper-large-v3-persian-common-voice-17",
+          "values": {
+            "wer-cv17-publisher": 21.43
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": true
+    },
+    {
+      "id": "whisper-turbo",
+      "title": "Whisper Turbo · سرعت مرجع",
+      "category": "audio",
+      "kind": "publisher_report",
+      "source": {
+        "label": "OpenAI · مخزن Whisper",
+        "url": "https://github.com/openai/whisper"
+      },
+      "conditions": "سرعت نسبی تقریبی Turbo در تبدیل گفتار انگلیسی روی A100، نسبت به Whisper large. عدد ۸ ضریب سرعت است، نه RTF و نه امتیاز کیفیت یا سرعت API فروشنده؛ برای زبان و سخت‌افزار دیگر تضمین ندارد.",
+      "metrics": [
+        {
+          "id": "whisper-speed-a100",
+          "key": "whisper-speed-a100",
+          "label": "سرعت نسبی اجرا",
+          "name": "English ASR · A100",
+          "unit": "برابر",
+          "direction": "higher",
+          "max": 10,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "whisper-v3-turbo",
+          "model_id": "openai/whisper-large-v3-turbo",
+          "values": {
+            "whisper-speed-a100": 8
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": true
+    },
+    {
+      "id": "parsinlu-translation",
+      "title": "ParsinLU · ارزیابی ترجمه",
+      "category": "persian",
+      "kind": "research_report",
+      "source": {
+        "label": "Mofid AI · ارزیابی فارسی",
+        "url": "https://github.com/Mofid-AI/persian-nlp-benchmark"
+      },
+      "conditions": "ترجمه انگلیسی به فارسی، مدل mt5-base-parsinlu-translation_en_fa. BLEU زیرمجموعه‌های Mizan و QQP در گزارش ارزیاب؛ مقدار پایین به معنی درصد رضایت انسانی نیست. داده ترکیبی و روش اجرا در نوت‌بوک منبع آمده است.",
+      "metrics": [
+        {
+          "id": "bleu-mizan-mofid",
+          "key": "bleu-mizan-mofid",
+          "label": "ترجمه متن ادبی",
+          "name": "BLEU · Mizan",
+          "unit": "BLEU",
+          "direction": "higher",
+          "max": 100,
+          "digits": 3
+        },
+        {
+          "id": "bleu-qqp-mofid",
+          "key": "bleu-qqp-mofid",
+          "label": "ترجمه پرسش‌ها",
+          "name": "BLEU · QQP",
+          "unit": "BLEU",
+          "direction": "higher",
+          "max": 100,
+          "digits": 3
+        }
+      ],
+      "records": [
+        {
+          "product_id": "parsinlu-en-fa",
+          "model_id": "persiannlp/mt5-base-parsinlu-translation_en_fa",
+          "values": {
+            "bleu-mizan-mofid": 4.957,
+            "bleu-qqp-mofid": 19.972
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": true
+    },
+    {
+      "id": "image-geneval",
+      "title": "ساخت تصویر · ارزیابی Prism ML",
+      "category": "image",
+      "kind": "research_report",
+      "source": {
+        "label": "Prism ML · جدول مقایسه تصویر",
+        "url": "https://huggingface.co/prism-ml/bonsai-image-ternary-4B-mlx-2bit"
+      },
+      "conditions": "نتایج baseline مدل‌های FLUX در ارزیابی Prism ML روی H100. GenEval با پروتکل 512×512؛ اعداد ۰ تا ۱ به درصد تبدیل شده‌اند. گزارش متعلق به سازنده Bonsai است؛ آزمون مستقل torobai نیست. HPS/DPG به علت تفاوت وضوح خروجی در این مقایسه وارد نشده‌اند.",
+      "metrics": [
+        {
+          "id": "geneval-prism",
+          "key": "geneval-prism",
+          "label": "پیروی تصویر از متن",
+          "name": "GenEval · 512×512",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "flux-2-klein-4b",
+          "model_id": "flux-2-klein-4b",
+          "values": {
+            "geneval-prism": 81.9
+          }
+        },
+        {
+          "product_id": "flux-1-schnell",
+          "model_id": "black-forest-labs/FLUX.1-schnell",
+          "values": {
+            "geneval-prism": 71.6
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": true
+    },
+    {
+      "id": "scenario-tarjoman-fa-en",
+      "title": "ترجمه فارسی به انگلیسی",
+      "category": "persian",
+      "kind": "scenario",
+      "source": null,
+      "conditions": "سناریوی فرضی برای مدل اختصاصی؛ آزمون اجرا نشده است. ۱۰۰۰ جمله عمومی و اداری فارسی به انگلیسی؛ نرمال‌سازی نیم‌فاصله و اعداد.",
+      "metrics": [
+        {
+          "id": "chrf-fa-en",
+          "key": "scenario-tarjoman-fa-en-chrf-fa-en",
+          "label": "کیفیت ترجمه",
+          "name": "chrF++ · فارسی به انگلیسی",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "tarjoman-fa-en",
+          "model_id": "tarjoman-fa-en/1.0",
+          "values": {
+            "chrf-fa-en": 59.8
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": false
+    },
+    {
+      "id": "scenario-khanesh-fa",
+      "title": "خوانش متن فارسی",
+      "category": "persian",
+      "kind": "scenario",
+      "source": null,
+      "conditions": "سناریوی فرضی برای مدل اختصاصی؛ آزمون اجرا نشده است. ۲۰۰ جمله فارسی و داوری شنیداری با مقیاس ۱ تا ۵.",
+      "metrics": [
+        {
+          "id": "mos-fa",
+          "key": "scenario-khanesh-fa-mos-fa",
+          "label": "طبیعی بودن صدا",
+          "name": "MOS · فارسی",
+          "unit": "از ۵",
+          "direction": "higher",
+          "max": 5,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "khanesh-fa",
+          "model_id": "khanesh-fa/1.0",
+          "values": {
+            "mos-fa": 4.2
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": false
+    },
+    {
+      "id": "scenario-negar-ocr",
+      "title": "خواندن متن فارسی",
+      "category": "persian",
+      "kind": "scenario",
+      "source": null,
+      "conditions": "سناریوی فرضی برای مدل اختصاصی؛ آزمون اجرا نشده است. ۱۰۰۰ برش از سند چاپی فارسی با وضوح ۳۰۰ dpi؛ بدون دست‌نویس.",
+      "metrics": [
+        {
+          "id": "cer-fa",
+          "key": "scenario-negar-ocr-cer-fa",
+          "label": "خطای تشخیص حروف",
+          "name": "CER · سند چاپی",
+          "unit": "٪ خطا",
+          "direction": "lower",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "negar-ocr",
+          "model_id": "negar-ocr/1.0",
+          "values": {
+            "cer-fa": 3.8
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": false
+    },
+    {
+      "id": "scenario-sanad-invoice",
+      "title": "استخراج اطلاعات فاکتور",
+      "category": "persian",
+      "kind": "scenario",
+      "source": null,
+      "conditions": "سناریوی فرضی برای مدل اختصاصی؛ آزمون اجرا نشده است. ۵۰۰ فاکتور فارسی؛ نام فروشنده، تاریخ، مبلغ و ردیف کالا.",
+      "metrics": [
+        {
+          "id": "f1-invoice",
+          "key": "scenario-sanad-invoice-f1-invoice",
+          "label": "درستی اطلاعات استخراج‌شده",
+          "name": "Field F1 · فاکتور فارسی",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "sanad-invoice",
+          "model_id": "sanad-invoice/1.0",
+          "values": {
+            "f1-invoice": 92.6
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": false
+    },
+    {
+      "id": "scenario-jostejoo-fa",
+      "title": "جستجوی معنایی فارسی",
+      "category": "persian",
+      "kind": "scenario",
+      "source": null,
+      "conditions": "سناریوی فرضی برای مدل اختصاصی؛ آزمون اجرا نشده است. ۲۰۰۰ پرسش و اسناد پشتیبانی فارسی؛ ده نتیجه اول.",
+      "metrics": [
+        {
+          "id": "ndcg-fa",
+          "key": "scenario-jostejoo-fa-ndcg-fa",
+          "label": "مرتبط بودن نتیجه جستجو",
+          "name": "nDCG@10 · اسناد فارسی",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "jostejoo-fa",
+          "model_id": "jostejoo-fa/1.0",
+          "values": {
+            "ndcg-fa": 76.4
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": false
+    },
+    {
+      "id": "scenario-nazar-fa",
+      "title": "دسته‌بندی متن فارسی",
+      "category": "persian",
+      "kind": "scenario",
+      "source": null,
+      "conditions": "سناریوی فرضی برای مدل اختصاصی؛ آزمون اجرا نشده است. ۳۰۰۰ نظر فارسی متوازن در سه کلاس مثبت، منفی و خنثی.",
+      "metrics": [
+        {
+          "id": "f1-sentiment",
+          "key": "scenario-nazar-fa-f1-sentiment",
+          "label": "تشخیص نظر کاربران",
+          "name": "Macro F1 · احساس متن",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "nazar-fa",
+          "model_id": "nazar-fa/1.0",
+          "values": {
+            "f1-sentiment": 89.1
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": false
+    },
+    {
+      "id": "scenario-hamyar-support",
+      "title": "پاسخ‌گویی فارسی",
+      "category": "persian",
+      "kind": "scenario",
+      "source": null,
+      "conditions": "سناریوی فرضی برای مدل اختصاصی؛ آزمون اجرا نشده است. ۱۰۰۰ درخواست پشتیبانی فارسی با پاسخ مرجع و اسناد یکسان.",
+      "metrics": [
+        {
+          "id": "support-resolved",
+          "key": "scenario-hamyar-support-support-resolved",
+          "label": "پاسخ درست به مشتری",
+          "name": "Resolution accuracy · فارسی",
+          "unit": "از ۱۰۰",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "hamyar-support",
+          "model_id": "hamyar-support/1.0",
+          "values": {
+            "support-resolved": 86.8
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": false
+    },
+    {
+      "id": "pending-whisper-1",
+      "title": "ارزیابی Whisper",
+      "category": "specialized",
+      "kind": "unavailable",
+      "source": {
+        "label": "مرجع مشخصات مدل",
+        "url": "https://developers.openai.com/api/docs/models/whisper-1"
+      },
+      "conditions": "برای نسخه API با شناسه whisper-1، نتیجه عددی با دیتاست و تنظیمات مشخص در منابع بررسی‌شده پیدا نشد. امتیاز وزن‌های large-v2 یا v3 به این API نسبت داده نشده است.",
+      "metrics": [
+        {
+          "id": "wer-whisper-api",
+          "key": "wer-whisper-api",
+          "label": "خطای تبدیل گفتار",
+          "name": "WER · نسخه API",
+          "unit": "٪ خطا",
+          "direction": "lower",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "whisper-1",
+          "model_id": "whisper-1",
+          "values": {
+            "wer-whisper-api": null
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": false
+    },
+    {
+      "id": "pending-tts-1",
+      "title": "ارزیابی TTS-1",
+      "category": "specialized",
+      "kind": "unavailable",
+      "source": {
+        "label": "مرجع مشخصات مدل",
+        "url": "https://developers.openai.com/api/docs/models/tts-1"
+      },
+      "conditions": "برای TTS-1 امتیاز MOS با زبان، نمونه‌ها و روش داوری مشخص در منبع رسمی ثبت نشده است؛ کیفیت ادراکی را نمی‌توان از قیمت یا تعداد صداها نتیجه گرفت.",
+      "metrics": [
+        {
+          "id": "mos-tts1",
+          "key": "mos-tts1",
+          "label": "طبیعی بودن صدا",
+          "name": "MOS · نسخه API",
+          "unit": "از ۵",
+          "direction": "higher",
+          "max": 5,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "tts-1",
+          "model_id": "tts-1",
+          "values": {
+            "mos-tts1": null
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": false
+    },
+    {
+      "id": "pending-hezar-crnn-fa",
+      "title": "ارزیابی Hezar · خواندن متن فارسی",
+      "category": "specialized",
+      "kind": "unavailable",
+      "source": {
+        "label": "مرجع مشخصات مدل",
+        "url": "https://huggingface.co/hezarai/crnn-base-fa-v2"
+      },
+      "conditions": "کارت CRNN فارسی v2 کاربرد و محدودیت متن چاپی را توضیح می‌دهد، اما مقدار CER/WER و مجموعه آزمون را منتشر نکرده است؛ امتیاز نسخه v1 جایگزین نشده است.",
+      "metrics": [
+        {
+          "id": "cer-hezar-v2",
+          "key": "cer-hezar-v2",
+          "label": "خطای تشخیص حروف",
+          "name": "CER · نسخه v2",
+          "unit": "٪ خطا",
+          "direction": "lower",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "hezar-crnn-fa",
+          "model_id": "hezarai/crnn-base-fa-v2",
+          "values": {
+            "cer-hezar-v2": null
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": false
+    },
+    {
+      "id": "pending-gtx-1660s",
+      "title": "ارزیابی NVIDIA GTX 1660 Super",
+      "category": "gpu",
+      "kind": "unavailable",
+      "source": {
+        "label": "مرجع مشخصات مدل",
+        "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/gtx-1660-super/"
+      },
+      "conditions": "برای همین کارت، آزمون اجرای مدل با تنظیمات و مدل یکسان در منابع ثبت‌شده نداریم؛ حافظه کاتالوگ جای سرعت اجرا نیست.",
+      "metrics": [
+        {
+          "id": "gpu-1660-tps",
+          "key": "gpu-1660-tps",
+          "label": "سرعت تولید متن",
+          "name": "Inference throughput",
+          "unit": "توکن/ثانیه",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "gtx-1660s",
+          "model_id": "gtx-1660s",
+          "values": {
+            "gpu-1660-tps": null
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": false
+    },
+    {
+      "id": "pending-rtx-family",
+      "title": "ارزیابی خانواده NVIDIA RTX",
+      "category": "gpu",
+      "kind": "unavailable",
+      "source": null,
+      "conditions": "عنوان «خانواده RTX» مدل دقیق کارت را مشخص نمی‌کند؛ پیش از مقایسه عملکرد باید نوع کارت از فروشنده مشخص شود.",
+      "metrics": [
+        {
+          "id": "gpu-family-tps",
+          "key": "gpu-family-tps",
+          "label": "سرعت تولید متن",
+          "name": "Inference throughput",
+          "unit": "توکن/ثانیه",
+          "direction": "higher",
+          "max": 100,
+          "digits": 1
+        }
+      ],
+      "records": [
+        {
+          "product_id": "rtx-family",
+          "model_id": "rtx-family",
+          "values": {
+            "gpu-family-tps": null
+          }
+        }
+      ],
+      "recorded_at": "2026-10-11",
+      "measured": false
+    }
+  ],
+  "profiles": {
+    "gpt-4o-mini": {
+      "model_id": "gpt-4o-mini",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "gpt4o-snapshots"
+      ],
+      "source_urls": [
+        "https://github.com/openai/simple-evals"
+      ],
+      "note": "پرامپت assistant در simple-evals. نتیجه GPT-4o برای snapshot مورخ 2024-08-06 و mini برای 2024-07-18 است؛ نام عمومی API تضمین نمی‌کند که فروشنده همین snapshot را اجرا کند. GPQA این گزارش Diamond است؛ پیش‌فرض فایل gpqa_eval.py در مخزن منبع بررسی شده است."
+    },
+    "gpt-5-nano": {
+      "model_id": "gpt-5-nano",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "openai-small"
+      ],
+      "source_urls": [
+        "https://openai.com/index/introducing-gpt-5-for-developers/"
+      ],
+      "note": "مدل‌های mini و nano با reasoning effort=high؛ GPQA Diamond و AIME 2025 بدون ابزار. در SWE-bench Verified تعداد ۲۳ مسئله از ۵۰۰ مسئله کنار گذاشته شده است؛ اعداد این آزمون با اجرای کامل ۵۰۰ مسئله یکسان نیستند."
+    },
+    "gpt-5-mini": {
+      "model_id": "gpt-5-mini",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "openai-small"
+      ],
+      "source_urls": [
+        "https://openai.com/index/introducing-gpt-5-for-developers/"
+      ],
+      "note": "مدل‌های mini و nano با reasoning effort=high؛ GPQA Diamond و AIME 2025 بدون ابزار. در SWE-bench Verified تعداد ۲۳ مسئله از ۵۰۰ مسئله کنار گذاشته شده است؛ اعداد این آزمون با اجرای کامل ۵۰۰ مسئله یکسان نیستند."
+    },
+    "gpt-4o": {
+      "model_id": "gpt-4o",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "gpt4o-snapshots"
+      ],
+      "source_urls": [
+        "https://github.com/openai/simple-evals"
+      ],
+      "note": "پرامپت assistant در simple-evals. نتیجه GPT-4o برای snapshot مورخ 2024-08-06 و mini برای 2024-07-18 است؛ نام عمومی API تضمین نمی‌کند که فروشنده همین snapshot را اجرا کند. GPQA این گزارش Diamond است؛ پیش‌فرض فایل gpqa_eval.py در مخزن منبع بررسی شده است."
+    },
+    "gemini-3.8-flash": {
+      "model_id": "gemini-3.8-flash",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "gemini38"
+      ],
+      "source_urls": [
+        "https://deepmind.google/models/model-cards/gemini-3-8-flash/"
+      ],
+      "note": "جدول سپتامبر ۲۰۲۶ در کارت دقیق Gemini 3.8 Flash؛ آزمون‌های عامل و کدنویسی با ابزار مطابق روش Google. HLE-Verified با HLE معمولی قابل جایگزینی نیست."
+    },
+    "claude-sonnet-4.5": {
+      "model_id": "claude-sonnet-4.5",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "claude45"
+      ],
+      "source_urls": [
+        "https://www-cdn.anthropic.com/78073f739564e986ff3e28522761a7a0b4484f84.pdf"
+      ],
+      "note": "ستون Claude Sonnet 4.5 در گزارش Sonnet 4.6؛ نتیجه مدل 4.6 به 4.5 نسبت داده نشده است. شرایط هر آزمون مطابق بخش ارزیابی گزارش. این امتیازها اندازه‌گیری سرعت API فروشندگان نیستند."
+    },
+    "deepseek-v4-pro": {
+      "model_id": "deepseek-v4-pro",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "deepseek4"
+      ],
+      "source_urls": [
+        "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+      ],
+      "note": "نسخه پس‌آموزش‌دیده DeepSeek-V4-Pro در حالت Max؛ از ستون Pro Max استفاده شده، نه مدل Base و نه حالت Non-Think. نسخه LiveCodeBench در نام جدول مشخص نیست و با v6 ادغام نشده است."
+    },
+    "text-embedding-3-small": {
+      "model_id": "text-embedding-3-small",
+      "task": "embedding",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "embedding-openai"
+      ],
+      "source_urls": [
+        "https://openai.com/index/new-embedding-models-and-api-updates/"
+      ],
+      "note": "text-embedding-3-small با ابعاد کامل ۱۵۳۶. MTEB این گزارش انگلیسی است و با MTEB Multilingual ادغام نمی‌شود. MIRACL میانگین چندزبانه است؛ امتیاز اختصاصی فارسی در این جدول نیست."
+    },
+    "whisper-1": {
+      "model_id": "whisper-1",
+      "task": "transcription",
+      "reviewed_at": "2026-10-11",
+      "status": "unavailable",
+      "group_ids": [
+        "pending-whisper-1"
+      ],
+      "source_urls": [
+        "https://developers.openai.com/api/docs/models/whisper-1"
+      ],
+      "note": "برای نسخه API با شناسه whisper-1، نتیجه عددی با دیتاست و تنظیمات مشخص در منابع بررسی‌شده پیدا نشد. امتیاز وزن‌های large-v2 یا v3 به این API نسبت داده نشده است."
+    },
+    "tts-1": {
+      "model_id": "tts-1",
+      "task": "speech",
+      "reviewed_at": "2026-10-11",
+      "status": "unavailable",
+      "group_ids": [
+        "pending-tts-1"
+      ],
+      "source_urls": [
+        "https://developers.openai.com/api/docs/models/tts-1"
+      ],
+      "note": "برای TTS-1 امتیاز MOS با زبان، نمونه‌ها و روش داوری مشخص در منبع رسمی ثبت نشده است؛ کیفیت ادراکی را نمی‌توان از قیمت یا تعداد صداها نتیجه گرفت."
+    },
+    "flux-2-klein-4b": {
+      "model_id": "flux-2-klein-4b",
+      "task": "image",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "image-geneval"
+      ],
+      "source_urls": [
+        "https://huggingface.co/prism-ml/bonsai-image-ternary-4B-mlx-2bit"
+      ],
+      "note": "نتایج baseline مدل‌های FLUX در ارزیابی Prism ML روی H100. GenEval با پروتکل 512×512؛ اعداد ۰ تا ۱ به درصد تبدیل شده‌اند. گزارش متعلق به سازنده Bonsai است؛ آزمون مستقل torobai نیست. HPS/DPG به علت تفاوت وضوح خروجی در این مقایسه وارد نشده‌اند."
+    },
+    "rtx-3060": {
+      "model_id": "rtx-3060",
+      "task": "gpu",
+      "reviewed_at": "2026-10-11",
+      "status": "specification",
+      "group_ids": [
+        "gpu-specs"
+      ],
+      "source_urls": [
+        "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3060-3060ti/"
+      ],
+      "note": "مشخصات کارت مرجع؛ مقادیر فروشنده ممکن است متفاوت باشند. توان نامی، مصرف اندازه‌گیری‌شده سیستم نیست. حافظه اسمی با ظرفیت باینری کارت بیان شده؛ حافظه قابل استفاده را با nvidia-smi بررسی کنید. عدد نامشخص وارد رتبه‌بندی نمی‌شود. برای A100 و H100، فرم PCIe یا SXM در پیشنهاد مشخص نیست؛ توان و پهنای باند تا مشخص شدن فرم کارت درج نمی‌شود."
+    },
+    "rtx-4060-ti": {
+      "model_id": "rtx-4060-ti",
+      "task": "gpu",
+      "reviewed_at": "2026-10-11",
+      "status": "specification",
+      "group_ids": [
+        "gpu-specs"
+      ],
+      "source_urls": [
+        "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4060-4060ti/"
+      ],
+      "note": "مشخصات کارت مرجع؛ مقادیر فروشنده ممکن است متفاوت باشند. توان نامی، مصرف اندازه‌گیری‌شده سیستم نیست. حافظه اسمی با ظرفیت باینری کارت بیان شده؛ حافظه قابل استفاده را با nvidia-smi بررسی کنید. عدد نامشخص وارد رتبه‌بندی نمی‌شود. برای A100 و H100، فرم PCIe یا SXM در پیشنهاد مشخص نیست؛ توان و پهنای باند تا مشخص شدن فرم کارت درج نمی‌شود."
+    },
+    "rtx-3090": {
+      "model_id": "rtx-3090",
+      "task": "gpu",
+      "reviewed_at": "2026-10-11",
+      "status": "specification",
+      "group_ids": [
+        "gpu-specs",
+        "gpu-inference"
+      ],
+      "source_urls": [
+        "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3090-3090ti/"
+      ],
+      "note": "مشخصات کارت مرجع؛ مقادیر فروشنده ممکن است متفاوت باشند. توان نامی، مصرف اندازه‌گیری‌شده سیستم نیست. حافظه اسمی با ظرفیت باینری کارت بیان شده؛ حافظه قابل استفاده را با nvidia-smi بررسی کنید. عدد نامشخص وارد رتبه‌بندی نمی‌شود. برای A100 و H100، فرم PCIe یا SXM در پیشنهاد مشخص نیست؛ توان و پهنای باند تا مشخص شدن فرم کارت درج نمی‌شود."
+    },
+    "rtx-4090": {
+      "model_id": "rtx-4090",
+      "task": "gpu",
+      "reviewed_at": "2026-10-11",
+      "status": "specification",
+      "group_ids": [
+        "gpu-specs",
+        "gpu-inference"
+      ],
+      "source_urls": [
+        "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/"
+      ],
+      "note": "مشخصات کارت مرجع؛ مقادیر فروشنده ممکن است متفاوت باشند. توان نامی، مصرف اندازه‌گیری‌شده سیستم نیست. حافظه اسمی با ظرفیت باینری کارت بیان شده؛ حافظه قابل استفاده را با nvidia-smi بررسی کنید. عدد نامشخص وارد رتبه‌بندی نمی‌شود. برای A100 و H100، فرم PCIe یا SXM در پیشنهاد مشخص نیست؛ توان و پهنای باند تا مشخص شدن فرم کارت درج نمی‌شود."
+    },
+    "rtx-5090": {
+      "model_id": "rtx-5090",
+      "task": "gpu",
+      "reviewed_at": "2026-10-11",
+      "status": "specification",
+      "group_ids": [
+        "gpu-specs",
+        "gpu-inference"
+      ],
+      "source_urls": [
+        "https://www.nvidia.com/en-in/geforce/graphics-cards/50-series/rtx-5090/"
+      ],
+      "note": "مشخصات کارت مرجع؛ مقادیر فروشنده ممکن است متفاوت باشند. توان نامی، مصرف اندازه‌گیری‌شده سیستم نیست. حافظه اسمی با ظرفیت باینری کارت بیان شده؛ حافظه قابل استفاده را با nvidia-smi بررسی کنید. عدد نامشخص وارد رتبه‌بندی نمی‌شود. برای A100 و H100، فرم PCIe یا SXM در پیشنهاد مشخص نیست؛ توان و پهنای باند تا مشخص شدن فرم کارت درج نمی‌شود."
+    },
+    "gtx-1660s": {
+      "model_id": "gtx-1660s",
+      "task": "gpu",
+      "reviewed_at": "2026-10-11",
+      "status": "unavailable",
+      "group_ids": [
+        "pending-gtx-1660s"
+      ],
+      "source_urls": [
+        "https://www.nvidia.com/en-us/geforce/graphics-cards/gtx-1660-super/"
+      ],
+      "note": "برای همین کارت، آزمون اجرای مدل با تنظیمات و مدل یکسان در منابع ثبت‌شده نداریم؛ حافظه کاتالوگ جای سرعت اجرا نیست."
+    },
+    "rtx-family": {
+      "model_id": "rtx-family",
+      "task": "gpu",
+      "reviewed_at": "2026-10-11",
+      "status": "unavailable",
+      "group_ids": [
+        "pending-rtx-family"
+      ],
+      "source_urls": [],
+      "note": "عنوان «خانواده RTX» مدل دقیق کارت را مشخص نمی‌کند؛ پیش از مقایسه عملکرد باید نوع کارت از فروشنده مشخص شود."
+    },
+    "qwen3.5-9b": {
+      "model_id": "Qwen/Qwen3.5-9B",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "qwen-small"
+      ],
+      "source_urls": [
+        "https://huggingface.co/Qwen/Qwen3.5-9B"
+      ],
+      "note": "جدول Language از کارت Qwen3.5-9B؛ 4B و 9B در یک گزارش. نسخه آزمون و تنظیمات مطابق منبع؛ امتیاز فارسی یا سرعت ارائه‌دهنده از این نتایج استنباط نمی‌شود."
+    },
+    "qwen3-coder-30b": {
+      "model_id": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "ood-code"
+      ],
+      "source_urls": [
+        "https://arxiv.org/html/2601.07602v1"
+      ],
+      "note": "۵۰ مسئله طراحی شی‌گرا، پنج پاسخ برای هر مسئله، temperature=0.2 و حداکثر ۲۰۴۸ توکن. CLUE کیفیت معنایی نمودار کلاس است؛ pass@1 اینجا فقط درستی نحوی را می‌سنجد، نه قبولی تست‌های HumanEval. مقیاس ۰ تا ۱ منبع به ۰ تا ۱۰۰ تبدیل شده است؛ CLUE برای Coder برابر 86.4 ± 1.9 و Gemma برابر 84.0 ± 1.6 در گزارش است."
+    },
+    "gemma-3-12b": {
+      "model_id": "google/gemma-3-12b-it",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "gemma3-it",
+        "ood-code"
+      ],
+      "source_urls": [
+        "https://ai.google.dev/gemma/docs/core/model_card_3",
+        "https://arxiv.org/html/2601.07602v1"
+      ],
+      "note": "فقط ستون Gemma 3 IT 12B: GPQA Diamond، MMLU-Pro، HumanEval و MATH به‌صورت zero-shot. جدول PT همان صفحه برای این محصول استفاده نشده است."
+    },
+    "gemma-4-12b": {
+      "model_id": "google/gemma-4-12B-it",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "gemma4"
+      ],
+      "source_urls": [
+        "https://huggingface.co/google/gemma-4-12B-it"
+      ],
+      "note": "نسخه‌های instruction-tuned در جدول ارزیابی Google؛ وضعیت thinking و دستور اجرا مطابق کارت منبع. آزمون‌های عمومی، بدون نتیجه اختصاصی فارسی. این اعداد سرعت یا کیفیت API یک فروشنده را اندازه نمی‌گیرند."
+    },
+    "llama-3.3-70b": {
+      "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "llama33"
+      ],
+      "source_urls": [
+        "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct"
+      ],
+      "note": "ستون Llama 3.3 70B Instruct؛ MMLU-Pro پنج نمونه با CoT، GPQA Diamond بدون نمونه با CoT. IFEval مطابق گزارش ناشر؛ کیفیت فارسی به‌صورت مجزا سنجیده نشده است."
+    },
+    "mistral-small-3.1": {
+      "model_id": "mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "mistral31"
+      ],
+      "source_urls": [
+        "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503"
+      ],
+      "note": "ستون Small 3.1 24B Instruct؛ MMLU-Pro و GPQA Diamond پنج نمونه با CoT. امتیاز GPQA Main و مدل Base جدا هستند. اعداد به درصد گزارش شده‌اند."
+    },
+    "deepseek-r1-32b": {
+      "model_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "deepseek-r1"
+      ],
+      "source_urls": [
+        "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"
+      ],
+      "note": "جدول Distilled Model Evaluation؛ سقف تولید ۳۲٬۷۶۸ توکن، دما ۰٫۶ و top-p برابر ۰٫۹۵؛ برای برآورد pass@1 در آزمون‌های نمونه‌گیری از ۶۴ پاسخ استفاده شده است. فقط همین نسخه در کاتالوگ حاضر است."
+    },
+    "bge-m3": {
+      "model_id": "BAAI/bge-m3",
+      "task": "embedding",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "embedding"
+      ],
+      "source_urls": [
+        "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B"
+      ],
+      "note": "جدول MTEB Multilingual منتشرشده توسط Qwen؛ امتیاز BGE-M3 از جدول آنلاین در ۲۴ مه ۲۰۲۵ نقل شده است. این میانگین‌ها مخصوص فارسی نیستند؛ کیفیت RAG به داده و روش بازیابی هم وابسته است."
+    },
+    "qwen3-embedding": {
+      "model_id": "Qwen/Qwen3-Embedding-0.6B",
+      "task": "embedding",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "embedding"
+      ],
+      "source_urls": [
+        "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B"
+      ],
+      "note": "جدول MTEB Multilingual منتشرشده توسط Qwen؛ امتیاز BGE-M3 از جدول آنلاین در ۲۴ مه ۲۰۲۵ نقل شده است. این میانگین‌ها مخصوص فارسی نیستند؛ کیفیت RAG به داده و روش بازیابی هم وابسته است."
+    },
+    "whisper-v3-turbo": {
+      "model_id": "openai/whisper-large-v3-turbo",
+      "task": "transcription",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "whisper-turbo"
+      ],
+      "source_urls": [
+        "https://github.com/openai/whisper"
+      ],
+      "note": "سرعت نسبی تقریبی Turbo در تبدیل گفتار انگلیسی روی A100، نسبت به Whisper large. عدد ۸ ضریب سرعت است، نه RTF و نه امتیاز کیفیت یا سرعت API فروشنده؛ برای زبان و سخت‌افزار دیگر تضمین ندارد."
+    },
+    "flux-1-schnell": {
+      "model_id": "black-forest-labs/FLUX.1-schnell",
+      "task": "image",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "image-geneval"
+      ],
+      "source_urls": [
+        "https://huggingface.co/prism-ml/bonsai-image-ternary-4B-mlx-2bit"
+      ],
+      "note": "نتایج baseline مدل‌های FLUX در ارزیابی Prism ML روی H100. GenEval با پروتکل 512×512؛ اعداد ۰ تا ۱ به درصد تبدیل شده‌اند. گزارش متعلق به سازنده Bonsai است؛ آزمون مستقل torobai نیست. HPS/DPG به علت تفاوت وضوح خروجی در این مقایسه وارد نشده‌اند."
+    },
+    "laya": {
+      "model_id": "convaiinnovations/laya",
+      "task": "decision",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "laya-decision"
+      ],
+      "source_urls": [
+        "https://huggingface.co/convaiinnovations/laya"
+      ],
+      "note": "دو checkpoint اصلی laya و laya-multilingual؛ بدون Router و بدون نسخه laya-typed-decisions. دقت‌های ۰ تا ۱ منبع به درصد تبدیل شده‌اند. XNLI چندزبانه میانگین ۱۴ زبان دیگر است و امتیاز فارسی محسوب نمی‌شود."
+    },
+    "laya-multilingual": {
+      "model_id": "convaiinnovations/laya-multilingual",
+      "task": "decision",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "laya-decision"
+      ],
+      "source_urls": [
+        "https://huggingface.co/convaiinnovations/laya"
+      ],
+      "note": "دو checkpoint اصلی laya و laya-multilingual؛ بدون Router و بدون نسخه laya-typed-decisions. دقت‌های ۰ تا ۱ منبع به درصد تبدیل شده‌اند. XNLI چندزبانه میانگین ۱۴ زبان دیگر است و امتیاز فارسی محسوب نمی‌شود."
+    },
+    "decider-2b": {
+      "model_id": "Mapika/decider-2b",
+      "task": "decision",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "decider"
+      ],
+      "source_urls": [
+        "https://huggingface.co/Mapika/decider-2b"
+      ],
+      "note": "نسخه 2B v11 و 4B v2.1 در decider-ai 1.4.0 با نگاشت دما برای نوع پاسخ؛ regression شامل ۶۷ کار آشنا و ۲۸ کار کنارگذاشته‌شده است. دقت‌های ۰ تا ۱ منبع به درصد تبدیل شده‌اند. این نتایج مخصوص فارسی نیستند."
+    },
+    "decider-4b": {
+      "model_id": "Mapika/decider-4b",
+      "task": "decision",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "decider"
+      ],
+      "source_urls": [
+        "https://huggingface.co/Mapika/decider-4b"
+      ],
+      "note": "نسخه 2B v11 و 4B v2.1 در decider-ai 1.4.0 با نگاشت دما برای نوع پاسخ؛ regression شامل ۶۷ کار آشنا و ۲۸ کار کنارگذاشته‌شده است. دقت‌های ۰ تا ۱ منبع به درصد تبدیل شده‌اند. این نتایج مخصوص فارسی نیستند."
+    },
+    "a100-80gb": {
+      "model_id": "NVIDIA A100 80GB",
+      "task": "gpu",
+      "reviewed_at": "2026-10-11",
+      "status": "specification",
+      "group_ids": [
+        "gpu-specs"
+      ],
+      "source_urls": [
+        "https://www.nvidia.com/en-us/data-center/a100/"
+      ],
+      "note": "مشخصات کارت مرجع؛ مقادیر فروشنده ممکن است متفاوت باشند. توان نامی، مصرف اندازه‌گیری‌شده سیستم نیست. حافظه اسمی با ظرفیت باینری کارت بیان شده؛ حافظه قابل استفاده را با nvidia-smi بررسی کنید. عدد نامشخص وارد رتبه‌بندی نمی‌شود. برای A100 و H100، فرم PCIe یا SXM در پیشنهاد مشخص نیست؛ توان و پهنای باند تا مشخص شدن فرم کارت درج نمی‌شود."
+    },
+    "h100-80gb": {
+      "model_id": "NVIDIA H100 80GB",
+      "task": "gpu",
+      "reviewed_at": "2026-10-11",
+      "status": "specification",
+      "group_ids": [
+        "gpu-specs"
+      ],
+      "source_urls": [
+        "https://www.nvidia.com/en-us/data-center/h100/"
+      ],
+      "note": "مشخصات کارت مرجع؛ مقادیر فروشنده ممکن است متفاوت باشند. توان نامی، مصرف اندازه‌گیری‌شده سیستم نیست. حافظه اسمی با ظرفیت باینری کارت بیان شده؛ حافظه قابل استفاده را با nvidia-smi بررسی کنید. عدد نامشخص وارد رتبه‌بندی نمی‌شود. برای A100 و H100، فرم PCIe یا SXM در پیشنهاد مشخص نیست؛ توان و پهنای باند تا مشخص شدن فرم کارت درج نمی‌شود."
+    },
+    "qwen3.8-27b": {
+      "model_id": "Qwen/Qwen3.8-27B",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "qwen38-flash"
+      ],
+      "source_urls": [
+        "https://huggingface.co/Qwen/Qwen3.8-Flash-Next"
+      ],
+      "note": "دو ستون Qwen3.8-Flash-Next و Qwen3.8-27B در یک جدول Qwen. نسخه آزمون و شرایط هر عامل مطابق یادداشت‌های همان کارت است. نتایج عمومی، بدون آزمون اختصاصی فارسی."
+    },
+    "qwen3.8-flash-next": {
+      "model_id": "Qwen/Qwen3.8-Flash-Next",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "qwen38-flash"
+      ],
+      "source_urls": [
+        "https://huggingface.co/Qwen/Qwen3.8-Flash-Next"
+      ],
+      "note": "دو ستون Qwen3.8-Flash-Next و Qwen3.8-27B در یک جدول Qwen. نسخه آزمون و شرایط هر عامل مطابق یادداشت‌های همان کارت است. نتایج عمومی، بدون آزمون اختصاصی فارسی."
+    },
+    "qwen3.8-max": {
+      "model_id": "Qwen/Qwen3.8-2.4T-A95B",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "qwen38-max"
+      ],
+      "source_urls": [
+        "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+      ],
+      "note": "ستون آخر Qwen3.8-Max در کارت Qwen3.8-2.4T-A95B. HLE بدون ابزار از HLE با ابزار جداست. نتایج داخلی عامل‌ها در شرایط همان گزارش خوانده شوند."
+    },
+    "qwen3.6-27b": {
+      "model_id": "Qwen/Qwen3.6-27B",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "qwen36"
+      ],
+      "source_urls": [
+        "https://huggingface.co/Qwen/Qwen3.6-27B"
+      ],
+      "note": "ستون‌های Qwen3.6-27B و Qwen3.6-35B-A3B در جدول 27B. نتیجه 3.5 جایگزین 3.6 نشده است؛ تنظیمات ارزیابی مطابق کارت Qwen."
+    },
+    "qwen3.6-35b-a3b": {
+      "model_id": "Qwen/Qwen3.6-35B-A3B",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "qwen36"
+      ],
+      "source_urls": [
+        "https://huggingface.co/Qwen/Qwen3.6-27B"
+      ],
+      "note": "ستون‌های Qwen3.6-27B و Qwen3.6-35B-A3B در جدول 27B. نتیجه 3.5 جایگزین 3.6 نشده است؛ تنظیمات ارزیابی مطابق کارت Qwen."
+    },
+    "qwen3.5-0.8b": {
+      "model_id": "Qwen/Qwen3.5-0.8B",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "qwen-tiny"
+      ],
+      "source_urls": [
+        "https://huggingface.co/Qwen/Qwen3.5-2B"
+      ],
+      "note": "فقط جدول Instruct (Non-Thinking) Mode؛ با حالت Thinking مقایسه مستقیم نمی‌شود. MMMLU میانگین چندزبانه است، نه امتیاز اختصاصی فارسی."
+    },
+    "qwen3.5-2b": {
+      "model_id": "Qwen/Qwen3.5-2B",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "qwen-tiny"
+      ],
+      "source_urls": [
+        "https://huggingface.co/Qwen/Qwen3.5-2B"
+      ],
+      "note": "فقط جدول Instruct (Non-Thinking) Mode؛ با حالت Thinking مقایسه مستقیم نمی‌شود. MMMLU میانگین چندزبانه است، نه امتیاز اختصاصی فارسی."
+    },
+    "qwen3.5-4b": {
+      "model_id": "Qwen/Qwen3.5-4B",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "qwen-small"
+      ],
+      "source_urls": [
+        "https://huggingface.co/Qwen/Qwen3.5-9B"
+      ],
+      "note": "جدول Language از کارت Qwen3.5-9B؛ 4B و 9B در یک گزارش. نسخه آزمون و تنظیمات مطابق منبع؛ امتیاز فارسی یا سرعت ارائه‌دهنده از این نتایج استنباط نمی‌شود."
+    },
+    "qwen3.5-27b": {
+      "model_id": "Qwen/Qwen3.5-27B",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "qwen-large"
+      ],
+      "source_urls": [
+        "https://huggingface.co/Qwen/Qwen3.5-27B"
+      ],
+      "note": "جدول Language از کارت Qwen3.5-27B؛ نسخه‌های post-trained و تنظیمات گزارش سازنده. این گروه با نتایج non-thinking ادغام نمی‌شود. امتیاز فارسی جداگانه منتشر نشده است."
+    },
+    "qwen3.5-35b-a3b": {
+      "model_id": "Qwen/Qwen3.5-35B-A3B",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "qwen-large"
+      ],
+      "source_urls": [
+        "https://huggingface.co/Qwen/Qwen3.5-27B"
+      ],
+      "note": "جدول Language از کارت Qwen3.5-27B؛ نسخه‌های post-trained و تنظیمات گزارش سازنده. این گروه با نتایج non-thinking ادغام نمی‌شود. امتیاز فارسی جداگانه منتشر نشده است."
+    },
+    "gemma-4-e2b": {
+      "model_id": "google/gemma-4-E2B-it",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "gemma4"
+      ],
+      "source_urls": [
+        "https://huggingface.co/google/gemma-4-31B-it"
+      ],
+      "note": "نسخه‌های instruction-tuned در جدول ارزیابی Google؛ وضعیت thinking و دستور اجرا مطابق کارت منبع. آزمون‌های عمومی، بدون نتیجه اختصاصی فارسی. این اعداد سرعت یا کیفیت API یک فروشنده را اندازه نمی‌گیرند."
+    },
+    "gemma-4-e4b": {
+      "model_id": "google/gemma-4-E4B-it",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "gemma4"
+      ],
+      "source_urls": [
+        "https://huggingface.co/google/gemma-4-31B-it"
+      ],
+      "note": "نسخه‌های instruction-tuned در جدول ارزیابی Google؛ وضعیت thinking و دستور اجرا مطابق کارت منبع. آزمون‌های عمومی، بدون نتیجه اختصاصی فارسی. این اعداد سرعت یا کیفیت API یک فروشنده را اندازه نمی‌گیرند."
+    },
+    "gemma-4-26b-a4b": {
+      "model_id": "google/gemma-4-26B-A4B-it",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "gemma4"
+      ],
+      "source_urls": [
+        "https://huggingface.co/google/gemma-4-31B-it"
+      ],
+      "note": "نسخه‌های instruction-tuned در جدول ارزیابی Google؛ وضعیت thinking و دستور اجرا مطابق کارت منبع. آزمون‌های عمومی، بدون نتیجه اختصاصی فارسی. این اعداد سرعت یا کیفیت API یک فروشنده را اندازه نمی‌گیرند."
+    },
+    "gemma-4-31b": {
+      "model_id": "google/gemma-4-31B-it",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "gemma4"
+      ],
+      "source_urls": [
+        "https://huggingface.co/google/gemma-4-31B-it"
+      ],
+      "note": "نسخه‌های instruction-tuned در جدول ارزیابی Google؛ وضعیت thinking و دستور اجرا مطابق کارت منبع. آزمون‌های عمومی، بدون نتیجه اختصاصی فارسی. این اعداد سرعت یا کیفیت API یک فروشنده را اندازه نمی‌گیرند."
+    },
+    "avanvis-fa": {
+      "model_id": "avanvis-fa/1.0",
+      "task": "transcription",
+      "reviewed_at": "2026-10-11",
+      "status": "scenario",
+      "group_ids": [
+        "fa-asr"
+      ],
+      "source_urls": [],
+      "note": "مقادیر فرضی برای مقایسه سناریو؛ آزمون اجرا نشده است. فرض مشترک: صوت فارسی تک‌گوینده ۱۶ کیلوهرتز، نرمال‌سازی ی/ک و نیم‌فاصله، بدون علائم نگارشی. WER کمتر بهتر است؛ RTF برابر ۰٫۲ یعنی ۱۲ ثانیه پردازش برای یک دقیقه صوت."
+    },
+    "shenava-call": {
+      "model_id": "shenava-call/1.0",
+      "task": "transcription",
+      "reviewed_at": "2026-10-11",
+      "status": "scenario",
+      "group_ids": [
+        "fa-asr"
+      ],
+      "source_urls": [],
+      "note": "مقادیر فرضی برای مقایسه سناریو؛ آزمون اجرا نشده است. فرض مشترک: صوت فارسی تک‌گوینده ۱۶ کیلوهرتز، نرمال‌سازی ی/ک و نیم‌فاصله، بدون علائم نگارشی. WER کمتر بهتر است؛ RTF برابر ۰٫۲ یعنی ۱۲ ثانیه پردازش برای یک دقیقه صوت."
+    },
+    "tarjoman-en-fa": {
+      "model_id": "tarjoman-en-fa/1.0",
+      "task": "translation",
+      "reviewed_at": "2026-10-11",
+      "status": "scenario",
+      "group_ids": [
+        "fa-translation"
+      ],
+      "source_urls": [],
+      "note": "مقادیر فرضی برای بررسی سناریو؛ این مدل‌ها در این آزمون اجرا نشده‌اند. فرض مشترک: متن کاری انگلیسی، مرجع فارسی، نرمال‌سازی نویسه‌ها و حفظ اعداد و اصطلاحات. chrF++ به‌تنهایی روانی یا درستی معنایی را تضمین نمی‌کند."
+    },
+    "tarjoman-fa-en": {
+      "model_id": "tarjoman-fa-en/1.0",
+      "task": "translation",
+      "reviewed_at": "2026-10-11",
+      "status": "scenario",
+      "group_ids": [
+        "scenario-tarjoman-fa-en"
+      ],
+      "source_urls": [],
+      "note": "سناریوی فرضی برای مدل اختصاصی؛ آزمون اجرا نشده است. ۱۰۰۰ جمله عمومی و اداری فارسی به انگلیسی؛ نرمال‌سازی نیم‌فاصله و اعداد."
+    },
+    "khanesh-fa": {
+      "model_id": "khanesh-fa/1.0",
+      "task": "speech",
+      "reviewed_at": "2026-10-11",
+      "status": "scenario",
+      "group_ids": [
+        "scenario-khanesh-fa"
+      ],
+      "source_urls": [],
+      "note": "سناریوی فرضی برای مدل اختصاصی؛ آزمون اجرا نشده است. ۲۰۰ جمله فارسی و داوری شنیداری با مقیاس ۱ تا ۵."
+    },
+    "negar-ocr": {
+      "model_id": "negar-ocr/1.0",
+      "task": "ocr",
+      "reviewed_at": "2026-10-11",
+      "status": "scenario",
+      "group_ids": [
+        "scenario-negar-ocr"
+      ],
+      "source_urls": [],
+      "note": "سناریوی فرضی برای مدل اختصاصی؛ آزمون اجرا نشده است. ۱۰۰۰ برش از سند چاپی فارسی با وضوح ۳۰۰ dpi؛ بدون دست‌نویس."
+    },
+    "sanad-invoice": {
+      "model_id": "sanad-invoice/1.0",
+      "task": "extraction",
+      "reviewed_at": "2026-10-11",
+      "status": "scenario",
+      "group_ids": [
+        "scenario-sanad-invoice"
+      ],
+      "source_urls": [],
+      "note": "سناریوی فرضی برای مدل اختصاصی؛ آزمون اجرا نشده است. ۵۰۰ فاکتور فارسی؛ نام فروشنده، تاریخ، مبلغ و ردیف کالا."
+    },
+    "jostejoo-fa": {
+      "model_id": "jostejoo-fa/1.0",
+      "task": "embedding",
+      "reviewed_at": "2026-10-11",
+      "status": "scenario",
+      "group_ids": [
+        "scenario-jostejoo-fa"
+      ],
+      "source_urls": [],
+      "note": "سناریوی فرضی برای مدل اختصاصی؛ آزمون اجرا نشده است. ۲۰۰۰ پرسش و اسناد پشتیبانی فارسی؛ ده نتیجه اول."
+    },
+    "nazar-fa": {
+      "model_id": "nazar-fa/1.0",
+      "task": "classification",
+      "reviewed_at": "2026-10-11",
+      "status": "scenario",
+      "group_ids": [
+        "scenario-nazar-fa"
+      ],
+      "source_urls": [],
+      "note": "سناریوی فرضی برای مدل اختصاصی؛ آزمون اجرا نشده است. ۳۰۰۰ نظر فارسی متوازن در سه کلاس مثبت، منفی و خنثی."
+    },
+    "hamyar-support": {
+      "model_id": "hamyar-support/1.0",
+      "task": "chat",
+      "reviewed_at": "2026-10-11",
+      "status": "scenario",
+      "group_ids": [
+        "scenario-hamyar-support"
+      ],
+      "source_urls": [],
+      "note": "سناریوی فرضی برای مدل اختصاصی؛ آزمون اجرا نشده است. ۱۰۰۰ درخواست پشتیبانی فارسی با پاسخ مرجع و اسناد یکسان."
+    },
+    "whisper-fa-cv17": {
+      "model_id": "MohammadGholizadeh/whisper-large-v3-persian-common-voice-17",
+      "task": "transcription",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "whisper-fa"
+      ],
+      "source_urls": [
+        "https://huggingface.co/MohammadGholizadeh/whisper-large-v3-persian-common-voice-17"
+      ],
+      "note": "WER برابر 21.43 در کارت همین مدل fine-tuned گزارش شده است. کارت مدل تعداد دقیق نمونه‌های آزمون و روش نرمال‌سازی متن را مشخص نمی‌کند؛ با آزمون نویزی یا دیتاست دیگر رتبه‌بندی نشود."
+    },
+    "parsinlu-en-fa": {
+      "model_id": "persiannlp/mt5-base-parsinlu-translation_en_fa",
+      "task": "translation",
+      "reviewed_at": "2026-10-11",
+      "status": "published",
+      "group_ids": [
+        "parsinlu-translation"
+      ],
+      "source_urls": [
+        "https://github.com/Mofid-AI/persian-nlp-benchmark"
+      ],
+      "note": "ترجمه انگلیسی به فارسی، مدل mt5-base-parsinlu-translation_en_fa. BLEU زیرمجموعه‌های Mizan و QQP در گزارش ارزیاب؛ مقدار پایین به معنی درصد رضایت انسانی نیست. داده ترکیبی و روش اجرا در نوت‌بوک منبع آمده است."
+    },
+    "hezar-crnn-fa": {
+      "model_id": "hezarai/crnn-base-fa-v2",
+      "task": "ocr",
+      "reviewed_at": "2026-10-11",
+      "status": "unavailable",
+      "group_ids": [
+        "pending-hezar-crnn-fa"
+      ],
+      "source_urls": [
+        "https://huggingface.co/hezarai/crnn-base-fa-v2"
+      ],
+      "note": "کارت CRNN فارسی v2 کاربرد و محدودیت متن چاپی را توضیح می‌دهد، اما مقدار CER/WER و مجموعه آزمون را منتشر نکرده است؛ امتیاز نسخه v1 جایگزین نشده است."
+    }
+  }
+}

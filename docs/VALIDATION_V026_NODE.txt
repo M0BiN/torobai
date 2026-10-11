@@ -1,0 +1,60 @@
+Chatbot: portable/served DOM, quote/destination parity, corrections, budget, GPU, seller, pending and stale-reply checks passed.
+✔ chatbot/tests/test_chatbot.cjs (1420.416736ms)
+{"status":"passed","scenarios":10,"scope":"Served DOM with real Python fixtures, controlled network and cache assertions; no browser rendering"}
+✔ tests/test_estimate_cache.cjs (2081.963191ms)
+✔ categories keep one scrollable horizontal row at every width (6.062037ms)
+✔ the category scrollbar has a visible rounded thumb and Chromium plus standard styles (3.26643ms)
+✔ daily uptime remains square and wraps into two rows on narrow screens (3.394277ms)
+✔ five primary destinations have an explicit one-row compact navigation override (0.669936ms)
+{"status":"passed","scenarios":3,"scope":"Served-page DOM with Python calculation fixtures; no browser rendering"}
+✔ tests/test_live_ui.cjs (1389.022028ms)
+Marketplace DOM scenarios passed: seller search/profiles, API + weights, scoped price watch, GPU presets, reports, exports, escaping and failed storage.
+✔ tests/test_marketplace.cjs (1012.520513ms)
+v018 buyer/supplier/admin DOM flows passed: capability scope, search, comparison, bills, approval/editing, API+weights, tariff imports/API+GPU, storage failures, history/alerts, GPU matching, samples and new model approval.
+✔ tests/test_marketplace_v018.cjs (2988.970187ms)
+Motion regression passed: frame staging, content measurement, retained nodes, native visibility, reversal, popovers, focus, reduced motion, failures, dialogs and resize.
+✔ tests/test_motion.cjs (306.896601ms)
+{"status":"passed","scenarios":19,"scope":"Ready navigation, exclusive product tabs, history and scroll-command checks; no browser rendering"}
+✔ tests/test_navigation_update.cjs (2662.797905ms)
+{"status":"passed","groups":41,"cohort_views":123,"product_profiles":62,"scope":"Exported DOM, exact-cost reuse, benchmark provenance and GPU scheduling/scroll commands; no browser rendering"}
+✔ tests/test_performance.cjs (3428.852564ms)
+{
+  "status": "passed",
+  "product_routes": 62,
+  "scenarios": 82,
+  "scope": "DOM execution and events; no browser layout or pixel checks"
+}
+✔ tests/test_portable.cjs (7972.808778ms)
+{"status":"passed","exact_python_js_cases":4140}
+✔ tests/test_pricing_conformance.cjs (1318.608044ms)
+✔ Persian numerals accept both keyboards and reject malformed amounts (27.685569ms)
+✔ search understands Persian digits and retains downloadable decision models (3.727191ms)
+✔ a required SSH connection must actually appear in at least one offer (1.175388ms)
+✔ rates preserve zero and cannot turn missing, unverified or unavailable into cheapest (0.301127ms)
+✔ saved lists tolerate corrupt storage and stale catalog IDs (0.528834ms)
+✔ provider filters constrain quoted card rates without changing the shared catalog (1.238626ms)
+✔ both price directions retain zero and place unknown prices last (0.46339ms)
+✔ untrusted text and non-HTTPS destinations cannot become executable markup (0.401838ms)
+✔ Persian specialization and purchased weights are independent from public weights (2.265583ms)
+✔ listing validation checks rights, access-specific fields and unsafe destinations (1.03234ms)
+✔ task aliases, base checkpoints and language details participate in search (2.566181ms)
+✔ provider plus acquisition filters retain only matching weight or API offers (5.628641ms)
+✔ hash routing rejects malformed paths and normalizes unsupported filters (1.555875ms)
+✔ detail deep links carry their own provider and the Persian navigation origin (0.563247ms)
+✔ a comparable-price filter excludes monthly-only rentals under a short rental preset (0.544279ms)
+✔ numeric grouping cannot silently change malformed input into another amount (0.284074ms)
+✔ decision listings use the same input billing as catalog decision models (0.25149ms)
+✔ pagination partitions results, bounds invalid pages and handles empty lists (0.585026ms)
+✔ usage, batch and pagination links accept valid bounded values (1.010236ms)
+✔ offline rational arithmetic accepts tiny decimal workloads and rounds half up (0.380124ms)
+✔ publisher Batch terms require independent rates, a completion window and a job cap (0.442099ms)
+{"status":"passed","scenarios":9,"scope":"DOM and scroll-command assertions; not browser rendering"}
+✔ tests/test_usage_update.cjs (971.193487ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9012.437764

@@ -1,0 +1,17 @@
+Chatbot: portable/served DOM, quote/destination parity, corrections, budget, GPU, seller, pending and stale-reply checks passed.
+✔ chatbot/tests/test_chatbot.cjs (917.483704ms)
+{
+  "status": "passed",
+  "product_routes": 62,
+  "scenarios": 82,
+  "scope": "DOM execution and events; no browser layout or pixel checks"
+}
+✔ tests/test_portable.cjs (9847.812588ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9861.573289

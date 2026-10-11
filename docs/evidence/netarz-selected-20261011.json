@@ -1,0 +1,321 @@
+[
+  {
+    "id": "gpt-4o-mini",
+    "object": "model",
+    "created": 1788039471,
+    "owned_by": "openai",
+    "name": "GPT-4o mini",
+    "type": "chat",
+    "description": "انتخاب ارزان و پرکاربرد برای حجم بالا.",
+    "context_length": 128000,
+    "max_output_tokens": 16384,
+    "capabilities": {
+      "streaming": true,
+      "tools": true,
+      "json": true,
+      "vision": true
+    },
+    "is_free": false,
+    "pricing": {
+      "input_per_million": "0.210000",
+      "output_per_million": "0.840000",
+      "cached_input_per_million": "0.105000"
+    },
+    "pricing_toman": {
+      "input_per_million": 56700,
+      "output_per_million": 226800,
+      "cached_input_per_million": 28350
+    },
+    "pricing_unit": "USD per 1M tokens unless stated (per_image, per_minute, per_second, per_million_characters, per_request)"
+  },
+  {
+    "id": "gpt-5-nano",
+    "object": "model",
+    "created": 1788039471,
+    "owned_by": "openai",
+    "name": "GPT-5 nano",
+    "type": "chat",
+    "description": "ارزان‌ترین عضو خانوادهٔ GPT-5 برای طبقه‌بندی و خلاصه‌سازی حجیم.",
+    "context_length": 400000,
+    "max_output_tokens": 128000,
+    "capabilities": {
+      "streaming": true,
+      "tools": true,
+      "json": true,
+      "vision": true,
+      "reasoning": true
+    },
+    "is_free": false,
+    "pricing": {
+      "input_per_million": "0.070000",
+      "output_per_million": "0.560000",
+      "cached_input_per_million": "0.007000"
+    },
+    "pricing_toman": {
+      "input_per_million": 18900,
+      "output_per_million": 151200,
+      "cached_input_per_million": 1890
+    },
+    "pricing_unit": "USD per 1M tokens unless stated (per_image, per_minute, per_second, per_million_characters, per_request)"
+  },
+  {
+    "id": "gpt-5-mini",
+    "object": "model",
+    "created": 1788039471,
+    "owned_by": "openai",
+    "name": "GPT-5 mini",
+    "type": "chat",
+    "description": "نسخهٔ سریع و اقتصادی GPT-5 برای کارهای روزمره.",
+    "context_length": 400000,
+    "max_output_tokens": 128000,
+    "capabilities": {
+      "streaming": true,
+      "tools": true,
+      "json": true,
+      "vision": true,
+      "reasoning": true
+    },
+    "is_free": false,
+    "pricing": {
+      "input_per_million": "0.350000",
+      "output_per_million": "2.800000",
+      "cached_input_per_million": "0.035000"
+    },
+    "pricing_toman": {
+      "input_per_million": 94500,
+      "output_per_million": 756000,
+      "cached_input_per_million": 9450
+    },
+    "pricing_unit": "USD per 1M tokens unless stated (per_image, per_minute, per_second, per_million_characters, per_request)"
+  },
+  {
+    "id": "gpt-4o",
+    "object": "model",
+    "created": 1788039471,
+    "owned_by": "openai",
+    "name": "GPT-4o",
+    "type": "chat",
+    "description": "مدل چندوجهی نسل ۴o.",
+    "context_length": 128000,
+    "max_output_tokens": 16384,
+    "capabilities": {
+      "streaming": true,
+      "tools": true,
+      "json": true,
+      "vision": true
+    },
+    "is_free": false,
+    "pricing": {
+      "input_per_million": "3.500000",
+      "output_per_million": "14.000000",
+      "cached_input_per_million": "1.750000"
+    },
+    "pricing_toman": {
+      "input_per_million": 945000,
+      "output_per_million": 3780000,
+      "cached_input_per_million": 472500
+    },
+    "pricing_unit": "USD per 1M tokens unless stated (per_image, per_minute, per_second, per_million_characters, per_request)"
+  },
+  {
+    "id": "gemini-3.8-flash",
+    "object": "model",
+    "created": 1788674544,
+    "owned_by": "google",
+    "name": "Gemini 3.8 Flash",
+    "type": "chat",
+    "description": "از مدل‌های Flash گوگل، برای کار روزمره با هزینهٔ کمتر. قیمت تا ۳۱ دسامبر ۲۰۲۶ تبلیغاتی است و پس از آن دو برابر می‌شود.",
+    "context_length": 1048576,
+    "max_output_tokens": 65536,
+    "capabilities": {
+      "streaming": true,
+      "tools": true,
+      "json": true,
+      "vision": true,
+      "reasoning": true
+    },
+    "is_free": false,
+    "pricing": {
+      "input_per_million": "1.050000",
+      "output_per_million": "5.250000",
+      "cached_input_per_million": "0.105000"
+    },
+    "pricing_toman": {
+      "input_per_million": 283500,
+      "output_per_million": 1417500,
+      "cached_input_per_million": 28350
+    },
+    "pricing_unit": "USD per 1M tokens unless stated (per_image, per_minute, per_second, per_million_characters, per_request)"
+  },
+  {
+    "id": "openrouter/anthropic/claude-sonnet-4.5",
+    "object": "model",
+    "created": 1788039865,
+    "owned_by": "openrouter",
+    "name": "Anthropic: Claude Sonnet 4.5",
+    "type": "chat",
+    "description": "مدل Sonnet 4.5 از Anthropic برای عامل‌های (Agent) کاربردی و گردش‌کار کدنویسی؛ در محک‌هایی مثل SWE-bench Verified عملکرد بالایی دارد. کانتکست یک میلیون توکنی دارد.",
+    "context_length": 1000000,
+    "max_output_tokens": 64000,
+    "capabilities": {
+      "vision": true,
+      "audio_input": false,
+      "image_output": false,
+      "tools": true,
+      "json": true,
+      "reasoning": true,
+      "streaming": true,
+      "not_sold_reason": null
+    },
+    "is_free": false,
+    "pricing": {
+      "input_per_million": "4.589250",
+      "output_per_million": "22.946250",
+      "cached_input_per_million": "0.458925",
+      "long_context_threshold": 200000,
+      "input_per_million_long": "9.178500",
+      "output_per_million_long": "34.419375"
+    },
+    "pricing_toman": {
+      "input_per_million": 1239098,
+      "output_per_million": 6195488,
+      "cached_input_per_million": 123910,
+      "input_per_million_long": 2478195,
+      "output_per_million_long": 9293232
+    },
+    "pricing_unit": "USD per 1M tokens unless stated (per_image, per_minute, per_second, per_million_characters, per_request)"
+  },
+  {
+    "id": "deepseek-v4-pro",
+    "object": "model",
+    "created": 1788273412,
+    "owned_by": "deepseek",
+    "name": "DeepSeek V4 Pro",
+    "type": "chat",
+    "description": "نسخهٔ Pro دیپ‌سیک با پنجرهٔ یک‌میلیون توکنی و حالت تفکر، برای کارهای سنگین‌تر از Flash.",
+    "context_length": 1000000,
+    "max_output_tokens": 384000,
+    "capabilities": {
+      "streaming": true,
+      "tools": true,
+      "json": true,
+      "reasoning": true
+    },
+    "is_free": false,
+    "pricing": {
+      "input_per_million": "1.848000",
+      "output_per_million": "5.544000",
+      "cached_input_per_million": "0.061600"
+    },
+    "pricing_toman": {
+      "input_per_million": 498960,
+      "output_per_million": 1496880,
+      "cached_input_per_million": 16632
+    },
+    "pricing_unit": "USD per 1M tokens unless stated (per_image, per_minute, per_second, per_million_characters, per_request)"
+  },
+  {
+    "id": "text-embedding-3-small",
+    "object": "model",
+    "created": 1788039471,
+    "owned_by": "openai",
+    "name": "Text Embedding 3 Small",
+    "type": "embedding",
+    "description": "امبدینگ ارزان و سریع، ۱۵۳۶ بُعد.",
+    "context_length": 8191,
+    "max_output_tokens": null,
+    "capabilities": {
+      "dimensions": 1536
+    },
+    "is_free": false,
+    "pricing": {
+      "input_per_million": "0.028000"
+    },
+    "pricing_toman": {
+      "input_per_million": 7560
+    },
+    "pricing_unit": "USD per 1M tokens unless stated (per_image, per_minute, per_second, per_million_characters, per_request)"
+  },
+  {
+    "id": "whisper-1",
+    "object": "model",
+    "created": 1788039471,
+    "owned_by": "openai",
+    "name": "Whisper v1",
+    "type": "audio",
+    "description": "ویسپر کلاسیک؛ خروجی verbose_json و ترجمه را پشتیبانی می‌کند.",
+    "context_length": null,
+    "max_output_tokens": null,
+    "capabilities": {
+      "verbose_json": true,
+      "translation": true
+    },
+    "is_free": false,
+    "pricing": {
+      "per_minute": "0.008400"
+    },
+    "pricing_toman": {
+      "per_minute": 2268
+    },
+    "pricing_unit": "USD per 1M tokens unless stated (per_image, per_minute, per_second, per_million_characters, per_request)"
+  },
+  {
+    "id": "tts-1",
+    "object": "model",
+    "created": 1788039471,
+    "owned_by": "openai",
+    "name": "TTS-1",
+    "type": "audio",
+    "description": "تبدیل متن به گفتار استاندارد؛ هزینه بر پایهٔ کاراکتر.",
+    "context_length": null,
+    "max_output_tokens": null,
+    "capabilities": {
+      "voices": [
+        "alloy",
+        "echo",
+        "fable",
+        "onyx",
+        "nova",
+        "shimmer"
+      ]
+    },
+    "is_free": false,
+    "pricing": {
+      "per_million_characters": "21.000000"
+    },
+    "pricing_toman": {
+      "per_million_characters": 5670000
+    },
+    "pricing_unit": "USD per 1M tokens unless stated (per_image, per_minute, per_second, per_million_characters, per_request)"
+  },
+  {
+    "id": "openrouter/black-forest-labs/flux.2-klein-4b",
+    "object": "model",
+    "created": 1791480342,
+    "owned_by": "openrouter",
+    "name": "Black Forest Labs: FLUX.2 Klein 4B",
+    "type": "image",
+    "description": "سریع‌ترین مدل خانوادهٔ FLUX.2 از Black Forest Labs با ۴ میلیارد پارامتر؛ نسخه‌ای سبک برای تولید و ویرایش تصویر در حجم بالا که تصویر مرجع هم می‌پذیرد.",
+    "context_length": 40960,
+    "max_output_tokens": 36864,
+    "capabilities": {
+      "vision": true,
+      "audio_input": false,
+      "image_output": true,
+      "tools": false,
+      "json": false,
+      "reasoning": false,
+      "streaming": false,
+      "flat_image_multiplier": 1,
+      "not_sold_reason": null
+    },
+    "is_free": false,
+    "pricing": {
+      "per_image": "0.089950"
+    },
+    "pricing_toman": {
+      "per_image": 24287
+    },
+    "pricing_unit": "USD per 1M tokens unless stated (per_image, per_minute, per_second, per_million_characters, per_request)"
+  }
+]

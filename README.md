@@ -1,98 +1,73 @@
-# torobai
+<div dir="rtl">
 
-Compare AI models, API providers and GPU rentals in one place.
+<div align="center">
 
-torobai helps Persian-speaking users find a model, understand its cost and
-choose a provider. The same model can have several API offers, downloadable
-weights or a paid license. Those choices stay together, with their prices and
-terms kept separate.
+<img src="app/static/logo.svg" width="64" height="64" alt="نشان torobai">
 
-## What you can do
+<h1 dir="ltr">torobai</h1>
 
-- Search models by task, language, access and required capabilities.
-- Compare costs using your own workload, including Batch requests.
-- Compare model benchmarks and GPU specifications with their sources.
-- Find Persian speech, translation, OCR and other specialized models.
-- Ask the selection guide for help and open results with the right filters.
+**مدل مناسب را پیدا کنید، هزینه‌ها را مقایسه کنید و ارائه‌دهنده را انتخاب کنید.**
 
-The interface is plain HTML, CSS and JavaScript. FastAPI serves the catalog,
-pricing and chatbot. OpenRouter handles the chatbot's language understanding;
-the application builds recommendations from the catalog.
+مدل‌های هوش مصنوعی، سرویس‌های API و اجاره GPU، در یک مسیر جستجو و مقایسه.
 
-## Run locally
+</div>
 
-Use Python 3.12. From the repository root:
+انتخاب مدل فقط به نام آن بستگی ندارد. یک مدل ممکن است نزد چند ارائه‌دهنده، با تعرفه، امکانات و شرایط متفاوت عرضه شود. گاهی API آماده انتخاب مناسبی است و گاهی دریافت وزن‌ها و اجرای مدل روی سخت‌افزار خودتان.
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python -m uvicorn app.main:app --reload
-```
+**torobai** این انتخاب‌ها را کنار هم می‌آورد تا توسعه‌دهندگان، پژوهشگران و تیم‌های کسب‌وکار بتوانند بر اساس نیاز، بودجه و مصرفشان تصمیم بگیرند؛ با رابط فارسی، قیمت‌های تومانی و امکان بررسی جزئیات هر پیشنهاد.
 
-Open <http://127.0.0.1:8000>. On Windows, activate the environment with
-`.venv\Scripts\Activate.ps1` in PowerShell.
+## از نیاز تا انتخاب
 
-To enable free-text chat, set `OPENROUTER_API_KEY` in the server environment
-before starting the app. `OPENROUTER_MODEL` defaults to `openai/gpt-4.1-mini`.
-The key stays on the server. Without it, the guide still works through its
-ready-made choices. See [the chatbot guide](chatbot/README.md) for details.
+۱. **کاربردتان را مشخص کنید.** از برنامه‌نویسی و تولید محتوا تا تبدیل گفتار به متن، ترجمه و پردازش اسناد؛ مدل‌ها را با فیلترهای مرتبط پیدا کنید. اگر نقطه شروع را نمی‌دانید، راهنمای انتخاب به شما کمک می‌کند نیازتان را مشخص کنید و به نتایج مناسب برسید.
 
-## Deploy
+۲. **گزینه‌ها را با شرایط خودتان مقایسه کنید.** میزان مصرف را تنظیم کنید، هزینه برآوردی را ببینید و عملکرد، امکانات و شرایط دسترسی را کنار هم بسنجید.
 
-[render.yaml](render.yaml) runs the full application as a Python web service.
-Connect this repository to Render, create a Blueprint, and add the OpenRouter
-key in the service's environment settings. The file selects a free instance
-and waits for passing GitHub checks before automatic redeploys.
+۳. **پیشنهاد مناسب را انتخاب کنید.** ارزان‌ترین پیشنهاد مطابق با فیلترهایتان را بالای صفحه ببینید، سایر ارائه‌دهندگان را بررسی کنید و از لینک موجود به سایت ارائه‌دهنده بروید.
 
-See [deployment notes](docs/DEPLOYMENT.md) for the first deployment and checks.
-GitHub Pages can host the standalone HTML, but cannot run the Python chatbot.
+## چه چیزهایی را می‌توانید مقایسه کنید؟
 
-## Check a change
-
-Node 24 is used for the JavaScript tests. It is not needed to run the server.
-
-```bash
-npm ci
-python -m pytest -q tests chatbot/tests
-python scripts/export_catalog.py
-npm test
-```
-
-The tests cover catalog filtering, exact prices, navigation, conversations and
-the standalone export. GitHub Actions runs the same checks on pushes and pull
-requests. HTTP tests use controlled replies rather than paid model calls.
-
-## Build a standalone page
-
-```bash
-python scripts/export_catalog.py
-```
-
-Open `dist/torobai.html` directly in a browser. Fonts, catalog data and scripts
-are embedded. Guided chat works offline; free-text chat uses the hosted app.
-
-## Find your way around
-
-| Path | Contents |
+| گزینه | اطلاعاتی که برای انتخاب در اختیار دارید |
 | --- | --- |
-| `app/main.py` | HTTP routes and application setup |
-| `app/market.py`, `app/pricing_plan.py` | Filtering and price calculations |
-| `app/data/` | Models, provider offers, benchmarks and provenance |
-| `app/static/` | The Persian interface |
-| `chatbot/` | Selection guide, OpenRouter integration and tests |
-| `scripts/` | Catalog export and maintenance commands |
-| `tests/` | Application regression checks |
-| `docs/` | Design decisions, sources and release notes |
+| **مدل‌ها و APIها** | کاربرد، قابلیت‌ها، تعرفه ورودی و خروجی و هزینه برآوردی با مصرف دلخواه |
+| **ارائه‌دهندگان یک مدل** | قیمت و شرایط پیشنهادهای مربوط به همان نسخه از مدل |
+| **درخواست‌های دسته‌ای (Batch)** | پشتیبانی هر پیشنهاد، تعرفه، محدودیت‌ها و زمان تحویل اعلام‌شده |
+| **وزن‌ها و مجوز مدل** | دسترسی به فایل، هزینه و شرایط استفاده، در کنار گزینه‌های API همان مدل |
+| **عملکرد مدل‌ها** | بنچمارک‌ها، منبع و شرایط ارزیابی، در کنار هزینه استفاده |
+| **اجاره GPU** | حافظه هر کارت، شرایط اجاره، دسترسی SSH و برآورد حافظه مورد نیاز برای اجرای مدل |
 
-## Working with the catalog
+## هزینه را برای مصرف خودتان حساب کنید
 
-Prices are checked-in observations and reference entries, not a live price
-feed. Benchmark records distinguish published results, scenarios and missing
-evidence. Illustrative availability history is kept separate from measured
-service reliability.
+کمترین تعرفه ورودی همیشه به معنی کمترین هزینه نهایی نیست. حجم خروجی، نوع درخواست و شیوه قیمت‌گذاری ارائه‌دهنده هم روی هزینه اثر می‌گذارند.
 
-Saved items, seller drafts and review workspaces currently live in the browser.
-Hosting the app does not turn these into shared accounts or a payment service.
-Read [AGENTS.md](AGENTS.md) before changing product behavior; earlier changes
-are recorded in [the release notes](docs/CHANGELOG.md).
+در torobai می‌توانید ورودی و خروجی مورد نیازتان را جداگانه تنظیم کنید و پیشنهادها را با **یک مبنای مصرف مشترک** مقایسه کنید. برای گفتار، تصویر و سایر کاربردها هم واحد مرتبط با همان سرویس مبنا قرار می‌گیرد. مقایسه Batch تنها پیشنهادهایی را در بر می‌گیرد که پشتیبانی و شرایط آن‌ها مشخص است.
+
+## برای نیازهای فارسی
+
+در کنار مدل‌های عمومی و متن‌باز، مدل‌های تخصصی فارسی هم دسته‌بندی و مسیر مقایسه خودشان را دارند: از تشخیص گفتار فارسی و ترجمه انگلیسی به فارسی تا استخراج متن از تصویر و پردازش اسناد.
+
+مدل‌های شخصی و شرکتی نیز در همین ساختار جای می‌گیرند. یک مدل آموزش‌دیده با داده‌های اختصاصی می‌تواند هم از طریق API عرضه شود و هم با فایل وزن‌ها و مجوز مشخص در دسترس باشد. هویت و نسخه مدل ثابت می‌ماند؛ قیمت، نوع دسترسی و شرایط هر پیشنهاد جداگانه بررسی می‌شود.
+
+## برای سازندگان مدل و ارائه‌دهندگان سرویس
+
+اطلاعات مدل، کاربرد، نسخه، تعرفه و شرایط استفاده را در یک قالب مشخص آماده کنید. مسیر ثبت پیشنهاد از عرضه API، ارائه وزن‌ها یا هر دو پشتیبانی می‌کند و امکان آماده‌سازی پیش‌نویس و دریافت خروجی آن را در اختیار شما می‌گذارد.
+
+این ساختار کمک می‌کند خریدار بداند دقیقا چه چیزی دریافت می‌کند: دسترسی به سرویس، فایل مدل یا مجوز استفاده؛ همراه با شرایط مربوط به همان پیشنهاد.
+
+## جزئیات لازم، کنار هر انتخاب
+
+- فیلترها و میزان مصرف در لینک نتایج حفظ می‌شوند تا بتوانید همان مقایسه را دوباره باز کنید یا به اشتراک بگذارید.
+- می‌توانید گزینه‌های منتخب و قیمت آن‌ها را با مبنای مصرف مشخص ذخیره کنید و بعدا به آن‌ها برگردید.
+- کنار نتایج عملکرد، منبع و شرایط ارزیابی قابل بررسی است؛ نبود نتیجه با امتیاز صفر یکسان در نظر گرفته نمی‌شود.
+- تعرفه‌ها بر اساس اطلاعات ثبت‌شده در کاتالوگ محاسبه می‌شوند. پیش از خرید، قیمت و شرایط نهایی را نزد ارائه‌دهنده بررسی کنید.
+
+## اجرا و توسعه
+
+برای اجرای پروژه، تنظیم چت‌بات یا مشارکت در توسعه، از راهنماهای زیر شروع کنید:
+
+- [راه‌اندازی پروژه و ساخت فایل HTML](docs/GETTING_STARTED.md)
+- [انتشار روی سرور](docs/DEPLOYMENT.md)
+- [راهنمای چت‌بات و اتصال به OpenRouter](chatbot/README.md)
+- [راهنمای توسعه پروژه](AGENTS.md)
+- [تاریخچه تغییرات](docs/CHANGELOG.md)
+
+</div>

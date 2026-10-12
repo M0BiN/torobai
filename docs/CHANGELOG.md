@@ -1,3 +1,19 @@
+# Chatbot conversation experience — 12 October 2026
+
+The guide uses a warm surface, assistant identity, compact offer cards with
+applied criteria and catalog-backed reasons. Pending work appears beside the
+conversation with one pulsing mark and an eight-second slow-response hint.
+The send button becomes stop. Cancellation has a neutral state; failures offer
+retry and guided continuation on the affected turn. Retry retains drafts and
+does not duplicate the user message. Reduced motion disables decorative movement.
+
+Named-model needs survive automatic task inference, clarification questions stay
+separate from unverified requirements, removing a requirement cancels older work,
+and long histories fit the request byte limit by dropping older context first.
+No provider call, pricing rule, runtime dependency or autonomous agent is added.
+Rendered desktop/mobile checks remain outstanding; earlier v0.26 screenshots do
+not verify this redesign.
+
 # Deployment review fixes — 12 October 2026
 
 Docker normalizes root-owned application permissions so a private checkout does

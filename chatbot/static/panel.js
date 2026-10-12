@@ -18,7 +18,10 @@ window.TorobChat = (() => {
     returnFocus = null,
     destination = null;
   let resultRevision = 0,
-    lastPage = '';
+    lastPage = '',
+    recentBeforeSend = [],
+    slowTimer,
+    deadlineTimer;
   const $ = (id) => document.getElementById(id);
   let sheetFocus = null,
     sheetChoices = [];
@@ -28,6 +31,9 @@ window.TorobChat = (() => {
     edit: '<path d="M12 5H5v14h14v-7M10 14l1-4L19 2l3 3-8 8-4 1Z"/>',
     expand: '<path d="M9 4H4v5M15 4h5v5M4 15v5h5M20 15v5h-5"/>',
     send: '<path d="m5 12 7-7 7 7M12 5v14"/>',
+    stop: '<rect x="7" y="7" width="10" height="10" rx="2" fill="currentColor" stroke="none"/>',
+    warning: '<path d="m12 3 10 18H2L12 3Z"/><path d="M12 9v5m0 3h.01"/>',
+    retry: '<path d="M4 10a8 8 0 1 1 1 7M4 4v6h6"/>',
     settings: '<path d="M4 7h16M4 17h16M9 4v6M15 14v6"/>',
     down: '<path d="m6 9 6 6 6-6"/>',
     privacy: '<path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/>'
@@ -48,10 +54,11 @@ window.TorobChat = (() => {
       <div id="chatbotPageNotice" class="chatbot-page-notice" hidden><p>فیلترهای صفحه تغییر کرده. همین شرایط را در گفتگو هم استفاده کنیم؟</p><button type="button" data-chat-command="adopt">بله، استفاده کن</button><button type="button" data-chat-command="keep">با شرایط قبلی ادامه بده</button></div>
       <div class="chatbot-conversation"><div id="chatbotLog" class="chatbot-log" role="log" aria-label="متن گفتگو" aria-live="polite" aria-relevant="additions" tabindex="0"></div><button type="button" id="chatbotLatest" class="chatbot-latest" hidden>${icon('down')} پیام جدید</button></div>
       <div class="chatbot-bottom">
-        <div id="chatbotPending" class="chatbot-pending" role="status" hidden><span class="chatbot-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>دارم درخواستت را بررسی می‌کنم</span><button id="chatbotStop" type="button">توقف</button></div>
+        <div id="chatbotPending" class="chatbot-pending" aria-hidden="true" hidden><span class="chatbot-activity-mark">${mark}</span><div><strong>همراه در حال بررسی است</strong><p id="chatbotPendingText"></p></div></div>
+        <span id="chatbotStatus" class="sr-only" role="status" aria-atomic="true"></span>
         <div id="chatbotError" class="chatbot-error" role="alert" hidden></div>
         <div id="chatbotChoices" class="chatbot-choices" role="group" aria-label="پاسخ‌های پیشنهادی"></div>
-        <form id="chatbotForm"><label for="chatbotInput" class="sr-only">پیامت را بنویس</label><textarea id="chatbotInput" maxlength="2000" rows="1" placeholder="بگو برای چه کاری مدل می‌خواهی…" disabled></textarea><button id="chatbotSend" type="submit" aria-label="ارسال پیام" disabled>${icon('send')}</button></form>
+        <form id="chatbotForm"><label for="chatbotInput" class="sr-only">پیامت را بنویس</label><textarea id="chatbotInput" aria-describedby="chatbotMode" maxlength="2000" rows="1" placeholder="بگو برای چه کاری مدل می‌خواهی…" disabled></textarea><button id="chatbotSend" type="submit" aria-label="ارسال پیام" disabled>${icon('send')}</button></form>
         <div class="chatbot-footnote"><p id="chatbotMode" class="chatbot-mode">با گزینه‌های آماده شروع کن.</p><button type="button" class="chatbot-privacy" data-chat-command="privacy" aria-label="حریم خصوصی گفتگو" title="حریم خصوصی گفتگو">${icon('privacy')}</button></div>
       </div>
       <dialog id="chatbotSheet" class="chatbot-sheet" aria-labelledby="chatbotSheetTitle"><header><div><span>همراه torobai</span><h3 id="chatbotSheetTitle"></h3></div><button type="button" id="chatbotSheetClose" class="chatbot-icon" aria-label="بازگشت به گفتگو">${icon('close')}</button></header><div id="chatbotSheetBody" class="chatbot-sheet-body"></div></dialog>`;
@@ -96,7 +103,12 @@ window.TorobChat = (() => {
     });
     $('chatbotClose').addEventListener('click', close);
     $('chatbotClear').addEventListener('click', clear);
-    $('chatbotStop').addEventListener('click', () => stop(true));
+    $('chatbotSend').addEventListener('click', (event) => {
+      if (pending) {
+        event.preventDefault();
+        stop(true);
+      }
+    });
     panel.addEventListener('close', (event) => {
       if (event.target === panel) returnFocus?.focus?.({ preventScroll: true });
     });
@@ -125,8 +137,13 @@ window.TorobChat = (() => {
         closeSheet();
         showDecision();
       }
-      const command = event.target.closest('[data-chat-command]')?.dataset.chatCommand;
+      const control = event.target.closest('[data-chat-command]');
+      const command = control && !control.disabled ? control.dataset.chatCommand : null;
       if (command === 'retry') send(lastText, true);
+      if (command === 'guided') {
+        stop();
+        showDecision();
+      }
       if (command === 'retry-status') {
         statusChecked = false;
         checkStatus();
@@ -145,6 +162,7 @@ window.TorobChat = (() => {
         $('chatbotPageNotice').hidden = true;
       }
       if (command === 'clear-unresolved') {
+        stop();
         unresolved = [];
         showDecision();
       }
@@ -222,10 +240,19 @@ window.TorobChat = (() => {
   }
   function updateComposer() {
     $('chatbotInput').disabled = !enabled;
-    $('chatbotSend').disabled = !enabled || Boolean(pending);
+    const send = $('chatbotSend');
+    send.disabled = !enabled;
+    send.type = pending ? 'button' : 'submit';
+    send.classList.toggle('is-stopping', Boolean(pending));
+    send.setAttribute('aria-label', pending ? 'توقف دریافت پاسخ' : 'ارسال پیام');
+    send.title = pending ? 'توقف دریافت پاسخ' : 'ارسال پیام';
+    send.innerHTML = icon(pending ? 'stop' : 'send');
+    $('chatbotInput').placeholder = enabled
+      ? 'بگو برای چه کاری مدل می‌خواهی…'
+      : 'از گزینه‌های بالا شروع کن';
     $('chatbotMode').innerHTML = enabled
-      ? 'راهنمای هوشمند · برای خط بعد Shift + Enter'
-      : 'گفتگوی متنی در دسترس نیست؛ گزینه‌ها فعال‌اند.' +
+      ? 'پیام به OpenRouter ارسال می‌شود · <bdi>Shift + Enter</bdi> برای خط بعد'
+      : 'انتخاب با گزینه‌ها فعال است؛ گفتگوی متنی در دسترس نیست.' +
         (!window.TOROBAI_CATALOG
           ? ' <button type="button" data-chat-command="retry-status">بررسی دوباره</button>'
           : '');
@@ -253,10 +280,12 @@ window.TorobChat = (() => {
     messages = [];
     lastCards = [];
     lastText = '';
+    recentBeforeSend = [];
     destination = null;
     $('chatbotLog').replaceChildren();
     $('chatbotLatest').hidden = true;
     $('chatbotInput').value = '';
+    $('chatbotInput').style.height = '';
     $('chatbotPageNotice').hidden = true;
     showAnswer(C.welcome());
   }
@@ -310,16 +339,17 @@ window.TorobChat = (() => {
     append('user', 'ادامه با شرایط صفحه فعلی');
     showDecision();
   }
-  function append(role, text, html = '') {
+  function append(role, text, html = '', state = '') {
     const log = $('chatbotLog'),
       nearBottom = log.scrollHeight - log.scrollTop - log.clientHeight < 100;
     const item = document.createElement('article');
-    item.className = 'chatbot-message ' + role;
-    item.innerHTML = `<span class="chatbot-speaker">${role === 'user' ? 'شما' : 'همراه torobai'}</span><p dir="auto">${esc(text)}</p>${html}`;
+    item.className = 'chatbot-message ' + role + (state ? ' is-' + state : '');
+    item.innerHTML = `<span class="chatbot-speaker">${role === 'user' ? 'شما' : mark + '<span>همراه <bdi>torobai</bdi></span>'}</span><p dir="auto">${esc(text)}</p>${html}`;
     log.append(item);
-    messages.push({ role, content: text.slice(0, 2000) });
+    if (!state) messages.push({ role, content: text.slice(0, 2000) });
     // Bound parser context, but keep the visible conversation until the user clears it.
     if (messages.length > 60) messages.shift();
+    if (messages.length === 1) item.classList.add('is-welcome');
     if (!panel.open) {
       $('chatbotLatest').hidden = messages.length < 2;
       return;
@@ -385,6 +415,13 @@ window.TorobChat = (() => {
     $('chatbotContext').hidden = !summary.length;
     return chipHTML;
   }
+  function settleActivity() {
+    clearTimeout(slowTimer);
+    clearTimeout(deadlineTimer);
+    $('chatbotPending').hidden = true;
+    panel.querySelector('.chatbot-bottom').prepend($('chatbotPending'));
+    $('chatbotStatus').textContent = '';
+  }
   function showAnswer(result) {
     resultRevision = host.snapshot().revision;
     updateChips();
@@ -409,10 +446,26 @@ window.TorobChat = (() => {
         : needs.task === 'gpu'
           ? 'هزینه کل اجاره'
           : 'برآورد ماهانه';
+    const criteria = [
+      needs.usecase === 'coding' ? 'آزمون کدنویسی منتشرشده' : C.taskNames[needs.task],
+      needs.access ? (needs.access === 'api' ? 'API' : 'وزن‌ها') : '',
+      needs.query,
+      ...['persian', 'tools', 'json', 'streaming', 'no_retention', 'open', 'ssh']
+        .filter((key) => needs[key])
+        .map((key) => C.labels[key]),
+      needs.vram ? 'حداقل ' + HB.number(needs.vram) + ' GB در هر کارت' : '',
+      needs.context ? 'حداقل ' + HB.number(needs.context) + ' توکن ظرفیت متن' : '',
+      needs.requestMode === 'batch' ? 'پردازش Batch' : '',
+      needs.budget_toman != null ? 'تا ' + HB.number(needs.budget_toman) + ' تومان' : ''
+    ].filter(Boolean);
     const cards = (result.matches || [])
       .map(({ product: p, quote: q }) => {
         const view = { ...result.view, provider: q?.seller_id || '' };
-        return `<article class="chatbot-card"><a ${linkData} href="${esc(host.productURL(p, view))}">${host.logo(p)}<div class="chatbot-card-name"><h3 dir="auto">${esc(p.title)}</h3><span class="chatbot-seller">${q ? esc(q.seller) : 'شرایط در صفحه مدل'}</span></div><strong class="chatbot-price">${q ? host.money(q.estimate_toman) : 'استعلام'}</strong><span class="chatbot-card-arrow" aria-hidden="true">←</span></a></article>`;
+        const proof = needs.usecase === 'coding' && p.coding_evidence?.[0];
+        const reason = proof
+          ? 'آزمون منتشرشده: ' + proof.name
+          : criteria.slice(0, 3).join(' · ');
+        return `<article class="chatbot-card"><a ${linkData} href="${esc(host.productURL(p, view))}">${host.logo(p)}<div class="chatbot-card-name"><h3 dir="auto">${esc(p.title)}</h3><span class="chatbot-seller">${q ? esc(q.seller) : 'شرایط در صفحه مدل'}</span></div><strong class="chatbot-price">${q ? host.money(q.estimate_toman) : 'استعلام'}</strong><span class="chatbot-card-arrow" aria-hidden="true">←</span><p class="chatbot-card-reason">${esc(reason)}</p></a></article>`;
       })
       .join('');
     const basis = (result.matches || [])
@@ -429,7 +482,7 @@ window.TorobChat = (() => {
     const html =
       unresolvedHTML +
       (cards
-        ? `<div class="chatbot-results"><div class="chatbot-result-heading"><span>پیشنهادها برای بررسی</span><span>${period} · تومان</span></div><div class="chatbot-cards">${cards}</div><details class="chatbot-basis"><summary>مبنای قیمت و جزئیات پیشنهادها</summary><div class="chatbot-basis-copy"><p>${esc(result.note || '')}</p>${result.assumptions ? `<p>${esc(result.assumptions)}</p>` : ''}<ul>${basis}</ul></div></details></div>`
+        ? `<div class="chatbot-criteria"><span>${criteria.map((label) => `<bdi>${esc(label)}</bdi>`).join(' · ')}</span><button type="button" data-chat-command="edit">ویرایش شرایط</button></div><div class="chatbot-results"><div class="chatbot-result-heading"><span>${HB.number(result.matches.length)} گزینه برای بررسی</span><span>${period} · تومان</span></div><div class="chatbot-cards">${cards}</div><details class="chatbot-basis"><summary>مبنای قیمت و جزئیات پیشنهادها</summary><div class="chatbot-basis-copy"><p>${esc(result.note || '')}</p>${result.assumptions ? `<p>${esc(result.assumptions)}</p>` : ''}<ul>${basis}</ul></div></details></div>`
         : result.note
           ? `<p class="chatbot-note">${esc(result.note)}</p>`
           : '') +
@@ -437,6 +490,8 @@ window.TorobChat = (() => {
         ? `<div class="chatbot-links">${result.links.map((link) => `<a ${linkData} href="${esc(link.url)}">${esc(link.label)} <span aria-hidden="true">←</span></a>`).join('')}</div>`
         : '');
     append('assistant', result.text, html);
+    if (result.matches && !result.matches.length)
+      $('chatbotLog').lastElementChild.classList.add('is-empty');
   }
   function showDecision(parsed = { intent: 'find' }) {
     const result = C.decide(needs, parsed, host, HB, unresolved);
@@ -562,59 +617,94 @@ window.TorobChat = (() => {
   function stop(notify = false) {
     ++requestVersion;
     if (panel) $('chatbotError').hidden = true;
+    const interrupted = Boolean(pending);
     if (pending) {
       pending.abort();
       pending = null;
-      if (notify) showError('دریافت پاسخ متوقف شد؛ می‌توانی دوباره تلاش کنی.', true);
     }
     if (panel) {
-      $('chatbotPending').hidden = true;
-      $('chatbotSend').disabled = !enabled;
+      settleActivity();
+      updateComposer();
+      if (notify && interrupted)
+        showTurnState('دریافت پاسخ متوقف شد.', 'stopped');
     }
   }
-  function showError(text, retry = false) {
+  function showError(text) {
     $('chatbotError').hidden = false;
-    $('chatbotError').innerHTML =
-      esc(text) +
-      (retry ? '<button type="button" data-chat-command="retry">تلاش دوباره</button>' : '');
+    $('chatbotError').textContent = text;
+  }
+  function showTurnState(text, state) {
+    append(
+      'assistant',
+      text,
+      `<div class="chatbot-recovery"><span class="chatbot-state-icon" aria-hidden="true">${icon(state === 'stopped' ? 'stop' : 'warning')}</span><button type="button" data-chat-command="retry">${icon('retry')}تلاش دوباره</button><button type="button" data-chat-command="guided">ادامه با گزینه‌ها</button></div>`,
+      state
+    );
   }
   async function send(text, retry = false) {
     text = text.trim();
     if (!text || !enabled || pending) return;
     if (text.length > 2000) return showError('پیام را به کمتر از ۲۰۰۰ نویسه کوتاه کن.');
+    if (retry)
+      $('chatbotLog').querySelector('.chatbot-message:last-child .chatbot-recovery')?.parentElement.remove();
     stop();
     const serial = requestVersion,
       revision = host.snapshot().revision;
     const controller = new AbortController();
     pending = controller;
     lastText = text;
-    const recent = messages.slice(-6);
-    if (!retry) append('user', text);
-    $('chatbotInput').value = '';
-    $('chatbotInput').style.height = '';
+    if (!retry) {
+      recentBeforeSend = messages.slice(-6);
+      append('user', text);
+      $('chatbotInput').value = '';
+      $('chatbotInput').style.height = '';
+    }
+    for (const button of $('chatbotLog').querySelectorAll('[data-chat-command="retry"], [data-chat-command="guided"]'))
+      button.disabled = true;
     $('chatbotError').hidden = true;
+    const log = $('chatbotLog');
+    const following = log.scrollHeight - log.scrollTop - log.clientHeight < 100;
+    log.append($('chatbotPending'));
     $('chatbotPending').hidden = false;
-    $('chatbotSend').disabled = true;
-    const timer = setTimeout(() => controller.abort(), 25000);
+    const waiting = 'دارم درخواستت را بررسی می‌کنم…';
+    $('chatbotPendingText').textContent = waiting;
+    $('chatbotStatus').textContent = waiting;
+    if (panel.open && following) log.scrollTop = log.scrollHeight - log.clientHeight;
+    updateComposer();
+    slowTimer = setTimeout(() => {
+      if (serial !== requestVersion || !pending) return;
+      const text = 'پاسخ هنوز آماده نشده؛ می‌توانی منتظر بمانی یا دریافتش را متوقف کنی.';
+      $('chatbotPendingText').textContent = text;
+      $('chatbotStatus').textContent = text;
+    }, 8000);
+    deadlineTimer = setTimeout(() => controller.abort(), 25000);
     try {
+      const body = {
+        text,
+        current: needs,
+        recent: [...recentBeforeSend],
+        last_cards: lastCards,
+        page: host.snapshot().state.path,
+        unresolved
+      };
+      // Drop the oldest context first; the current request and needs remain intact.
+      while (body.recent.length && new TextEncoder().encode(JSON.stringify(body)).length > 24000)
+        body.recent.shift();
+      if (new TextEncoder().encode(JSON.stringify(body)).length > 24000)
+        throw new Error('پیام و شرایط انتخاب طولانی شده‌اند؛ آن‌ها را کوتاه‌تر کن.');
       const response = await fetch('/api/chatbot/parse', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         signal: controller.signal,
-        body: JSON.stringify({
-          text,
-          current: needs,
-          recent,
-          last_cards: lastCards,
-          page: host.snapshot().state.path,
-          unresolved
-        })
+        body: JSON.stringify(body)
       });
       if (!response.ok)
         throw new Error(
           response.status === 429
             ? 'درخواست‌ها زیاد شده‌اند؛ کمی بعد دوباره تلاش کن.'
-            : 'پاسخ متنی آماده نشد. می‌توانی با گزینه‌ها ادامه بدهی.'
+            : response.status === 413 || response.status === 422
+              ? 'پیام یا شرایط انتخاب قابل پردازش نیست؛ آن‌ها را کوتاه‌تر یا اصلاح کن.'
+              : 'پاسخ آماده نشد. دوباره تلاش کن یا با گزینه‌ها ادامه بده.'
         );
       const parsed = await response.json();
       if (serial !== requestVersion) return;
@@ -634,21 +724,27 @@ window.TorobChat = (() => {
         }
       });
       unresolved = Array.isArray(parsed.unresolved) ? parsed.unresolved : [];
-      if (parsed.question && !unresolved.includes(parsed.question))
-        unresolved = [...unresolved, parsed.question].slice(0, 4);
+      settleActivity();
       showDecision(parsed);
     } catch (error) {
-      if (serial === requestVersion)
-        showError(
-          error.name === 'AbortError' ? 'دریافت پاسخ طول کشید؛ دوباره تلاش کن.' : error.message,
-          true
+      if (serial === requestVersion) {
+        settleActivity();
+        showTurnState(
+          error.name === 'AbortError'
+            ? 'دریافت پاسخ طول کشید. دوباره تلاش کن یا با گزینه‌ها ادامه بده.'
+            : error instanceof TypeError
+              ? 'ارتباط برقرار نشد. دوباره تلاش کن یا با گزینه‌ها ادامه بده.'
+              : error instanceof SyntaxError
+                ? 'پاسخ معتبر دریافت نشد. دوباره تلاش کن یا با گزینه‌ها ادامه بده.'
+                : error.message,
+          'error'
         );
+      }
     } finally {
-      clearTimeout(timer);
       if (serial === requestVersion) {
         pending = null;
-        $('chatbotPending').hidden = true;
-        $('chatbotSend').disabled = !enabled;
+        settleActivity();
+        updateComposer();
       }
     }
   }

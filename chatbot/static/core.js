@@ -60,7 +60,7 @@
   function updateNeeds(current, patch) {
     const needs = { ...current };
     const changes = patch.set || {};
-    if (changes.task && changes.task !== current.task) {
+    if (changes.task && current.task && changes.task !== current.task) {
       for (const key of scopedFields) delete needs[key];
       if (changes.task === 'gpu' || current.task === 'gpu') delete needs.access;
     }
@@ -313,7 +313,7 @@
       return {
         text: 'با این شرایط، نتیجه‌ای در کاتالوگ پیدا نشد.',
         note: 'هیچ شرطی حذف نشده؛ می‌توانی یکی از شرایط را خودت تغییر بدهی.',
-        choices,
+        choices: [...choices.slice(0, -1).slice(0, 2), choices.at(-1)],
         view,
         matches: []
       };

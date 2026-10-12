@@ -11,7 +11,8 @@ let hash = '#api',
     throw Error('Offline guide must not fetch');
   };
 const scrolls = [],
-  timers = [];
+  timers = [],
+  scheduledTimers = new Map();
 const location = {
   get hash() {
     return hash;
@@ -57,13 +58,19 @@ const context = vm.createContext({
   console,
   navigator: {},
   AbortController,
+  TextEncoder,
   matchMedia: () => ({ matches: true }),
   setTimeout: (fn, delay) => {
     if (delay < 1000) return setTimeout(fn, delay);
     timers.push(delay);
-    return -1;
+    const id = 'timer-' + timers.length;
+    scheduledTimers.set(id, { fn, delay });
+    return id;
   },
-  clearTimeout,
+  clearTimeout: (id) => {
+    scheduledTimers.delete(id);
+    clearTimeout(id);
+  },
   fetch: (...args) => fetchHandler(...args)
 });
 const run = (code) => vm.runInContext(code, context);
@@ -84,6 +91,18 @@ const choose = (label) =>
     ].find((b) => b.textContent === label)
   );
 const plain = (value) => JSON.parse(JSON.stringify(value));
+const expire = (delay) => {
+  const entry = [...scheduledTimers].find(([, timer]) => timer.delay === delay);
+  assert.ok(entry, 'Missing timer for ' + delay);
+  scheduledTimers.delete(entry[0]);
+  entry[1].fn();
+};
+const submit = (text) => {
+  document.getElementById('chatbotInput').value = text;
+  document.getElementById('chatbotForm').dispatchEvent(
+    new window.Event('submit', { bubbles: true, cancelable: true })
+  );
+};
 (async () => {
   for (const script of document.querySelectorAll('script')) run(script.textContent);
   await flush();
@@ -95,6 +114,8 @@ const plain = (value) => JSON.parse(JSON.stringify(value));
   choose('اتصال با API');
   let cards = [...document.querySelectorAll('.chatbot-message:last-child .chatbot-card')];
   assert.ok(cards.length > 0 && cards.length <= 3);
+  assert.ok(cards.every((card) => /آزمون منتشرشده/.test(card.querySelector('.chatbot-card-reason').textContent)));
+  assert.match(document.querySelector('.chatbot-criteria').textContent, /آزمون کدنویسی منتشرشده/);
   assert.match(
     document.querySelector('.chatbot-message:last-child .chatbot-basis').textContent,
     /آزمون منتشرشده/
@@ -368,6 +389,128 @@ const plain = (value) => JSON.parse(JSON.stringify(value));
   run('window.TorobChat.open()');
   assert.equal(log.scrollTop, 180);
   assert.equal(document.getElementById('chatbotLatest').hidden, false);
+  // One activity row follows real pending work; retry preserves the next draft and context.
+  click(document.getElementById('chatbotClear'));
+  const requests = [];
+  fetchHandler = (_url, options) => {
+    requests.push(JSON.parse(options.body));
+    return new Promise((resolve) => { release = resolve; });
+  };
+  submit('مدل GPT-4o mini با API');
+  const activity = document.getElementById('chatbotPending');
+  const send = document.getElementById('chatbotSend');
+  const input = document.getElementById('chatbotInput');
+  assert.equal(activity.parentElement.id, 'chatbotLog');
+  assert.equal(activity.hidden, false);
+  assert.equal(activity.getAttribute('aria-hidden'), 'true');
+  assert.equal(send.disabled, false);
+  assert.equal(send.type, 'button');
+  assert.equal(send.getAttribute('aria-label'), 'توقف دریافت پاسخ');
+  const staleSlowHint = [...scheduledTimers.values()].find((timer) => timer.delay === 8000).fn;
+  expire(8000);
+  assert.match(activity.textContent, /پاسخ هنوز آماده نشده/);
+  input.value = 'پیش‌نویس بعدی من';
+  const enter = new window.Event('keydown', { bubbles: true, cancelable: true });
+  Object.assign(enter, { key: 'Enter', shiftKey: false, isComposing: false });
+  input.dispatchEvent(enter);
+  assert.equal(requests.length, 1, 'Enter while pending neither submits nor stops');
+  assert.equal(activity.hidden, false);
+  click(send);
+  assert.equal(activity.hidden, true);
+  assert.equal(input.value, 'پیش‌نویس بعدی من');
+  assert.ok(log.lastElementChild.classList.contains('is-stopped'));
+  const interrupted = log.innerHTML;
+  release({ ok: true, json: async () => ({ intent: 'find', set: { task: 'gpu' }, unset: [], unresolved: [] }) });
+  await flush();
+  assert.equal(log.innerHTML, interrupted, 'Late success cannot replace a stopped turn');
+  assert.equal(scheduledTimers.size, 0, 'Stop clears pending timers');
+  const usersBeforeRetry = log.querySelectorAll('.user').length;
+  click(log.querySelector('.chatbot-message:last-child [data-chat-command=retry]'));
+  assert.equal(requests.length, 2);
+  assert.deepEqual(requests[1].recent, requests[0].recent);
+  assert.equal(log.querySelectorAll('.user').length, usersBeforeRetry);
+  assert.equal(input.value, 'پیش‌نویس بعدی من');
+  release({ ok: true, json: async () => ({ intent: 'find', set: { query: 'GPT-4o mini', access: 'api' }, unset: [], unresolved: [] }) });
+  await flush();
+  assert.equal(activity.hidden, true);
+  assert.equal(scheduledTimers.size, 0);
+  assert.equal(send.type, 'submit');
+  assert.equal(log.querySelectorAll('.is-stopped').length, 0, 'Retry settles the affected turn');
+  assert.equal(input.value, 'پیش‌نویس بعدی من');
+  const namedCards = [...log.lastElementChild.querySelectorAll('.chatbot-card h3')];
+  assert.equal(namedCards.length, 1);
+  assert.equal(namedCards[0].textContent, 'GPT-4o mini');
+  const namedRoute = log.lastElementChild.querySelector('.chatbot-links a').getAttribute('href');
+  assert.equal(new URLSearchParams(namedRoute.split('?')[1]).get('q'), 'GPT-4o mini');
+  staleSlowHint();
+  assert.equal(document.getElementById('chatbotStatus').textContent, '', 'An old hint cannot announce a settled reply');
+  // A clarification belongs to the next question, not to unsupported catalog requirements.
+  fetchHandler = async () => ({ ok: true, json: async () => ({
+    intent: 'find', set: { budget_toman: 50000 }, unset: [], unresolved: [],
+    question: 'این بودجه برای یک ماه است؟'
+  }) });
+  submit('بودجه من پنجاه هزار تومان است');
+  await flush();
+  assert.equal(log.lastElementChild.querySelector('.chatbot-unresolved'), null);
+  choose('انتخاب با گزینه‌ها');
+  choose('مصرف یک ماه');
+  assert.equal(log.lastElementChild.querySelector('.chatbot-unresolved'), null);
+  // Failures remain actionable and do not change the applied criteria or create hidden retries.
+  const criteriaBeforeError = document.getElementById('chatbotContextText').textContent;
+  for (const status of [429, 503, 413, 422]) {
+    let count = 0;
+    fetchHandler = async () => { count++; return { ok: false, status }; };
+    submit('دوباره بررسی کن');
+    await flush();
+    assert.equal(count, 1);
+    assert.equal(activity.hidden, true);
+    assert.ok(log.lastElementChild.classList.contains('is-error'));
+    assert.equal(document.getElementById('chatbotContextText').textContent, criteriaBeforeError);
+    assert.equal(log.lastElementChild.querySelectorAll('.chatbot-recovery button:not(:disabled)').length, 2);
+    assert.equal(scheduledTimers.size, 0);
+  }
+  fetchHandler = (_url, options) => new Promise((_resolve, reject) => {
+    options.signal.addEventListener('abort', () => reject(Object.assign(new Error(), { name: 'AbortError' })));
+  });
+  submit('این بار منتظر می‌مانم');
+  expire(25000);
+  await flush();
+  assert.match(log.lastElementChild.textContent, /دریافت پاسخ طول کشید/);
+  assert.equal(activity.hidden, true);
+  assert.equal(scheduledTimers.size, 0);
+  fetchHandler = async () => ({ ok: true, json: async () => ({ invalid: true }) });
+  submit('یک پاسخ دیگر');
+  await flush();
+  assert.match(log.lastElementChild.textContent, /پاسخ معتبر دریافت نشد/);
+  // Editing an unverified requirement defeats a response created with the older requirement.
+  fetchHandler = async () => ({ ok: true, json: async () => ({ intent: 'find', set: {}, unset: [], unresolved: ['پردازش داخل سازمان'] }) });
+  submit('پردازش باید داخل سازمان باشد');
+  await flush();
+  const removeRequirement = log.lastElementChild.querySelector('[data-chat-command=clear-unresolved]');
+  fetchHandler = () => new Promise((resolve) => { release = resolve; });
+  submit('این شرط را دوباره بررسی کن');
+  click(removeRequirement);
+  assert.equal(log.lastElementChild.querySelector('.chatbot-unresolved'), null);
+  assert.equal(removeRequirement.disabled, true);
+  const afterRemoval = log.innerHTML;
+  release({ ok: true, json: async () => ({ intent: 'find', set: {}, unset: [], unresolved: ['پردازش داخل سازمان'] }) });
+  await flush();
+  assert.equal(log.innerHTML, afterRemoval, 'Late response cannot restore a removed requirement');
+  // UTF-8 byte limits still hold after several long failed Persian messages.
+  click(document.getElementById('chatbotClear'));
+  const bodies = [];
+  fetchHandler = async (_url, options) => {
+    assert.ok(Buffer.byteLength(options.body, 'utf8') <= 24000);
+    bodies.push(JSON.parse(options.body));
+    return { ok: false, status: 503 };
+  };
+  for (let i = 0; i < 8; i++) { submit('ی'.repeat(2000)); await flush(); }
+  submit('حالا یک مدل پیشنهاد بده');
+  await flush();
+  assert.equal(bodies.length, 9, 'Old failed messages cannot block the next request');
+  assert.ok(bodies.every((body) => body.recent.length <= 6));
+  assert.ok(bodies.slice(-3).some((body) => body.recent.length < 6));
+  assert.equal(scrolls.length > 0, true);
   console.log(
     'Chatbot: portable/served DOM, quote/destination parity, corrections, budget, GPU, seller, pending and stale-reply checks passed.'
   );

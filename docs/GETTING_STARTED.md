@@ -60,6 +60,11 @@ updates and container checks.
 
 ## Deploy
 
+For a server you manage, follow the [production operations guide](DEPLOYMENT.md#production-server).
+It covers release builds, private configuration, HTTPS, acceptance checks,
+updates, rollback, monitoring and backups. Keep that document as the operational
+reference for both people and coding agents.
+
 [render.yaml](../render.yaml) runs the full application as a Python web service.
 Connect this repository to Render, create a Blueprint, and add the OpenRouter
 key in the service's environment settings. The file selects a free instance
@@ -140,6 +145,10 @@ of following its rules. Do not claim a client was tested unless that session ran
 For the security path, request a plan for changing chatbot input handling or
 supplier import rendering. Confirm that the client opens `docs/SECURE_CODING.md`,
 identifies the affected trust boundary and selects the corresponding checks.
+
+For server operations, request a release and rollback plan. Confirm that the
+client opens `docs/DEPLOYMENT.md`, retains the earlier image and configuration,
+and separates repository checks from checks on the actual host.
 
 ## Working with the catalog
 

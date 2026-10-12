@@ -7,9 +7,24 @@ application owns filters, prices, product identity and links.
 
 ## Conversation UI
 
-The header and launcher share a code-native SVG mark. Messages stay short;
-recommendations use compact rows with a shared price period and expandable
-usage/evidence. There is only one quick-reply tray, outside the transcript.
+The header, launcher and assistant messages share a code-native SVG mark on a
+warm, light surface. Recommendations show applied criteria, up to three offers,
+the provider, a catalog-backed reason and the shared price period. Workload and
+evidence remain in an animated disclosure. One quick-reply tray sits outside
+the transcript; requirements and usage stay in the settings dialog.
+
+A free-text request adds a compact activity row after the user's message. Only
+its mark pulses; reduced motion keeps it still. After eight seconds the same row
+explains that the response is still pending. The send button becomes a stop
+button, while the input remains editable for the next draft. Enter during waiting
+does nothing. Completion, interruption and supersession clear both pending timers.
+There is no simulated search, progress percentage or typing delay.
+
+Stopping produces a neutral interrupted turn; failures explain recovery on the
+affected turn. Retry reuses the request's earlier context, replaces its failure
+state and preserves a different draft without repeating the user's message.
+Current guided choices remain available while a request is pending. Clarification
+questions remain separate from essential requirements without catalog evidence.
 
 `showSheet` opens usage, requirements or privacy in a separate native dialog.
 It reuses `TorobMotion`, native focus trapping and Escape. Cancel leaves both
@@ -20,6 +35,9 @@ Applying a workload adds a short, readable summary rather than a full form.
 reader has moved up, a reply preserves the scroll position and exposes a
 new-message button. Closing and reopening retains the conversation. Desktop can
 widen; mobile uses the whole viewport. Reduced-motion preferences are honored.
+
+The source review and design rationale are in
+[chatbot interaction design](../docs/CHATBOT_UX_RESEARCH.md).
 
 ## Run
 
@@ -131,7 +149,9 @@ strict output. Failures keep the previous needs and offer a retry or choices.
 Visible conversation history is held only in memory for the current document.
 Reloading or **گفتگوی تازه** clears it. Parser context keeps at most 60 short
 messages internally; only the recent six
-messages and required structured context go to OpenRouter. The application does
+messages and required structured context go to OpenRouter. The client drops the
+oldest context messages if necessary to fit the endpoint's 24,000-byte UTF-8 body
+limit; the current text and needs stay intact. The application does
 not log prompt bodies or persist a chat transcript. OpenRouter/provider retention
 is governed separately by the account and provider settings; no zero-retention
 claim is made by the guide. The panel explains this before sending messages.
@@ -167,11 +187,17 @@ transport checks the actual OpenRouter URL, authentication header, JSON schema,
 provider parameters and result validation without a paid API call. The UI test
 executes the full export and checks quote/destination parity, Persian consumption,
 zero budgets, task changes, GPU presets, empty-result recovery, seller links,
-named benchmarks, pending feedback and stale replies.
+named benchmarks, pending feedback and stale replies. Turn-lifecycle regressions
+cover the slow hint, stop/late completion, retry with an existing draft, Enter
+while pending, timeout, rate limit, invalid response, removed requirements and
+long Persian history. These are controlled replies, not a language evaluation.
 
 Browser checks for v0.26 cover actual Chromium desktop/mobile layouts, compact
 rows, visible last question, settings bounds, nested-dialog Escape and history
-preservation. See docs/REVIEW_V026.md for tested sizes. A paid live Persian-language
+preservation. See docs/REVIEW_V026.md for tested sizes; those screenshots predate
+the current redesign. Desktop/mobile visual inspection of this redesign remains
+outstanding because browser control was unavailable during implementation.
+A paid live Persian-language
 evaluation remains necessary for language quality and latency. No measured
 two-turn success rate is claimed.
 

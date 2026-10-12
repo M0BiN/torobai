@@ -1,3 +1,16 @@
+# Development instructions — 12 October 2026
+
+The root AGENTS.md now starts with the complete, unchanged Ponytail policy and
+contains current working rules, code ownership and focused checks. Detailed
+behavior is organized in PRODUCT_CONTRACTS.md; chatbot/AGENTS.md adds only local
+requirements. CLAUDE.md continues to import the shared root file.
+
+Superseded pagination delays, preserved page-only scroll, weighted benchmark
+scores and the old weight-tab restriction are removed from active instructions.
+Historical design and architecture records remain explicitly labeled. The setup
+guide includes a clean-session instruction check; that client check was not run
+as part of this documentation change. Application behavior and HTML are unchanged.
+
 # torobai v0.26
 
 The selection guide now uses compact conversation bubbles, a new SVG identity,

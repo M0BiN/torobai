@@ -2,6 +2,9 @@
 
 Research date: **12 October 2026**. Project snapshot: [`c21ff5c`](https://github.com/M0BiN/torobai/tree/c21ff5c6ce20742c726e1415f58dfa49c3751995).
 
+This report describes that snapshot. The subsequent instruction consolidation
+is in the current [AGENTS.md](../AGENTS.md); use it for new work, not this audit.
+
 The main gap is not a missing agent framework. It is the distance between the user's instructions, the context a coding tool actually loads, and the evidence provided when a task is finished. The existing chatbot already has useful boundaries. Keep those; improve instruction maintenance and verification before adding infrastructure.
 
 This report responds to the request to investigate and compare. It adds research documentation only. It does not install the surveyed tools, rewrite application code, change agent permissions, replace the user's rules or claim production certification.
@@ -18,7 +21,7 @@ No third-party project was installed or executed. Some files were read completel
 
 ## The supplied Ponytail file was present, but presence was not enough
 
-The uploaded `agents.md(2).txt` was read and compared with the repository. After newline normalization, it exactly matches both [chatbot/AGENTS.md](../chatbot/AGENTS.md) and [docs/ORIGINAL_DEVELOPER_RULES.md](ORIGINAL_DEVELOPER_RULES.md). Its normalized SHA-256 is `0aba9e067ab1dd34ed698b278f67edd04c57a1b77888fead573da8a25e0dde84`.
+The uploaded `agents.md(2).txt` was read and compared with the reviewed snapshot. After newline normalization, it exactly matches both [chatbot/AGENTS.md](https://github.com/M0BiN/torobai/blob/c21ff5c6ce20742c726e1415f58dfa49c3751995/chatbot/AGENTS.md) and [docs/ORIGINAL_DEVELOPER_RULES.md](https://github.com/M0BiN/torobai/blob/c21ff5c6ce20742c726e1415f58dfa49c3751995/docs/ORIGINAL_DEVELOPER_RULES.md) at that commit. Its normalized SHA-256 is `0aba9e067ab1dd34ed698b278f67edd04c57a1b77888fead573da8a25e0dde84`.
 
 The root [AGENTS.md, lines 187–209](https://github.com/M0BiN/torobai/blob/c21ff5c6ce20742c726e1415f58dfa49c3751995/AGENTS.md#L187-L209) also summarizes its main principles, and [lines 330–339](https://github.com/M0BiN/torobai/blob/c21ff5c6ce20742c726e1415f58dfa49c3751995/AGENTS.md#L330-L339) explicitly require an ending that states unchecked behavior and material risks. It would therefore be inaccurate to explain every failure as a missing file. The required behavior was already specified; adding another copy would not resolve failure to follow it.
 

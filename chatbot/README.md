@@ -66,7 +66,7 @@ or browser origin restrictions.
 | `prompt.txt` | Persian intent-extraction instructions; no prices or recommendation generation. |
 | `catalog.py` | Coding-evidence filter derived from the project's existing published benchmarks. |
 | `tests/` | Provider-contract tests and conversations against the exported application. |
-| `AGENTS.md` | The user's supplied development instructions, copied unchanged. |
+| `AGENTS.md` | Chatbot-specific rules; the complete user-supplied policy is in the root `AGENTS.md`. |
 
 The app supplies its existing functions to the panel once at startup. This small
 integration is at `start()` in `app/static/app.js`; it is not a second catalog.

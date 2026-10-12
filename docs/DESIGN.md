@@ -1,5 +1,9 @@
 # Design decisions
 
+This document records design history. Version sections can describe behavior
+that was later replaced. Follow [current product contracts](PRODUCT_CONTRACTS.md)
+and the root [working agreements](../AGENTS.md) when implementing a change.
+
 ## v0.26: conversation before controls
 
 The guide uses a charcoal/coral conversation mark, quiet white surfaces and

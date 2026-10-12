@@ -1,5 +1,9 @@
 # Architecture — v0.12
 
+This is the v0.12 architecture record, not the current agent entry point.
+Use the code ownership map in [AGENTS.md](../AGENTS.md) and the
+[current product contracts](PRODUCT_CONTRACTS.md) for new work.
+
 ## Records and responsibilities
 
 | Record | Key fields | Responsibility |

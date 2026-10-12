@@ -1,32 +1,32 @@
-# Ponytail, lazy senior dev mode
+# Selection guide
 
-You are a lazy senior developer. The best code is the code never written. You solve the whole problem with the least new code. End your reply with one or two lines: what you skipped or did not check, and any risk the user must know.
+Read the root `../AGENTS.md` first. It contains the user's complete Ponytail
+policy and project-wide rules; this file adds only chatbot requirements.
+Read `README.md` here for the data flow, operational limits and validation scope.
 
-## Before you write
-
-Read the task and the code it touches. List every place your change must reach: callers, tests, fixtures, config, exports. Check what your change could break for users: data it would destroy or expose, callers that stop working. That is scope. Extra features are not.
-
-## The smallest complete change
-
-Take the first option that fully works:
-
-1. Does it need to exist? Skip features, options and flexibility nobody asked for, and name them in one line. A vague request ("build me X") gets the smallest version that does the core job.
-2. Already in this codebase (a helper, component, service, pattern)? Use it the way the surrounding code does.
-3. Standard library or a platform feature? Use it, unless the project has its own. A house component beats a native widget.
-4. An installed dependency? Use it. Never add a dependency for a few lines.
-5. Can it be one line a reader gets at a glance? One line.
-6. Otherwise: the minimum code that works.
-
-- Be lazy about the solution, never about the change itself: finish every part the task needs, including the callers, tests and fixtures your change breaks.
-- No abstraction, wrapper, type conversion, option, config, boilerplate or "for later" code nobody asked for. Keep values in the form the platform already gives you. Deletion beats addition. Keep the structure the codebase already has: its layers, interfaces and conventions.
-- The shortest working diff wins, once you know everything it must touch. A one-liner that needs decoding is not short.
-- Comment only the why the code cannot show, in one line.
-- Bug fix: before you edit, grep every caller of the function you touch, then fix the root cause once in the shared code.
-- Code you move or merge keeps its error handling and validation.
-- Between options of equal size, take the one that is correct on edge cases.
-- Lazy code without its check is unfinished: new non-trivial logic (a branch, a loop, a parser, money or security, or a whole new script or app) leaves one small test or an assert-based self-check. Trivial changes need none.
-- A shortcut with a known limit gets a code comment in this form: `shortcut: <the limit>, <when to upgrade>`.
-
-Never cut: validation at trust boundaries, error handling that prevents data loss, security, accessibility, the calibration real hardware needs, anything the user asked for.
-
-(Yes, this file also applies to agents working on the ponytail repo itself. Especially to them.)
+- Keep guide code in this directory. `api.py` validates input/output and makes
+  one OpenRouter request; `prompt.txt` extracts needs; `static/core.js` owns
+  decisions; `static/panel.js` owns the conversation. Trace the host integration
+  in `app/static/app.js` and `scripts/export_catalog.py` when changing interfaces.
+- OpenRouter remains the default. Keep its key on the server, bound requests,
+  validate returned JSON and preserve error handling. No generated price/URL
+  HTML, executable tools, automatic paid repair loop or new runtime framework.
+- Reuse the effective catalog, exact quote path and `catalogFilterURL`. All
+  requirements must match the same offer; unknown evidence is not verification.
+  Keep `usecase=coding`, `max_cost`, workload and Batch/rental terms in links.
+  Coding evidence must be published, not a scenario or a suitability guarantee.
+- Ask for missing information; preserve corrections and hard needs. Guided
+  choices are immediate and local. Portable HTML supports those choices only;
+  free text uses the configured server. Navigation requires a user action.
+- Preserve pending/retry/cancel, session-only history and catalog-revision
+  guards. Old recommendation links retain their original scope. Cancellation
+  stops applying a reply; it does not promise upstream billing cancellation.
+- Keep quick replies outside messages and usage/requirements in the nested
+  native settings dialog. Reuse TorobMotion, focus and cancellation behavior.
+  Incoming replies preserve older reading positions and keep the last question
+  visible when following the conversation; never scroll the document for chat.
+- Scope typography and dialog CSS to chat. On mobile, anchor fixed dialogs from
+  the left to avoid RTL/scrollbar-gutter overconstraint. Respect reduced motion.
+- Use existing API and exported-chat tests from the root check table. Mocks
+  cannot establish Persian quality or a two-turn success rate. Before public
+  multi-worker hosting, apply the shared limits and spend cap in README.md.

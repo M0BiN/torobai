@@ -85,6 +85,28 @@ are embedded. Guided chat works offline; free-text chat uses the hosted app.
 | `tests/` | Application regression checks |
 | `docs/` | Design decisions, sources and release notes |
 
+## Working with a coding agent
+
+Open the repository root and read [AGENTS.md](../AGENTS.md). It contains the
+user's original Ponytail policy, code ownership and focused checks. The existing
+`CLAUDE.md` imports it. Do not maintain a separate policy for each coding tool.
+If a client does not discover the file, explicitly give it that entry point.
+
+Before changing a subsystem, read its linked section in
+[PRODUCT_CONTRACTS.md](PRODUCT_CONTRACTS.md); chatbot work also reads
+[chatbot/AGENTS.md](../chatbot/AGENTS.md). Design/review/research documents are
+background references, not automatically loaded rules. Add release notes to
+CHANGELOG.md and update current instructions in place.
+
+When changing this setup, check it in a fresh session of each client actually
+used. Record the tool/version, working directory and loaded instruction files.
+Ask for a plan without edits for these cases: change the result page, apply
+consumption, revisit cached results, or change a price used by chat and export.
+The plan should distinguish pagination scrolling from preserved usage scroll,
+avoid loading on cache hits, trace shared pricing, preserve Ponytail's scope and
+end with unchecked behavior and risks. Recognizing a filename alone is not proof
+of following its rules. Do not claim a client was tested unless that session ran.
+
 ## Working with the catalog
 
 Prices are checked-in observations and reference entries, not a live price

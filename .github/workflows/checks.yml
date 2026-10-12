@@ -32,7 +32,7 @@ jobs:
         run: python -m pytest -q tests chatbot/tests
       - name: Build the standalone page
         run: python scripts/export_catalog.py
-      - name: Check browser interactions
+      - name: Check DOM interactions
         run: npm test
       - name: Prepare the website
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'

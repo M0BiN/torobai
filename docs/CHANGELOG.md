@@ -1,3 +1,12 @@
+# Shared secure development guide — 12 October 2026
+
+AGENTS.md routes security-relevant changes to docs/SECURE_CODING.md. Claude Code
+reaches the same rules through its existing AGENTS.md import. The guide covers
+HTTP validation, browser imports and rendering, chatbot authority and cost,
+catalog integrity, secrets, Docker and CI, with checks tied to existing files.
+The setup guide includes a fresh-session check for this instruction path.
+Application behavior and deployment configuration are unchanged.
+
 # Docker runtime — 12 October 2026
 
 The full FastAPI application runs with Docker Compose. The image pins Python

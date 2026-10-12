@@ -3,6 +3,41 @@
 The repository contains the full FastAPI application and a standalone HTML
 export. Use the Python service for the catalog and free-text chatbot together.
 
+## GitHub Pages
+
+The standalone site is published by `.github/workflows/checks.yml`. It runs the
+Python and JavaScript checks, exports the application, then uploads only the
+generated HTML for deployment. Pull requests run checks without publishing.
+
+### Enable the site once
+
+1. Open [Settings → Pages](https://github.com/M0BiN/torobai/settings/pages).
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. Open [Check and publish torobai](https://github.com/M0BiN/torobai/actions/workflows/checks.yml).
+   Choose **Run workflow** on `main`, or re-run a deployment that failed before
+   Pages was enabled.
+4. Wait for **Publish on GitHub Pages** to finish. Its `github-pages` environment
+   links to the published site.
+
+The project URL is `https://m0bin.github.io/torobai/`. The same self-contained
+file is available at `https://m0bin.github.io/torobai/torobai.html` for saving
+locally. These URLs become available after Pages is enabled and deployment succeeds.
+Every successful check on a later `main` push publishes the updated export.
+
+The upload directory contains `index.html` and `torobai.html`, both built from
+`dist/torobai.html`; it does not expose the Python source or environment files.
+The export embeds its catalog, fonts, images, styles and scripts, so product
+links and hash-based navigation work under the repository's `/torobai/` path.
+
+Pages hosts static files only. Catalog browsing, comparisons, local saved state
+and guided chat choices run in the browser. Free-text OpenRouter chat requires
+the Python service below. Never add an OpenRouter key to the export or workflow.
+
+If the configuration step reports that the Pages site cannot be found, check the
+one-time Source setting above. The workflow deliberately does not try to enable
+Pages with its `GITHUB_TOKEN`: initial enablement needs repository administration
+access. A failed test does not replace the previously published site.
+
 ## GitHub repository
 
 Use `torobai` as the repository name. Suggested description:

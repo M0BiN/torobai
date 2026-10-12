@@ -1,4 +1,4 @@
-name: Check the application
+name: Check and publish torobai
 
 on:
   push:
@@ -34,3 +34,36 @@ jobs:
         run: python scripts/export_catalog.py
       - name: Check browser interactions
         run: npm test
+      - name: Prepare the website
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          mkdir -p _site
+          cp dist/torobai.html _site/index.html
+          cp dist/torobai.html _site/torobai.html
+      - name: Upload the website
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    name: Publish on GitHub Pages
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check Pages configuration
+        uses: actions/configure-pages@v5
+      - name: Deploy the website
+        id: deployment
+        uses: actions/deploy-pages@v4

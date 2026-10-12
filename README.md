@@ -22,14 +22,14 @@
 
 <table>
   <tr>
-    <td align="center"><a href="docs/screenshots/catalog.jpg?raw=true"><img src="docs/screenshots/catalog.jpg" width="240" alt="صفحه اصلی مدل‌ها و API با دسته‌بندی‌ها، تنظیم مصرف و قیمت‌ها"></a><br><strong>مدل‌ها و API</strong></td>
-    <td align="center"><a href="docs/screenshots/model-offers.jpg?raw=true"><img src="docs/screenshots/model-offers.jpg" width="240" alt="صفحه مدل با ارزان‌ترین پیشنهاد، بازه قیمت و شرایط سرویس"></a><br><strong>صفحه مدل و قیمت‌ها</strong></td>
-    <td align="center"><a href="docs/screenshots/persian-models.jpg?raw=true"><img src="docs/screenshots/persian-models.jpg" width="240" alt="مدل‌های تخصصی فارسی برای گفتار، ترجمه و پردازش متن"></a><br><strong>مدل‌های اختصاصی فارسی</strong></td>
+    <td align="center"><a href="https://raw.githubusercontent.com/M0BiN/torobai/main/docs/screenshots/catalog.jpg"><img src="docs/screenshots/catalog.jpg" width="240" alt="صفحه اصلی مدل‌ها و API با دسته‌بندی‌ها، تنظیم مصرف و قیمت‌ها"></a><br><strong>مدل‌ها و API</strong></td>
+    <td align="center"><a href="https://raw.githubusercontent.com/M0BiN/torobai/main/docs/screenshots/model-offers.jpg"><img src="docs/screenshots/model-offers.jpg" width="240" alt="صفحه مدل با ارزان‌ترین پیشنهاد، بازه قیمت و شرایط سرویس"></a><br><strong>صفحه مدل و قیمت‌ها</strong></td>
+    <td align="center"><a href="https://raw.githubusercontent.com/M0BiN/torobai/main/docs/screenshots/persian-models.jpg"><img src="docs/screenshots/persian-models.jpg" width="240" alt="مدل‌های تخصصی فارسی برای گفتار، ترجمه و پردازش متن"></a><br><strong>مدل‌های اختصاصی فارسی</strong></td>
   </tr>
   <tr>
-    <td align="center"><a href="docs/screenshots/gpu-catalog.jpg?raw=true"><img src="docs/screenshots/gpu-catalog.jpg" width="240" alt="فهرست GPUها با حافظه، هزینه اجاره و ارائه‌دهندگان"></a><br><strong>اجاره GPU</strong></td>
-    <td align="center"><a href="docs/screenshots/benchmark-comparison.jpg?raw=true"><img src="docs/screenshots/benchmark-comparison.jpg" width="240" alt="مقایسه گرافیکی نتایج بنچمارک و هزینه سه مدل در یک جدول"></a><br><strong>مقایسه عملکرد مدل‌ها</strong></td>
-    <td align="center"><a href="docs/screenshots/providers.jpg?raw=true"><img src="docs/screenshots/providers.jpg" width="240" alt="فهرست ارائه‌دهندگان با جستجو، نوع عرضه و دسترسی به محصولات"></a><br><strong>ارائه‌دهندگان</strong></td>
+    <td align="center"><a href="https://raw.githubusercontent.com/M0BiN/torobai/main/docs/screenshots/gpu-catalog.jpg"><img src="docs/screenshots/gpu-catalog.jpg" width="240" alt="فهرست GPUها با حافظه، هزینه اجاره و ارائه‌دهندگان"></a><br><strong>اجاره GPU</strong></td>
+    <td align="center"><a href="https://raw.githubusercontent.com/M0BiN/torobai/main/docs/screenshots/benchmark-comparison.jpg"><img src="docs/screenshots/benchmark-comparison.jpg" width="240" alt="مقایسه گرافیکی نتایج بنچمارک و هزینه سه مدل در یک جدول"></a><br><strong>مقایسه عملکرد مدل‌ها</strong></td>
+    <td align="center"><a href="https://raw.githubusercontent.com/M0BiN/torobai/main/docs/screenshots/providers.jpg"><img src="docs/screenshots/providers.jpg" width="240" alt="فهرست ارائه‌دهندگان با جستجو، نوع عرضه و دسترسی به محصولات"></a><br><strong>ارائه‌دهندگان</strong></td>
   </tr>
 </table>
 
@@ -75,9 +75,9 @@
 
 <table>
   <tr>
-    <td align="center"><a href="docs/screenshots/selection-guide-desktop.png?raw=true"><img src="docs/screenshots/selection-guide-desktop.png" width="240" alt="گفتگو و پیشنهاد مدل‌ها در راهنمای انتخاب دسکتاپ"></a><br>راهنمای انتخاب</td>
-    <td align="center"><a href="docs/screenshots/selection-guide-mobile.png?raw=true"><img src="docs/screenshots/selection-guide-mobile.png" width="100" alt="راهنمای انتخاب در موبایل"></a><br>نسخه موبایل</td>
-    <td align="center"><a href="docs/screenshots/usage-settings-mobile.png?raw=true"><img src="docs/screenshots/usage-settings-mobile.png" width="100" alt="تنظیم مصرف و بودجه در گفتگو"></a><br>مصرف و بودجه</td>
+    <td align="center"><a href="https://raw.githubusercontent.com/M0BiN/torobai/main/docs/screenshots/selection-guide-desktop.png"><img src="docs/screenshots/selection-guide-desktop.png" width="240" alt="گفتگو و پیشنهاد مدل‌ها در راهنمای انتخاب دسکتاپ"></a><br>راهنمای انتخاب</td>
+    <td align="center"><a href="https://raw.githubusercontent.com/M0BiN/torobai/main/docs/screenshots/selection-guide-mobile.png"><img src="docs/screenshots/selection-guide-mobile.png" width="100" alt="راهنمای انتخاب در موبایل"></a><br>نسخه موبایل</td>
+    <td align="center"><a href="https://raw.githubusercontent.com/M0BiN/torobai/main/docs/screenshots/usage-settings-mobile.png"><img src="docs/screenshots/usage-settings-mobile.png" width="100" alt="تنظیم مصرف و بودجه در گفتگو"></a><br>مصرف و بودجه</td>
   </tr>
 </table>
 

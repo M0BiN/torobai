@@ -162,7 +162,12 @@ settings. Keep credentials in the hosting service's secret environment settings.
 2. Set `OPENROUTER_API_KEY` in the environment settings to enable free-text chat.
 3. Keep the default `OPENROUTER_MODEL`, or choose an OpenRouter model that supports
    the structured-output contract described in the chatbot guide.
-4. Wait for the build and health check to succeed, then open the returned URL.
+4. Set `FORWARDED_ALLOW_IPS` to the trusted proxy addresses or networks for the
+   deployment. Uvicorn needs the original HTTPS scheme for the chatbot's origin
+   check and the client IP for rate limits. Follow the
+   [proxy configuration above](#public-hosting); do not assume a wildcard is safe
+   when the service can also receive direct traffic.
+5. Wait for the build and health check to succeed, then open the returned URL.
 
 The Blueprint uses Python 3.12 and a free web-service instance in Frankfurt.
 One Uvicorn worker keeps the chatbot's process-local request limits consistent.
@@ -193,6 +198,7 @@ OpenRouter key on the Python service, never in the HTML or repository.
 ## References
 
 - [Deploy FastAPI on Render](https://render.com/docs/deploy-fastapi)
+- [FastAPI behind a proxy](https://fastapi.tiangolo.com/advanced/behind-a-proxy/)
 - [Render Blueprint fields](https://render.com/docs/blueprint-spec)
 - [Choose a Python version](https://render.com/docs/python-version)
 - [GitHub Pages capabilities](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)

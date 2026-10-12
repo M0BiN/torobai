@@ -1,7 +1,7 @@
 """Catalog filters and cost arithmetic. Every price keeps its seller and unit."""
 import json
 import math
-from decimal import Decimal, ROUND_HALF_UP
+from decimal import Decimal, ROUND_CEILING, ROUND_HALF_UP
 from pathlib import Path
 
 from app.pricing_plan import api_plan, evaluate_plan
@@ -32,7 +32,9 @@ def api_rates(offer, usd_to_toman=None):
         if not math.isfinite(usd_to_toman) or not 1000 <= usd_to_toman <= 10_000_000:
             raise ValueError('Invalid exchange rate')
         if offer.get('usd_input_m') is not None and offer.get('usd_output_m') is not None:
-            return offer['usd_input_m'] * usd_to_toman, offer['usd_output_m'] * usd_to_toman
+            exchange_rate = Decimal(str(usd_to_toman))
+            return (Decimal(str(offer['usd_input_m'])) * exchange_rate,
+                    Decimal(str(offer['usd_output_m'])) * exchange_rate)
     return None
 
 
@@ -55,15 +57,17 @@ def gpu_cost(offer, hours, sessions=1):
         raise ValueError('Invalid rental period')
     if offer.get('availability') == 'unavailable':
         return None
-    billed_hours = max(hours, offer.get('min_hours') or 0)
+    billed_hours = max(Decimal(str(hours)), Decimal(str(offer.get('min_hours') or 0)))
     step = offer.get('billing_step_hours')
     if step:
-        billed_hours = math.ceil(billed_hours / step) * step
+        step = Decimal(str(step))
+        billed_hours = (billed_hours / step).to_integral_value(rounding=ROUND_CEILING) * step
     if offer.get('hourly_toman') is not None:
-        return money(Decimal(str(billed_hours)) * sessions * Decimal(str(offer['hourly_toman'])))
+        return money(billed_hours * sessions * Decimal(str(offer['hourly_toman'])))
     if offer.get('daily_toman') is not None:
         # Separate bookings each incur the daily minimum.
-        return money(Decimal(math.ceil(billed_hours / 24)) * sessions * Decimal(str(offer['daily_toman'])))
+        days = (billed_hours / 24).to_integral_value(rounding=ROUND_CEILING)
+        return money(days * sessions * Decimal(str(offer['daily_toman'])))
     return None
 
 

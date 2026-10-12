@@ -136,8 +136,12 @@ not log prompt bodies or persist a chat transcript. OpenRouter/provider retentio
 is governed separately by the account and provider settings; no zero-retention
 claim is made by the guide. The panel explains this before sending messages.
 
-The endpoint rejects foreign/null browser origins, unexpected fields, oversized
-bodies and invalid model output. Its limits are 20 requests/minute per source IP,
+The endpoint checks the browser origin's scheme, host and port, rejecting foreign,
+null and malformed origins. Behind TLS termination, configure trusted proxy headers
+as described in [deployment](../docs/DEPLOYMENT.md#public-hosting) so the application
+sees the public HTTPS scheme. Unexpected fields and oversized bodies are rejected;
+invalid provider envelopes or model output return a generic 503 without private
+response content. Its limits are 20 requests/minute per source IP,
 120 requests/minute total and eight concurrent calls **per process**. Before
 multi-worker public hosting, enforce an equivalent shared limit at the edge and
 set a spending limit on the OpenRouter key. There is no new authentication system.

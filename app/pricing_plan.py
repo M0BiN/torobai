@@ -16,12 +16,14 @@ def api_plan(product, offer, mode='instant', usd_to_toman=None):
         for key in ['input', 'output']:
             value = rates.get(f'usd_{key}_m')
             if value is not None:
-                rates[f'toman_{key}_m'] = value * usd_to_toman
+                rates[f'toman_{key}_m'] = Decimal(str(value)) * Decimal(str(usd_to_toman))
     if offer.get('availability') == 'unavailable':
         return {'reason': 'در آخرین مشاهده ناموجود بود.'}
     if offer['price_status'] == 'needs_recheck':
         return {'reason': 'این تعرفه به بررسی دوباره نیاز دارد.'}
-    plan = {'checks': [], 'terms': [], 'rates': {k: rates.get(k) for k in
+    # Display rates remain JSON numbers; calculation terms retain exact decimals.
+    plan = {'checks': [], 'terms': [], 'rates': {
+            k: float(rates[k]) if isinstance(rates.get(k), Decimal) else rates.get(k) for k in
             ['toman_input_m', 'toman_output_m', 'toman_unit']}}
     quota = offer.get('service_terms', {}).get('monthly_characters_limit')
     if quota is not None:

@@ -3,6 +3,7 @@ import json
 import httpx
 import pytest
 from fastapi.testclient import TestClient
+from uvicorn.middleware.proxy_headers import ProxyHeadersMiddleware
 
 from app.main import app, catalog
 from chatbot import api
@@ -42,11 +43,35 @@ def test_boundary_rejects_invalid_inputs(body):
     assert 'input' not in response.text
 
 
-def test_origin_and_request_size():
-    for origin in ['null', 'https://elsewhere.example']:
+def test_origin_and_request_size(monkeypatch):
+    monkeypatch.delenv('OPENROUTER_API_KEY')
+    for origin in ['', 'null', 'https://elsewhere.example', 'http://[',
+                   'https://testserver', 'http://testserver:8080', 'http://testserver/path']:
         assert client.post('/api/chatbot/parse', json={'text': 'hi'}, headers={'Origin': origin}).status_code == 403
     assert client.post('/api/chatbot/parse', content='x' * 24001, headers={'Content-Type': 'application/json'}).status_code == 413
     assert client.post('/api/chatbot/parse', content='hi').status_code == 415
+
+
+@pytest.mark.parametrize('base_url', ['http://testserver', 'https://testserver', 'http://testserver:8080'])
+def test_same_origin_request_reaches_provider(monkeypatch, base_url):
+    async def parsed(*args):
+        return answer()
+    monkeypatch.setattr(api, 'parse_with_openrouter', parsed)
+    with TestClient(app, base_url=base_url) as same_origin:
+        response = same_origin.post('/api/chatbot/parse', json={'text': 'hi'}, headers={'Origin': base_url})
+    assert response.status_code == 200
+
+
+@pytest.mark.parametrize('client_ip,expected', [('192.0.2.1', 200), ('192.0.2.2', 403)])
+def test_https_origin_uses_only_trusted_proxy_headers(monkeypatch, client_ip, expected):
+    async def parsed(*args):
+        return answer()
+    monkeypatch.setattr(api, 'parse_with_openrouter', parsed)
+    proxied = ProxyHeadersMiddleware(app, trusted_hosts=['192.0.2.1'])
+    with TestClient(proxied, client=(client_ip, 50000)) as proxy_client:
+        response = proxy_client.post('/api/chatbot/parse', json={'text': 'hi'}, headers={
+            'Origin': 'https://testserver', 'X-Forwarded-Proto': 'https'})
+    assert response.status_code == expected
 
 
 def test_openrouter_wire_contract_and_validated_result(monkeypatch):
@@ -85,6 +110,23 @@ def test_invalid_provider_result_is_not_echoed(monkeypatch):
     response = client.post('/api/chatbot/parse', json={'text': 'hi'})
     assert response.status_code == 503
     assert 'private-secret' not in response.text
+
+
+@pytest.mark.parametrize('choice', [None, 'private-secret', [],
+    {'finish_reason': 'stop', 'message': None},
+    {'finish_reason': 'stop', 'message': 'private-secret'},
+    {'finish_reason': 'stop', 'message': []},
+    {'finish_reason': 'stop', 'message': {'refusal': 'private-secret'}},
+    {'finish_reason': 'length', 'message': {'content': 'private-secret'}},
+])
+def test_invalid_provider_envelope_returns_service_error(monkeypatch, choice):
+    original = httpx.AsyncClient
+    transport = httpx.MockTransport(lambda _: httpx.Response(200, json={'choices': [choice]}))
+    monkeypatch.setattr(api.httpx, 'AsyncClient', lambda **kw: original(transport=transport, **kw))
+    response = client.post('/api/chatbot/parse', json={'text': 'hi'})
+    assert response.status_code == 503
+    assert 'private-secret' not in response.text
+    assert api._active == 0
 
 
 def test_rate_limit_is_checked_before_paid_call(monkeypatch):

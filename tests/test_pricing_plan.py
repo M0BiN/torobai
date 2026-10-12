@@ -1,4 +1,5 @@
 from copy import deepcopy
+import json
 
 import pytest
 from fastapi.testclient import TestClient
@@ -54,6 +55,14 @@ def test_plan_rounds_once_after_all_components():
                      {'rate':'0.005','fields':['n'],'denominator':1}]}
     assert evaluate_plan(plan, {'n':1})[0] == 0.01
     assert evaluate_plan({'terms':[{'rate':'0.005','fields':['n'],'denominator':1}]}, {'n':1})[0] == 0.01
+
+
+def test_converted_plan_preserves_exact_rates_in_json():
+    plan = api_plan({'unit': 'input_tokens'}, {'price_status': 'public_snapshot', 'usd_input_m': 0.15},
+                    usd_to_toman=1003.3)
+    exported = json.loads(json.dumps(plan))
+    assert evaluate_plan(exported, {'monthly_tokens': 1_000_000})[0] == 150.50
+    assert exported['rates']['toman_input_m'] == 150.495
 
 
 def test_every_model_api_offer_has_both_compiled_modes():

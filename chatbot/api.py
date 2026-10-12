@@ -6,7 +6,6 @@ import time
 from collections import deque
 from pathlib import Path
 from typing import Literal
-from urllib.parse import urlsplit
 
 import httpx
 from fastapi import APIRouter, HTTPException, Request
@@ -178,10 +177,13 @@ async def parse_with_openrouter(body: ParseRequest, key: str):
                 'Authorization': 'Bearer ' + key, 'X-Title': 'torobai',
                 'Content-Type': 'application/json'}, json=payload)
         response.raise_for_status()
-        message = response.json()['choices'][0]
-        if message.get('finish_reason') != 'stop' or message['message'].get('refusal'):
+        choice = response.json()['choices'][0]
+        if not isinstance(choice, dict) or choice.get('finish_reason') != 'stop':
             raise ValueError('Incomplete response')
-        parsed = ParsedNeeds.model_validate_json(message['message']['content'])
+        message = choice.get('message')
+        if not isinstance(message, dict) or message.get('refusal'):
+            raise ValueError('Invalid response message')
+        parsed = ParsedNeeds.model_validate_json(message['content'])
         if parsed.reference and parsed.reference > len(body.last_cards):
             raise ValueError('Unknown previous card')
         return parsed
@@ -194,7 +196,7 @@ async def parse_with_openrouter(body: ParseRequest, key: str):
 async def parse(request: Request):
     global _active
     origin = request.headers.get('origin')
-    if origin and (origin == 'null' or urlsplit(origin).netloc != request.url.netloc):
+    if origin is not None and origin != f'{request.url.scheme}://{request.url.netloc}':
         raise HTTPException(403, 'درخواست را از همین سایت ارسال کنید.')
     if request.headers.get('sec-fetch-site') == 'cross-site':
         raise HTTPException(403, 'درخواست را از همین سایت ارسال کنید.')

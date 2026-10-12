@@ -4,7 +4,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from app.main import app
-from app.market import DATA, OFFERS, PRODUCTS, OFFER_BY_ID, api_rates, gpu_cost, build_market
+from app.market import DATA, OFFERS, PRODUCTS, OFFER_BY_ID, api_rates, api_monthly, gpu_cost, build_market
 from scripts.refresh_netarz import updated_offers
 
 client = TestClient(app)
@@ -69,6 +69,19 @@ def test_hourly_minimum_and_billing_increment():
     offer = {'kind': 'gpu', 'hourly_toman': 100, 'min_hours': 1, 'billing_step_hours': 0.5}
     assert gpu_cost(offer, 0.25) == 100
     assert gpu_cost(offer, 1.1) == 150
+
+
+@pytest.mark.parametrize('hours,minimum,sessions,expected', [
+    (0.07, 0, 1, 7), (0.0701, 0, 1, 8), (0.01, 0.07, 3, 21),
+])
+def test_decimal_billing_increment_does_not_add_an_extra_step(hours, minimum, sessions, expected):
+    offer = {'kind': 'gpu', 'hourly_toman': 100, 'min_hours': minimum, 'billing_step_hours': 0.01}
+    assert gpu_cost(offer, hours, sessions) == expected
+
+
+def test_currency_conversion_keeps_decimal_precision_until_final_rounding():
+    offer = {'kind': 'api', 'usd_input_m': 0.15, 'usd_output_m': 0.6}
+    assert api_monthly(offer, 1, 1_000_000, 0, days=1, usd_to_toman=1003.3) == 150.50
 
 
 def test_real_gpu_daily_and_monthly_quotes_keep_their_commitments():

@@ -18,6 +18,8 @@ for o in OFFERS:
    v.update(requests_day=rng.choice([0,1,17,1000,1000000]),input_tokens=rng.choice([0,850,64000,200001,1000000]),output_tokens=rng.choice([0,250,8000,1000000]),monthly_tokens=rng.randrange(0,1000000000),minutes=rng.choice([0,0.0000001,0.005,30.55,1000000]),characters=rng.choice([0,999999,1000001,1000000000]),pages=rng.randrange(0,1000000),images=rng.randrange(0,1000000),monthly_requests=rng.randrange(0,1000000))
    expected=estimate_offer(o,v)
    cases.append(dict(id=o['id'],mode=mode,values={**v,'days':30},plan=api_plan(p,o,mode),amount=expected['estimate_toman'],reason=expected['estimate_reason']))
+fx_plan=api_plan({'unit':'input_tokens'}, {'price_status':'public_snapshot','usd_input_m':0.15}, usd_to_toman=1003.3)
+cases.append(dict(id='usd-rounding-boundary',mode='instant',values={'monthly_tokens':1000000},plan=fx_plan,amount=150.50,reason=None))
 print(json.dumps(cases))
 `], {cwd:require('node:path').resolve(__dirname,'..'),encoding:'utf8',maxBuffer:16*1024*1024}));
 for (const c of payload) {

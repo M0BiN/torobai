@@ -239,6 +239,11 @@ subsystems must follow their callers and contracts, not just the first file foun
 
 ## Verify and deliver
 
+Before building a release, serving the application or changing server operations,
+read [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md). It owns the build, deployment,
+acceptance, monitoring and recovery procedures. Keep it aligned with the actual
+runtime and security rules; record the tested release and unavailable host checks.
+
 Use Python 3.12 and Node 24 as in CI; setup is in `docs/GETTING_STARTED.md`.
 Choose checks for the behavior affected. Extend an existing test for a realistic
 regression when possible. New non-trivial logic, such as a branch, loop, parser,

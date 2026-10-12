@@ -1,3 +1,12 @@
+# Production operations guide — 12 October 2026
+
+DEPLOYMENT.md is the common runbook for release builds, single-host Docker
+deployment, private configuration, HTTPS proxy trust, unpaid acceptance checks,
+updates, rollback, monitoring and recovery. It distinguishes server backups from
+browser-local records and Pages publication from full-service deployment.
+AGENTS.md, the setup guide and README point to that operational reference.
+Runtime code, container configuration and CI behavior are unchanged.
+
 # Shared secure development guide — 12 October 2026
 
 AGENTS.md routes security-relevant changes to docs/SECURE_CODING.md. Claude Code

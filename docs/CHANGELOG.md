@@ -1,3 +1,12 @@
+# Complete implementation rules — 12 October 2026
+
+AGENTS.md now makes the smallest-complete-change rules explicit: an ordered
+reuse decision, caller tracing before bug fixes, no new dependency for a few
+lines, preserved validation and error handling, and a meaningful check for new
+non-trivial logic. The same guide integrates readable code, one-line rationale
+comments and natural writing for readers without the original conversation.
+Product contracts, chatbot requirements and application behavior are unchanged.
+
 # Unified development guide — 12 October 2026
 
 AGENTS.md now integrates scope, implementation, writing and verification into one

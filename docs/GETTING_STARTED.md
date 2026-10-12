@@ -26,7 +26,7 @@ Use Python 3.12. From the repository root:
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 python -m uvicorn app.main:app --reload
 ```
 
@@ -37,6 +37,26 @@ To enable free-text chat, set `OPENROUTER_API_KEY` in the server environment
 before starting the app. `OPENROUTER_MODEL` defaults to `openai/gpt-4.1-mini`.
 The key stays on the server. Without it, the guide still works through its
 ready-made choices. See [the chatbot guide](../chatbot/README.md) for details.
+
+## Run with Docker
+
+Install Docker Engine with Compose v2, or Docker Desktop. From the repository root:
+
+```bash
+docker compose up --build --detach --wait
+```
+
+Open <http://127.0.0.1:8000>. The catalog and guided choices work immediately.
+To enable free-text chat, copy `.env.example` to `.env`, set `OPENROUTER_API_KEY`,
+then run the command again. Compose reads this file; native Python does not.
+
+```bash
+docker compose logs --follow web
+docker compose down
+```
+
+See [Docker deployment](DEPLOYMENT.md#docker) for ports, proxy configuration,
+updates and container checks.
 
 ## Deploy
 
@@ -51,6 +71,7 @@ GitHub Pages can host the standalone HTML, but cannot run the Python chatbot.
 ## Check a change
 
 Node 24 is used for the JavaScript tests. It is not needed to run the server.
+`requirements-dev.txt` includes the runtime requirements and pytest.
 
 ```bash
 npm ci
@@ -58,6 +79,10 @@ python -m pytest -q tests chatbot/tests
 python scripts/export_catalog.py
 npm test
 ```
+
+With Docker available, `make test-docker` builds and exercises the actual Compose
+service in a separate project on a temporary host port. It checks both absent and
+dummy provider-key configuration without a paid request, then removes its containers.
 
 The tests cover catalog filtering, exact prices, navigation, conversations and
 the standalone export. GitHub Actions runs the same checks on pushes and pull

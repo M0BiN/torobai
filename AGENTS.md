@@ -196,7 +196,7 @@ subsystems must follow their callers and contracts, not just the first file foun
 | Listings, imports, requests and watches | `app/marketplace.py`, `app/static/marketplace.js` | [Local marketplace records](docs/PRODUCT_CONTRACTS.md#local-marketplace-records) |
 | Selection guide | `chatbot/`, integration in `app/static/app.js` | `chatbot/AGENTS.md`, `chatbot/README.md` |
 | Assets or portable output | `app/static/`, `scripts/export_catalog.py` | `docs/ASSETS.md`; trace served script order and export/test inputs |
-| Setup and deployment | `Makefile`, `.github/workflows/checks.yml`, `render.yaml` | `docs/GETTING_STARTED.md`, `docs/DEPLOYMENT.md` |
+| Setup and deployment | `Dockerfile`, `compose.yaml`, `.dockerignore`, `requirements*.txt`, `Makefile`, `.github/workflows/checks.yml`, `render.yaml` | `docs/GETTING_STARTED.md`, `docs/DEPLOYMENT.md` |
 
 ## Preserve product behavior
 
@@ -250,6 +250,7 @@ the HTML, runs Node tests and checks JavaScript syntax. Focused checks follow:
 | Chatbot | `python -m pytest -q chatbot/tests`; after export, `node --test chatbot/tests/test_chatbot.cjs` |
 | Export or bundled inputs | `python scripts/export_catalog.py`; `node tests/test_portable.cjs` |
 | Documentation only | Check claims, paths, links and the diff. No new test harness or unrelated runtime checks. |
+| Container/dependencies | `make test-docker` builds and checks the Compose service; dependency changes also run the application tests. |
 
 Export after changing bundled inputs, then run the portable check. Check served
 script order and export/test inputs together. Inspect startup resource URLs so

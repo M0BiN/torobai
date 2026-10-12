@@ -1,4 +1,4 @@
-.PHONY: run test export
+.PHONY: run test test-docker export
 
 run:
 	python -m uvicorn app.main:app --reload
@@ -11,3 +11,6 @@ test:
 
 export:
 	python scripts/export_catalog.py
+
+test-docker:
+	python scripts/check_container.py

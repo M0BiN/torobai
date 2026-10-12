@@ -152,6 +152,7 @@ not execute model jobs, buy weights, create accounts, or send support tickets.
 ## Check
 
 ```bash
+python -m pip install -r requirements-dev.txt
 python -m pytest -q tests chatbot/tests
 python scripts/export_catalog.py
 node --test tests/*.cjs chatbot/tests/*.cjs

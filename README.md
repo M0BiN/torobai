@@ -99,8 +99,17 @@
 | ---: | ---: |
 | [**GitHub Pages و HTML مستقل**](docs/DEPLOYMENT.md#github-pages) | کاتالوگ، مقایسه‌ها و انتخاب‌های آماده چت‌بات؛ با فونت‌ها و داده‌های داخل فایل. |
 | [**سرور Python**](docs/GETTING_STARTED.md#run-locally) | امکانات سایت به همراه گفتگوی آزاد، با تنظیم کلید OpenRouter روی سرور. |
+| [**Docker**](docs/DEPLOYMENT.md#docker) | اجرای کامل برنامه با Compose، بررسی سلامت سرویس و تنظیم کلید چت‌بات هنگام اجرا. |
 
-پس از هر تغییر در شاخه `main`، GitHub Actions آزمون‌ها را اجرا می‌کند و در صورت موفقیت، HTML جدید را روی Pages منتشر می‌کند.
+برای اجرا با Docker:
+
+```bash
+docker compose up --build --detach --wait
+```
+
+سایت در `http://127.0.0.1:8000` در دسترس است. برای فعال‌کردن گفتگوی آزاد، از `.env.example` یک فایل `.env` بسازید و کلید OpenRouter را در آن قرار دهید.
+
+پس از هر تغییر در شاخه `main`، GitHub Actions آزمون‌های برنامه و ساخت و اجرای کانتینر را بررسی می‌کند و در صورت موفقیت، HTML جدید را روی Pages منتشر می‌کند.
 
 <details>
 <summary><strong>ساختار کد</strong></summary>

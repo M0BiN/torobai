@@ -1,0 +1,15 @@
+**
+!Dockerfile
+!requirements.txt
+!app/*.py
+!app/data/*.json
+!app/static/**
+!chatbot/*.py
+!chatbot/prompt.txt
+!chatbot/static/**
+**/__pycache__
+**/*.py[cod]
+**/.env
+**/.env.*
+**/*.pem
+**/*.key

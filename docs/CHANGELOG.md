@@ -1,3 +1,11 @@
+# Docker runtime — 12 October 2026
+
+The full FastAPI application runs with Docker Compose. The image pins Python
+and runtime dependencies, runs without root and excludes env files and development
+tools. Compose adds a read-only filesystem, a local host binding, health checks,
+rotating logs and graceful shutdown. Provider credentials are supplied at runtime.
+CI builds and exercises the container before allowing Pages publication.
+
 # Complete implementation rules — 12 October 2026
 
 AGENTS.md now makes the smallest-complete-change rules explicit: an ordered

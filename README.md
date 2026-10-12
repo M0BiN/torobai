@@ -72,18 +72,18 @@
 
 فهم متن آزاد با **OpenRouter** انجام می‌شود؛ انتخاب پیشنهادها، محاسبه قیمت و ساخت لینک‌ها بر عهده منطق خود برنامه است. به این ترتیب، گفتگو و صفحه مقصد از یک کاتالوگ و مبنای قیمت مشترک استفاده می‌کنند.
 
-<table width="100%">
+<table>
   <tr>
-    <td align="center" width="33%">
-      <a href="https://raw.githubusercontent.com/M0BiN/torobai/main/docs/screenshots/selection-guide-desktop.png"><img src="docs/screenshots/selection-guide-desktop.png" height="150" alt="گفتگو و پیشنهاد مدل‌ها در دسکتاپ"></a><br>
+    <td align="center" valign="top">
+      <a href="https://raw.githubusercontent.com/M0BiN/torobai/main/docs/screenshots/selection-guide-desktop.png"><img src="docs/screenshots/selection-guide-desktop.png" width="240" alt="گفتگو و پیشنهاد مدل‌ها در دسکتاپ"></a><br>
       <strong>گفتگو و پیشنهادها</strong>
     </td>
-    <td align="center" width="33%">
-      <a href="https://raw.githubusercontent.com/M0BiN/torobai/main/docs/screenshots/selection-guide-mobile.png"><img src="docs/screenshots/selection-guide-mobile.png" height="150" alt="راهنمای انتخاب در موبایل"></a><br>
+    <td align="center" valign="top">
+      <a href="https://raw.githubusercontent.com/M0BiN/torobai/main/docs/screenshots/selection-guide-mobile.png"><img src="docs/screenshots/selection-guide-mobile.png" width="70" alt="راهنمای انتخاب در موبایل"></a><br>
       <strong>نسخه موبایل</strong>
     </td>
-    <td align="center" width="33%">
-      <a href="https://raw.githubusercontent.com/M0BiN/torobai/main/docs/screenshots/usage-settings-mobile.png"><img src="docs/screenshots/usage-settings-mobile.png" height="150" alt="تنظیم مصرف و بودجه در گفتگو"></a><br>
+    <td align="center" valign="top">
+      <a href="https://raw.githubusercontent.com/M0BiN/torobai/main/docs/screenshots/usage-settings-mobile.png"><img src="docs/screenshots/usage-settings-mobile.png" width="70" alt="تنظیم مصرف و بودجه در گفتگو"></a><br>
       <strong>مصرف و بودجه</strong>
     </td>
   </tr>

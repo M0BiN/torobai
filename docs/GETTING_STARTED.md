@@ -123,6 +123,11 @@ Before changing a subsystem, read its linked section in
 background references, not automatically loaded rules. Add release notes to
 CHANGELOG.md and update current instructions in place.
 
+For application code, catalog ingestion, dependencies, deployment or security
+instructions, also read [SECURE_CODING.md](SECURE_CODING.md). It is the shared
+security guide for both clients, covering backend, browser, chatbot and hosting
+boundaries. Follow its relevant sections and verification map.
+
 When changing this setup, check it in a fresh session of each client actually
 used. Record the tool/version, working directory and loaded instruction files.
 Ask for a plan without edits for these cases: change the result page, apply
@@ -131,6 +136,10 @@ The plan should distinguish pagination scrolling from preserved usage scroll,
 avoid loading on cache hits, trace shared pricing, keep the change complete and
 focused, and end with unchecked behavior and risks. Recognizing a filename alone is not proof
 of following its rules. Do not claim a client was tested unless that session ran.
+
+For the security path, request a plan for changing chatbot input handling or
+supplier import rendering. Confirm that the client opens `docs/SECURE_CODING.md`,
+identifies the affected trust boundary and selects the corresponding checks.
 
 ## Working with the catalog
 

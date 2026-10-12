@@ -5,6 +5,7 @@ from pathlib import Path
 import re
 import shutil
 import subprocess
+import tempfile
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
@@ -34,7 +35,12 @@ def request(path, body=None):
 sentinel = ROOT / 'chatbot' / 'static' / f'.env.docker-check-{os.getpid()}'
 with sentinel.open('x') as file:
     file.write('DOCKER_TEST_SENTINEL=not-a-real-secret\n')
+permission_probe = None
 try:
+    # A private checkout must still produce assets readable by the runtime UID.
+    permission_probe = Path(tempfile.mkdtemp(prefix='docker-permission-check-', dir=ROOT / 'app' / 'static'))
+    (permission_probe / 'probe.txt').write_text('private checkout asset\n')
+    (permission_probe / 'probe.txt').chmod(0o600)
     run(*compose, 'config', '--quiet')
     run(*compose, 'build', '--pull')
     run(*compose, 'up', '--detach', '--wait', '--wait-timeout', '90')
@@ -50,6 +56,7 @@ try:
     for path in sorted(assets):
         assert request(path), path
     assert request('/static/fonts/Vazirmatn.woff2')
+    assert request(f'/static/{permission_probe.name}/probe.txt') == b'private checkout asset\n'
     assert json.loads(request('/api/chatbot/status')) == {'available': False}
     offers = json.loads(request('/api/estimate', {'product_id': 'gpt-4o-mini'}))['offers']
     assert any(row['estimate_toman'] is not None for row in offers)
@@ -69,6 +76,9 @@ assert os.geteuid() == 10001
 assert importlib.util.find_spec('pytest') is None
 assert not list(Path('/app').rglob('.env*'))
 assert not Path('/app/chatbot/tests').exists()
+for path in Path('/app').glob('*/**/*'):
+    assert path.stat().st_uid == 0, path
+    assert path.stat().st_mode & 0o022 == 0, path
 try:
     Path('/tmp/torobai-write-check').write_text('check')
 except OSError as error:
@@ -92,3 +102,5 @@ finally:
     subprocess.run([*compose, 'logs', '--no-color'], cwd=ROOT, env=env, check=False)
     subprocess.run([*compose, 'down', '--remove-orphans'], cwd=ROOT, env=env, check=False)
     sentinel.unlink(missing_ok=True)
+    if permission_probe is not None:
+        shutil.rmtree(permission_probe)

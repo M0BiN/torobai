@@ -1,3 +1,12 @@
+# Deployment review fixes — 12 October 2026
+
+Docker normalizes root-owned application permissions so a private checkout does
+not break the non-root runtime. The container check serves an asset copied from
+a restricted directory and file. The server runbook confines its private umask,
+filters structured requests from Caddy runtime logs, fails acceptance on incorrect
+Origin status codes and preserves the accepted release separately from a candidate
+for retry and rollback.
+
 # Production operations guide — 12 October 2026
 
 DEPLOYMENT.md is the common runbook for release builds, single-host Docker

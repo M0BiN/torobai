@@ -14,6 +14,8 @@ RUN python -m pip install --no-cache-dir --no-compile --only-binary=:all: -r req
 
 COPY app/ ./app/
 COPY chatbot/ ./chatbot/
+# Local checkouts may use a private umask; root-owned runtime files must stay readable.
+RUN chmod -R u=rwX,go=rX app chatbot
 
 USER 10001:10001
 EXPOSE 8000

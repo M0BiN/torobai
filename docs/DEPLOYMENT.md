@@ -93,8 +93,9 @@ available image. A failed health check does not automatically roll a release bac
 
 Run `make test-docker` before shipping a changed image. It builds the Compose
 service, checks HTTP routes and static assets, verifies non-root/read-only
-execution and excluded env files, checks chat configuration without a paid call,
-and verifies graceful shutdown. GitHub Actions runs it alongside the application
+execution, readable assets from a private checkout and excluded env files. It
+also checks chat configuration without a paid call and verifies graceful shutdown.
+GitHub Actions runs it alongside the application
 tests on pull requests and pushes. Pages publication requires both jobs to pass.
 
 Update the base digest deliberately when Python or Debian fixes are available;
@@ -224,6 +225,7 @@ First installation only; do not overwrite an existing configuration:
 
 ```bash
 sudo install -d -m 0700 -o "$(id -un)" -g "$(id -gn)" /etc/torobai
+(
 umask 077
 cp .env.example /etc/torobai/production.env
 chmod 0600 /etc/torobai/production.env
@@ -232,7 +234,13 @@ services:
   web:
     image: ${TOROBAI_IMAGE:?Select a built release image}
 YAML
+)
 ```
+
+The subshell confines the private umask to configuration creation. The image also
+normalizes source permissions so its non-root process can read files from a
+restricted checkout; application files remain owned by root and not writable by
+the runtime user.
 
 Edit `production.env` with a private editor. Keep `PORT=8000` for the proxy
 example, and leave `FORWARDED_ALLOW_IPS` empty until the proxy peer is established.
@@ -243,7 +251,9 @@ a command argument, build argument, release note or shell history.
 The production overlay selects a retained image while inheriting the repository's
 port binding, read-only filesystem, dropped capabilities, health check and logging.
 Keep it limited to that purpose. Runtime secrets live outside the checkout.
-`release.env`, created next, holds only the commit and image reference.
+`release.env`, created next, holds only the selected commit and image reference.
+It can describe a candidate that has not started or passed acceptance yet.
+`release.accepted.env` records the last release that completed acceptance.
 
 ### Build and start a release
 
@@ -257,7 +267,8 @@ TOROBAI_COMMIT="$(git rev-parse HEAD)"
 TOROBAI_IMAGE="torobai:${TOROBAI_COMMIT}-$(date -u +%Y%m%dT%H%M%SZ)"
 docker build --pull --tag "$TOROBAI_IMAGE" .
 printf 'TOROBAI_COMMIT=%s\nTOROBAI_IMAGE=%s\n' \
-  "$TOROBAI_COMMIT" "$TOROBAI_IMAGE" > /etc/torobai/release.env
+  "$TOROBAI_COMMIT" "$TOROBAI_IMAGE" > /etc/torobai/release.env.tmp
+mv /etc/torobai/release.env.tmp /etc/torobai/release.env
 docker image inspect "$TOROBAI_IMAGE" --format '{{.Id}}'
 ```
 
@@ -299,9 +310,20 @@ the proxy. The standard 90-second wait is a startup bound, not a performance tar
 ### HTTPS and proxy trust
 
 Add this site block to `/etc/caddy/Caddyfile`, preserving other hosted sites.
+Merge the logging settings into the existing global options block if one exists;
+the Caddyfile may have only one global options block, before the site blocks.
 The example assumes Caddy is the public edge, with no CDN or load balancer before it.
 
 ```caddyfile
+{
+    log default {
+        format filter {
+            wrap json
+            request delete
+        }
+    }
+}
+
 torobai.example.com {
     reverse_proxy 127.0.0.1:8000 {
         transport http {
@@ -315,7 +337,14 @@ Caddy manages certificates for the configured public hostname. Its default proxy
 behavior preserves Host, supplies forwarding headers and ignores client-supplied
 forwarding values. If another proxy is added ahead of it, configure that trust
 chain explicitly. Do not enable response caching or automatic POST retries for
-chat. This block does not enable access logs or log query strings.
+chat. Access logging is not enabled here. Caddy's runtime error logs can still
+include a structured request with its URI and headers; the global
+[log filter](https://caddyserver.com/docs/caddyfile/directives/log#filter) removes
+that field while retaining error messages and status. It does not sanitize every
+possible message or another logger's output. Review any existing logging rules
+and downstream log collectors as well. On staging, trigger a proxy failure with
+a dummy query and confirm the request is absent from the emitted logs before
+serving real traffic.
 
 ```bash
 sudo caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
@@ -350,17 +379,20 @@ Recheck trust whenever the network is recreated; routine updates use `up`, not `
 Run these against the real HTTPS hostname, replacing the example:
 
 ```bash
+set -euo pipefail
 TOROBAI_ORIGIN='https://torobai.example.com'
 curl --max-time 10 --fail --silent --show-error "$TOROBAI_ORIGIN/api/health"
 curl --max-time 10 --fail --silent --show-error --output /dev/null "$TOROBAI_ORIGIN/api/catalog"
 curl --max-time 10 --fail --silent --show-error "$TOROBAI_ORIGIN/api/chatbot/status"
 
-curl --max-time 10 --silent --show-error --output /dev/null --write-out '%{http_code}\n' \
+torobai_status="$(curl --max-time 10 --silent --show-error --output /dev/null --write-out '%{http_code}' \
   -H "Origin: $TOROBAI_ORIGIN" -H 'Content-Type: application/json' \
-  --data '{}' "$TOROBAI_ORIGIN/api/chatbot/parse"
-curl --max-time 10 --silent --show-error --output /dev/null --write-out '%{http_code}\n' \
+  --data '{}' "$TOROBAI_ORIGIN/api/chatbot/parse")"
+test "$torobai_status" = 422
+torobai_status="$(curl --max-time 10 --silent --show-error --output /dev/null --write-out '%{http_code}' \
   -H 'Origin: https://untrusted.invalid' -H 'Content-Type: application/json' \
-  --data '{}' "$TOROBAI_ORIGIN/api/chatbot/parse"
+  --data '{}' "$TOROBAI_ORIGIN/api/chatbot/parse")"
+test "$torobai_status" = 403
 ```
 
 Health must report `ok: true`; catalog must return 200. The two parse checks must
@@ -381,6 +413,20 @@ deliberate paid check, send one short message through the browser and verify a
 catalog-backed recommendation. Status only proves a nonempty configured key;
 it cannot verify the account, model, credit or provider availability.
 
+After all required checks pass, confirm that the running image matches the
+selected release, then record acceptance. Do not run this block after a failed
+or skipped required check:
+
+```bash
+set -euo pipefail
+torobai_selected_image="$("${torobai_compose[@]}" config --images)"
+torobai_selected_id="$(docker image inspect "$torobai_selected_image" --format '{{.Id}}')"
+torobai_running_id="$(docker inspect "$("${torobai_compose[@]}" ps --quiet web)" --format '{{.Image}}')"
+test "$torobai_selected_id" = "$torobai_running_id"
+cp /etc/torobai/release.env /etc/torobai/release.accepted.env.tmp
+mv /etc/torobai/release.accepted.env.tmp /etc/torobai/release.accepted.env
+```
+
 ### Updates and rollback
 
 Updating one container creates a brief interruption; this procedure does not
@@ -390,7 +436,8 @@ the new one passes acceptance. Before the first attempt at an update:
 ```bash
 cd /srv/torobai
 test -z "$(git status --porcelain)"
-cp /etc/torobai/release.env /etc/torobai/release.previous.env
+cp /etc/torobai/release.accepted.env /etc/torobai/release.previous.env.tmp
+mv /etc/torobai/release.previous.env.tmp /etc/torobai/release.previous.env
 git fetch origin main
 git switch --detach NEXT_FULL_TESTED_COMMIT_SHA
 ```
@@ -398,8 +445,8 @@ git switch --detach NEXT_FULL_TESTED_COMMIT_SHA
 Replace the commit placeholder, run **Build and start a release**, then repeat
 the acceptance checks. Building does not stop the old container; `up` performs
 the replacement. Keep the previous image and record until the release is accepted.
-On a retry after failure, do not overwrite `release.previous.env` with the failed
-release. If the host overlay, proxy or runtime settings changed, keep their
+Always preserve the accepted record, even if a failed attempt changed the
+selected record. If the host overlay, proxy or runtime settings changed, keep their
 restricted backups as well and record which revision belongs to each release.
 
 If startup or acceptance fails, capture safe logs and return to the previous
@@ -411,16 +458,20 @@ cd /srv/torobai
 cat /etc/torobai/release.previous.env
 docker image inspect 'PREVIOUS_IMAGE_TAG' --format '{{.Id}}'
 git switch --detach PREVIOUS_FULL_COMMIT_SHA
-cp /etc/torobai/release.previous.env /etc/torobai/release.env
+cp /etc/torobai/release.previous.env /etc/torobai/release.env.tmp
+mv /etc/torobai/release.env.tmp /etc/torobai/release.env
 "${torobai_compose[@]}" config --quiet
 "${torobai_compose[@]}" up --detach --no-build --pull never --wait --wait-timeout 90
 ```
 
 Use the earlier commit's Compose file and verify the recorded image ID. Review
 any changed overlay/proxy settings for compatibility; do not blindly restore a
-revoked key from a backup. Repeat health, HTTPS and browser checks. A rollback
+revoked key from a backup. Repeat acceptance checks and record the restored
+release as accepted. A rollback
 does not restore browser-local records or undo changes to their format; review
 storage compatibility before releasing code that changes persisted records.
+If the first installation fails, there is no accepted release to restore; leave
+the key absent and fix the candidate before continuing.
 
 Keep at least the current and previous image locally and retain an off-host
 copy when recovery must work without registry/package access. `docker image save`
@@ -430,6 +481,8 @@ until the retained release IDs and their recoverable copies are accounted for.
 ## Routine operations
 
 In a new SSH session, define `torobai_compose` from the server procedure first.
+After an interrupted or failed rollout, reconcile the selected and running release
+using the acceptance or rollback procedure before any routine recreation.
 These commands inspect state without dumping environment variables:
 
 ```bash

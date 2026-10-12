@@ -18,26 +18,22 @@
 
 ## نگاهی به محیط محصول
 
-راهنمای انتخاب، گفتگو و پیشنهادها را در کنار کاتالوگ نگه می‌دارد تا کاربر بتواند از توضیح نیاز خود به بررسی مدل و ارائه‌دهنده برسد.
+از جستجوی مدل و بررسی قیمت تا مقایسه عملکرد و انتخاب ارائه‌دهنده. برای دیدن جزئیات، روی هر تصویر کلیک کنید.
 
-<p align="center">
-  <a href="docs/screenshots/selection-guide-desktop.png"><img src="docs/screenshots/selection-guide-desktop.png" width="960" alt="راهنمای انتخاب در دسکتاپ؛ گفتگو و پیشنهاد مدل‌ها در کنار کاتالوگ"></a>
-</p>
+<table>
+  <tr>
+    <td align="center"><a href="docs/screenshots/catalog.jpg?raw=true"><img src="docs/screenshots/catalog.jpg" width="240" alt="صفحه اصلی مدل‌ها و API با دسته‌بندی‌ها، تنظیم مصرف و قیمت‌ها"></a><br><strong>مدل‌ها و API</strong></td>
+    <td align="center"><a href="docs/screenshots/model-offers.jpg?raw=true"><img src="docs/screenshots/model-offers.jpg" width="240" alt="صفحه مدل با ارزان‌ترین پیشنهاد، بازه قیمت و شرایط سرویس"></a><br><strong>صفحه مدل و قیمت‌ها</strong></td>
+    <td align="center"><a href="docs/screenshots/persian-models.jpg?raw=true"><img src="docs/screenshots/persian-models.jpg" width="240" alt="مدل‌های تخصصی فارسی برای گفتار، ترجمه و پردازش متن"></a><br><strong>مدل‌های اختصاصی فارسی</strong></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="docs/screenshots/gpu-catalog.jpg?raw=true"><img src="docs/screenshots/gpu-catalog.jpg" width="240" alt="فهرست GPUها با حافظه، هزینه اجاره و ارائه‌دهندگان"></a><br><strong>اجاره GPU</strong></td>
+    <td align="center"><a href="docs/screenshots/benchmark-comparison.jpg?raw=true"><img src="docs/screenshots/benchmark-comparison.jpg" width="240" alt="مقایسه گرافیکی نتایج بنچمارک و هزینه سه مدل در یک جدول"></a><br><strong>مقایسه عملکرد مدل‌ها</strong></td>
+    <td align="center"><a href="docs/screenshots/providers.jpg?raw=true"><img src="docs/screenshots/providers.jpg" width="240" alt="فهرست ارائه‌دهندگان با جستجو، نوع عرضه و دسترسی به محصولات"></a><br><strong>ارائه‌دهندگان</strong></td>
+  </tr>
+</table>
 
-در موبایل هم پیشنهادها و تنظیم مصرف در دسترس‌اند. تعداد درخواست، حجم ورودی و خروجی و سقف بودجه، مبنای پیشنهادهای بعدی را مشخص می‌کنند.
-
-<p align="center">
-  <a href="docs/screenshots/selection-guide-mobile.png"><img src="docs/screenshots/selection-guide-mobile.png" width="300" alt="نمای موبایل راهنمای انتخاب و فهرست پیشنهادها"></a>
-  <a href="docs/screenshots/usage-settings-mobile.png"><img src="docs/screenshots/usage-settings-mobile.png" width="300" alt="تنظیم مصرف و بودجه در راهنمای انتخاب روی موبایل"></a>
-</p>
-
-## انتشار روی GitHub Pages
-
-با فعال‌کردن **GitHub Actions** در [تنظیمات Pages](https://github.com/M0BiN/torobai/settings/pages)، نسخه مستقل سایت در آدرس **https://m0bin.github.io/torobai/** منتشر می‌شود. پس از آن، هر تغییر در شاخه `main` ابتدا آزمون‌ها را می‌گذراند و سپس HTML جدید به‌صورت خودکار منتشر می‌شود.
-
-این خروجی شامل کاتالوگ، مقایسه‌ها و انتخاب‌های آماده چت‌بات است. گفتگوی آزاد با OpenRouter از طریق نسخه تحت سرور ارائه می‌شود و به کلید سمت سرور نیاز دارد.
-
-[راهنمای فعال‌سازی و انتشار](docs/DEPLOYMENT.md#github-pages)
+[**مشاهده سایت torobai**](https://m0bin.github.io/torobai/#api)
 
 ## بخش‌های اصلی محصول
 
@@ -76,6 +72,14 @@
 کاربر همیشه با نام یک مدل یا فهرست دقیقی از قابلیت‌ها وارد سایت نمی‌شود. ممکن است فقط بداند برای برنامه‌نویسی، تبدیل فایل صوتی به متن یا جستجو در اسناد به کمک نیاز دارد.
 
 چت‌بات **«کمک به انتخاب»** همین نیاز را به مسیر قابل پیگیری در سایت تبدیل می‌کند. هدف، رسیدن به گزینه‌های مرتبط با کمترین پرسش ضروری است.
+
+<table>
+  <tr>
+    <td align="center"><a href="docs/screenshots/selection-guide-desktop.png?raw=true"><img src="docs/screenshots/selection-guide-desktop.png" width="240" alt="گفتگو و پیشنهاد مدل‌ها در راهنمای انتخاب دسکتاپ"></a><br>راهنمای انتخاب</td>
+    <td align="center"><a href="docs/screenshots/selection-guide-mobile.png?raw=true"><img src="docs/screenshots/selection-guide-mobile.png" width="100" alt="راهنمای انتخاب در موبایل"></a><br>نسخه موبایل</td>
+    <td align="center"><a href="docs/screenshots/usage-settings-mobile.png?raw=true"><img src="docs/screenshots/usage-settings-mobile.png" width="100" alt="تنظیم مصرف و بودجه در گفتگو"></a><br>مصرف و بودجه</td>
+  </tr>
+</table>
 
 **نمونه نیاز کاربر:**
 
@@ -130,6 +134,14 @@
 | **درخواست‌ها و پیش‌نویس‌ها** | آماده‌سازی، ویرایش و دریافت خروجی اطلاعات برای پیگیری بعدی |
 
 نشان‌شده‌ها، پیگیری‌ها، درخواست‌ها و پیش‌نویس‌ها در مرورگر فعلی ذخیره می‌شوند. تعرفه‌ها از اطلاعات ثبت‌شده در کاتالوگ محاسبه می‌شوند؛ پیش از خرید، قیمت و شرایط نهایی را نزد ارائه‌دهنده بررسی کنید. منبع و نوع داده‌های قیمت، عملکرد و دسترس‌پذیری نیز در داده‌ها و مستندات پروژه نگهداری می‌شود.
+
+## نسخه آنلاین
+
+[سایت torobai](https://m0bin.github.io/torobai/#api) روی **GitHub Pages** در دسترس است. پس از هر تغییر در شاخه `main`، آزمون‌های پروژه اجرا می‌شوند و HTML جدید به‌صورت خودکار منتشر می‌شود.
+
+نسخه مستقل شامل کاتالوگ، مقایسه‌ها و انتخاب‌های آماده چت‌بات است. گفتگوی آزاد با OpenRouter به نسخه تحت سرور نیاز دارد؛ کلید اتصال روی سرور نگهداری می‌شود.
+
+[راهنمای انتشار و راه‌اندازی سرور](docs/DEPLOYMENT.md)
 
 ## ساختار پروژه
 

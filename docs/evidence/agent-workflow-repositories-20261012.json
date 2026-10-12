@@ -1,0 +1,2805 @@
+{
+  "review_date": "2026-10-12",
+  "target_repository": "M0BiN/torobai",
+  "target_commit": "c21ff5c6ce20742c726e1415f58dfa49c3751995",
+  "scope": "60 distinct repositories; targeted reading of 120 file paths at pinned commits, not whole-repository audits or runtime evaluations.",
+  "selection": "Official project repositories and established maintainer repositories with directly relevant instructions, implementation, testing or evaluation evidence. Stars are recorded as context, not a quality score.",
+  "limitations": [
+    "Repository instructions describe intended practice; implementation snippets and tests provide narrower evidence. Neither proves universal compliance.",
+    "Related projects and forks are not statistically independent observations.",
+    "Only listed line ranges were reviewed; no claim to have read every fetched file in full.",
+    "No third-party projects were installed or executed. Selected public distribution repositories do not expose the complete proprietary tool implementation.",
+    "Zed AGENTS.md and CLAUDE.md are symlinks to .rules; Agno AGENTS.md is a symlink to CLAUDE.md. There are 120 reviewed paths and 119 distinct resolved files. Ranges refer to resolved content.",
+    "Line ranges are inclusive, normalized and clamped to the last non-trailing line."
+  ],
+  "repositories": [
+    {
+      "id": 1,
+      "repository": "openai/codex",
+      "url": "https://github.com/openai/codex",
+      "default_branch": "main",
+      "reviewed_commit": "a9b0815167c27ab13719dd12d13b63e02b70d221",
+      "archived": false,
+      "stars_at_review": 128708,
+      "pushed_at_metadata": "2026-10-11T23:45:00Z",
+      "files": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/openai/codex/blob/a9b0815167c27ab13719dd12d13b63e02b70d221/README.md",
+          "blob_sha": "06b02fced7db972084bf0188cb03f60375b51c1c",
+          "resolved_path": "README.md",
+          "resolved_blob_sha": "06b02fced7db972084bf0188cb03f60375b51c1c",
+          "content_url": "https://github.com/openai/codex/blob/a9b0815167c27ab13719dd12d13b63e02b70d221/README.md",
+          "content_sha256": "ba4e1f69ff48386e72a9c5e1edaf76aad64a475c2d51af79ccba6d1128261ba7",
+          "line_count": 81,
+          "read_ranges": [
+            [
+              1,
+              81
+            ]
+          ]
+        },
+        {
+          "path": "codex-rs/core/src/agents_md.rs",
+          "url": "https://github.com/openai/codex/blob/a9b0815167c27ab13719dd12d13b63e02b70d221/codex-rs/core/src/agents_md.rs",
+          "blob_sha": "8e0c475d90339a236f51da33f85e70b967a61f26",
+          "resolved_path": "codex-rs/core/src/agents_md.rs",
+          "resolved_blob_sha": "8e0c475d90339a236f51da33f85e70b967a61f26",
+          "content_url": "https://github.com/openai/codex/blob/a9b0815167c27ab13719dd12d13b63e02b70d221/codex-rs/core/src/agents_md.rs",
+          "content_sha256": "97427a870741b904a3f3c143f5990eaaa65b5bfa99ddac1808b2980052b5fc78",
+          "line_count": 562,
+          "read_ranges": [
+            [
+              1,
+              42
+            ],
+            [
+              61,
+              88
+            ],
+            [
+              125,
+              178
+            ],
+            [
+              272,
+              298
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "repository": "openai/skills",
+      "url": "https://github.com/openai/skills",
+      "default_branch": "main",
+      "reviewed_commit": "49f948faa9258a0c61caceaf225e179651397431",
+      "archived": false,
+      "stars_at_review": 28011,
+      "pushed_at_metadata": "2026-09-08T20:35:26Z",
+      "files": [
+        {
+          "path": "contributing.md",
+          "url": "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/contributing.md",
+          "blob_sha": "cc833a5ccfb0d32b135a374dcf432d198e4d9a8f",
+          "resolved_path": "contributing.md",
+          "resolved_blob_sha": "cc833a5ccfb0d32b135a374dcf432d198e4d9a8f",
+          "content_url": "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/contributing.md",
+          "content_sha256": "f7458fda447f859cfd72d258ecdab1223849fe164cb83ddfe2ab5ea6168a4be9",
+          "line_count": 11,
+          "read_ranges": [
+            [
+              1,
+              11
+            ]
+          ]
+        },
+        {
+          "path": "skills/.system/skill-creator/SKILL.md",
+          "url": "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.system/skill-creator/SKILL.md",
+          "blob_sha": "72bc0b97e7a6476254a9d5c424c9971748402ec3",
+          "resolved_path": "skills/.system/skill-creator/SKILL.md",
+          "resolved_blob_sha": "72bc0b97e7a6476254a9d5c424c9971748402ec3",
+          "content_url": "https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.system/skill-creator/SKILL.md",
+          "content_sha256": "a17383bfb1448637ac1f757ad891ddb9676fa30b0eff620200f0e1cbc0cc0d50",
+          "line_count": 368,
+          "read_ranges": [
+            [
+              26,
+              46
+            ],
+            [
+              84,
+              141
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "repository": "agentsmd/agents.md",
+      "url": "https://github.com/agentsmd/agents.md",
+      "default_branch": "main",
+      "reviewed_commit": "d001185d792eb6402a58e4cbef1c228b309ec25d",
+      "archived": false,
+      "stars_at_review": 24872,
+      "pushed_at_metadata": "2026-09-10T18:46:16Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/agentsmd/agents.md/blob/d001185d792eb6402a58e4cbef1c228b309ec25d/AGENTS.md",
+          "blob_sha": "3cf929b91208081e40df9dec3835e4ff54bf4dc4",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "3cf929b91208081e40df9dec3835e4ff54bf4dc4",
+          "content_url": "https://github.com/agentsmd/agents.md/blob/d001185d792eb6402a58e4cbef1c228b309ec25d/AGENTS.md",
+          "content_sha256": "7f8ae31d13502bb23b1629151405fa40637da8d3b0dd7545eb295c1ec45ab2c9",
+          "line_count": 43,
+          "read_ranges": [
+            [
+              1,
+              43
+            ]
+          ]
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/agentsmd/agents.md/blob/d001185d792eb6402a58e4cbef1c228b309ec25d/README.md",
+          "blob_sha": "8ce701e74909d5f08e2810380e0ff15f547aa0c8",
+          "resolved_path": "README.md",
+          "resolved_blob_sha": "8ce701e74909d5f08e2810380e0ff15f547aa0c8",
+          "content_url": "https://github.com/agentsmd/agents.md/blob/d001185d792eb6402a58e4cbef1c228b309ec25d/README.md",
+          "content_sha256": "60ec51c226560aaf2c49a0b8a2452c8cf24459c37a816764979dc917076c7afb",
+          "line_count": 49,
+          "read_ranges": [
+            [
+              1,
+              49
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "repository": "openai/openai-agents-python",
+      "url": "https://github.com/openai/openai-agents-python",
+      "default_branch": "main",
+      "reviewed_commit": "125efa029b4bfd84238bd2c4fd69c3406f802663",
+      "archived": false,
+      "stars_at_review": 29975,
+      "pushed_at_metadata": "2026-10-08T19:41:57Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/openai/openai-agents-python/blob/125efa029b4bfd84238bd2c4fd69c3406f802663/AGENTS.md",
+          "blob_sha": "6cf28ce7e03d61f7b7c689b63d9f2ba5adf998df",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "6cf28ce7e03d61f7b7c689b63d9f2ba5adf998df",
+          "content_url": "https://github.com/openai/openai-agents-python/blob/125efa029b4bfd84238bd2c4fd69c3406f802663/AGENTS.md",
+          "content_sha256": "c46d5dd0de4c982b28866536e29fb7babb431699afa46bf8b8256bb5b81c2aa2",
+          "line_count": 214,
+          "read_ranges": [
+            [
+              1,
+              214
+            ]
+          ]
+        },
+        {
+          "path": "tests/README.md",
+          "url": "https://github.com/openai/openai-agents-python/blob/125efa029b4bfd84238bd2c4fd69c3406f802663/tests/README.md",
+          "blob_sha": "55e3705367f942b34317cd2fd10273cf449fddf3",
+          "resolved_path": "tests/README.md",
+          "resolved_blob_sha": "55e3705367f942b34317cd2fd10273cf449fddf3",
+          "content_url": "https://github.com/openai/openai-agents-python/blob/125efa029b4bfd84238bd2c4fd69c3406f802663/tests/README.md",
+          "content_sha256": "68927ae88aa3c7fa6bc9c5f6689d42ded87b67b6e5d68da615b61c4bac37db59",
+          "line_count": 66,
+          "read_ranges": [
+            [
+              23,
+              46
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "repository": "openai/openai-cookbook",
+      "url": "https://github.com/openai/openai-cookbook",
+      "default_branch": "main",
+      "reviewed_commit": "5bd6cb40b6b84b69b2032d810610aa85064102df",
+      "archived": false,
+      "stars_at_review": 76562,
+      "pushed_at_metadata": "2026-10-09T19:47:32Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/openai/openai-cookbook/blob/5bd6cb40b6b84b69b2032d810610aa85064102df/AGENTS.md",
+          "blob_sha": "90bb37894a5b223c0d8c7731d22c6fa6c569eb8c",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "90bb37894a5b223c0d8c7731d22c6fa6c569eb8c",
+          "content_url": "https://github.com/openai/openai-cookbook/blob/5bd6cb40b6b84b69b2032d810610aa85064102df/AGENTS.md",
+          "content_sha256": "bcd7141548dc35f5b2faadc1f70c4f3443f7da3dc6d80ed8c286e4ca436a55e4",
+          "line_count": 50,
+          "read_ranges": [
+            [
+              1,
+              50
+            ]
+          ]
+        },
+        {
+          "path": ".github/scripts/check_notebooks.py",
+          "url": "https://github.com/openai/openai-cookbook/blob/5bd6cb40b6b84b69b2032d810610aa85064102df/.github/scripts/check_notebooks.py",
+          "blob_sha": "0bcf54034628631fc14d4d69f05c0ca16b3ab9a7",
+          "resolved_path": ".github/scripts/check_notebooks.py",
+          "resolved_blob_sha": "0bcf54034628631fc14d4d69f05c0ca16b3ab9a7",
+          "content_url": "https://github.com/openai/openai-cookbook/blob/5bd6cb40b6b84b69b2032d810610aa85064102df/.github/scripts/check_notebooks.py",
+          "content_sha256": "5cd0e778365d371bd15c32aeb7083ffe88e2e47c93dfe8d87f419c7584df4595",
+          "line_count": 61,
+          "read_ranges": [
+            [
+              1,
+              61
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "repository": "openai/evals",
+      "url": "https://github.com/openai/evals",
+      "default_branch": "main",
+      "reviewed_commit": "8eac7a7de5215c907fbddc30efdaf316913eccdd",
+      "archived": false,
+      "stars_at_review": 19589,
+      "pushed_at_metadata": "2026-04-14T15:29:57Z",
+      "files": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/openai/evals/blob/8eac7a7de5215c907fbddc30efdaf316913eccdd/README.md",
+          "blob_sha": "b6d57c76ee5b1361834b415ffbb63bb9c5f3ff68",
+          "resolved_path": "README.md",
+          "resolved_blob_sha": "b6d57c76ee5b1361834b415ffbb63bb9c5f3ff68",
+          "content_url": "https://github.com/openai/evals/blob/8eac7a7de5215c907fbddc30efdaf316913eccdd/README.md",
+          "content_sha256": "f0b50bd53e2fbc81be774a6bfb0cf20997aa7509bd22925ae779a87d57c7c914",
+          "line_count": 101,
+          "read_ranges": [
+            [
+              1,
+              100
+            ]
+          ]
+        },
+        {
+          "path": "docs/build-eval.md",
+          "url": "https://github.com/openai/evals/blob/8eac7a7de5215c907fbddc30efdaf316913eccdd/docs/build-eval.md",
+          "blob_sha": "7c25dd6bc0d854b3ef2665712129dde6e24da7e3",
+          "resolved_path": "docs/build-eval.md",
+          "resolved_blob_sha": "7c25dd6bc0d854b3ef2665712129dde6e24da7e3",
+          "content_url": "https://github.com/openai/evals/blob/8eac7a7de5215c907fbddc30efdaf316913eccdd/docs/build-eval.md",
+          "content_sha256": "adc76880a36495839ff5911d41092f3f0a28623d5ecc0e7baee864f2f9a51cc6",
+          "line_count": 93,
+          "read_ranges": [
+            [
+              1,
+              21
+            ],
+            [
+              64,
+              93
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "repository": "anthropics/claude-code",
+      "url": "https://github.com/anthropics/claude-code",
+      "default_branch": "main",
+      "reviewed_commit": "3deb873687379f0c199a69fdaccc65f0865f7a29",
+      "archived": false,
+      "stars_at_review": 150266,
+      "pushed_at_metadata": "2026-10-11T19:07:17Z",
+      "files": [
+        {
+          "path": "CLAUDE.md",
+          "url": "https://github.com/anthropics/claude-code/blob/3deb873687379f0c199a69fdaccc65f0865f7a29/CLAUDE.md",
+          "blob_sha": "410ad0f67663043920889a2b4cc380867acc1e3b",
+          "resolved_path": "CLAUDE.md",
+          "resolved_blob_sha": "410ad0f67663043920889a2b4cc380867acc1e3b",
+          "content_url": "https://github.com/anthropics/claude-code/blob/3deb873687379f0c199a69fdaccc65f0865f7a29/CLAUDE.md",
+          "content_sha256": "0fafa0a267c1a7320c4d9ccb4acaa27bdb7062e34cb23569f32a7a472ed0c7ac",
+          "line_count": 40,
+          "read_ranges": [
+            [
+              1,
+              40
+            ]
+          ]
+        },
+        {
+          "path": ".github/scripts/check_workflow_hardening.py",
+          "url": "https://github.com/anthropics/claude-code/blob/3deb873687379f0c199a69fdaccc65f0865f7a29/.github/scripts/check_workflow_hardening.py",
+          "blob_sha": "6c2a09ac3f9be4b7675ee0018cfddc71866817f2",
+          "resolved_path": ".github/scripts/check_workflow_hardening.py",
+          "resolved_blob_sha": "6c2a09ac3f9be4b7675ee0018cfddc71866817f2",
+          "content_url": "https://github.com/anthropics/claude-code/blob/3deb873687379f0c199a69fdaccc65f0865f7a29/.github/scripts/check_workflow_hardening.py",
+          "content_sha256": "c0c539f8f072be1db577a0191df885092e863ed78b00b40021e5721a8c995b9a",
+          "line_count": 339,
+          "read_ranges": [
+            [
+              231,
+              275
+            ],
+            [
+              277,
+              310
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "repository": "anthropics/skills",
+      "url": "https://github.com/anthropics/skills",
+      "default_branch": "main",
+      "reviewed_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "archived": false,
+      "stars_at_review": 180557,
+      "pushed_at_metadata": "2026-10-09T18:45:52Z",
+      "files": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/anthropics/skills/blob/dbd4588f9e1033efb41dad4bef2f7947c8993d44/README.md",
+          "blob_sha": "eb54ee8b92f2d40b4b26569be0772be3c1e23156",
+          "resolved_path": "README.md",
+          "resolved_blob_sha": "eb54ee8b92f2d40b4b26569be0772be3c1e23156",
+          "content_url": "https://github.com/anthropics/skills/blob/dbd4588f9e1033efb41dad4bef2f7947c8993d44/README.md",
+          "content_sha256": "2fb9c4cc026366ea6e21c60cb23c908a4d27c62071819cc06beffaac102d0694",
+          "line_count": 96,
+          "read_ranges": [
+            [
+              1,
+              96
+            ]
+          ]
+        },
+        {
+          "path": "skills/skill-creator/SKILL.md",
+          "url": "https://github.com/anthropics/skills/blob/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/skill-creator/SKILL.md",
+          "blob_sha": "65b3a402dbd09b8e83f9d637c6b553875189085c",
+          "resolved_path": "skills/skill-creator/SKILL.md",
+          "resolved_blob_sha": "65b3a402dbd09b8e83f9d637c6b553875189085c",
+          "content_url": "https://github.com/anthropics/skills/blob/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/skill-creator/SKILL.md",
+          "content_sha256": "dcd4803e61e913e6fc27294184cd3a71f09f5e924ff20c8a9a20173e7b3c2bcf",
+          "line_count": 485,
+          "read_ranges": [
+            [
+              45,
+              115
+            ],
+            [
+              141,
+              162
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "repository": "anthropics/claude-agent-sdk-python",
+      "url": "https://github.com/anthropics/claude-agent-sdk-python",
+      "default_branch": "main",
+      "reviewed_commit": "b6e9d12fe1cc98dde988ab7b7713c1feeee50c6c",
+      "archived": false,
+      "stars_at_review": 8250,
+      "pushed_at_metadata": "2026-10-09T19:32:25Z",
+      "files": [
+        {
+          "path": "CLAUDE.md",
+          "url": "https://github.com/anthropics/claude-agent-sdk-python/blob/b6e9d12fe1cc98dde988ab7b7713c1feeee50c6c/CLAUDE.md",
+          "blob_sha": "096f8c2941c339c4194ba3675d78f0e246dc88cc",
+          "resolved_path": "CLAUDE.md",
+          "resolved_blob_sha": "096f8c2941c339c4194ba3675d78f0e246dc88cc",
+          "content_url": "https://github.com/anthropics/claude-agent-sdk-python/blob/b6e9d12fe1cc98dde988ab7b7713c1feeee50c6c/CLAUDE.md",
+          "content_sha256": "3e7b306e9e967c65f48aa454b3ea42bbe0e6b420fa7e81224938a8e2195aa7ca",
+          "line_count": 82,
+          "read_ranges": [
+            [
+              1,
+              82
+            ]
+          ]
+        },
+        {
+          "path": "src/claude_agent_sdk/types.py",
+          "url": "https://github.com/anthropics/claude-agent-sdk-python/blob/b6e9d12fe1cc98dde988ab7b7713c1feeee50c6c/src/claude_agent_sdk/types.py",
+          "blob_sha": "d3b42fc111a604df7dcfbbd712fe831bf7873a49",
+          "resolved_path": "src/claude_agent_sdk/types.py",
+          "resolved_blob_sha": "d3b42fc111a604df7dcfbbd712fe831bf7873a49",
+          "content_url": "https://github.com/anthropics/claude-agent-sdk-python/blob/b6e9d12fe1cc98dde988ab7b7713c1feeee50c6c/src/claude_agent_sdk/types.py",
+          "content_sha256": "af76b7982e6eb5dbee49a53353e0ac1197ac0bc2016536378c011ba848a504d7",
+          "line_count": 2895,
+          "read_ranges": [
+            [
+              221,
+              286
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "repository": "anthropics/claude-cookbooks",
+      "url": "https://github.com/anthropics/claude-cookbooks",
+      "default_branch": "main",
+      "reviewed_commit": "9c1e493ddd2b82df399d2a61b9c806c539e18be6",
+      "archived": false,
+      "stars_at_review": 53361,
+      "pushed_at_metadata": "2026-10-10T09:24:55Z",
+      "files": [
+        {
+          "path": "CLAUDE.md",
+          "url": "https://github.com/anthropics/claude-cookbooks/blob/9c1e493ddd2b82df399d2a61b9c806c539e18be6/CLAUDE.md",
+          "blob_sha": "0c54d4a4113643f91bb0ee2a767a13f2cd9a00e4",
+          "resolved_path": "CLAUDE.md",
+          "resolved_blob_sha": "0c54d4a4113643f91bb0ee2a767a13f2cd9a00e4",
+          "content_url": "https://github.com/anthropics/claude-cookbooks/blob/9c1e493ddd2b82df399d2a61b9c806c539e18be6/CLAUDE.md",
+          "content_sha256": "d4336215488fcd00830c5ce57a10ba98d46843a45dddb83beb75a0790adaf364",
+          "line_count": 111,
+          "read_ranges": [
+            [
+              1,
+              100
+            ]
+          ]
+        },
+        {
+          "path": ".claude/skills/cookbook-audit/SKILL.md",
+          "url": "https://github.com/anthropics/claude-cookbooks/blob/9c1e493ddd2b82df399d2a61b9c806c539e18be6/.claude/skills/cookbook-audit/SKILL.md",
+          "blob_sha": "c8eb64c6d97227b7fd1d06ba1b4e12ab6748506e",
+          "resolved_path": ".claude/skills/cookbook-audit/SKILL.md",
+          "resolved_blob_sha": "c8eb64c6d97227b7fd1d06ba1b4e12ab6748506e",
+          "content_url": "https://github.com/anthropics/claude-cookbooks/blob/9c1e493ddd2b82df399d2a61b9c806c539e18be6/.claude/skills/cookbook-audit/SKILL.md",
+          "content_sha256": "63b4c68ffe7ea6c95b13ab008d58224651a5c63d3559ae4e58ec317f72a16258",
+          "line_count": 273,
+          "read_ranges": [
+            [
+              8,
+              38
+            ],
+            [
+              69,
+              95
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "repository": "anthropics/claude-code-action",
+      "url": "https://github.com/anthropics/claude-code-action",
+      "default_branch": "main",
+      "reviewed_commit": "1d6de8cb0c237e7c15e9e1bdf973826ebae490cc",
+      "archived": false,
+      "stars_at_review": 9479,
+      "pushed_at_metadata": "2026-10-09T19:38:32Z",
+      "files": [
+        {
+          "path": "CLAUDE.md",
+          "url": "https://github.com/anthropics/claude-code-action/blob/1d6de8cb0c237e7c15e9e1bdf973826ebae490cc/CLAUDE.md",
+          "blob_sha": "471b9b4f83187774170bd668addc866c9f123778",
+          "resolved_path": "CLAUDE.md",
+          "resolved_blob_sha": "471b9b4f83187774170bd668addc866c9f123778",
+          "content_url": "https://github.com/anthropics/claude-code-action/blob/1d6de8cb0c237e7c15e9e1bdf973826ebae490cc/CLAUDE.md",
+          "content_sha256": "283b44e8f01e3039ea626980ee06720d06a5283768befa1af6965289daacee37",
+          "line_count": 58,
+          "read_ranges": [
+            [
+              1,
+              58
+            ]
+          ]
+        },
+        {
+          "path": "action.yml",
+          "url": "https://github.com/anthropics/claude-code-action/blob/1d6de8cb0c237e7c15e9e1bdf973826ebae490cc/action.yml",
+          "blob_sha": "196918fd9140218ce0d800755541e1bc5388d37f",
+          "resolved_path": "action.yml",
+          "resolved_blob_sha": "196918fd9140218ce0d800755541e1bc5388d37f",
+          "content_url": "https://github.com/anthropics/claude-code-action/blob/1d6de8cb0c237e7c15e9e1bdf973826ebae490cc/action.yml",
+          "content_sha256": "87b706489e63483c9c32c12af36467dd34e309becca35f7a8ead4d1e0664c4df",
+          "line_count": 459,
+          "read_ranges": [
+            [
+              421,
+              459
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "repository": "anthropics/claude-plugins-official",
+      "url": "https://github.com/anthropics/claude-plugins-official",
+      "default_branch": "main",
+      "reviewed_commit": "f359d43b406057f1a8cdbc4ea93b827642c162e6",
+      "archived": false,
+      "stars_at_review": 37704,
+      "pushed_at_metadata": "2026-10-11T07:47:50Z",
+      "files": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/anthropics/claude-plugins-official/blob/f359d43b406057f1a8cdbc4ea93b827642c162e6/README.md",
+          "blob_sha": "43104e240ff500c762adebb0c31dc4b7ff7b50dd",
+          "resolved_path": "README.md",
+          "resolved_blob_sha": "43104e240ff500c762adebb0c31dc4b7ff7b50dd",
+          "content_url": "https://github.com/anthropics/claude-plugins-official/blob/f359d43b406057f1a8cdbc4ea93b827642c162e6/README.md",
+          "content_sha256": "f34b8730d2b61617045c61ea2d9bf3ab08561305bfac77ea061e755bf46aeac2",
+          "line_count": 97,
+          "read_ranges": [
+            [
+              1,
+              90
+            ]
+          ]
+        },
+        {
+          "path": "plugins/claude-md-management/skills/claude-md-improver/SKILL.md",
+          "url": "https://github.com/anthropics/claude-plugins-official/blob/f359d43b406057f1a8cdbc4ea93b827642c162e6/plugins/claude-md-management/skills/claude-md-improver/SKILL.md",
+          "blob_sha": "744444e4df385e9b9160e23fba02321062dfba9a",
+          "resolved_path": "plugins/claude-md-management/skills/claude-md-improver/SKILL.md",
+          "resolved_blob_sha": "744444e4df385e9b9160e23fba02321062dfba9a",
+          "content_url": "https://github.com/anthropics/claude-plugins-official/blob/f359d43b406057f1a8cdbc4ea93b827642c162e6/plugins/claude-md-management/skills/claude-md-improver/SKILL.md",
+          "content_sha256": "b06c7420be08ca1c7f6d75f7f4709fdb787624a2d363e2f8052216d8c780f85b",
+          "line_count": 179,
+          "read_ranges": [
+            [
+              35,
+              56
+            ],
+            [
+              95,
+              119
+            ],
+            [
+              144,
+              179
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "repository": "google-gemini/gemini-cli",
+      "url": "https://github.com/google-gemini/gemini-cli",
+      "default_branch": "main",
+      "reviewed_commit": "9b6e0265d16bbd29ca51e33c9e0c01dc4cec5e83",
+      "archived": false,
+      "stars_at_review": 107293,
+      "pushed_at_metadata": "2026-10-12T01:29:53Z",
+      "files": [
+        {
+          "path": "GEMINI.md",
+          "url": "https://github.com/google-gemini/gemini-cli/blob/9b6e0265d16bbd29ca51e33c9e0c01dc4cec5e83/GEMINI.md",
+          "blob_sha": "4acdfc08beced8d16bc629462b00423ab109a82c",
+          "resolved_path": "GEMINI.md",
+          "resolved_blob_sha": "4acdfc08beced8d16bc629462b00423ab109a82c",
+          "content_url": "https://github.com/google-gemini/gemini-cli/blob/9b6e0265d16bbd29ca51e33c9e0c01dc4cec5e83/GEMINI.md",
+          "content_sha256": "74dab8e16a1ac9ea84d061a61944eab80b2991412daf02ab98e319ea61f49688",
+          "line_count": 96,
+          "read_ranges": [
+            [
+              1,
+              90
+            ]
+          ]
+        },
+        {
+          "path": "docs/cli/gemini-md.md",
+          "url": "https://github.com/google-gemini/gemini-cli/blob/9b6e0265d16bbd29ca51e33c9e0c01dc4cec5e83/docs/cli/gemini-md.md",
+          "blob_sha": "1e3cdad3b7934a54d78d30083558c80e1b03d3db",
+          "resolved_path": "docs/cli/gemini-md.md",
+          "resolved_blob_sha": "1e3cdad3b7934a54d78d30083558c80e1b03d3db",
+          "content_url": "https://github.com/google-gemini/gemini-cli/blob/9b6e0265d16bbd29ca51e33c9e0c01dc4cec5e83/docs/cli/gemini-md.md",
+          "content_sha256": "d00eeaef22453de4756a9862d8467750f772e239c4ee9b6f755709429b47c2cf",
+          "line_count": 116,
+          "read_ranges": [
+            [
+              1,
+              116
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "repository": "google/adk-python",
+      "url": "https://github.com/google/adk-python",
+      "default_branch": "main",
+      "reviewed_commit": "bca4a425b1b0abccddf8af26735773394a808427",
+      "archived": false,
+      "stars_at_review": 21782,
+      "pushed_at_metadata": "2026-10-11T05:15:08Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/google/adk-python/blob/bca4a425b1b0abccddf8af26735773394a808427/AGENTS.md",
+          "blob_sha": "a6b9e683d3c873c5706db15d44b141c8769cc2ef",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "a6b9e683d3c873c5706db15d44b141c8769cc2ef",
+          "content_url": "https://github.com/google/adk-python/blob/bca4a425b1b0abccddf8af26735773394a808427/AGENTS.md",
+          "content_sha256": "7b7b52e14702e69eb472247a27a512708efc766d12d0eea70bdb2458f77cc668",
+          "line_count": 30,
+          "read_ranges": [
+            [
+              1,
+              30
+            ]
+          ]
+        },
+        {
+          "path": ".agents/skills/adk-architecture/SKILL.md",
+          "url": "https://github.com/google/adk-python/blob/bca4a425b1b0abccddf8af26735773394a808427/.agents/skills/adk-architecture/SKILL.md",
+          "blob_sha": "349266a8c2d11b959db7c40e2d774530304fae26",
+          "resolved_path": ".agents/skills/adk-architecture/SKILL.md",
+          "resolved_blob_sha": "349266a8c2d11b959db7c40e2d774530304fae26",
+          "content_url": "https://github.com/google/adk-python/blob/bca4a425b1b0abccddf8af26735773394a808427/.agents/skills/adk-architecture/SKILL.md",
+          "content_sha256": "44901394ad6efdce484bca41eb1492fa4c7ac0b456d95a0fa2668bdf086a0851",
+          "line_count": 77,
+          "read_ranges": [
+            [
+              1,
+              77
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "repository": "google-github-actions/run-gemini-cli",
+      "url": "https://github.com/google-github-actions/run-gemini-cli",
+      "default_branch": "main",
+      "reviewed_commit": "387c8ddb7a72078825da941758b811b9153c71e8",
+      "archived": false,
+      "stars_at_review": 2104,
+      "pushed_at_metadata": "2026-08-21T16:03:24Z",
+      "files": [
+        {
+          "path": "GEMINI.md",
+          "url": "https://github.com/google-github-actions/run-gemini-cli/blob/387c8ddb7a72078825da941758b811b9153c71e8/GEMINI.md",
+          "blob_sha": "161ffeec05d24b52954660e1eb1badd423ef2588",
+          "resolved_path": "GEMINI.md",
+          "resolved_blob_sha": "161ffeec05d24b52954660e1eb1badd423ef2588",
+          "content_url": "https://github.com/google-github-actions/run-gemini-cli/blob/387c8ddb7a72078825da941758b811b9153c71e8/GEMINI.md",
+          "content_sha256": "e5b9a80a04d50a654e1a8e9d1cdef25915df7feae30422bc1049c5198911210e",
+          "line_count": 39,
+          "read_ranges": [
+            [
+              1,
+              39
+            ]
+          ]
+        },
+        {
+          "path": "action.yml",
+          "url": "https://github.com/google-github-actions/run-gemini-cli/blob/387c8ddb7a72078825da941758b811b9153c71e8/action.yml",
+          "blob_sha": "35af14fe781b3e02ecd20233897ec743b731bbd2",
+          "resolved_path": "action.yml",
+          "resolved_blob_sha": "35af14fe781b3e02ecd20233897ec743b731bbd2",
+          "content_url": "https://github.com/google-github-actions/run-gemini-cli/blob/387c8ddb7a72078825da941758b811b9153c71e8/action.yml",
+          "content_sha256": "deace8fe05c2a99af825d7145ebef313c80463542945dacc45cadeb94763728d",
+          "line_count": 516,
+          "read_ranges": [
+            [
+              275,
+              340
+            ],
+            [
+              417,
+              438
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "repository": "github/copilot-cli",
+      "url": "https://github.com/github/copilot-cli",
+      "default_branch": "main",
+      "reviewed_commit": "dcdc0273c0250d8b32677ca99bc0e1f5006daa89",
+      "archived": false,
+      "stars_at_review": 11250,
+      "pushed_at_metadata": "2026-10-10T02:13:47Z",
+      "files": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/github/copilot-cli/blob/dcdc0273c0250d8b32677ca99bc0e1f5006daa89/README.md",
+          "blob_sha": "347cf2dcbfd43632662496991582cf860bedd715",
+          "resolved_path": "README.md",
+          "resolved_blob_sha": "347cf2dcbfd43632662496991582cf860bedd715",
+          "content_url": "https://github.com/github/copilot-cli/blob/dcdc0273c0250d8b32677ca99bc0e1f5006daa89/README.md",
+          "content_sha256": "33657f2e7383f2167b47d5f8c549a6071905a5c93d5d67d17e5c5399f126f07b",
+          "line_count": 194,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "changelog.md",
+          "url": "https://github.com/github/copilot-cli/blob/dcdc0273c0250d8b32677ca99bc0e1f5006daa89/changelog.md",
+          "blob_sha": "ff081540a97c0d04e6d778e069e49dac31eb8aee",
+          "resolved_path": "changelog.md",
+          "resolved_blob_sha": "ff081540a97c0d04e6d778e069e49dac31eb8aee",
+          "content_url": "https://github.com/github/copilot-cli/blob/dcdc0273c0250d8b32677ca99bc0e1f5006daa89/changelog.md",
+          "content_sha256": "b1771868e1b2bdaffaa4aedbc85a31bf10ae24c36688ba7ed9b3d6b91d75dcaa",
+          "line_count": 3409,
+          "read_ranges": [
+            [
+              1,
+              35
+            ],
+            [
+              146,
+              173
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "repository": "github/awesome-copilot",
+      "url": "https://github.com/github/awesome-copilot",
+      "default_branch": "main",
+      "reviewed_commit": "e2563c8f17b55b50d142fe89a5c6a25a4b70692d",
+      "archived": false,
+      "stars_at_review": 39929,
+      "pushed_at_metadata": "2026-10-12T04:02:01Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/github/awesome-copilot/blob/e2563c8f17b55b50d142fe89a5c6a25a4b70692d/AGENTS.md",
+          "blob_sha": "88c6826d8223069119f0f703576a40209f1b9e5b",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "88c6826d8223069119f0f703576a40209f1b9e5b",
+          "content_url": "https://github.com/github/awesome-copilot/blob/e2563c8f17b55b50d142fe89a5c6a25a4b70692d/AGENTS.md",
+          "content_sha256": "a6f4a8f393f52d67088b1f1a20b8fe3c4e605c3d9047ab5ab8bc3ecbd5483684",
+          "line_count": 353,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "instructions/security-and-owasp.instructions.md",
+          "url": "https://github.com/github/awesome-copilot/blob/e2563c8f17b55b50d142fe89a5c6a25a4b70692d/instructions/security-and-owasp.instructions.md",
+          "blob_sha": "91d2bc0b473c4feb9811a3c0280b8a44fed5e70f",
+          "resolved_path": "instructions/security-and-owasp.instructions.md",
+          "resolved_blob_sha": "91d2bc0b473c4feb9811a3c0280b8a44fed5e70f",
+          "content_url": "https://github.com/github/awesome-copilot/blob/e2563c8f17b55b50d142fe89a5c6a25a4b70692d/instructions/security-and-owasp.instructions.md",
+          "content_sha256": "d2a71c9a78cafe3fd59177848c344be88f8b3abfad38e9c282e0a312fa2dd754",
+          "line_count": 1088,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "repository": "github/spec-kit",
+      "url": "https://github.com/github/spec-kit",
+      "default_branch": "main",
+      "reviewed_commit": "0443760542e7e5269724744a2ac55c4bd386d095",
+      "archived": false,
+      "stars_at_review": 140860,
+      "pushed_at_metadata": "2026-10-10T01:32:35Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/github/spec-kit/blob/0443760542e7e5269724744a2ac55c4bd386d095/AGENTS.md",
+          "blob_sha": "949f4999f9b9d50c43e0e493fdce720b3597fa95",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "949f4999f9b9d50c43e0e493fdce720b3597fa95",
+          "content_url": "https://github.com/github/spec-kit/blob/0443760542e7e5269724744a2ac55c4bd386d095/AGENTS.md",
+          "content_sha256": "562f6fb17479d6ae0fe135548490ee9835bd8363e266019011b9c3e3dcab8584",
+          "line_count": 66,
+          "read_ranges": [
+            [
+              1,
+              66
+            ]
+          ]
+        },
+        {
+          "path": "design/integration.md",
+          "url": "https://github.com/github/spec-kit/blob/0443760542e7e5269724744a2ac55c4bd386d095/design/integration.md",
+          "blob_sha": "b110bbafca7eaa3cecd95a2307255fc11d62b7df",
+          "resolved_path": "design/integration.md",
+          "resolved_blob_sha": "b110bbafca7eaa3cecd95a2307255fc11d62b7df",
+          "content_url": "https://github.com/github/spec-kit/blob/0443760542e7e5269724744a2ac55c4bd386d095/design/integration.md",
+          "content_sha256": "e1c6a9fce8c01d095f56a8fe54e8dc5f168e1231d65a24c1b712102fce13b442",
+          "line_count": 420,
+          "read_ranges": [
+            [
+              1,
+              80
+            ],
+            [
+              365,
+              384
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "repository": "github/copilot-sdk",
+      "url": "https://github.com/github/copilot-sdk",
+      "default_branch": "main",
+      "reviewed_commit": "6be623b01b194a61466385e3f708639ec98ce8ac",
+      "archived": false,
+      "stars_at_review": 10544,
+      "pushed_at_metadata": "2026-10-12T01:53:53Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/github/copilot-sdk/blob/6be623b01b194a61466385e3f708639ec98ce8ac/AGENTS.md",
+          "blob_sha": "9a9808539d7ec300c7d297a2f04fb6168f5b5db6",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "9a9808539d7ec300c7d297a2f04fb6168f5b5db6",
+          "content_url": "https://github.com/github/copilot-sdk/blob/6be623b01b194a61466385e3f708639ec98ce8ac/AGENTS.md",
+          "content_sha256": "12ef760ccc01d39cd8c5a5c872a64961364df5bc01d551314722246753d44d26",
+          "line_count": 127,
+          "read_ranges": [
+            [
+              1,
+              90
+            ]
+          ]
+        },
+        {
+          "path": "test/harness/server.ts",
+          "url": "https://github.com/github/copilot-sdk/blob/6be623b01b194a61466385e3f708639ec98ce8ac/test/harness/server.ts",
+          "blob_sha": "f190b2d2f5c75e4d1fdaf74bdd0ff05252b87508",
+          "resolved_path": "test/harness/server.ts",
+          "resolved_blob_sha": "f190b2d2f5c75e4d1fdaf74bdd0ff05252b87508",
+          "content_url": "https://github.com/github/copilot-sdk/blob/6be623b01b194a61466385e3f708639ec98ce8ac/test/harness/server.ts",
+          "content_sha256": "3c1fa3801dbd91b51c73548c8d6f60e849e54979c72999fc9c61a2b3cee8bf2b",
+          "line_count": 69,
+          "read_ranges": [
+            [
+              1,
+              69
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "repository": "github/gh-aw",
+      "url": "https://github.com/github/gh-aw",
+      "default_branch": "main",
+      "reviewed_commit": "be37249295120450b69bbe8d7de57eae3508781b",
+      "archived": false,
+      "stars_at_review": 5381,
+      "pushed_at_metadata": "2026-10-12T04:30:46Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/github/gh-aw/blob/be37249295120450b69bbe8d7de57eae3508781b/AGENTS.md",
+          "blob_sha": "c494b8bdaeb5afa06c48f9fe66a30462f7751b7f",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "c494b8bdaeb5afa06c48f9fe66a30462f7751b7f",
+          "content_url": "https://github.com/github/gh-aw/blob/be37249295120450b69bbe8d7de57eae3508781b/AGENTS.md",
+          "content_sha256": "614c0117340fbbf7f11194f8180e22e438952a9cb36b19a49660c14eaa8b8fdc",
+          "line_count": 150,
+          "read_ranges": [
+            [
+              1,
+              90
+            ]
+          ]
+        },
+        {
+          "path": ".github/skills/developer-security/SKILL.md",
+          "url": "https://github.com/github/gh-aw/blob/be37249295120450b69bbe8d7de57eae3508781b/.github/skills/developer-security/SKILL.md",
+          "blob_sha": "4c76bba2500619428e389aac49ab8de2d87b7836",
+          "resolved_path": ".github/skills/developer-security/SKILL.md",
+          "resolved_blob_sha": "4c76bba2500619428e389aac49ab8de2d87b7836",
+          "content_url": "https://github.com/github/gh-aw/blob/be37249295120450b69bbe8d7de57eae3508781b/.github/skills/developer-security/SKILL.md",
+          "content_sha256": "8adc14a88fd0c9799da9c7f36f649e6638e88c61aefe85dd7fb80f0ed98341d4",
+          "line_count": 387,
+          "read_ranges": [
+            [
+              21,
+              68
+            ],
+            [
+              229,
+              282
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "repository": "microsoft/vscode",
+      "url": "https://github.com/microsoft/vscode",
+      "default_branch": "main",
+      "reviewed_commit": "ff00e788322523ee1e9e8ee2c9bb4b89af93a3c2",
+      "archived": false,
+      "stars_at_review": 193594,
+      "pushed_at_metadata": "2026-10-12T03:01:48Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/microsoft/vscode/blob/ff00e788322523ee1e9e8ee2c9bb4b89af93a3c2/AGENTS.md",
+          "blob_sha": "d6abb76ab8384fb7b391b551b159002657c218c1",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "d6abb76ab8384fb7b391b551b159002657c218c1",
+          "content_url": "https://github.com/microsoft/vscode/blob/ff00e788322523ee1e9e8ee2c9bb4b89af93a3c2/AGENTS.md",
+          "content_sha256": "aa9b8989ec534e850e743e89bd345eaf9d88c522e86e98239e2ddcda435db45f",
+          "line_count": 5,
+          "read_ranges": [
+            [
+              1,
+              5
+            ]
+          ]
+        },
+        {
+          "path": ".github/copilot-instructions.md",
+          "url": "https://github.com/microsoft/vscode/blob/ff00e788322523ee1e9e8ee2c9bb4b89af93a3c2/.github/copilot-instructions.md",
+          "blob_sha": "81921579396745358b6fc63d941cf879d7dd7cbf",
+          "resolved_path": ".github/copilot-instructions.md",
+          "resolved_blob_sha": "81921579396745358b6fc63d941cf879d7dd7cbf",
+          "content_url": "https://github.com/microsoft/vscode/blob/ff00e788322523ee1e9e8ee2c9bb4b89af93a3c2/.github/copilot-instructions.md",
+          "content_sha256": "09664beeba53dd000a9ebab64d773a49fc32137fdb87ae4b02bba4d4aa4e089e",
+          "line_count": 158,
+          "read_ranges": [
+            [
+              1,
+              48
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "repository": "vercel/ai",
+      "url": "https://github.com/vercel/ai",
+      "default_branch": "main",
+      "reviewed_commit": "ba05943b69ad070558bb5bc912da99ec66d7d263",
+      "archived": false,
+      "stars_at_review": 27254,
+      "pushed_at_metadata": "2026-10-12T04:41:18Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/vercel/ai/blob/ba05943b69ad070558bb5bc912da99ec66d7d263/AGENTS.md",
+          "blob_sha": "da8a62fcc855801b1ea87388d9b78d46c0338095",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "da8a62fcc855801b1ea87388d9b78d46c0338095",
+          "content_url": "https://github.com/vercel/ai/blob/ba05943b69ad070558bb5bc912da99ec66d7d263/AGENTS.md",
+          "content_sha256": "8c2ff038ca158aad7034492912ff746ba298dd2815e333079fb08a076105b7aa",
+          "line_count": 320,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "content/docs/03-ai-sdk-core/55-testing.mdx",
+          "url": "https://github.com/vercel/ai/blob/ba05943b69ad070558bb5bc912da99ec66d7d263/content/docs/03-ai-sdk-core/55-testing.mdx",
+          "blob_sha": "0827517d459dd413f1daa4fc83febd649a07063a",
+          "resolved_path": "content/docs/03-ai-sdk-core/55-testing.mdx",
+          "resolved_blob_sha": "0827517d459dd413f1daa4fc83febd649a07063a",
+          "content_url": "https://github.com/vercel/ai/blob/ba05943b69ad070558bb5bc912da99ec66d7d263/content/docs/03-ai-sdk-core/55-testing.mdx",
+          "content_sha256": "6b48f8b7f179f0d133e42181e7ac8be21ae272e1a59266ed05755a47f7e1fa14",
+          "line_count": 294,
+          "read_ranges": [
+            [
+              1,
+              60
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "repository": "vercel-labs/agent-skills",
+      "url": "https://github.com/vercel-labs/agent-skills",
+      "default_branch": "main",
+      "reviewed_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "archived": false,
+      "stars_at_review": 32251,
+      "pushed_at_metadata": "2026-08-28T13:36:31Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/vercel-labs/agent-skills/blob/063bee94c3f4df8453406c830b0a7df0f2860278/AGENTS.md",
+          "blob_sha": "77c306d407a59e9c7250569d5632c10e67949d4e",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "77c306d407a59e9c7250569d5632c10e67949d4e",
+          "content_url": "https://github.com/vercel-labs/agent-skills/blob/063bee94c3f4df8453406c830b0a7df0f2860278/AGENTS.md",
+          "content_sha256": "f462598b16b597dd77cbdd6686765d722b75ccd2087996e50882a0ded15c60e4",
+          "line_count": 108,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "skills/web-design-guidelines/SKILL.md",
+          "url": "https://github.com/vercel-labs/agent-skills/blob/063bee94c3f4df8453406c830b0a7df0f2860278/skills/web-design-guidelines/SKILL.md",
+          "blob_sha": "ceae92ab319216a68274168fba9b63b998b65997",
+          "resolved_path": "skills/web-design-guidelines/SKILL.md",
+          "resolved_blob_sha": "ceae92ab319216a68274168fba9b63b998b65997",
+          "content_url": "https://github.com/vercel-labs/agent-skills/blob/063bee94c3f4df8453406c830b0a7df0f2860278/skills/web-design-guidelines/SKILL.md",
+          "content_sha256": "f4647ca866a3accf763777f83e7682954f0187cd6bea7eea0399796652414e8f",
+          "line_count": 39,
+          "read_ranges": [
+            [
+              1,
+              39
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "repository": "vercel-labs/agent-browser",
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "default_branch": "main",
+      "reviewed_commit": "d9570915f4dd6504dee4070379d2c4f79d81dbb2",
+      "archived": false,
+      "stars_at_review": 43833,
+      "pushed_at_metadata": "2026-10-11T23:17:03Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/vercel-labs/agent-browser/blob/d9570915f4dd6504dee4070379d2c4f79d81dbb2/AGENTS.md",
+          "blob_sha": "3e628ac139c30f81d4fef6c2a830198bafdb7268",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "3e628ac139c30f81d4fef6c2a830198bafdb7268",
+          "content_url": "https://github.com/vercel-labs/agent-browser/blob/d9570915f4dd6504dee4070379d2c4f79d81dbb2/AGENTS.md",
+          "content_sha256": "8da81b2b0c755d674d8e70927bb7a967b01125ba7ff6f6884b44a41ef1bd5611",
+          "line_count": 168,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "skill-data/core/SKILL.md",
+          "url": "https://github.com/vercel-labs/agent-browser/blob/d9570915f4dd6504dee4070379d2c4f79d81dbb2/skill-data/core/SKILL.md",
+          "blob_sha": "7e747ae147255735adcd803c3a48a6ee1052aa2f",
+          "resolved_path": "skill-data/core/SKILL.md",
+          "resolved_blob_sha": "7e747ae147255735adcd803c3a48a6ee1052aa2f",
+          "content_url": "https://github.com/vercel-labs/agent-browser/blob/d9570915f4dd6504dee4070379d2c4f79d81dbb2/skill-data/core/SKILL.md",
+          "content_sha256": "6564e9a33e3aaec7412c8817884588f14fad4d2c626d75ef37bd26cb4d8e286e",
+          "line_count": 582,
+          "read_ranges": [
+            [
+              7,
+              44
+            ],
+            [
+              190,
+              215
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "repository": "anomalyco/opencode",
+      "url": "https://github.com/anomalyco/opencode",
+      "default_branch": "dev",
+      "reviewed_commit": "03cb9b9946e0baa027d7678b690f8f352eb9a2bc",
+      "archived": false,
+      "stars_at_review": 212771,
+      "pushed_at_metadata": "2026-10-12T04:43:27Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/anomalyco/opencode/blob/03cb9b9946e0baa027d7678b690f8f352eb9a2bc/AGENTS.md",
+          "blob_sha": "ae585a898a94371e76f5a6ac1eb27da6fd0d01cb",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "ae585a898a94371e76f5a6ac1eb27da6fd0d01cb",
+          "content_url": "https://github.com/anomalyco/opencode/blob/03cb9b9946e0baa027d7678b690f8f352eb9a2bc/AGENTS.md",
+          "content_sha256": "aca6c6c62ae620b0aa57c7c9f26d17cd576ae81f035420250417083c54c88b24",
+          "line_count": 186,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "CONTRIBUTING.md",
+          "url": "https://github.com/anomalyco/opencode/blob/03cb9b9946e0baa027d7678b690f8f352eb9a2bc/CONTRIBUTING.md",
+          "blob_sha": "1795a8eab0335e911d40265bc2409a88c7c23dab",
+          "resolved_path": "CONTRIBUTING.md",
+          "resolved_blob_sha": "1795a8eab0335e911d40265bc2409a88c7c23dab",
+          "content_url": "https://github.com/anomalyco/opencode/blob/03cb9b9946e0baa027d7678b690f8f352eb9a2bc/CONTRIBUTING.md",
+          "content_sha256": "8d46fe0311f1bacfa6b3465db28765fe0ea89c91b628b442f6a52461c09603e2",
+          "line_count": 112,
+          "read_ranges": [
+            [
+              1,
+              45
+            ],
+            [
+              66,
+              89
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "repository": "cline/cline",
+      "url": "https://github.com/cline/cline",
+      "default_branch": "main",
+      "reviewed_commit": "8eba11b2703f5b12d3f415544be37ffc0ca03be1",
+      "archived": false,
+      "stars_at_review": 70192,
+      "pushed_at_metadata": "2026-10-12T01:05:24Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/cline/cline/blob/8eba11b2703f5b12d3f415544be37ffc0ca03be1/AGENTS.md",
+          "blob_sha": "49cfa3b8e76bc27eb653cafc0adb8632b6289f1d",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "49cfa3b8e76bc27eb653cafc0adb8632b6289f1d",
+          "content_url": "https://github.com/cline/cline/blob/8eba11b2703f5b12d3f415544be37ffc0ca03be1/AGENTS.md",
+          "content_sha256": "7f6daa4f58c28d4df1698522af27ceb09cc1c5f76ffad2ea25032b9689667fe1",
+          "line_count": 34,
+          "read_ranges": [
+            [
+              1,
+              34
+            ]
+          ]
+        },
+        {
+          "path": "apps/cli/README.md",
+          "url": "https://github.com/cline/cline/blob/8eba11b2703f5b12d3f415544be37ffc0ca03be1/apps/cli/README.md",
+          "blob_sha": "2feead9d02d3bb389ea9bfbc6484f7b01d430b9f",
+          "resolved_path": "apps/cli/README.md",
+          "resolved_blob_sha": "2feead9d02d3bb389ea9bfbc6484f7b01d430b9f",
+          "content_url": "https://github.com/cline/cline/blob/8eba11b2703f5b12d3f415544be37ffc0ca03be1/apps/cli/README.md",
+          "content_sha256": "13b4a3428acfdd1b3521ba0bf5d5570dda9104457362bcc02d3c4ecd36cfc961",
+          "line_count": 392,
+          "read_ranges": [
+            [
+              70,
+              108
+            ],
+            [
+              130,
+              160
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "repository": "Kilo-Org/kilocode",
+      "url": "https://github.com/Kilo-Org/kilocode",
+      "default_branch": "main",
+      "reviewed_commit": "6c1596e4f8aa1f703b6452d0968ae3252431efab",
+      "archived": false,
+      "stars_at_review": 27571,
+      "pushed_at_metadata": "2026-10-12T04:08:38Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/Kilo-Org/kilocode/blob/6c1596e4f8aa1f703b6452d0968ae3252431efab/AGENTS.md",
+          "blob_sha": "d11275fd5964d1e721ac0fc5314fa65cc9007ca4",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "d11275fd5964d1e721ac0fc5314fa65cc9007ca4",
+          "content_url": "https://github.com/Kilo-Org/kilocode/blob/6c1596e4f8aa1f703b6452d0968ae3252431efab/AGENTS.md",
+          "content_sha256": "657e8a9157a8eea1d64746d2a4818a499c7bdcafe3aea87f75c5237be7962d28",
+          "line_count": 216,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "TESTING.md",
+          "url": "https://github.com/Kilo-Org/kilocode/blob/6c1596e4f8aa1f703b6452d0968ae3252431efab/TESTING.md",
+          "blob_sha": "bee6135c5d2bb0c7a956230f9aeb4a68c6db4fd5",
+          "resolved_path": "TESTING.md",
+          "resolved_blob_sha": "bee6135c5d2bb0c7a956230f9aeb4a68c6db4fd5",
+          "content_url": "https://github.com/Kilo-Org/kilocode/blob/6c1596e4f8aa1f703b6452d0968ae3252431efab/TESTING.md",
+          "content_sha256": "3df819eccf0724f720c27985781321882af852280626791b4fbf0aadfa344f2d",
+          "line_count": 259,
+          "read_ranges": [
+            [
+              27,
+              46
+            ],
+            [
+              93,
+              110
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "repository": "Aider-AI/aider",
+      "url": "https://github.com/Aider-AI/aider",
+      "default_branch": "main",
+      "reviewed_commit": "5dc9490bb35f9729ef2c95d00a19ccd30c26339c",
+      "archived": false,
+      "stars_at_review": 49477,
+      "pushed_at_metadata": "2026-05-22T14:02:20Z",
+      "files": [
+        {
+          "path": "CONTRIBUTING.md",
+          "url": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/CONTRIBUTING.md",
+          "blob_sha": "abe35a1c0ee51421144b4513149c63068ade2af0",
+          "resolved_path": "CONTRIBUTING.md",
+          "resolved_blob_sha": "abe35a1c0ee51421144b4513149c63068ade2af0",
+          "content_url": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/CONTRIBUTING.md",
+          "content_sha256": "aaaafd32db23af352ffdd277425021a2bc738480d321b2b20b1b252e7e811ee0",
+          "line_count": 241,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "benchmark/README.md",
+          "url": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/benchmark/README.md",
+          "blob_sha": "7765c00b79c9c826aed8268c2718d11febc61202",
+          "resolved_path": "benchmark/README.md",
+          "resolved_blob_sha": "7765c00b79c9c826aed8268c2718d11febc61202",
+          "content_url": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/benchmark/README.md",
+          "content_sha256": "c87a9cd84c1d55a0d5e3d3b7d61e65d83c0dd6f66fe12310bfd37c5994d22074",
+          "line_count": 146,
+          "read_ranges": [
+            [
+              2,
+              38
+            ],
+            [
+              87,
+              113
+            ],
+            [
+              141,
+              146
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "repository": "aaif-goose/goose",
+      "url": "https://github.com/aaif-goose/goose",
+      "default_branch": "main",
+      "reviewed_commit": "4617040c7b650b37d599bdaa08d3790572c19ae8",
+      "archived": false,
+      "stars_at_review": 55174,
+      "pushed_at_metadata": "2026-10-12T03:42:39Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/aaif-goose/goose/blob/4617040c7b650b37d599bdaa08d3790572c19ae8/AGENTS.md",
+          "blob_sha": "53f778eb54e4b46979da150d81974dbe6ab3959c",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "53f778eb54e4b46979da150d81974dbe6ab3959c",
+          "content_url": "https://github.com/aaif-goose/goose/blob/4617040c7b650b37d599bdaa08d3790572c19ae8/AGENTS.md",
+          "content_sha256": "6965989f2660a167b719422d0d2f64c8f5df5a6d254b0c321964105313b6f0e0",
+          "line_count": 132,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "documentation/docs/guides/context-engineering/using-persistent-instructions.md",
+          "url": "https://github.com/aaif-goose/goose/blob/4617040c7b650b37d599bdaa08d3790572c19ae8/documentation/docs/guides/context-engineering/using-persistent-instructions.md",
+          "blob_sha": "7060a843f5d31607d83d6d90aadce0f41e40b925",
+          "resolved_path": "documentation/docs/guides/context-engineering/using-persistent-instructions.md",
+          "resolved_blob_sha": "7060a843f5d31607d83d6d90aadce0f41e40b925",
+          "content_url": "https://github.com/aaif-goose/goose/blob/4617040c7b650b37d599bdaa08d3790572c19ae8/documentation/docs/guides/context-engineering/using-persistent-instructions.md",
+          "content_sha256": "58c5fb47233208d198e59211abed8c993967a7fc2641a8febb7c7500bbe4fb61",
+          "line_count": 147,
+          "read_ranges": [
+            [
+              9,
+              32
+            ],
+            [
+              115,
+              147
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "repository": "QwenLM/qwen-code",
+      "url": "https://github.com/QwenLM/qwen-code",
+      "default_branch": "main",
+      "reviewed_commit": "e17ad4caef7b7bc69f27c8b751a75ce099a011b8",
+      "archived": false,
+      "stars_at_review": 28432,
+      "pushed_at_metadata": "2026-10-12T04:33:48Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/QwenLM/qwen-code/blob/e17ad4caef7b7bc69f27c8b751a75ce099a011b8/AGENTS.md",
+          "blob_sha": "a8f1e4b61aa3c78e7d48221837af181e7a4b4b41",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "a8f1e4b61aa3c78e7d48221837af181e7a4b4b41",
+          "content_url": "https://github.com/QwenLM/qwen-code/blob/e17ad4caef7b7bc69f27c8b751a75ce099a011b8/AGENTS.md",
+          "content_sha256": "77c655dcc198b5aef391ccbf0dad13b99a3a5d753cf3e96f169b865ef7348f85",
+          "line_count": 350,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "docs/users/features/memory.md",
+          "url": "https://github.com/QwenLM/qwen-code/blob/e17ad4caef7b7bc69f27c8b751a75ce099a011b8/docs/users/features/memory.md",
+          "blob_sha": "84b35b65f932abb72dc0890571169078fb532899",
+          "resolved_path": "docs/users/features/memory.md",
+          "resolved_blob_sha": "84b35b65f932abb72dc0890571169078fb532899",
+          "content_url": "https://github.com/QwenLM/qwen-code/blob/e17ad4caef7b7bc69f27c8b751a75ce099a011b8/docs/users/features/memory.md",
+          "content_sha256": "0f104a84e114f283ba5b765c7cf0c6bcad854e0f677d1220254e374fc7036cd8",
+          "line_count": 291,
+          "read_ranges": [
+            [
+              10,
+              72
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "repository": "continuedev/continue",
+      "url": "https://github.com/continuedev/continue",
+      "default_branch": "main",
+      "reviewed_commit": "5522c6f44ca0ac3528b37244818fbfa39b5af470",
+      "archived": false,
+      "stars_at_review": 36191,
+      "pushed_at_metadata": "2026-10-09T21:22:45Z",
+      "files": [
+        {
+          "path": "TESTING.md",
+          "url": "https://github.com/continuedev/continue/blob/5522c6f44ca0ac3528b37244818fbfa39b5af470/TESTING.md",
+          "blob_sha": "96fe5e6c284278153d0d5b0deeab2767d7cf94d5",
+          "resolved_path": "TESTING.md",
+          "resolved_blob_sha": "96fe5e6c284278153d0d5b0deeab2767d7cf94d5",
+          "content_url": "https://github.com/continuedev/continue/blob/5522c6f44ca0ac3528b37244818fbfa39b5af470/TESTING.md",
+          "content_sha256": "ff14b674a063a17bd819772dad57a2356bd9c16b86b79bb7b0c868b52aea468f",
+          "line_count": 30,
+          "read_ranges": [
+            [
+              1,
+              30
+            ]
+          ]
+        },
+        {
+          "path": ".continue/checks/anti-slop.md",
+          "url": "https://github.com/continuedev/continue/blob/5522c6f44ca0ac3528b37244818fbfa39b5af470/.continue/checks/anti-slop.md",
+          "blob_sha": "3d72c4260dff39c6ba496789a61d2c7369a6eb14",
+          "resolved_path": ".continue/checks/anti-slop.md",
+          "resolved_blob_sha": "3d72c4260dff39c6ba496789a61d2c7369a6eb14",
+          "content_url": "https://github.com/continuedev/continue/blob/5522c6f44ca0ac3528b37244818fbfa39b5af470/.continue/checks/anti-slop.md",
+          "content_sha256": "ce6b1619509a0fd5ed4fb8aad82b9d61c86a089abf4b2fe916eb4863ad765ac7",
+          "line_count": 21,
+          "read_ranges": [
+            [
+              1,
+              21
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "repository": "zed-industries/zed",
+      "url": "https://github.com/zed-industries/zed",
+      "default_branch": "main",
+      "reviewed_commit": "93d745668805029476e6d7fbb19652116fed51de",
+      "archived": false,
+      "stars_at_review": 91599,
+      "pushed_at_metadata": "2026-10-11T20:11:29Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/zed-industries/zed/blob/93d745668805029476e6d7fbb19652116fed51de/AGENTS.md",
+          "blob_sha": "8a63b64bdb0afcda986ba715cb39849ac574e096",
+          "resolved_path": ".rules",
+          "resolved_blob_sha": "4f07c39e70ca6e12cdfc40f4f664847e2fe6b25b",
+          "content_url": "https://github.com/zed-industries/zed/blob/93d745668805029476e6d7fbb19652116fed51de/.rules",
+          "content_sha256": "8b789c3c97abeb388abd8e2541ba681a7a35ce8738e986e8eb5e3823c213dc4d",
+          "line_count": 190,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "CLAUDE.md",
+          "url": "https://github.com/zed-industries/zed/blob/93d745668805029476e6d7fbb19652116fed51de/CLAUDE.md",
+          "blob_sha": "8a63b64bdb0afcda986ba715cb39849ac574e096",
+          "resolved_path": ".rules",
+          "resolved_blob_sha": "4f07c39e70ca6e12cdfc40f4f664847e2fe6b25b",
+          "content_url": "https://github.com/zed-industries/zed/blob/93d745668805029476e6d7fbb19652116fed51de/.rules",
+          "content_sha256": "8b789c3c97abeb388abd8e2541ba681a7a35ce8738e986e8eb5e3823c213dc4d",
+          "line_count": 190,
+          "read_ranges": [
+            [
+              1,
+              19
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "repository": "OpenHands/OpenHands",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "default_branch": "main",
+      "reviewed_commit": "fa1f724ab5737a17453ad6081129eb91c5a423c6",
+      "archived": false,
+      "stars_at_review": 90637,
+      "pushed_at_metadata": "2026-10-12T04:35:45Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/OpenHands/OpenHands/blob/fa1f724ab5737a17453ad6081129eb91c5a423c6/AGENTS.md",
+          "blob_sha": "32caa015f7aac5c4f4f51ed84f542945dce70fbd",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "32caa015f7aac5c4f4f51ed84f542945dce70fbd",
+          "content_url": "https://github.com/OpenHands/OpenHands/blob/fa1f724ab5737a17453ad6081129eb91c5a423c6/AGENTS.md",
+          "content_sha256": "4892c27e1b2923ca545a9b8e50e4dee8f60c2ff3e75146d940e4d0ada8d6fd16",
+          "line_count": 87,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": ".agents/skills/e2e-testing/SKILL.md",
+          "url": "https://github.com/OpenHands/OpenHands/blob/fa1f724ab5737a17453ad6081129eb91c5a423c6/.agents/skills/e2e-testing/SKILL.md",
+          "blob_sha": "ee028df199059138464bcbbaea5d5ce869c17f07",
+          "resolved_path": ".agents/skills/e2e-testing/SKILL.md",
+          "resolved_blob_sha": "ee028df199059138464bcbbaea5d5ce869c17f07",
+          "content_url": "https://github.com/OpenHands/OpenHands/blob/fa1f724ab5737a17453ad6081129eb91c5a423c6/.agents/skills/e2e-testing/SKILL.md",
+          "content_sha256": "f61a9c9c42933be8befe530b3accf381fb5135a91ff64e32f8569af96a91f46f",
+          "line_count": 20,
+          "read_ranges": [
+            [
+              1,
+              20
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "repository": "SWE-agent/SWE-agent",
+      "url": "https://github.com/SWE-agent/SWE-agent",
+      "default_branch": "main",
+      "reviewed_commit": "3ea751c087f32b16e039a2233dd6eefecef325d5",
+      "archived": false,
+      "stars_at_review": 20526,
+      "pushed_at_metadata": "2026-10-06T00:34:40Z",
+      "files": [
+        {
+          "path": "CONTRIBUTING.md",
+          "url": "https://github.com/SWE-agent/SWE-agent/blob/3ea751c087f32b16e039a2233dd6eefecef325d5/CONTRIBUTING.md",
+          "blob_sha": "b91a77024e528b4562fed46dbce60848d053f5ec",
+          "resolved_path": "CONTRIBUTING.md",
+          "resolved_blob_sha": "b91a77024e528b4562fed46dbce60848d053f5ec",
+          "content_url": "https://github.com/SWE-agent/SWE-agent/blob/3ea751c087f32b16e039a2233dd6eefecef325d5/CONTRIBUTING.md",
+          "content_sha256": "3fb789fb097384f37b6869f8548d55c7275783cb0f85d34e432f7f135866e812",
+          "line_count": 16,
+          "read_ranges": [
+            [
+              1,
+              16
+            ]
+          ]
+        },
+        {
+          "path": "sweagent/agent/agents.py",
+          "url": "https://github.com/SWE-agent/SWE-agent/blob/3ea751c087f32b16e039a2233dd6eefecef325d5/sweagent/agent/agents.py",
+          "blob_sha": "4844aeb7c42e06121fe37ba223e9263c04b53c3b",
+          "resolved_path": "sweagent/agent/agents.py",
+          "resolved_blob_sha": "4844aeb7c42e06121fe37ba223e9263c04b53c3b",
+          "content_url": "https://github.com/SWE-agent/SWE-agent/blob/3ea751c087f32b16e039a2233dd6eefecef325d5/sweagent/agent/agents.py",
+          "content_sha256": "d6cdf7ac66a6509ceba08e3541b856f0734acf79f9a485ed8a6e2c72f0d211a8",
+          "line_count": 1294,
+          "read_ranges": [
+            [
+              293,
+              335
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "repository": "SWE-agent/mini-swe-agent",
+      "url": "https://github.com/SWE-agent/mini-swe-agent",
+      "default_branch": "main",
+      "reviewed_commit": "04d809ceab9df28f9adaed044884180159172930",
+      "archived": false,
+      "stars_at_review": 8410,
+      "pushed_at_metadata": "2026-10-06T00:35:14Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/SWE-agent/mini-swe-agent/blob/04d809ceab9df28f9adaed044884180159172930/AGENTS.md",
+          "blob_sha": "5792f5fba5bd1736dca6990e8562586cbcace4b4",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "5792f5fba5bd1736dca6990e8562586cbcace4b4",
+          "content_url": "https://github.com/SWE-agent/mini-swe-agent/blob/04d809ceab9df28f9adaed044884180159172930/AGENTS.md",
+          "content_sha256": "5cd7ba3e1eaa9193dec6acbab6b74722805ae2c02b54f8902df91710ee6db678",
+          "line_count": 109,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "src/minisweagent/agents/default.py",
+          "url": "https://github.com/SWE-agent/mini-swe-agent/blob/04d809ceab9df28f9adaed044884180159172930/src/minisweagent/agents/default.py",
+          "blob_sha": "ca310e37d7c61888c576f73f5e1790ac769407b1",
+          "resolved_path": "src/minisweagent/agents/default.py",
+          "resolved_blob_sha": "ca310e37d7c61888c576f73f5e1790ac769407b1",
+          "content_url": "https://github.com/SWE-agent/mini-swe-agent/blob/04d809ceab9df28f9adaed044884180159172930/src/minisweagent/agents/default.py",
+          "content_sha256": "e8ef8aa365942d739c2ec5cb0879f60f377d2dc2de8ec670aaedf3bafb45a4c2",
+          "line_count": 190,
+          "read_ranges": [
+            [
+              19,
+              38
+            ],
+            [
+              88,
+              107
+            ],
+            [
+              130,
+              163
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "repository": "langchain-ai/deepagents",
+      "url": "https://github.com/langchain-ai/deepagents",
+      "default_branch": "main",
+      "reviewed_commit": "838433b4dcd9efa0bacba67d07e61440b43c4459",
+      "archived": false,
+      "stars_at_review": 30141,
+      "pushed_at_metadata": "2026-10-12T04:43:08Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/langchain-ai/deepagents/blob/838433b4dcd9efa0bacba67d07e61440b43c4459/AGENTS.md",
+          "blob_sha": "e7e59a71549dc809a64b351ae5baa5a5a8bab0c7",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "e7e59a71549dc809a64b351ae5baa5a5a8bab0c7",
+          "content_url": "https://github.com/langchain-ai/deepagents/blob/838433b4dcd9efa0bacba67d07e61440b43c4459/AGENTS.md",
+          "content_sha256": "5a7bcb0f7958a5403c10da67c05ba0e4fd05cca39c3e6917181e6c31e08aa4c2",
+          "line_count": 155,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "libs/ARCHITECTURE.md",
+          "url": "https://github.com/langchain-ai/deepagents/blob/838433b4dcd9efa0bacba67d07e61440b43c4459/libs/ARCHITECTURE.md",
+          "blob_sha": "e38c0e6c24853b70a752f6b9d799f181fff11f4d",
+          "resolved_path": "libs/ARCHITECTURE.md",
+          "resolved_blob_sha": "e38c0e6c24853b70a752f6b9d799f181fff11f4d",
+          "content_url": "https://github.com/langchain-ai/deepagents/blob/838433b4dcd9efa0bacba67d07e61440b43c4459/libs/ARCHITECTURE.md",
+          "content_sha256": "a2657562c0c28a61c0b8c1ff335b29c714b31f601558d92abcfc8977a987bb2c",
+          "line_count": 115,
+          "read_ranges": [
+            [
+              12,
+              31
+            ],
+            [
+              49,
+              62
+            ],
+            [
+              77,
+              103
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "repository": "langchain-ai/langgraph",
+      "url": "https://github.com/langchain-ai/langgraph",
+      "default_branch": "main",
+      "reviewed_commit": "799c2f04fd3a56186e24e9fb8bbf3568e543cfbe",
+      "archived": false,
+      "stars_at_review": 43096,
+      "pushed_at_metadata": "2026-10-12T02:54:17Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/langchain-ai/langgraph/blob/799c2f04fd3a56186e24e9fb8bbf3568e543cfbe/AGENTS.md",
+          "blob_sha": "5e5f0c00bf74a0b6997f94e4772fba25408bfd3f",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "5e5f0c00bf74a0b6997f94e4772fba25408bfd3f",
+          "content_url": "https://github.com/langchain-ai/langgraph/blob/799c2f04fd3a56186e24e9fb8bbf3568e543cfbe/AGENTS.md",
+          "content_sha256": "e5a0e5318267faba2f0abd022a4c89a8c3e6fc021f03137641efa118bc5618de",
+          "line_count": 65,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "libs/checkpoint/langgraph/checkpoint/base/__init__.py",
+          "url": "https://github.com/langchain-ai/langgraph/blob/799c2f04fd3a56186e24e9fb8bbf3568e543cfbe/libs/checkpoint/langgraph/checkpoint/base/__init__.py",
+          "blob_sha": "c7cacc7bfd703f298427e870bd6d07b4aa395812",
+          "resolved_path": "libs/checkpoint/langgraph/checkpoint/base/__init__.py",
+          "resolved_blob_sha": "c7cacc7bfd703f298427e870bd6d07b4aa395812",
+          "content_url": "https://github.com/langchain-ai/langgraph/blob/799c2f04fd3a56186e24e9fb8bbf3568e543cfbe/libs/checkpoint/langgraph/checkpoint/base/__init__.py",
+          "content_sha256": "e1b412fb541b47cf9ab0657f5c160c955c71ce929d8ac786f0bcc94d356481e9",
+          "line_count": 889,
+          "read_ranges": [
+            [
+              39,
+              58
+            ],
+            [
+              93,
+              126
+            ],
+            [
+              199,
+              225
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "repository": "microsoft/autogen",
+      "url": "https://github.com/microsoft/autogen",
+      "default_branch": "main",
+      "reviewed_commit": "027ecf0a379bcc1d09956d46d12d44a3ad9cee14",
+      "archived": false,
+      "stars_at_review": 61362,
+      "pushed_at_metadata": "2026-04-15T11:59:09Z",
+      "files": [
+        {
+          "path": "CONTRIBUTING.md",
+          "url": "https://github.com/microsoft/autogen/blob/027ecf0a379bcc1d09956d46d12d44a3ad9cee14/CONTRIBUTING.md",
+          "blob_sha": "ba1168b608d691d3bc091bbe84700e4f7d9a812c",
+          "resolved_path": "CONTRIBUTING.md",
+          "resolved_blob_sha": "ba1168b608d691d3bc091bbe84700e4f7d9a812c",
+          "content_url": "https://github.com/microsoft/autogen/blob/027ecf0a379bcc1d09956d46d12d44a3ad9cee14/CONTRIBUTING.md",
+          "content_sha256": "4072d9e7d99f1828d750649c1968ee5a6f022848f791bfd176bcdfb245decec3",
+          "line_count": 136,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "python/packages/autogen-agentchat/src/autogen_agentchat/conditions/_terminations.py",
+          "url": "https://github.com/microsoft/autogen/blob/027ecf0a379bcc1d09956d46d12d44a3ad9cee14/python/packages/autogen-agentchat/src/autogen_agentchat/conditions/_terminations.py",
+          "blob_sha": "f0ba274ebe721bfe6601aad2340ef71b06cea565",
+          "resolved_path": "python/packages/autogen-agentchat/src/autogen_agentchat/conditions/_terminations.py",
+          "resolved_blob_sha": "f0ba274ebe721bfe6601aad2340ef71b06cea565",
+          "content_url": "https://github.com/microsoft/autogen/blob/027ecf0a379bcc1d09956d46d12d44a3ad9cee14/python/packages/autogen-agentchat/src/autogen_agentchat/conditions/_terminations.py",
+          "content_sha256": "cd9c0da75906da1728432fc96ae0566591dfb180524d3fb585bfdb8ff0260f5d",
+          "line_count": 614,
+          "read_ranges": [
+            [
+              57,
+              104
+            ],
+            [
+              229,
+              280
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "repository": "microsoft/agent-framework",
+      "url": "https://github.com/microsoft/agent-framework",
+      "default_branch": "main",
+      "reviewed_commit": "fd52de71579162a888fb2dd7510c57c6014dcdfc",
+      "archived": false,
+      "stars_at_review": 14062,
+      "pushed_at_metadata": "2026-10-11T14:37:46Z",
+      "files": [
+        {
+          "path": "AI_CONTRIBUTIONS.md",
+          "url": "https://github.com/microsoft/agent-framework/blob/fd52de71579162a888fb2dd7510c57c6014dcdfc/AI_CONTRIBUTIONS.md",
+          "blob_sha": "e94e69b1c9d6d5d1100120aabbe43b001e87a36d",
+          "resolved_path": "AI_CONTRIBUTIONS.md",
+          "resolved_blob_sha": "e94e69b1c9d6d5d1100120aabbe43b001e87a36d",
+          "content_url": "https://github.com/microsoft/agent-framework/blob/fd52de71579162a888fb2dd7510c57c6014dcdfc/AI_CONTRIBUTIONS.md",
+          "content_sha256": "1643873270195fe981acfd7ba0d10a9111f6ba141ac8d21e085ba44e76cb5e95",
+          "line_count": 120,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "python/.github/skills/python-testing/SKILL.md",
+          "url": "https://github.com/microsoft/agent-framework/blob/fd52de71579162a888fb2dd7510c57c6014dcdfc/python/.github/skills/python-testing/SKILL.md",
+          "blob_sha": "639cedd33fb0bc3155072c48ccd156abbf647919",
+          "resolved_path": "python/.github/skills/python-testing/SKILL.md",
+          "resolved_blob_sha": "639cedd33fb0bc3155072c48ccd156abbf647919",
+          "content_url": "https://github.com/microsoft/agent-framework/blob/fd52de71579162a888fb2dd7510c57c6014dcdfc/python/.github/skills/python-testing/SKILL.md",
+          "content_sha256": "a09eebff4277673d96fe42aa1730b568c608c44f83c418dd67e0b896955f30ef",
+          "line_count": 164,
+          "read_ranges": [
+            [
+              1,
+              64
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "repository": "huggingface/smolagents",
+      "url": "https://github.com/huggingface/smolagents",
+      "default_branch": "main",
+      "reviewed_commit": "96f33faaf028479119ec8d34507b47694cf14e34",
+      "archived": false,
+      "stars_at_review": 29786,
+      "pushed_at_metadata": "2026-10-06T18:35:07Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/huggingface/smolagents/blob/96f33faaf028479119ec8d34507b47694cf14e34/AGENTS.md",
+          "blob_sha": "444c8a72789e4c5875d09d59a7ff5da95e488445",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "444c8a72789e4c5875d09d59a7ff5da95e488445",
+          "content_url": "https://github.com/huggingface/smolagents/blob/96f33faaf028479119ec8d34507b47694cf14e34/AGENTS.md",
+          "content_sha256": "69e08bedb27a4feae9f3ecf99ade010260a36b9ae05963b414ed2df614c3b6bf",
+          "line_count": 4,
+          "read_ranges": [
+            [
+              1,
+              4
+            ]
+          ]
+        },
+        {
+          "path": "src/smolagents/agents.py",
+          "url": "https://github.com/huggingface/smolagents/blob/96f33faaf028479119ec8d34507b47694cf14e34/src/smolagents/agents.py",
+          "blob_sha": "a8f6e52de0361a6c23c0aa5d5907180969f259b7",
+          "resolved_path": "src/smolagents/agents.py",
+          "resolved_blob_sha": "a8f6e52de0361a6c23c0aa5d5907180969f259b7",
+          "content_url": "https://github.com/huggingface/smolagents/blob/96f33faaf028479119ec8d34507b47694cf14e34/src/smolagents/agents.py",
+          "content_sha256": "da0da2e258c346e28d97b3584dfe58dcd203fc20fbde6c6533e333f9b1a06352",
+          "line_count": 1813,
+          "read_ranges": [
+            [
+              268,
+              312
+            ],
+            [
+              499,
+              545
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "repository": "crewAIInc/crewAI",
+      "url": "https://github.com/crewAIInc/crewAI",
+      "default_branch": "main",
+      "reviewed_commit": "753d1923660207989b6974ef414b8d91cd85e57c",
+      "archived": false,
+      "stars_at_review": 59584,
+      "pushed_at_metadata": "2026-10-12T04:30:16Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/crewAIInc/crewAI/blob/753d1923660207989b6974ef414b8d91cd85e57c/AGENTS.md",
+          "blob_sha": "f744fdb3b31c90457becaea22b33bcc1ee81c41c",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "f744fdb3b31c90457becaea22b33bcc1ee81c41c",
+          "content_url": "https://github.com/crewAIInc/crewAI/blob/753d1923660207989b6974ef414b8d91cd85e57c/AGENTS.md",
+          "content_sha256": "03a3efb0ebb1fbaffdbeb8d29f3c8d996bb8184e0b389f05cd306539dbaadf35",
+          "line_count": 45,
+          "read_ranges": [
+            [
+              1,
+              45
+            ]
+          ]
+        },
+        {
+          "path": "lib/crewai/src/crewai/types/usage_metrics.py",
+          "url": "https://github.com/crewAIInc/crewAI/blob/753d1923660207989b6974ef414b8d91cd85e57c/lib/crewai/src/crewai/types/usage_metrics.py",
+          "blob_sha": "7d58a47b34c08a29434e3b56f10bca6582e81884",
+          "resolved_path": "lib/crewai/src/crewai/types/usage_metrics.py",
+          "resolved_blob_sha": "7d58a47b34c08a29434e3b56f10bca6582e81884",
+          "content_url": "https://github.com/crewAIInc/crewAI/blob/753d1923660207989b6974ef414b8d91cd85e57c/lib/crewai/src/crewai/types/usage_metrics.py",
+          "content_sha256": "d5ab6e02e40a26a00b2529f918c36cdddeca444228413486c08345dd25f950b4",
+          "line_count": 189,
+          "read_ranges": [
+            [
+              32,
+              88
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "repository": "pydantic/pydantic-ai",
+      "url": "https://github.com/pydantic/pydantic-ai",
+      "default_branch": "main",
+      "reviewed_commit": "69ea1e57201ed59e7d30fbe4a7590d193acecce0",
+      "archived": false,
+      "stars_at_review": 20561,
+      "pushed_at_metadata": "2026-10-11T05:08:41Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/pydantic/pydantic-ai/blob/69ea1e57201ed59e7d30fbe4a7590d193acecce0/AGENTS.md",
+          "blob_sha": "6fcf465e66bed2b626bddc8b305cdb32f167c9f4",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "6fcf465e66bed2b626bddc8b305cdb32f167c9f4",
+          "content_url": "https://github.com/pydantic/pydantic-ai/blob/69ea1e57201ed59e7d30fbe4a7590d193acecce0/AGENTS.md",
+          "content_sha256": "56a4217ac57f807942921ba595319a40a5ac5327c2d4981feb4179e564773837",
+          "line_count": 157,
+          "read_ranges": [
+            [
+              1,
+              60
+            ]
+          ]
+        },
+        {
+          "path": "docs/testing.md",
+          "url": "https://github.com/pydantic/pydantic-ai/blob/69ea1e57201ed59e7d30fbe4a7590d193acecce0/docs/testing.md",
+          "blob_sha": "4d35bcb31b4c73b347b35ca59473bc4afa48bd41",
+          "resolved_path": "docs/testing.md",
+          "resolved_blob_sha": "4d35bcb31b4c73b347b35ca59473bc4afa48bd41",
+          "content_url": "https://github.com/pydantic/pydantic-ai/blob/69ea1e57201ed59e7d30fbe4a7590d193acecce0/docs/testing.md",
+          "content_sha256": "52a7b12023d10df0ff689b0f0936bf9ba77df432dbd2e104437e78f17eb09797",
+          "line_count": 294,
+          "read_ranges": [
+            [
+              1,
+              28
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "repository": "agno-agi/agno",
+      "url": "https://github.com/agno-agi/agno",
+      "default_branch": "main",
+      "reviewed_commit": "7decd1e45f6a67890ee6a5aa03f3fe9c356be972",
+      "archived": false,
+      "stars_at_review": 42676,
+      "pushed_at_metadata": "2026-10-12T04:29:52Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/agno-agi/agno/blob/7decd1e45f6a67890ee6a5aa03f3fe9c356be972/AGENTS.md",
+          "blob_sha": "681311eb9cf453d0faddf3aacaec7357e97ba8e9",
+          "resolved_path": "CLAUDE.md",
+          "resolved_blob_sha": "821f32ed226a5213497086890b07f50490b5fd6a",
+          "content_url": "https://github.com/agno-agi/agno/blob/7decd1e45f6a67890ee6a5aa03f3fe9c356be972/CLAUDE.md",
+          "content_sha256": "086bfd195fbd3492fd5796fc27cae686899b8fde7fc2ba0ea25542ba909f1218",
+          "line_count": 258,
+          "read_ranges": [
+            [
+              1,
+              60
+            ]
+          ]
+        },
+        {
+          "path": "libs/agno/tests/unit/agents/test_readiness_budget.py",
+          "url": "https://github.com/agno-agi/agno/blob/7decd1e45f6a67890ee6a5aa03f3fe9c356be972/libs/agno/tests/unit/agents/test_readiness_budget.py",
+          "blob_sha": "df9b22ff99326be5fd212dc00282902c12461d5f",
+          "resolved_path": "libs/agno/tests/unit/agents/test_readiness_budget.py",
+          "resolved_blob_sha": "df9b22ff99326be5fd212dc00282902c12461d5f",
+          "content_url": "https://github.com/agno-agi/agno/blob/7decd1e45f6a67890ee6a5aa03f3fe9c356be972/libs/agno/tests/unit/agents/test_readiness_budget.py",
+          "content_sha256": "28532f2fb2d51804fc1c44aa145c18dfb5ef3c1d8547ece5ce9d78eeb595fcdb",
+          "line_count": 48,
+          "read_ranges": [
+            [
+              1,
+              48
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "repository": "mastra-ai/mastra",
+      "url": "https://github.com/mastra-ai/mastra",
+      "default_branch": "main",
+      "reviewed_commit": "e0e844d05c01820f19b9f7a541fe0fd4d74bd451",
+      "archived": false,
+      "stars_at_review": 28726,
+      "pushed_at_metadata": "2026-10-12T04:14:52Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/mastra-ai/mastra/blob/e0e844d05c01820f19b9f7a541fe0fd4d74bd451/AGENTS.md",
+          "blob_sha": "1a76d78aa2cdadca18d0f50dcec81f6b7dcdb825",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "1a76d78aa2cdadca18d0f50dcec81f6b7dcdb825",
+          "content_url": "https://github.com/mastra-ai/mastra/blob/e0e844d05c01820f19b9f7a541fe0fd4d74bd451/AGENTS.md",
+          "content_sha256": "30cf4741f1ffd551aa3efab9ae911c1c10fd5076618d51e24be621491065b34a",
+          "line_count": 17,
+          "read_ranges": [
+            [
+              1,
+              17
+            ]
+          ]
+        },
+        {
+          "path": "packages/core/AGENTS.md",
+          "url": "https://github.com/mastra-ai/mastra/blob/e0e844d05c01820f19b9f7a541fe0fd4d74bd451/packages/core/AGENTS.md",
+          "blob_sha": "2b801c1bc74fcd35e44cdb9d33e47c6c85b1c05a",
+          "resolved_path": "packages/core/AGENTS.md",
+          "resolved_blob_sha": "2b801c1bc74fcd35e44cdb9d33e47c6c85b1c05a",
+          "content_url": "https://github.com/mastra-ai/mastra/blob/e0e844d05c01820f19b9f7a541fe0fd4d74bd451/packages/core/AGENTS.md",
+          "content_sha256": "0c03a2ec2364b4ec8062ee58e1f82b58f3ce35b6b734896743db270bfe09db45",
+          "line_count": 18,
+          "read_ranges": [
+            [
+              1,
+              18
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "repository": "BerriAI/litellm",
+      "url": "https://github.com/BerriAI/litellm",
+      "default_branch": "main",
+      "reviewed_commit": "102619d47a78d80f0383c9e8f52446046f0ecc6b",
+      "archived": false,
+      "stars_at_review": 61000,
+      "pushed_at_metadata": "2026-10-12T04:27:44Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/BerriAI/litellm/blob/102619d47a78d80f0383c9e8f52446046f0ecc6b/AGENTS.md",
+          "blob_sha": "7f8e9cedc26be72f85caf31d5afa1dcc35b9908a",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "7f8e9cedc26be72f85caf31d5afa1dcc35b9908a",
+          "content_url": "https://github.com/BerriAI/litellm/blob/102619d47a78d80f0383c9e8f52446046f0ecc6b/AGENTS.md",
+          "content_sha256": "21783a9639af0c5051f743168e22eae87068c58e556c2df1312107bfd4e76e3e",
+          "line_count": 133,
+          "read_ranges": [
+            [
+              1,
+              60
+            ]
+          ]
+        },
+        {
+          "path": "tests/unit/AGENTS.md",
+          "url": "https://github.com/BerriAI/litellm/blob/102619d47a78d80f0383c9e8f52446046f0ecc6b/tests/unit/AGENTS.md",
+          "blob_sha": "80a3a87f959df0d86f5b766e6218025e40db2914",
+          "resolved_path": "tests/unit/AGENTS.md",
+          "resolved_blob_sha": "80a3a87f959df0d86f5b766e6218025e40db2914",
+          "content_url": "https://github.com/BerriAI/litellm/blob/102619d47a78d80f0383c9e8f52446046f0ecc6b/tests/unit/AGENTS.md",
+          "content_sha256": "b8d1bc156b18f24a5cad933b7dae1b792d729eab96371bf06db64ca7db1e3d39",
+          "line_count": 37,
+          "read_ranges": [
+            [
+              1,
+              37
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "repository": "modelcontextprotocol/servers",
+      "url": "https://github.com/modelcontextprotocol/servers",
+      "default_branch": "main",
+      "reviewed_commit": "bbb701e7ac1e57f3edd1c2836b94c5457eaf7b9c",
+      "archived": false,
+      "stars_at_review": 91157,
+      "pushed_at_metadata": "2026-10-12T04:35:38Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/modelcontextprotocol/servers/blob/bbb701e7ac1e57f3edd1c2836b94c5457eaf7b9c/AGENTS.md",
+          "blob_sha": "bba09c93db1c735cd4166cc0eef7176c95be95be",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "bba09c93db1c735cd4166cc0eef7176c95be95be",
+          "content_url": "https://github.com/modelcontextprotocol/servers/blob/bbb701e7ac1e57f3edd1c2836b94c5457eaf7b9c/AGENTS.md",
+          "content_sha256": "a4d56e9815151eae24e5445f3df5850fb606d1245ee44f91779b4f874bbc5ca1",
+          "line_count": 643,
+          "read_ranges": [
+            [
+              1,
+              60
+            ]
+          ]
+        },
+        {
+          "path": "src/filesystem/path-validation.ts",
+          "url": "https://github.com/modelcontextprotocol/servers/blob/bbb701e7ac1e57f3edd1c2836b94c5457eaf7b9c/src/filesystem/path-validation.ts",
+          "blob_sha": "9eb1c81a5fe935cb36e4e51eddb3c0edc87771ee",
+          "resolved_path": "src/filesystem/path-validation.ts",
+          "resolved_blob_sha": "9eb1c81a5fe935cb36e4e51eddb3c0edc87771ee",
+          "content_url": "https://github.com/modelcontextprotocol/servers/blob/bbb701e7ac1e57f3edd1c2836b94c5457eaf7b9c/src/filesystem/path-validation.ts",
+          "content_sha256": "aafed3c6e61f7474999dcdbaad50331261ae999adf8b383bf3ba2ec500745e65",
+          "line_count": 106,
+          "read_ranges": [
+            [
+              1,
+              106
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "repository": "modelcontextprotocol/inspector",
+      "url": "https://github.com/modelcontextprotocol/inspector",
+      "default_branch": "main",
+      "reviewed_commit": "0d2bc1d91ce177ea8d497ee3efe91bcc59e40a1c",
+      "archived": false,
+      "stars_at_review": 11057,
+      "pushed_at_metadata": "2026-10-12T04:42:10Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/modelcontextprotocol/inspector/blob/0d2bc1d91ce177ea8d497ee3efe91bcc59e40a1c/AGENTS.md",
+          "blob_sha": "76db4c112308f6d5c09d4f724b426536250239e6",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "76db4c112308f6d5c09d4f724b426536250239e6",
+          "content_url": "https://github.com/modelcontextprotocol/inspector/blob/0d2bc1d91ce177ea8d497ee3efe91bcc59e40a1c/AGENTS.md",
+          "content_sha256": "1b55b779bdbad465335b1218ba1eeba24ae0284745fdf43f824910dfc680d49c",
+          "line_count": 694,
+          "read_ranges": [
+            [
+              1,
+              56
+            ]
+          ]
+        },
+        {
+          "path": ".claude/skills/testing/SKILL.md",
+          "url": "https://github.com/modelcontextprotocol/inspector/blob/0d2bc1d91ce177ea8d497ee3efe91bcc59e40a1c/.claude/skills/testing/SKILL.md",
+          "blob_sha": "519e64e2a4e4c83dfb35b7ccb59fcd6fdab178cf",
+          "resolved_path": ".claude/skills/testing/SKILL.md",
+          "resolved_blob_sha": "519e64e2a4e4c83dfb35b7ccb59fcd6fdab178cf",
+          "content_url": "https://github.com/modelcontextprotocol/inspector/blob/0d2bc1d91ce177ea8d497ee3efe91bcc59e40a1c/.claude/skills/testing/SKILL.md",
+          "content_sha256": "ab8a192048d0a2b1ca4aa1423f0b512d6c0f3e8c3ec1fe7be8eff1b9d29f2084",
+          "line_count": 307,
+          "read_ranges": [
+            [
+              180,
+              205
+            ],
+            [
+              281,
+              307
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "repository": "agentclientprotocol/agent-client-protocol",
+      "url": "https://github.com/agentclientprotocol/agent-client-protocol",
+      "default_branch": "main",
+      "reviewed_commit": "b0b0be076fb89b41cb05d9ec9a7875ee1a98d654",
+      "archived": false,
+      "stars_at_review": 4415,
+      "pushed_at_metadata": "2026-10-11T20:20:03Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/agentclientprotocol/agent-client-protocol/blob/b0b0be076fb89b41cb05d9ec9a7875ee1a98d654/AGENTS.md",
+          "blob_sha": "fa9bb4b70213ec77ccf93681a13caadd634ef7a5",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "fa9bb4b70213ec77ccf93681a13caadd634ef7a5",
+          "content_url": "https://github.com/agentclientprotocol/agent-client-protocol/blob/b0b0be076fb89b41cb05d9ec9a7875ee1a98d654/AGENTS.md",
+          "content_sha256": "fea2bd989226215aab3c8675b33f63c8033e94c5b890d3c3f11d0ace24ddbff2",
+          "line_count": 82,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "docs/protocol/v2/cancellation.mdx",
+          "url": "https://github.com/agentclientprotocol/agent-client-protocol/blob/b0b0be076fb89b41cb05d9ec9a7875ee1a98d654/docs/protocol/v2/cancellation.mdx",
+          "blob_sha": "bd5bd516f24c558e8e58dd3918cc801e4330dfc2",
+          "resolved_path": "docs/protocol/v2/cancellation.mdx",
+          "resolved_blob_sha": "bd5bd516f24c558e8e58dd3918cc801e4330dfc2",
+          "content_url": "https://github.com/agentclientprotocol/agent-client-protocol/blob/b0b0be076fb89b41cb05d9ec9a7875ee1a98d654/docs/protocol/v2/cancellation.mdx",
+          "content_sha256": "75a8968f1124642774e484deb8bf1eeec6c5ff4d9e326eb521f6907a1d953070",
+          "line_count": 71,
+          "read_ranges": [
+            [
+              1,
+              70
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "repository": "a2aproject/A2A",
+      "url": "https://github.com/a2aproject/A2A",
+      "default_branch": "main",
+      "reviewed_commit": "12e9d2fbb9badfe98f8ab4f660697870eeb1940b",
+      "archived": false,
+      "stars_at_review": 26110,
+      "pushed_at_metadata": "2026-10-08T15:12:13Z",
+      "files": [
+        {
+          "path": "CONTRIBUTING.md",
+          "url": "https://github.com/a2aproject/A2A/blob/12e9d2fbb9badfe98f8ab4f660697870eeb1940b/CONTRIBUTING.md",
+          "blob_sha": "e36758c33be4fead1bd820ff06abd13936eed3b3",
+          "resolved_path": "CONTRIBUTING.md",
+          "resolved_blob_sha": "e36758c33be4fead1bd820ff06abd13936eed3b3",
+          "content_url": "https://github.com/a2aproject/A2A/blob/12e9d2fbb9badfe98f8ab4f660697870eeb1940b/CONTRIBUTING.md",
+          "content_sha256": "da64f0196eded2e9396a38eb43955f51d5e43b3cb2e263d5ab4eec445da9c546",
+          "line_count": 117,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "docs/topics/life-of-a-task.md",
+          "url": "https://github.com/a2aproject/A2A/blob/12e9d2fbb9badfe98f8ab4f660697870eeb1940b/docs/topics/life-of-a-task.md",
+          "blob_sha": "fb9c0f2b550a34f73c22f3b36cceed2e0081cc82",
+          "resolved_path": "docs/topics/life-of-a-task.md",
+          "resolved_blob_sha": "fb9c0f2b550a34f73c22f3b36cceed2e0081cc82",
+          "content_url": "https://github.com/a2aproject/A2A/blob/12e9d2fbb9badfe98f8ab4f660697870eeb1940b/docs/topics/life-of-a-task.md",
+          "content_sha256": "1186a4153be5dab010ce2a03a664bbd7dcdd2329ec3dd6c5b6b52ef72b6f6d8e",
+          "line_count": 245,
+          "read_ranges": [
+            [
+              1,
+              32
+            ],
+            [
+              68,
+              93
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "repository": "cloudflare/agents",
+      "url": "https://github.com/cloudflare/agents",
+      "default_branch": "main",
+      "reviewed_commit": "48d9c36f5f1ff18a91fbf0659b9a8e026d1cac43",
+      "archived": false,
+      "stars_at_review": 5810,
+      "pushed_at_metadata": "2026-10-09T16:00:31Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/cloudflare/agents/blob/48d9c36f5f1ff18a91fbf0659b9a8e026d1cac43/AGENTS.md",
+          "blob_sha": "83080a803ba2ac223d884b1303b0a1622f07312d",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "83080a803ba2ac223d884b1303b0a1622f07312d",
+          "content_url": "https://github.com/cloudflare/agents/blob/48d9c36f5f1ff18a91fbf0659b9a8e026d1cac43/AGENTS.md",
+          "content_sha256": "bb33b6bfe35dfdf25a296952a45e60d741398453aefa9f1ae178c0c1373148cf",
+          "line_count": 206,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "packages/agents/AGENTS.md",
+          "url": "https://github.com/cloudflare/agents/blob/48d9c36f5f1ff18a91fbf0659b9a8e026d1cac43/packages/agents/AGENTS.md",
+          "blob_sha": "e70057a073716a0f62dc6ee1ce1ece719a72750d",
+          "resolved_path": "packages/agents/AGENTS.md",
+          "resolved_blob_sha": "e70057a073716a0f62dc6ee1ce1ece719a72750d",
+          "content_url": "https://github.com/cloudflare/agents/blob/48d9c36f5f1ff18a91fbf0659b9a8e026d1cac43/packages/agents/AGENTS.md",
+          "content_sha256": "e684b7a397742f15898c8d6cb12aa3c299cbc0a3844209b95d5d29c8e6f35783",
+          "line_count": 382,
+          "read_ranges": [
+            [
+              235,
+              269
+            ],
+            [
+              337,
+              368
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "repository": "promptfoo/promptfoo",
+      "url": "https://github.com/promptfoo/promptfoo",
+      "default_branch": "main",
+      "reviewed_commit": "801428268b5e421b2f6994332f6a06f86b27bb1f",
+      "archived": false,
+      "stars_at_review": 25910,
+      "pushed_at_metadata": "2026-10-12T04:19:17Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/promptfoo/promptfoo/blob/801428268b5e421b2f6994332f6a06f86b27bb1f/AGENTS.md",
+          "blob_sha": "5ba7bd4b7c901a4d772acfb0d08888fd40077241",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "5ba7bd4b7c901a4d772acfb0d08888fd40077241",
+          "content_url": "https://github.com/promptfoo/promptfoo/blob/801428268b5e421b2f6994332f6a06f86b27bb1f/AGENTS.md",
+          "content_sha256": "653b3d75e015169da4a5d2f6a5266f1e2af0d6d72598ecd4db6dd81b4de9ffd4",
+          "line_count": 415,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "test/AGENTS.md",
+          "url": "https://github.com/promptfoo/promptfoo/blob/801428268b5e421b2f6994332f6a06f86b27bb1f/test/AGENTS.md",
+          "blob_sha": "d3950b663afa51daf5730dcdd48a0fe210abc2c1",
+          "resolved_path": "test/AGENTS.md",
+          "resolved_blob_sha": "d3950b663afa51daf5730dcdd48a0fe210abc2c1",
+          "content_url": "https://github.com/promptfoo/promptfoo/blob/801428268b5e421b2f6994332f6a06f86b27bb1f/test/AGENTS.md",
+          "content_sha256": "5d8c3414c99bf370dbe22e1c7e59ac4f15ba8c992a4e32b4831ec0a99fdaaa33",
+          "line_count": 408,
+          "read_ranges": [
+            [
+              24,
+              53
+            ],
+            [
+              205,
+              217
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "repository": "UKGovernmentBEIS/inspect_ai",
+      "url": "https://github.com/UKGovernmentBEIS/inspect_ai",
+      "default_branch": "main",
+      "reviewed_commit": "a1dbea8db3cc85e04ff532760d0eaaeb64df6d3a",
+      "archived": false,
+      "stars_at_review": 2985,
+      "pushed_at_metadata": "2026-10-11T22:28:08Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/UKGovernmentBEIS/inspect_ai/blob/a1dbea8db3cc85e04ff532760d0eaaeb64df6d3a/AGENTS.md",
+          "blob_sha": "0a72e68510eef3b674ffc16dc534d0b2580dd4b6",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "0a72e68510eef3b674ffc16dc534d0b2580dd4b6",
+          "content_url": "https://github.com/UKGovernmentBEIS/inspect_ai/blob/a1dbea8db3cc85e04ff532760d0eaaeb64df6d3a/AGENTS.md",
+          "content_sha256": "7cf81f6fcd1223972a9bb962d7a2a8ed54227734ef7ef5e9e77211d57768a0cc",
+          "line_count": 310,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "docs/eval-logs.qmd",
+          "url": "https://github.com/UKGovernmentBEIS/inspect_ai/blob/a1dbea8db3cc85e04ff532760d0eaaeb64df6d3a/docs/eval-logs.qmd",
+          "blob_sha": "636b4742ccf2cedb62167953abaeae5efd9919c8",
+          "resolved_path": "docs/eval-logs.qmd",
+          "resolved_blob_sha": "636b4742ccf2cedb62167953abaeae5efd9919c8",
+          "content_url": "https://github.com/UKGovernmentBEIS/inspect_ai/blob/a1dbea8db3cc85e04ff532760d0eaaeb64df6d3a/docs/eval-logs.qmd",
+          "content_sha256": "19ce505b9bbbeca6a0519049e5e1e94f1e645964b34c47b5d3385e194618eb12",
+          "line_count": 718,
+          "read_ranges": [
+            [
+              6,
+              39
+            ],
+            [
+              185,
+              216
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "repository": "astral-sh/uv",
+      "url": "https://github.com/astral-sh/uv",
+      "default_branch": "main",
+      "reviewed_commit": "5cc7f15c359b83eed2c68c5578c1000bfd27e0da",
+      "archived": false,
+      "stars_at_review": 90629,
+      "pushed_at_metadata": "2026-10-12T00:55:09Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/astral-sh/uv/blob/5cc7f15c359b83eed2c68c5578c1000bfd27e0da/AGENTS.md",
+          "blob_sha": "ca031d6aa5243851885e5ca548fddb1c0ce69945",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "ca031d6aa5243851885e5ca548fddb1c0ce69945",
+          "content_url": "https://github.com/astral-sh/uv/blob/5cc7f15c359b83eed2c68c5578c1000bfd27e0da/AGENTS.md",
+          "content_sha256": "924a95138283340f865194fb35c470926d1d445674b81e9dbb1672bf3384fddf",
+          "line_count": 46,
+          "read_ranges": [
+            [
+              1,
+              46
+            ]
+          ]
+        },
+        {
+          "path": "CONTRIBUTING.md",
+          "url": "https://github.com/astral-sh/uv/blob/5cc7f15c359b83eed2c68c5578c1000bfd27e0da/CONTRIBUTING.md",
+          "blob_sha": "33b4150731364cc66f570feaea5dfe58b5952b55",
+          "resolved_path": "CONTRIBUTING.md",
+          "resolved_blob_sha": "33b4150731364cc66f570feaea5dfe58b5952b55",
+          "content_url": "https://github.com/astral-sh/uv/blob/5cc7f15c359b83eed2c68c5578c1000bfd27e0da/CONTRIBUTING.md",
+          "content_sha256": "6a70f0beaca9aa83a98a2880e7420875c4dc5cbc3afefaf7324094e50bdaff9f",
+          "line_count": 381,
+          "read_ranges": [
+            [
+              29,
+              35
+            ],
+            [
+              63,
+              91
+            ],
+            [
+              102,
+              132
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "repository": "astral-sh/ruff",
+      "url": "https://github.com/astral-sh/ruff",
+      "default_branch": "main",
+      "reviewed_commit": "eb625e43e489bc090aae9c4aa4a407cf389f65d0",
+      "archived": false,
+      "stars_at_review": 50005,
+      "pushed_at_metadata": "2026-10-11T22:51:33Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/astral-sh/ruff/blob/eb625e43e489bc090aae9c4aa4a407cf389f65d0/AGENTS.md",
+          "blob_sha": "9cc68603129df38ed4d7d4ac832650e18ab8b64f",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "9cc68603129df38ed4d7d4ac832650e18ab8b64f",
+          "content_url": "https://github.com/astral-sh/ruff/blob/eb625e43e489bc090aae9c4aa4a407cf389f65d0/AGENTS.md",
+          "content_sha256": "0cf7da04c4b893758506a65d9615b1ad4f88d126d0bbaada324d7a2f783b82e4",
+          "line_count": 230,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "agents/references/threat-models.md",
+          "url": "https://github.com/astral-sh/ruff/blob/eb625e43e489bc090aae9c4aa4a407cf389f65d0/agents/references/threat-models.md",
+          "blob_sha": "2762f12baa3bdc79f97717d4a3449d7d0c6075c5",
+          "resolved_path": "agents/references/threat-models.md",
+          "resolved_blob_sha": "2762f12baa3bdc79f97717d4a3449d7d0c6075c5",
+          "content_url": "https://github.com/astral-sh/ruff/blob/eb625e43e489bc090aae9c4aa4a407cf389f65d0/agents/references/threat-models.md",
+          "content_sha256": "b22f308cd4d8dd5a09d1978087c7d5f27d1270a5e0fe998273d06bf870573567",
+          "line_count": 14,
+          "read_ranges": [
+            [
+              1,
+              14
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "repository": "obra/superpowers",
+      "url": "https://github.com/obra/superpowers",
+      "default_branch": "main",
+      "reviewed_commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "archived": false,
+      "stars_at_review": 297819,
+      "pushed_at_metadata": "2026-10-10T03:03:30Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/obra/superpowers/blob/bb92a77741419a4ab5f06e711a283343f1ada0c3/AGENTS.md",
+          "blob_sha": "9587a6836b1419138e082a93d2a52850d9476626",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "9587a6836b1419138e082a93d2a52850d9476626",
+          "content_url": "https://github.com/obra/superpowers/blob/bb92a77741419a4ab5f06e711a283343f1ada0c3/AGENTS.md",
+          "content_sha256": "28c88405f9357e01b06fb460fce2078ed0c264b5113160cff59ec6c5ee3cf74f",
+          "line_count": 115,
+          "read_ranges": [
+            [
+              1,
+              115
+            ]
+          ]
+        },
+        {
+          "path": "skills/verification-before-completion/SKILL.md",
+          "url": "https://github.com/obra/superpowers/blob/bb92a77741419a4ab5f06e711a283343f1ada0c3/skills/verification-before-completion/SKILL.md",
+          "blob_sha": "7d45333cc4a49c57a80df6c1fe2fa777a207afbc",
+          "resolved_path": "skills/verification-before-completion/SKILL.md",
+          "resolved_blob_sha": "7d45333cc4a49c57a80df6c1fe2fa777a207afbc",
+          "content_url": "https://github.com/obra/superpowers/blob/bb92a77741419a4ab5f06e711a283343f1ada0c3/skills/verification-before-completion/SKILL.md",
+          "content_sha256": "2befe7fc55bcadaa3d97dd9e8efeb633d2561c0ebe74c5a8b17c4d9e7e4520b3",
+          "line_count": 120,
+          "read_ranges": [
+            [
+              1,
+              120
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "repository": "vercel/next.js",
+      "url": "https://github.com/vercel/next.js",
+      "default_branch": "canary",
+      "reviewed_commit": "d8c1c1b0002db8ccb63b58095f338e8bf423fa99",
+      "archived": false,
+      "stars_at_review": 143145,
+      "pushed_at_metadata": "2026-10-12T00:15:41Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/vercel/next.js/blob/d8c1c1b0002db8ccb63b58095f338e8bf423fa99/AGENTS.md",
+          "blob_sha": "eea9f6a6837dda59a8890b3df83fe415f0c6932f",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "eea9f6a6837dda59a8890b3df83fe415f0c6932f",
+          "content_url": "https://github.com/vercel/next.js/blob/d8c1c1b0002db8ccb63b58095f338e8bf423fa99/AGENTS.md",
+          "content_sha256": "718351e2e576d9c8aa1491fadbf5165134ad155953229814826534cd77c7e7cf",
+          "line_count": 520,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "contributing/core/testing.md",
+          "url": "https://github.com/vercel/next.js/blob/d8c1c1b0002db8ccb63b58095f338e8bf423fa99/contributing/core/testing.md",
+          "blob_sha": "e096920a42450799d67244b83ee4540485f7363c",
+          "resolved_path": "contributing/core/testing.md",
+          "resolved_blob_sha": "e096920a42450799d67244b83ee4540485f7363c",
+          "content_url": "https://github.com/vercel/next.js/blob/d8c1c1b0002db8ccb63b58095f338e8bf423fa99/contributing/core/testing.md",
+          "content_sha256": "dd1ae0f2701f0a2b54b0ea49d08fc14ff8b18fdacbe1e322011fa273e724f5c7",
+          "line_count": 287,
+          "read_ranges": [
+            [
+              44,
+              79
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "repository": "calcom/cal.diy",
+      "url": "https://github.com/calcom/cal.diy",
+      "default_branch": "main",
+      "reviewed_commit": "54343aa685ae8f33159d2f485ec4a57bad5c574a",
+      "archived": false,
+      "stars_at_review": 48960,
+      "pushed_at_metadata": "2026-09-26T07:48:40Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/calcom/cal.diy/blob/54343aa685ae8f33159d2f485ec4a57bad5c574a/AGENTS.md",
+          "blob_sha": "064ffc3290b797854dd77ff621116fbcaf4f11a2",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "064ffc3290b797854dd77ff621116fbcaf4f11a2",
+          "content_url": "https://github.com/calcom/cal.diy/blob/54343aa685ae8f33159d2f485ec4a57bad5c574a/AGENTS.md",
+          "content_sha256": "0cd9ff327e58b65dc75e7ef9deec7b24b86adf90e31d298263f3c575df0561ee",
+          "line_count": 244,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "agents/rules/quality-code-comments.md",
+          "url": "https://github.com/calcom/cal.diy/blob/54343aa685ae8f33159d2f485ec4a57bad5c574a/agents/rules/quality-code-comments.md",
+          "blob_sha": "4efda7cd8d5c66caf09ba4652c5ec485327af5c4",
+          "resolved_path": "agents/rules/quality-code-comments.md",
+          "resolved_blob_sha": "4efda7cd8d5c66caf09ba4652c5ec485327af5c4",
+          "content_url": "https://github.com/calcom/cal.diy/blob/54343aa685ae8f33159d2f485ec4a57bad5c574a/agents/rules/quality-code-comments.md",
+          "content_sha256": "e3500f9f1a6c144f302e2bf667a319d6f32c30356260f6453de4861db88aa260",
+          "line_count": 51,
+          "read_ranges": [
+            [
+              1,
+              51
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "repository": "supabase/supabase",
+      "url": "https://github.com/supabase/supabase",
+      "default_branch": "master",
+      "reviewed_commit": "369927892fde63d07b199d4e80fe05ae780573d5",
+      "archived": false,
+      "stars_at_review": 111380,
+      "pushed_at_metadata": "2026-10-12T03:28:16Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/supabase/supabase/blob/369927892fde63d07b199d4e80fe05ae780573d5/AGENTS.md",
+          "blob_sha": "6b56a9e1e05dc670c95546ee19a35a68d70229e7",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "6b56a9e1e05dc670c95546ee19a35a68d70229e7",
+          "content_url": "https://github.com/supabase/supabase/blob/369927892fde63d07b199d4e80fe05ae780573d5/AGENTS.md",
+          "content_sha256": "82b81ad443b45103375ae80ab2317c5949b590c150cd1591352a877a92963007",
+          "line_count": 75,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "apps/studio/AGENTS.md",
+          "url": "https://github.com/supabase/supabase/blob/369927892fde63d07b199d4e80fe05ae780573d5/apps/studio/AGENTS.md",
+          "blob_sha": "d007e5dc2bdd52eb1e21021d9a0be8be838f505b",
+          "resolved_path": "apps/studio/AGENTS.md",
+          "resolved_blob_sha": "d007e5dc2bdd52eb1e21021d9a0be8be838f505b",
+          "content_url": "https://github.com/supabase/supabase/blob/369927892fde63d07b199d4e80fe05ae780573d5/apps/studio/AGENTS.md",
+          "content_sha256": "e1a48abf01d297fdaf36ffa6eb72531868e944596c748d2c9598d4a6a5e71c21",
+          "line_count": 89,
+          "read_ranges": [
+            [
+              1,
+              22
+            ],
+            [
+              45,
+              76
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "repository": "getsentry/sentry",
+      "url": "https://github.com/getsentry/sentry",
+      "default_branch": "master",
+      "reviewed_commit": "035fd0e68c0a85be84eabe7c5cacbd88d9ae065e",
+      "archived": false,
+      "stars_at_review": 45533,
+      "pushed_at_metadata": "2026-10-11T22:57:20Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/getsentry/sentry/blob/035fd0e68c0a85be84eabe7c5cacbd88d9ae065e/AGENTS.md",
+          "blob_sha": "31604ab46297b08f27c794fa49879e66e974323c",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "31604ab46297b08f27c794fa49879e66e974323c",
+          "content_url": "https://github.com/getsentry/sentry/blob/035fd0e68c0a85be84eabe7c5cacbd88d9ae065e/AGENTS.md",
+          "content_sha256": "9d1cf867454fafdf65949ba31d2389d2ee6ad80748e354de7e7e090d95502596",
+          "line_count": 135,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "CLAUDE.md",
+          "url": "https://github.com/getsentry/sentry/blob/035fd0e68c0a85be84eabe7c5cacbd88d9ae065e/CLAUDE.md",
+          "blob_sha": "43c994c2d3617f947bcb5adf1933e21dabe46bb5",
+          "resolved_path": "CLAUDE.md",
+          "resolved_blob_sha": "43c994c2d3617f947bcb5adf1933e21dabe46bb5",
+          "content_url": "https://github.com/getsentry/sentry/blob/035fd0e68c0a85be84eabe7c5cacbd88d9ae065e/CLAUDE.md",
+          "content_sha256": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+          "line_count": 1,
+          "read_ranges": [
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "repository": "PostHog/posthog",
+      "url": "https://github.com/PostHog/posthog",
+      "default_branch": "master",
+      "reviewed_commit": "34a467e9862fd10cc7dc9ee8806bf53fdd54b660",
+      "archived": false,
+      "stars_at_review": 40231,
+      "pushed_at_metadata": "2026-10-12T04:28:38Z",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "url": "https://github.com/PostHog/posthog/blob/34a467e9862fd10cc7dc9ee8806bf53fdd54b660/AGENTS.md",
+          "blob_sha": "5b03cacb55f6a05f213f2cb829ea0be0afa8b05e",
+          "resolved_path": "AGENTS.md",
+          "resolved_blob_sha": "5b03cacb55f6a05f213f2cb829ea0be0afa8b05e",
+          "content_url": "https://github.com/PostHog/posthog/blob/34a467e9862fd10cc7dc9ee8806bf53fdd54b660/AGENTS.md",
+          "content_sha256": "38a561c96bc69f68fa8400eb0a3e48c2c33cfaa3a68c816e2c614383274744f9",
+          "line_count": 330,
+          "read_ranges": [
+            [
+              1,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "AI_POLICY.md",
+          "url": "https://github.com/PostHog/posthog/blob/34a467e9862fd10cc7dc9ee8806bf53fdd54b660/AI_POLICY.md",
+          "blob_sha": "692dde219fb30be9f05d83c4ac7814c4d4917584",
+          "resolved_path": "AI_POLICY.md",
+          "resolved_blob_sha": "692dde219fb30be9f05d83c4ac7814c4d4917584",
+          "content_url": "https://github.com/PostHog/posthog/blob/34a467e9862fd10cc7dc9ee8806bf53fdd54b660/AI_POLICY.md",
+          "content_sha256": "ad31900be8d2868b4149343f98f2477ba6eb9adf8a379e838fb94ecbfc96c659",
+          "line_count": 44,
+          "read_ranges": [
+            [
+              1,
+              44
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

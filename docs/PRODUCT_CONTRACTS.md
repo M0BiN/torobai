@@ -109,7 +109,7 @@ relevant rule in place; older [design notes](DESIGN.md), plans and
 
 - Use RTL with LTR isolation for identifiers, code and numbers. Write natural
   Persian with U+06F0–U+06F9 digits and no final-heh hamza. Use concrete actions
-  and facts, not slogans. Keep the torobai name and the user-supplied Torob SVG.
+  and facts, not slogans. Keep the torobai name and the existing local Torob SVG.
 - Use warm paper, coral actions and purposeful category artwork. Keep creative
   visual treatment out of money tables and technical copy. No large introductory
   hero, generic dashboard statistics, repeated headings or oversized controls.

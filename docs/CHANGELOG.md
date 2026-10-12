@@ -1,3 +1,11 @@
+# Unified development guide — 12 October 2026
+
+AGENTS.md now integrates scope, implementation, writing and verification into one
+guide. It adds practical standards for readable code, purposeful comments and
+clear product copy. Policy attribution, conversational context and the separate
+Ponytail preamble are removed from active instructions; their useful principles
+are expressed directly. Related setup and chatbot references follow the same guide.
+
 # Development instructions — 12 October 2026
 
 The root AGENTS.md now starts with the complete, unchanged Ponytail policy and

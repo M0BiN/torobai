@@ -1,7 +1,7 @@
 # Selection guide
 
-Read the root `../AGENTS.md` first. It contains the user's complete Ponytail
-policy and project-wide rules; this file adds only chatbot requirements.
+Read the root `../AGENTS.md` first for the shared workflow, writing standards
+and project rules. This file adds only chatbot requirements.
 Read `README.md` here for the data flow, operational limits and validation scope.
 
 - Keep guide code in this directory. `api.py` validates input/output and makes

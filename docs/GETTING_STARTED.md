@@ -87,8 +87,8 @@ are embedded. Guided chat works offline; free-text chat uses the hosted app.
 
 ## Working with a coding agent
 
-Open the repository root and read [AGENTS.md](../AGENTS.md). It contains the
-user's original Ponytail policy, code ownership and focused checks. The existing
+Open the repository root and read [AGENTS.md](../AGENTS.md). It defines the
+working approach, writing standards, code ownership and focused checks. The existing
 `CLAUDE.md` imports it. Do not maintain a separate policy for each coding tool.
 If a client does not discover the file, explicitly give it that entry point.
 
@@ -103,8 +103,8 @@ used. Record the tool/version, working directory and loaded instruction files.
 Ask for a plan without edits for these cases: change the result page, apply
 consumption, revisit cached results, or change a price used by chat and export.
 The plan should distinguish pagination scrolling from preserved usage scroll,
-avoid loading on cache hits, trace shared pricing, preserve Ponytail's scope and
-end with unchecked behavior and risks. Recognizing a filename alone is not proof
+avoid loading on cache hits, trace shared pricing, keep the change complete and
+focused, and end with unchecked behavior and risks. Recognizing a filename alone is not proof
 of following its rules. Do not claim a client was tested unless that session ran.
 
 ## Working with the catalog

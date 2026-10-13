@@ -67,6 +67,10 @@ python -m uvicorn app.main:app --reload
 implicitly load an env file. Keep the real key in the server environment. No key
 is sent to browsers, included in the portable export, or accepted in requests.
 Changing the model requires a model/provider with structured-output support.
+For `qwen/qwen3.8-flash`, the parser explicitly disables reasoning: its default
+thinking can exceed the request deadline for this bounded extraction task.
+Other models retain their existing provider settings. Output validation and
+request limits apply in both cases.
 
 Without a configured key, the same panel offers guided choices. The standalone
 HTML also supports these choices, consumption/budget edits and real catalog

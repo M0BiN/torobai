@@ -74,7 +74,9 @@ def test_https_origin_uses_only_trusted_proxy_headers(monkeypatch, client_ip, ex
     assert response.status_code == expected
 
 
-def test_openrouter_wire_contract_and_validated_result(monkeypatch):
+@pytest.mark.parametrize('model', [api.DEFAULT_MODEL, 'qwen/qwen3.8-flash'])
+def test_openrouter_wire_contract_and_validated_result(monkeypatch, model):
+    monkeypatch.setenv('OPENROUTER_MODEL', model)
     recorded = []
     transport = httpx.MockTransport(lambda request: mock_response(request))
 
@@ -94,7 +96,11 @@ def test_openrouter_wire_contract_and_validated_result(monkeypatch):
     assert str(request.url) == api.ENDPOINT
     assert request.headers['Authorization'] == 'Bearer test-key-not-real'
     payload = json.loads(request.content)
-    assert payload['model'] == api.DEFAULT_MODEL
+    assert payload['model'] == model
+    if model == 'qwen/qwen3.8-flash':
+        assert payload['reasoning'] == {'enabled': False}
+    else:
+        assert 'reasoning' not in payload
     assert payload['provider']['require_parameters'] is True
     assert payload['response_format']['json_schema']['strict'] is True
     assert len(payload['messages']) == 2

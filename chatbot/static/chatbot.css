@@ -419,6 +419,29 @@ dialog.chatbot-panel.is-expanded {
   color: var(--chat-accent);
   font-size: 10px;
 }
+.chatbot-memory {
+  margin-block: 12px;
+  font-size: 12px;
+  line-height: 1.9;
+}
+.chatbot-memory table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.chatbot-memory caption {
+  text-align: right;
+  font-weight: 700;
+  margin-block-end: 6px;
+}
+.chatbot-memory th,
+.chatbot-memory td {
+  padding: 8px 4px;
+  text-align: right;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line, #e7e2dc);
+  overflow-wrap: anywhere;
+}
 .chatbot-message.is-empty > p {
   border-inline-start: 2px solid #d5a578;
   padding-inline-start: 12px;

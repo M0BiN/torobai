@@ -23,6 +23,7 @@
     'ssh',
     'usage',
     'rental',
+    'inference',
     ...apiFields
   ];
   const fields = [
@@ -55,7 +56,8 @@
     budget_period: 'دوره هزینه',
     usage: 'مصرف',
     requestMode: 'روش پردازش',
-    rental: 'مدت اجاره'
+    rental: 'مدت اجاره',
+    inference: 'اجرای مدل روی GPU'
   };
   function updateNeeds(current, patch) {
     const needs = { ...current };
@@ -71,10 +73,14 @@
     for (const key of patch.unset || []) if (fields.includes(key)) delete needs[key];
     for (const [key, value] of Object.entries(changes)) {
       if (!fields.includes(key) || value == null) continue;
+      if (key === 'inference' && value.model && value.model !== needs.inference?.model) {
+        needs.inference = { ...needs.inference };
+        delete needs.inference.parameters;
+      }
       needs[key] =
-        key === 'usage'
+        key === 'usage' || key === 'inference'
           ? {
-              ...(needs.usage || {}),
+              ...(needs[key] || {}),
               ...Object.fromEntries(Object.entries(value).filter(([, v]) => v != null))
             }
           : value;
@@ -120,7 +126,7 @@
   const choice = (label, set, unset = []) => ({ label, set, unset });
   function welcome() {
     return {
-      text: 'سلام! برای چه کاری دنبال مدل می‌گردی؟ با هم گزینه‌های مناسب و هزینه‌شان را پیدا می‌کنیم.',
+      text: 'سلام! درباره مدل‌ها، API یا اجرای مدل روی GPU چه سوالی داری؟ برای انتخاب گزینه و برآورد هزینه هم کمکت می‌کنم.',
       choices: [
         choice('برای کدنویسی', { task: 'chat', usecase: 'coding' }),
         choice('گفتار فارسی به متن', { task: 'transcription', persian: true }),
@@ -146,17 +152,55 @@
       'بنچمارک فقط با توجه به نسخه مدل و شرایط آزمون معنی دارد. در صفحه عملکرد می‌توانی منبع و نتیجه هر آزمون را کنار مدل‌های دیگر ببینی.',
     gpu: 'برای انتخاب GPU، حافظه هر کارت و روش دسترسی مهم است. محاسبه اجرای مدل، برآورد حافظه برای inference است و تضمین آموزش یا اجرا نیست.'
   };
+  function resolveModel(name, products, HB) {
+    const normalize = (text) => HB.normalize(text || '').replace(/[\s_/-]+/g, '');
+    const key = normalize(name);
+    return key ? products.filter((p) =>
+      [p.id, p.title, p.model_id, p.model_id?.split('/').at(-1)]
+        .some((value) => value && normalize(value) === key)) : [];
+  }
+  function inferencePlan(needs, host, HB) {
+    const input = needs.inference;
+    const models = resolveModel(input.model, host.snapshot().products, HB)
+      .filter((p) => p.kind === 'api');
+    const model = models.length === 1 ? models[0] : null;
+    const parameters = input.parameters ?? (model ? Number(host.parameterGuess(model)) : 0);
+    if (!parameters)
+      return {
+        text: 'اندازه کل این مدل در اطلاعات ما مشخص نیست. تعداد کل پارامترها را به میلیارد بگو؛ برای مدل MoE، تعداد پارامترهای فعال کافی نیست.',
+        links: [{ label: 'محاسبه حافظه اجرای مدل', url: '#gpu-match' }]
+      };
+    const workload = {
+      parameters, context: input.context ?? 4096, concurrent: input.concurrent ?? 1,
+      kv: 0.25, overhead: 2, margin: 20
+    };
+    const plans = (input.bits ? [input.bits] : [4, 8, 16]).map((bits) => {
+      const memory = host.memoryParts({ ...workload, bits });
+      const view = toView(needs, HB);
+      view.vram = Math.max(view.vram || 0, Math.ceil(memory.total));
+      return { bits, required: memory.total, view, products: host.rows(view) };
+    });
+    const assumptions = `${HB.number(parameters)} میلیارد پارامتر؛ ${HB.number(workload.context)} توکن فعال و ${HB.number(workload.concurrent)} درخواست هم‌زمان. بودجه KV برابر ۰٫۲۵ GiB برای هر هزار توکن، حافظه موتور ۲ GiB و حاشیه ۲۰٪ فرض شده است.`;
+    const note = 'این برآورد حافظه inference روی یک کارت است؛ سازگاری موتور، فرمت کوانتیزه و سرعت اجرا باید جدا بررسی شوند. حافظه چند کارت با هم جمع نشده است.';
+    return {
+      text: 'برآورد حافظه برای ' + (model?.title || input.model || 'مدل شما') + ':',
+      memory: plans,
+      assumptions,
+      note,
+      ...(model ? { links: [{ label: 'تنظیم دقیق در محاسبه‌گر GPU', url: '#gpu-match?model=' + encodeURIComponent(model.id) }] } : {}),
+      choices: input.bits ? [] : plans.map((plan) =>
+        choice('بررسی ' + HB.number(plan.bits) + ' بیت', { inference: { bits: plan.bits } })),
+      view: input.bits ? plans[0].view : null
+    };
+  }
   function decide(needs, parsed, host, HB, unresolved = []) {
     const intent = parsed.intent || 'find';
+    if (intent === 'answer')
+      return { text: parsed.answer || parsed.question || 'چه چیزی را می‌خواهی بررسی کنیم؟' };
     if (intent === 'compare' && parsed.compare_names?.length) {
       const picked = [];
       for (const name of parsed.compare_names) {
-        const key = HB.normalize(name).trim();
-        const candidates = host
-          .snapshot()
-          .products.filter((p) =>
-            [p.id, p.title, p.model_id].some((value) => value && HB.normalize(value).trim() === key)
-          );
+        const candidates = resolveModel(name, host.snapshot().products, HB);
         if (candidates.length !== 1)
           return {
             text:
@@ -204,7 +248,7 @@
     if (intent === 'help')
       return {
         text:
-          helpText[parsed.help_topic] ||
+          parsed.answer || helpText[parsed.help_topic] ||
           'می‌توانم برای انتخاب مدل، مقایسه ارائه‌دهنده‌ها یا اجاره GPU کمکت کنم.',
         choices: [{ label: 'ادامه انتخاب', intent: 'find' }]
       };
@@ -290,7 +334,10 @@
         text: 'این شروط مدل/API را نمی‌توان روی کارت گرافیک تایید کرد. برای اجاره GPU، محل اجرا و شرایط ارائه‌دهنده را جدا بررسی کن.',
         choices: [choice('بررسی GPU با شرایط سخت‌افزاری', {}, ['no_retention', 'persian', 'open'])]
       };
-    const view = toView(needs, HB);
+    const inference = needs.task === 'gpu' && needs.inference
+      ? inferencePlan(needs, host, HB) : null;
+    if (inference && !inference.view) return inference;
+    const view = inference?.view || toView(needs, HB);
     const candidates = host
       .rows(view)
       .map((p) => ({ product: p, quote: host.quote(p, view).best }));
@@ -311,8 +358,9 @@
         choices.push(choice('دیدن مدل‌های بدون آزمون کدنویسی هم', {}, ['usecase']));
       choices.push({ label: 'ویرایش شرایط', intent: 'edit' });
       return {
+        ...(inference || {}),
         text: 'با این شرایط، نتیجه‌ای در کاتالوگ پیدا نشد.',
-        note: 'هیچ شرطی حذف نشده؛ می‌توانی یکی از شرایط را خودت تغییر بدهی.',
+        note: 'هیچ شرطی حذف نشده؛ می‌توانی یکی از شرایط را خودت تغییر بدهی.' + (inference ? ' ' + inference.note : ''),
         choices: [...choices.slice(0, -1).slice(0, 2), choices.at(-1)],
         view,
         matches: []
@@ -324,6 +372,7 @@
         url: host.listURL(view)
       }
     ];
+    if (inference?.links) links.push(...inference.links);
     if (intent === 'compare' || needs.priority === 'quality' || needs.usecase === 'coding') {
       const params = new URLSearchParams({
         task: needs.task,
@@ -343,7 +392,8 @@
         : needs.priority === 'cost'
           ? 'این گزینه‌ها با شرایط تو، کمترین هزینه را دارند:'
           : 'این گزینه‌ها با شرایطی که گفتی جورند:',
-      note,
+      note: note + (inference ? ' ' + inference.note : ''),
+      memory: inference?.memory,
       view,
       matches,
       links,
@@ -351,7 +401,7 @@
         { label: 'تنظیم مصرف و بودجه', intent: 'usage' },
         { label: 'ویرایش شرایط', intent: 'edit' }
       ],
-      assumptions:
+      assumptions: inference ? inference.assumptions :
         !allFiles &&
         needs.task !== 'gpu' &&
         !(HB.usageFields[HB.taskUnits[needs.task]] || []).every((k) => needs.usage?.[k] != null)

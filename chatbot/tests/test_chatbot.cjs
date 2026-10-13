@@ -510,6 +510,61 @@ const submit = (text) => {
   assert.equal(bodies.length, 9, 'Old failed messages cannot block the next request');
   assert.ok(bodies.every((body) => body.recent.length <= 6));
   assert.ok(bodies.slice(-3).some((body) => body.recent.length < 6));
+  // Explanations use the actual answer, including topics outside the old fixed menu.
+  click(document.getElementById('chatbotClear'));
+  fetchHandler = async () => ({ ok: true, json: async () => ({
+    intent: 'answer', answer: 'KV cache برای نگهداری اطلاعات توکن‌های قبلی است. <img src=x onerror=alert(1)>',
+    set: {}, unset: [], unresolved: []
+  }) });
+  submit('KV cache چه فرقی با وزن‌های مدل دارد؟');
+  await flush();
+  assert.match(log.lastElementChild.textContent, /KV cache/);
+  assert.equal(log.lastElementChild.querySelector('img'), null);
+  assert.equal(log.lastElementChild.querySelector('.chatbot-card'), null);
+  // Hosting a named model uses the shared planner, not a search for its name among GPUs.
+  fetchHandler = async (_url, options) => {
+    const body = JSON.parse(options.body);
+    assert.ok(body.recent.some((m) => m.role === 'assistant' && m.content.includes('KV cache')));
+    return { ok: true, json: async () => ({
+      intent: 'find', answer: 'حافظه به دقت وزن‌ها و تعداد درخواست‌های هم‌زمان بستگی دارد.',
+      set: { task: 'gpu', ssh: true, inference: { model: 'qwen 3.6 27b' } }, unset: [], unresolved: []
+    }) };
+  };
+  submit('کدام GPU می‌تواند qwen 3.6 27b را سرو کند؟');
+  await flush();
+  assert.equal(log.lastElementChild.querySelectorAll('.chatbot-memory tbody tr').length, 3);
+  assert.match(log.lastElementChild.textContent, /۰٫۲۵ GiB/);
+  choose('بررسی ۸ بیت');
+  cards = [...log.lastElementChild.querySelectorAll('.chatbot-card')];
+  assert.ok(cards.length > 0);
+  const planURL = log.lastElementChild.querySelector('.chatbot-links a').getAttribute('href');
+  const memory = run('gpuMemoryParts({parameters:27,bits:8,context:4096,concurrent:1,kv:0.25,overhead:2,margin:20})');
+  assert.equal(new URLSearchParams(planURL.split('?')[1]).get('vram'), String(Math.ceil(memory.total)));
+  assert.equal(new URLSearchParams(planURL.split('?')[1]).has('q'), false);
+  for (const p of run('catalogRows(HB.routeState(' + JSON.stringify(planURL) + '))'))
+    assert.ok(p.vram >= memory.total && p.offers.some((o) => o.ssh === true));
+  const corrected = run("TorobChatCore.updateNeeds({task:'gpu',inference:{model:'Qwen3.6 27B',bits:8,context:8192,parameters:27}},{set:{inference:{bits:4}}})");
+  assert.equal(corrected.inference.model, 'Qwen3.6 27B');
+  assert.equal(corrected.inference.context, 8192);
+  assert.equal(corrected.inference.bits, 4);
+  const otherModel = run("TorobChatCore.updateNeeds({task:'gpu',inference:{model:'Qwen3.6 27B',parameters:27,bits:4}},{set:{inference:{model:'Qwen3.5 9B'}}})");
+  assert.equal(otherModel.inference.parameters, undefined);
+  assert.equal(run("gpuParameterGuess({title:'Example 2.4T A95B'})"), '2400');
+  assert.equal(run("gpuParameterGuess({title:'Example 35B A3B'})"), '35');
+  assert.equal(run("gpuParameterGuess({title:'Example 0.6B'})"), '0.6');
+  // Unknown revisions ask for the total size instead of borrowing another model's size.
+  fetchHandler = async (_url, options) => {
+    const body = JSON.parse(options.body);
+    assert.ok(body.recent.some((m) => m.role === 'assistant' &&
+      m.content.includes(memory.total.toFixed(1) + ' GiB') && m.content.includes('سازگاری موتور')));
+    return { ok: true, json: async () => ({
+      intent: 'find', set: { inference: { model: 'Unlisted Example' } }, unset: [], unresolved: []
+    }) };
+  };
+  submit('حالا برای Unlisted Example چطور؟');
+  await flush();
+  assert.match(log.lastElementChild.textContent, /تعداد کل پارامترها/);
+  assert.equal(log.lastElementChild.querySelector('.chatbot-card'), null);
   assert.equal(scrolls.length > 0, true);
   console.log(
     'Chatbot: portable/served DOM, quote/destination parity, corrections, budget, GPU, seller, pending and stale-reply checks passed.'

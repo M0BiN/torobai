@@ -1,3 +1,18 @@
+# Question answering and GPU inference guidance — 13 October 2026
+
+The guide answers explanatory questions using recent conversation and a bounded
+public catalog summary in its existing single OpenRouter request. Responses are
+escaped text; application code still owns product selection, prices and links.
+
+GPU hosting targets are separate from GPU-name searches. The guide reuses the
+existing memory planner, shows precision scenarios and their assumptions, and
+preserves hard filters and partial corrections. Unknown model sizes require a
+total parameter count; active MoE parameters do not represent the full weights.
+Memory capacity does not establish quantization compatibility or execution speed.
+
+API and exported-DOM checks cover these contracts with controlled responses.
+Live Persian language evaluation and desktop/mobile rendering remain unverified.
+
 # Qwen Flash response latency — 13 October 2026
 
 The need parser disables default reasoning for `qwen/qwen3.8-flash` to avoid

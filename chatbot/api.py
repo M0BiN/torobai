@@ -1,4 +1,4 @@
-"""Parse needs through OpenRouter. Catalog decisions remain in the existing UI."""
+"""Answer questions and extract needs; the application owns quotes and calculations."""
 import asyncio
 import json
 import os
@@ -11,6 +11,7 @@ import httpx
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
+from chatbot.catalog import conversation_catalog
 
 router = APIRouter(prefix='/api/chatbot')
 ENDPOINT = 'https://openrouter.ai/api/v1/chat/completions'
@@ -20,7 +21,7 @@ Task = Literal['chat', 'embedding', 'transcription', 'translation', 'speech', 'i
                'ocr', 'extraction', 'classification', 'decision', 'gpu']
 FieldName = Literal['task', 'access', 'query', 'persian', 'tools', 'json', 'streaming',
                     'no_retention', 'open', 'ssh', 'vram', 'context', 'usecase',
-                    'priority', 'budget_toman', 'budget_period', 'usage', 'requestMode', 'rental']
+                    'priority', 'budget_toman', 'budget_period', 'usage', 'requestMode', 'rental', 'inference']
 
 
 class StrictModel(BaseModel):
@@ -37,6 +38,14 @@ class Usage(StrictModel):
     images: int | None = Field(None, ge=0, le=1_000_000)
     pages: int | None = Field(None, ge=0, le=1_000_000)
     monthly_requests: int | None = Field(None, ge=0, le=1_000_000)
+
+
+class Inference(StrictModel):
+    model: str | None = Field(None, max_length=120)
+    parameters: float | None = Field(None, ge=0.001, le=2000)
+    bits: Literal[4, 8, 16] | None = None
+    context: int | None = Field(None, ge=1, le=2_000_000)
+    concurrent: int | None = Field(None, ge=1, le=1024)
 
 
 class Needs(StrictModel):
@@ -59,6 +68,7 @@ class Needs(StrictModel):
     usage: Usage | None = None
     requestMode: Literal['instant', 'batch'] | None = None
     rental: Literal['light', 'standard', 'heavy'] | None = None
+    inference: Inference | None = None
 
 
 class Message(StrictModel):
@@ -88,9 +98,10 @@ class ParseRequest(StrictModel):
 
 
 class ParsedNeeds(StrictModel):
-    intent: Literal['find', 'compare', 'publish', 'help', 'compound', 'unsupported']
+    intent: Literal['find', 'compare', 'publish', 'help', 'answer', 'compound', 'unsupported']
+    answer: str | None = Field(None, max_length=1600)
     set: Needs
-    unset: list[FieldName] = Field(max_length=22)
+    unset: list[FieldName] = Field(max_length=24)
     reference: int | None = Field(ge=1, le=3)
     parts: list[Task] = Field(max_length=3)
     compare_names: list[str] = Field(default_factory=list, max_length=4)
@@ -158,11 +169,13 @@ def status():
 
 
 async def parse_with_openrouter(body: ParseRequest, key: str):
+    context = body.model_dump(exclude_none=True)
+    context['catalog'] = conversation_catalog()
     payload = {
         'model': os.getenv('OPENROUTER_MODEL', DEFAULT_MODEL).strip() or DEFAULT_MODEL,
         'messages': [
             {'role': 'system', 'content': PROMPT},
-            {'role': 'user', 'content': json.dumps(body.model_dump(exclude_none=True), ensure_ascii=False)},
+            {'role': 'user', 'content': json.dumps(context, ensure_ascii=False, separators=(',', ':'))},
         ],
         'response_format': {'type': 'json_schema', 'json_schema': {
             'name': 'torobai_needs', 'strict': True, 'schema': strict_schema()}},
@@ -172,7 +185,7 @@ async def parse_with_openrouter(body: ParseRequest, key: str):
         'stream': False,
     }
     if payload['model'] == 'qwen/qwen3.8-flash':
-        # Default thinking can exhaust the deadline for this intent-extraction task.
+        # Default thinking can exhaust the deadline for a short guide response.
         payload['reasoning'] = {'enabled': False}
     try:
         async with httpx.AsyncClient(timeout=20, follow_redirects=False) as client:

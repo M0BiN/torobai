@@ -1,9 +1,10 @@
 # torobai selection guide
 
 A small Persian shopping guide inside the existing FastAPI/vanilla-JavaScript app.
-It asks only for missing information, then shows up to three catalog options and
-links to the ordinary filtered results. OpenRouter understands free text; the
-application owns filters, prices, product identity and links.
+It answers questions, explains tradeoffs and shows up to three catalog options
+when a user wants recommendations. OpenRouter receives recent conversation and
+a bounded public catalog summary, then returns explanation text and typed needs
+in one call. The application owns filters, prices, product identity and links.
 
 ## Conversation UI
 
@@ -67,8 +68,8 @@ python -m uvicorn app.main:app --reload
 implicitly load an env file. Keep the real key in the server environment. No key
 is sent to browsers, included in the portable export, or accepted in requests.
 Changing the model requires a model/provider with structured-output support.
-For `qwen/qwen3.8-flash`, the parser explicitly disables reasoning: its default
-thinking can exceed the request deadline for this bounded extraction task.
+For `qwen/qwen3.8-flash`, the guide explicitly disables reasoning: its default
+thinking can exceed the request deadline for this bounded conversation task.
 Other models retain their existing provider settings. Output validation and
 request limits apply in both cases.
 
@@ -84,9 +85,9 @@ or browser origin restrictions.
 | --- | --- |
 | `static/core.js` | Pure state changes, next question, task choices and recommendation decisions. |
 | `static/panel.js` | Conversation UI, actual pending feedback, retry/cancel, editable needs and navigation. |
-| `api.py` | Typed input/output, limits and one OpenRouter request. |
-| `prompt.txt` | Persian intent-extraction instructions; no prices or recommendation generation. |
-| `catalog.py` | Coding-evidence filter derived from the project's existing published benchmarks. |
+| `api.py` | Typed explanations and needs, limits and one OpenRouter request. |
+| `prompt.txt` | Persian question answering and needs extraction; no generated prices or links. |
+| `catalog.py` | Public catalog context and the existing published coding-evidence filter. |
 | `tests/` | Provider-contract tests and conversations against the exported application. |
 | `AGENTS.md` | Chatbot-specific requirements that extend the root development guide. |
 
@@ -101,11 +102,16 @@ therefore also affect guide results. No new runtime package is required.
 1. A known choice directly changes needs; it does not call an LLM.
 2. Free text goes to `POST /api/chatbot/parse`, with bounded recent messages,
    current needs, the current page and previous card references.
-3. OpenRouter returns a validated `set`/`unset` patch and an intent. It does not
-   supply executable tools, product cards, prices, arbitrary URLs or HTML.
+3. The server adds up to 80 public catalog entries with model identity, task,
+   description, context, license, VRAM and up to eight listed provider names. It
+   sends no prices, private records or browser-local listings. OpenRouter returns
+   a bounded plain-text `answer`, a validated `set`/`unset` patch and an intent.
+   It does not supply executable tools, cards, authoritative prices or links.
 4. `updateNeeds` applies the patch. Changes in task/access clear incompatible
    fields; privacy and unresolved essential requirements remain explicit.
-5. `decide` asks a useful missing question or filters the effective catalog.
+5. Explanations render as escaped text without forcing a selection flow. For
+   recommendations, `decide` asks for missing information or filters the effective
+   catalog. GPU inference uses the host's existing memory calculation first.
 6. The existing quote function supplies prices for the same eligible offer.
    A click opens the normal site route. The guide never navigates on its own.
 
@@ -113,6 +119,28 @@ The server makes one non-streaming request, with a 22-second overall deadline.
 There is no agent loop, automatic paid repair call, database, vector store or
 framework migration. Schema validation occurs even when the provider claims
 strict output. Failures keep the previous needs and offer a retry or choices.
+
+## GPU inference questions
+
+`inference` holds a target model, an explicitly stated total parameter count,
+weight precision, active context tokens and concurrent requests. It is separate
+from `query`, which still filters GPU names. Exact catalog aliases resolve to
+one model version. Unknown sizes prompt for the total parameter count; an active
+MoE count cannot stand in for the full weights. Model changes clear a previous
+explicit size; other partial corrections retain the workload.
+
+The guide reuses `gpuParameterGuess` and `gpuMemoryParts` from `performance.js`.
+Without a precision choice, it shows 4/8/16-bit scenarios and local choices.
+Each calculation displays its assumptions: 4,096 active tokens and one request
+when unspecified, 0.25 GiB KV per thousand tokens, 2 GiB runtime and 20% headroom.
+These are planning assumptions, not measured architecture-specific KV usage.
+A precision choice produces ordinary catalog cards with exact rental prices.
+All hard filters, budget and SSH requirements still apply to each eligible offer.
+
+FP8 and INT8 share a weight-memory size but not a compatibility guarantee.
+Training, speed, kernel support and multi-GPU sharding are not inferred from
+memory capacity. The detailed planner remains available for editing assumptions.
+Displayed estimates enter the bounded session history for follow-up explanations.
 
 ## Behavior that matters
 

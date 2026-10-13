@@ -106,6 +106,12 @@ def test_openrouter_wire_contract_and_validated_result(monkeypatch, model):
     assert len(payload['messages']) == 2
     assert payload['messages'][0]['role'] == 'system'
     assert payload['stream'] is False
+    assert len(recorded) == 1
+    facts = json.loads(payload['messages'][1]['content'])['catalog']
+    model_fact = next(p for p in facts if p['id'] == 'qwen3.6-27b')
+    assert model_fact['model_id'] == 'Qwen/Qwen3.6-27B'
+    assert model_fact['providers']
+    assert all('offers' not in p and 'price' not in p for p in facts)
     assert response.headers['cache-control'] == 'no-store'
 
 
@@ -175,3 +181,30 @@ def test_coding_filter_only_uses_published_existing_evidence():
             assert group['measured'] is True and group['kind'] != 'scenario'
             assert any(r['product_id']==p['id'] for r in group['records'])
             assert evidence['source'].startswith('https://')
+
+
+@pytest.mark.parametrize('inference', [
+    {'parameters': -1}, {'parameters': True}, {'bits': 7}, {'context': 0},
+    {'concurrent': 1025}, {'parameters': '27'}, {'model': 'x' * 121}, {'command': 'run'},
+])
+def test_inference_inputs_are_bounded_before_provider_work(inference):
+    response = client.post('/api/chatbot/parse', json={'text': 'GPU می‌خواهم', 'current': {'inference': inference}})
+    assert response.status_code == 422
+    assert not api._global_calls
+
+
+def test_natural_answer_and_execution_needs_survive_provider_validation(monkeypatch):
+    result = answer().model_dump()
+    result.update(answer='برای اجرا، حافظه وزن‌ها و فضای درخواست‌ها را جدا حساب می‌کنیم.',
+                  set={'task': 'gpu', 'inference': {'model': 'Qwen3.6 27B', 'bits': 8, 'concurrent': 2}})
+    original = httpx.AsyncClient
+    transport = httpx.MockTransport(lambda _: httpx.Response(200, json={
+        'choices': [{'finish_reason': 'stop', 'message': {'content': json.dumps(result)}}]}))
+    monkeypatch.setattr(api.httpx, 'AsyncClient', lambda **kw: original(transport=transport, **kw))
+    response = client.post('/api/chatbot/parse', json={'text': 'کدام GPU می‌تواند این مدل را اجرا کند؟'})
+    assert response.status_code == 200
+    assert response.json()['answer'] == result['answer']
+    assert response.json()['set']['inference']['bits'] == 8
+    assert 'query' not in response.json()['set']
+    with pytest.raises(ValueError):
+        ParsedNeeds.model_validate({**result, 'answer': 'x' * 1601})

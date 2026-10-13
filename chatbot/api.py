@@ -171,6 +171,9 @@ async def parse_with_openrouter(body: ParseRequest, key: str):
         'max_tokens': 1800,
         'stream': False,
     }
+    if payload['model'] == 'qwen/qwen3.8-flash':
+        # Default thinking can exhaust the deadline for this intent-extraction task.
+        payload['reasoning'] = {'enabled': False}
     try:
         async with httpx.AsyncClient(timeout=20, follow_redirects=False) as client:
             response = await client.post(ENDPOINT, headers={

@@ -1,3 +1,10 @@
+# Qwen Flash response latency — 13 October 2026
+
+The need parser disables default reasoning for `qwen/qwen3.8-flash` to avoid
+spending the chat deadline on thinking tokens. Other models keep their existing
+settings. Structured-output validation, one-call behavior and timeouts remain
+unchanged. The provider-contract test covers both Qwen and the default model.
+
 # Chatbot conversation experience — 12 October 2026
 
 The guide uses a warm surface, assistant identity, compact offer cards with

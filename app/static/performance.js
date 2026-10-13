@@ -558,7 +558,8 @@ function gpuParameterGuess(p) {
     'gemma-4-26b-a4b': 25.2
   };
   if (known[p.id]) return String(known[p.id]);
-  return /([\d.]+)\s*[bB]\b/.exec(p.title)?.[1] || '';
+  const size = /([\d.]+)\s*([bBtT])\b/.exec(p.title);
+  return size ? String(Number(size[1]) * (size[2].toLowerCase() === 't' ? 1000 : 1)) : '';
 }
 function cancelGPUMatch() {
   gpuMatchSequence++;

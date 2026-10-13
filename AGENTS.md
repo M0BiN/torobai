@@ -232,8 +232,8 @@ subsystems must follow their callers and contracts, not just the first file foun
 - Preserve served and standalone behavior. Generate `dist/torobai.html` with the
   exporter; do not edit it manually. The portable file embeds its CSS, scripts,
   fonts and data, contains no API key and makes no free-text cloud calls.
-- OpenRouter parses guide needs; application code selects catalog entries and
-  computes prices and links. Preserve hard requirements, corrections, bounded
+- OpenRouter explains questions and parses guide needs; application code selects
+  catalog entries and computes prices and links. Preserve hard requirements, corrections, bounded
   context and cancellation guards. Paid language evaluation is explicit and
   separate from ordinary tests. Read `chatbot/AGENTS.md` for local requirements.
 

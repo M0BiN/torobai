@@ -23,7 +23,7 @@ browser-local. A local approval is never server authorization or verified identi
 | Boundary | Owner and required behavior |
 | --- | --- |
 | HTTP input | `app/main.py` and `chatbot/api.py` validate shape, types, ranges and resource limits before work. |
-| OpenRouter output | `chatbot/api.py` accepts bounded, typed needs; `chatbot/static/core.js` resolves them against the effective catalog. |
+| OpenRouter output | `chatbot/api.py` accepts bounded explanation text and typed needs; `chatbot/static/core.js` resolves recommendations against the effective catalog. |
 | Browser input, routes, storage and imports | `app/static/ui.js` and `app/static/marketplace.js` validate at entry and render with the correct escaping. Saved data remains untrusted. |
 | Prices, eligibility and evidence | Python pricing and catalog code own the rules; exported plans preserve their exact arithmetic and provenance. |
 | Credentials and publication | Server environment, container configuration and CI own access. Static assets and the portable export contain public material only. |
@@ -114,8 +114,10 @@ reply and does not establish that the provider stopped billing.
 
 ## Chatbot authority and prompt injection
 
-`chatbot/prompt.txt` asks for intent and needs. Enforce that limited authority in
-code: the provider cannot supply authoritative prices, verified claims, purchase
+`chatbot/prompt.txt` asks for a plain-text explanation, intent and needs. Enforce
+that limited authority in code: explanations are untrusted text, never quote
+data, navigation or markup.
+The provider cannot supply authoritative prices, verified claims, purchase
 URLs, HTML, tools or actions. Validate the response schema and its relationship
 to the request, including card references and conflicting set/unset fields.
 Do not rely on a prompt instruction or valid JSON alone as a security boundary.

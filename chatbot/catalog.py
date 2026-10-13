@@ -1,5 +1,20 @@
-"""Expose existing published coding evidence as an ordinary catalog filter."""
+"""Public guide context and published coding evidence from the existing catalog."""
 import re
+from app.market import build_market
+
+
+def conversation_catalog():
+    """Public facts only; effective prices and offer eligibility stay in the UI."""
+    catalog = []
+    for product in (build_market('api') + build_market('gpu'))[:80]:
+        facts = {key: product[key] for key in (
+            'id', 'title', 'model_id', 'task', 'context', 'vram', 'open_weights', 'license'
+        ) if product.get(key) is not None}
+        facts['description'] = product.get('description', '')[:240]
+        facts['providers'] = list(dict.fromkeys(offer['seller'] for offer in product['offers']))[:8]
+        catalog.append(facts)
+    return catalog
+
 
 def coding_evidence(benchmarks):
     evidence = {}

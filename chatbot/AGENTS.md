@@ -5,9 +5,11 @@ and project rules. This file adds only chatbot requirements.
 Read `README.md` here for the data flow, operational limits and validation scope.
 
 - Keep guide code in this directory. `api.py` validates input/output and makes
-  one OpenRouter request; `prompt.txt` extracts needs; `static/core.js` owns
-  decisions; `static/panel.js` owns the conversation. Trace the host integration
-  in `app/static/app.js` and `scripts/export_catalog.py` when changing interfaces.
+  one OpenRouter request for a plain-text explanation and typed needs;
+  `prompt.txt` guides those responses; `static/core.js` owns catalog decisions
+  and reuses the host's GPU memory calculation; `static/panel.js` owns the
+  conversation. Trace the host integration in `app/static/app.js` and
+  `scripts/export_catalog.py` when changing interfaces.
 - OpenRouter remains the default. Keep its key on the server, bound requests,
   validate returned JSON and preserve error handling. No generated price/URL
   HTML, executable tools, automatic paid repair loop or new runtime framework.
@@ -18,6 +20,10 @@ Read `README.md` here for the data flow, operational limits and validation scope
 - Ask for missing information; preserve corrections and hard needs. Guided
   choices are immediate and local. Portable HTML supports those choices only;
   free text uses the configured server. Navigation requires a user action.
+- Answer explanatory questions without forcing product selection. Keep hosting
+  targets in `inference`, separate from GPU-name search. Show memory assumptions,
+  distinguish total from active MoE parameters and keep quantization compatibility
+  unverified. Unknown model versions must not borrow another model's size.
 - Preserve pending/retry/cancel, session-only history and catalog-revision
   guards. Old recommendation links retain their original scope. Cancellation
   stops applying a reply; it does not promise upstream billing cancellation.

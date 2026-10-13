@@ -399,6 +399,7 @@ window.TorobChat = (() => {
         if (key === 'vram') label = HB.number(value) + ' GB در هر کارت';
         if (key === 'context') label = HB.number(value) + ' توکن ظرفیت متن';
         if (key === 'usage') label = 'مصرف تنظیم‌شده';
+        if (key === 'inference') label = 'اجرای ' + (value.model || 'مدل') + (value.bits ? ' · ' + HB.number(value.bits) + ' بیت' : '');
         if (key === 'rental')
           label = { light: '۸ ساعت', standard: '۲۴ ساعت', heavy: '۷۲ ساعت' }[value];
         return `<button type="button" data-chat-remove="${esc(key)}" aria-label="حذف ${esc(label)}">${esc(label)} <span aria-hidden="true">×</span></button>`;
@@ -479,8 +480,12 @@ window.TorobChat = (() => {
     const unresolvedHTML = unresolved.length
       ? `<div class="chatbot-unresolved"><b>این شروط هنوز تایید نشده‌اند:</b><ul>${unresolved.map((x) => `<li>${esc(x)}</li>`).join('')}</ul><button type="button" data-chat-command="clear-unresolved">این شروط دیگر لازم نیست</button></div>`
       : '';
+    const memoryHTML = result.memory?.length
+      ? `<div class="chatbot-memory"><p>${esc(result.assumptions || '')}</p><table><caption>حافظه برآوردی هر کارت</caption><thead><tr><th scope="col">وزن‌ها</th><th scope="col">حافظه لازم</th><th scope="col">گزینه‌های کاتالوگ</th></tr></thead><tbody>${result.memory.map((plan) => `<tr><th scope="row">${HB.number(plan.bits)} بیت</th><td><bdi>${HB.number(plan.required, 1)} GiB</bdi></td><td>${plan.products.length ? plan.products.slice(0, 3).map((p) => esc(p.title)).join('، ') : 'با شرایط فعلی گزینه‌ای نداریم'}</td></tr>`).join('')}</tbody></table></div>`
+      : '';
     const html =
       unresolvedHTML +
+      memoryHTML +
       (cards
         ? `<div class="chatbot-criteria"><span>${criteria.map((label) => `<bdi>${esc(label)}</bdi>`).join(' · ')}</span><button type="button" data-chat-command="edit">ویرایش شرایط</button></div><div class="chatbot-results"><div class="chatbot-result-heading"><span>${HB.number(result.matches.length)} گزینه برای بررسی</span><span>${period} · تومان</span></div><div class="chatbot-cards">${cards}</div><details class="chatbot-basis"><summary>مبنای قیمت و جزئیات پیشنهادها</summary><div class="chatbot-basis-copy"><p>${esc(result.note || '')}</p>${result.assumptions ? `<p>${esc(result.assumptions)}</p>` : ''}<ul>${basis}</ul></div></details></div>`
         : result.note
@@ -490,6 +495,11 @@ window.TorobChat = (() => {
         ? `<div class="chatbot-links">${result.links.map((link) => `<a ${linkData} href="${esc(link.url)}">${esc(link.label)} <span aria-hidden="true">←</span></a>`).join('')}</div>`
         : '');
     append('assistant', result.text, html);
+    if (result.memory?.length) {
+      const summary = result.memory.map((plan) =>
+        `${plan.bits} بیت: ${plan.required.toFixed(1)} GiB؛ ${plan.products.slice(0, 3).map((p) => p.title).join('، ') || 'بدون گزینه'}`);
+      messages.at(-1).content = [result.text, result.assumptions, result.note, ...summary].join('\n').slice(0, 2000);
+    }
     if (result.matches && !result.matches.length)
       $('chatbotLog').lastElementChild.classList.add('is-empty');
   }
@@ -499,6 +509,8 @@ window.TorobChat = (() => {
       needs = C.updateNeeds(needs, { set: result.infer });
       return showDecision({ ...parsed, question: null });
     }
+    if (parsed.answer && !['help', 'answer'].includes(parsed.intent))
+      result.text = parsed.answer + '\n\n' + result.text;
     showAnswer(result);
   }
   function choose(ch) {

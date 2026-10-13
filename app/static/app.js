@@ -2037,6 +2037,7 @@ async function start() {
       rows: catalogRows, quote: catalogQuote, values: catalogValues, usageText,
       listURL: catalogFilterURL, productURL: href, navigate, money, logo,
       tasks, usageFields: HB.usageFields, fieldInfo, usageInputs,
+      parameterGuess: gpuParameterGuess, memoryParts: gpuMemoryParts,
     });
   } catch {
     $('main').innerHTML =

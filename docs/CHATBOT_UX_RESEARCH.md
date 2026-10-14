@@ -67,11 +67,11 @@ messages from assistant responses with spacing and alignment; avoid a large
 colored container around every assistant answer.
 
 Place the waiting row directly after the submitted message, aligned with the
-assistant response. It has a small assistant mark, one readable status sentence
-and one subtle motion treatment. Use a soft pulse on the mark, with static text;
-do not combine bouncing dots, shimmer text, a spinner and skeleton cards.
-Reduced-motion mode keeps the mark static. Reuse `TorobMotion` for entry and
-exit, and remove the status immediately when the result is ready.
+assistant response. It has a static assistant mark and a small speech bubble
+with three dots rising in sequence. Announce the writing status to screen readers;
+show a short hint below the bubble only if the response takes longer than eight
+seconds. Reduced-motion mode keeps the dots still. Remove the waiting row
+immediately when the result is ready.
 
 The composer stays at the bottom. During a request its send button becomes
 **توقف دریافت پاسخ**, with a square icon and an accessible label. Keep a
@@ -84,7 +84,7 @@ one. Keep composition input safe.
 
 | Actual condition | Proposed Persian copy | Behavior |
 | --- | --- | --- |
-| Free-text request is pending | دارم درخواستت را بررسی می‌کنم… | One assistant-side activity row; stop remains available. |
+| Free-text request is pending | Screen-reader status: همراه در حال نوشتن پاسخ است… | One assistant-side three-dot bubble; stop remains available. |
 | Still pending after 8 seconds | پاسخ هنوز آماده نشده؛ می‌توانی منتظر بمانی یا دریافتش را متوقف کنی. | Update the same row once. This threshold is a proposed design choice, not a measured performance target. |
 | Local catalog decision is ready | An immediate question or recommendation | No delay to expose a “search” or “comparison” animation. |
 | A necessary detail is missing | برای برآورد هزینه، مصرف ماهانه‌ات چقدر است؟ | Ask one useful question and show the current quick choices outside the transcript. The exact question follows the missing field. |

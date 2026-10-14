@@ -1,3 +1,10 @@
+# Chat typing indicator — 14 October 2026
+
+Pending replies use a compact three-dot bubble beside the assistant mark. The
+dots rise in sequence and remain still with reduced motion. A screen-reader
+status announces writing; the existing eight-second hint appears below the
+bubble. Completion, stop, retry and failure retain their existing lifecycle.
+
 # Question answering and GPU inference guidance — 13 October 2026
 
 The guide answers explanatory questions using recent conversation and a bounded

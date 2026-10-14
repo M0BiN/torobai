@@ -6,7 +6,13 @@
 
 **مقایسه مدل‌های هوش مصنوعی، سرویس‌های API و اجاره GPU**
 
-<a href="https://m0bin.github.io/torobai/#api">مشاهده سایت</a> · <a href="docs/GETTING_STARTED.md">راه‌اندازی پروژه</a> · <a href="chatbot/README.md">راهنمای چت‌بات</a>
+<h3>تست آنلاین محصول</h3>
+
+<p>برای استفاده از سایت و چت‌بات، لینک زیر را باز کنید. نیازی به نصب یا راه‌اندازی پروژه نیست.</p>
+
+<p dir="ltr"><strong><a href="https://torob.thereisnolifewithoutyou.ir/">https://torob.thereisnolifewithoutyou.ir/</a></strong></p>
+
+<a href="docs/GETTING_STARTED.md">راه‌اندازی پروژه</a> · <a href="chatbot/README.md">راهنمای چت‌بات</a>
 
 </div>
 

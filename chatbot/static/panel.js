@@ -54,7 +54,7 @@ window.TorobChat = (() => {
       <div id="chatbotPageNotice" class="chatbot-page-notice" hidden><p>فیلترهای صفحه تغییر کرده. همین شرایط را در گفتگو هم استفاده کنیم؟</p><button type="button" data-chat-command="adopt">بله، استفاده کن</button><button type="button" data-chat-command="keep">با شرایط قبلی ادامه بده</button></div>
       <div class="chatbot-conversation"><div id="chatbotLog" class="chatbot-log" role="log" aria-label="متن گفتگو" aria-live="polite" aria-relevant="additions" tabindex="0"></div><button type="button" id="chatbotLatest" class="chatbot-latest" hidden>${icon('down')} پیام جدید</button></div>
       <div class="chatbot-bottom">
-        <div id="chatbotPending" class="chatbot-pending" aria-hidden="true" hidden><span class="chatbot-activity-mark">${mark}</span><div><strong>همراه در حال بررسی است</strong><p id="chatbotPendingText"></p></div></div>
+        <div id="chatbotPending" class="chatbot-pending" aria-hidden="true" hidden><span class="chatbot-activity-mark">${mark}</span><div><span class="chatbot-typing"><span></span><span></span><span></span></span><p id="chatbotPendingText" hidden></p></div></div>
         <span id="chatbotStatus" class="sr-only" role="status" aria-atomic="true"></span>
         <div id="chatbotError" class="chatbot-error" role="alert" hidden></div>
         <div id="chatbotChoices" class="chatbot-choices" role="group" aria-label="پاسخ‌های پیشنهادی"></div>
@@ -678,15 +678,16 @@ window.TorobChat = (() => {
     const following = log.scrollHeight - log.scrollTop - log.clientHeight < 100;
     log.append($('chatbotPending'));
     $('chatbotPending').hidden = false;
-    const waiting = 'دارم درخواستت را بررسی می‌کنم…';
-    $('chatbotPendingText').textContent = waiting;
-    $('chatbotStatus').textContent = waiting;
+    $('chatbotPendingText').textContent = '';
+    $('chatbotPendingText').hidden = true;
+    $('chatbotStatus').textContent = 'همراه در حال نوشتن پاسخ است…';
     if (panel.open && following) log.scrollTop = log.scrollHeight - log.clientHeight;
     updateComposer();
     slowTimer = setTimeout(() => {
       if (serial !== requestVersion || !pending) return;
       const text = 'پاسخ هنوز آماده نشده؛ می‌توانی منتظر بمانی یا دریافتش را متوقف کنی.';
       $('chatbotPendingText').textContent = text;
+      $('chatbotPendingText').hidden = false;
       $('chatbotStatus').textContent = text;
     }, 8000);
     deadlineTimer = setTimeout(() => controller.abort(), 25000);

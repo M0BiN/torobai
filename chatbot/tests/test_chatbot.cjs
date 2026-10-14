@@ -403,12 +403,17 @@ const submit = (text) => {
   assert.equal(activity.parentElement.id, 'chatbotLog');
   assert.equal(activity.hidden, false);
   assert.equal(activity.getAttribute('aria-hidden'), 'true');
+  assert.equal(activity.querySelectorAll('.chatbot-typing > span').length, 3);
+  assert.equal(document.getElementById('chatbotPendingText').hidden, true);
+  assert.match(document.getElementById('chatbotStatus').textContent, /در حال نوشتن/);
   assert.equal(send.disabled, false);
   assert.equal(send.type, 'button');
   assert.equal(send.getAttribute('aria-label'), 'توقف دریافت پاسخ');
   const staleSlowHint = [...scheduledTimers.values()].find((timer) => timer.delay === 8000).fn;
   expire(8000);
   assert.match(activity.textContent, /پاسخ هنوز آماده نشده/);
+  assert.equal(document.getElementById('chatbotPendingText').hidden, false);
+  assert.equal(activity.querySelectorAll('.chatbot-typing > span').length, 3);
   input.value = 'پیش‌نویس بعدی من';
   const enter = new window.Event('keydown', { bubbles: true, cancelable: true });
   Object.assign(enter, { key: 'Enter', shiftKey: false, isComposing: false });
@@ -430,6 +435,7 @@ const submit = (text) => {
   assert.deepEqual(requests[1].recent, requests[0].recent);
   assert.equal(log.querySelectorAll('.user').length, usersBeforeRetry);
   assert.equal(input.value, 'پیش‌نویس بعدی من');
+  assert.equal(document.getElementById('chatbotPendingText').hidden, true, 'Retry starts with only the dots');
   release({ ok: true, json: async () => ({ intent: 'find', set: { query: 'GPT-4o mini', access: 'api' }, unset: [], unresolved: [] }) });
   await flush();
   assert.equal(activity.hidden, true);

@@ -14,9 +14,11 @@ the provider, a catalog-backed reason and the shared price period. Workload and
 evidence remain in an animated disclosure. One quick-reply tray sits outside
 the transcript; requirements and usage stay in the settings dialog.
 
-A free-text request adds a compact activity row after the user's message. Only
-its mark pulses; reduced motion keeps it still. After eight seconds the same row
-explains that the response is still pending. The send button becomes a stop
+A free-text request adds a small three-dot typing bubble beside the assistant
+mark after the user's message. The dots rise in sequence; reduced motion keeps
+them still. A screen-reader status announces that a reply is being written.
+After eight seconds a short hint appears below the same bubble, explaining that
+the response is still pending. The send button becomes a stop
 button, while the input remains editable for the next draft. Enter during waiting
 does nothing. Completion, interruption and supersession clear both pending timers.
 There is no simulated search, progress percentage or typing delay.
